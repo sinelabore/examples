@@ -1,0 +1,6 @@
+{
+  "name": "Examples",
+  "tagline": "Example projects showing how to generate code from state machines using the Sinelabore code generator.",
+  "body": "#Generate efficient source code from UML state diagrams and activity diagrams!\r\n\r\nSinelaboreRT was built especially for embedded software developers. It focuses on just one task: Generation of readable and maintainable code from hierarchical UML state machines and from activity diagrams. With its unique features the tool covers well the requirements of embedded real-time and low power application developers.\r\n\r\nFor more information see www.sinelabore.com",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
