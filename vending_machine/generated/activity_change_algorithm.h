@@ -4,9 +4,9 @@
    Please purchase a license if you want to use this software in projects.
  */
 
-/* Command line options: -A -l cx -v -p ASTAH -o activity -t machine:coin_store:change_algorithm vending_machine.asta   */
+/* Command line options: -A -l cx -v -p ASTAH -o activity -t machine:coin_store:change_algorithm ../vending_machine.asta   */
 /* This file is generated from vending_machine.asta - do not edit manually  */
-/* Generated on: Sat May 21 23:01:49 CEST 2016 / version 3.6.14 */
+/* Generated on: Sun May 22 11:38:00 CEST 2016 / version 3.6.14 */
 
 
 

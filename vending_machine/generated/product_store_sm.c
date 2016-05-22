@@ -1,6 +1,6 @@
-/* (C) Your company*//* Command line options: -l cx -v -p ASTAH -o product_store_sm -t machine:product_store_sm:sm vending_machine.asta   */
+/* (C) Your company*//* Command line options: -l cx -v -p ASTAH -o product_store_sm -t machine:product_store_sm:sm ../vending_machine.asta   */
 /* This file is generated from vending_machine.asta - do not edit manually  */
-/* Generated on: Sat May 21 23:01:44 CEST 2016 / version 3.6.14 */
+/* Generated on: Sun May 22 11:37:57 CEST 2016 / version 3.6.14 */
 
 
 #include <stdio.h>
