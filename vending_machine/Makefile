@@ -1,6 +1,6 @@
 CC=clang
 JAVA=java
-CFLAGS=-Wall -g -I.
+CFLAGS=-Wall -g -I. -I..
 JFLAGS= -Djava.ext.dirs="../../lib/":"/Applications/astahcommunity/astahcommunity.app/Contents/Java/" -Djava.awt.headless=true -jar ../../codegen.jar
 
 objects = main.o  timer.o fifo.o vending_machine.o product_store.o display_with_coinbank.o product_store_sm.o activity_change_algorithm.o
@@ -14,11 +14,11 @@ main.o : main.c
 product_store.o : product_store.c 
 	$(CC) $(CFLAGS) product_store.c -c -o product_store.o
 	
-fifo.o : lib/fifo.c 
-	$(CC) $(CFLAGS) lib/fifo.c -c -o fifo.o
+fifo.o : ../lib/fifo.c 
+	$(CC) $(CFLAGS) ../lib/fifo.c -c -o fifo.o
 
-timer.o	: lib/timer.c 
-	$(CC) $(CFLAGS) lib/timer.c -c -o timer.o
+timer.o	: ../lib/timer.c 
+	$(CC) $(CFLAGS) ../lib/timer.c -c -o timer.o
 	
 display_with_coinbank.o : display_with_coinbank.c 
 	$(CC) $(CFLAGS) display_with_coinbank.c -c -o display_with_coinbank.o
