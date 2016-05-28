@@ -3,7 +3,7 @@
 
 This example realizes a simple vending machine. The envisioned machine looks like this ![image in the doc folder](doc/vending.png).
 
-To compile the example just call make. It is assumed that the code generator from sinelabore is installed (location see Makefile).
+To compile the example just call make. It is assumed that the code generator from sinelabore is installed (location see [Makefile](Makefile)).
 
 After startup you can select a product "A", "B" or "C" by pressing one of theses buttons on your keyboard.
 
