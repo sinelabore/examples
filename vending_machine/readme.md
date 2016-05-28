@@ -13,7 +13,9 @@ After you paid the product will be released and you receive back you change.
 
 <h2>Implementation</h2>
 
-Most of the code is automatically generated from the UML file. It contains two state machines and an activity diagram. The state machines receive events from a message queue (see lib folder) and can also send messages to other state machines. This is a well known design pattern to decouple objects. A timer service (see lib folder) provides basic timer services that can be used from the state machines to realize delays or repetitive activities.
+Most of the code is automatically generated from this UML file ![classmodel.png in doc folder](doc/classmodel.png). 
+
+It contains two state machines and an activity diagram. The state machines receive events from a message queue (see lib folder) and can also send messages to other state machines. This is a well known design pattern to decouple objects. A timer service (see lib folder) provides basic timer services that can be used from the state machines to realize delays or repetitive activities.
 
 
 <h3> Product Store State Machine</h3>
