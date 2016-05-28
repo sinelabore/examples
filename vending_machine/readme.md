@@ -1,7 +1,7 @@
 <h1>Vending Machine</h1>
 <h2>Overview</h2>
 
-This example realizes a simple vending machine. The envisioned machine is shown as as an image in the doc folder.
+This example realizes a simple vending machine. The envisioned machine looks like this ![image in the doc folder](doc/vending.png).
 
 To compile the example just call make. It is assumed that the code generator from sinelabore is installed (location see Makefile).
 
