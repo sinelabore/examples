@@ -16,9 +16,14 @@ Preconditions:
 - Installed Java VM
 - Download sinelabore and copy bin folder into his directory.
 
-To create code from the Astah model call: make -f SCMakefile If you don't have installed 'make' look into the SCMakefile and call the codegenerator manually.
+To create code from the Astah model call: make -f SCMakefile If you don't have installed 'make' look into the SCMakefile and call the codegenerator manually. The following files are generated fully from the UML model:
+- Statemachine.cpp
+- Statemachine.h
+- Statemachine_ext.h
 
-The following files can be reused in further projects to have a basic timer and queue (fifo) service available.
+The two images show the class and state diagram for your reference.
+
+The following files are helper files and can be reused in further projects to have a basic timer and queue (fifo) service available.
 - timer.c / timer.h
 - fifo.c / fifo.h
 
