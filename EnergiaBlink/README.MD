@@ -1,4 +1,4 @@
-Energia (= Arduino for Texas Instruments processors) demo
+#Energia (= Arduino for Texas Instruments processors) demo
 
  The program demonstrates how to use code generated from Sinelabore with Energia.
 
