@@ -1,6 +1,6 @@
-/* (C) Your company*//* Command line options: -l cppx -v -p ASTAH -o Statemachine -t Demo:SM Model.asta   */
+/* (C) Your company*//* Command line options: -Trace -l cppx -v -p ASTAH -o Statemachine -t Demo:SM Model.asta   */
 /* This file is generated from Model.asta - do not edit manually  */
-/* Generated on: Sat Sep 16 09:57:54 CEST 2017 / version 3.7 */
+/* Generated on: Wed Nov 08 21:44:28 CET 2017 / version 3.7.2 */
 
 
 #include <Energia.h>
@@ -8,6 +8,7 @@
 #include <stdint.h>
 #include "Statemachine_ext.h"
 #include "Statemachine.h"
+#include "Statemachine_trace.h"
 
 extern "C"
 {
@@ -110,18 +111,18 @@ void Statemachine::initialize(){
 		stateVarsCopy.stateVarSlow = SlowLedOn; /* set init state of Slow */
 		stateVarsCopy.stateVarFast = FastLedOn; /* set init state of Fast */
 
+
+
+		 timerId = timerCreate(&fifo, evTimeout, 1);
+		timerStart(timerId,T1S);
+		
+		digitalWrite(RED_LED, HIGH);
+		
+
 		// Copy state variables back
 		stateVars = stateVarsCopy;
 
 	}
-
-
-
-	 timerId = timerCreate(&fifo, evTimeout, 1);
-	timerStart(timerId,T1S);
-	
-	digitalWrite(RED_LED, HIGH);
-	
 
 }
 
@@ -154,6 +155,7 @@ int Statemachine::processEvent(STATEMACHINE_EVENT_T msg){
 
 						/* adjust state variables  */
 						stateVarsCopy.stateVarSlow = SlowLedOff;
+						StatemachineTraceEvent(0);
 					}else{
 						/* Intentionally left blank */
 					} /*end of event selection */
@@ -169,6 +171,7 @@ int Statemachine::processEvent(STATEMACHINE_EVENT_T msg){
 
 						/* adjust state variables  */
 						stateVarsCopy.stateVarSlow = SlowLedOn;
+						StatemachineTraceEvent(0);
 					}else{
 						/* Intentionally left blank */
 					} /*end of event selection */
@@ -189,6 +192,7 @@ int Statemachine::processEvent(STATEMACHINE_EVENT_T msg){
 
 					/* adjust state variables  */
 					stateVarsCopy.stateVar = SlowWaitForLastTimeout;
+					StatemachineTraceEvent(2);
 				}else if(msg==evButton2){
 					/* Transition from Slow to Fast */
 					evConsumed=1;
@@ -202,6 +206,7 @@ int Statemachine::processEvent(STATEMACHINE_EVENT_T msg){
 					stateVarsCopy.stateVar = Fast;/* Default in entry chain  */
 					stateVarsCopy.stateVarFast = FastLedOn;/* Default in entry chain  */
 
+					StatemachineTraceEvent(1);
 				}else{
 					/* Intentionally left blank */
 				} /*end of event selection */
@@ -222,6 +227,7 @@ int Statemachine::processEvent(STATEMACHINE_EVENT_T msg){
 
 						/* adjust state variables  */
 						stateVarsCopy.stateVarFast = FastLedOff;
+						StatemachineTraceEvent(0);
 					}else{
 						/* Intentionally left blank */
 					} /*end of event selection */
@@ -237,6 +243,7 @@ int Statemachine::processEvent(STATEMACHINE_EVENT_T msg){
 
 						/* adjust state variables  */
 						stateVarsCopy.stateVarFast = FastLedOn;
+						StatemachineTraceEvent(0);
 					}else{
 						/* Intentionally left blank */
 					} /*end of event selection */
@@ -257,6 +264,7 @@ int Statemachine::processEvent(STATEMACHINE_EVENT_T msg){
 
 					/* adjust state variables  */
 					stateVarsCopy.stateVar = FastWaitForLastTimeout;
+					StatemachineTraceEvent(2);
 				}else if(msg==evButton2){
 					/* Transition from Fast to Slow */
 					evConsumed=1;
@@ -271,6 +279,7 @@ int Statemachine::processEvent(STATEMACHINE_EVENT_T msg){
 					stateVarsCopy.stateVar = Slow;/* Default in entry chain  */
 					stateVarsCopy.stateVarSlow = SlowLedOn;/* Default in entry chain  */
 
+					StatemachineTraceEvent(1);
 				}else{
 					/* Intentionally left blank */
 				} /*end of event selection */
@@ -288,6 +297,7 @@ int Statemachine::processEvent(STATEMACHINE_EVENT_T msg){
 				stateVarsCopy.stateVar = Slow;/* Default in entry chain  */
 				stateVarsCopy.stateVarSlow = SlowLedOn;/* Default in entry chain  */
 
+				StatemachineTraceEvent(2);
 			}else{
 				/* Intentionally left blank */
 			} /*end of event selection */
@@ -304,6 +314,7 @@ int Statemachine::processEvent(STATEMACHINE_EVENT_T msg){
 				stateVarsCopy.stateVar = Fast;/* Default in entry chain  */
 				stateVarsCopy.stateVarFast = FastLedOn;/* Default in entry chain  */
 
+				StatemachineTraceEvent(2);
 			}else{
 				/* Intentionally left blank */
 			} /*end of event selection */
@@ -320,6 +331,7 @@ int Statemachine::processEvent(STATEMACHINE_EVENT_T msg){
 
 				/* adjust state variables  */
 				stateVarsCopy.stateVar = Off;
+				StatemachineTraceEvent(0);
 			}else{
 				/* Intentionally left blank */
 			} /*end of event selection */
@@ -336,6 +348,7 @@ int Statemachine::processEvent(STATEMACHINE_EVENT_T msg){
 
 				/* adjust state variables  */
 				stateVarsCopy.stateVar = On;
+				StatemachineTraceEvent(0);
 			}else{
 				/* Intentionally left blank */
 			} /*end of event selection */
@@ -345,8 +358,8 @@ int Statemachine::processEvent(STATEMACHINE_EVENT_T msg){
 			/* Intentionally left blank */
 		break;
 	} /* end switch stateVar_root */
-	// Copy state variables back
-	stateVars = stateVarsCopy;
+		// Copy state variables back
+		stateVars = stateVarsCopy;
 
 	return evConsumed;
 } // end processEvent
