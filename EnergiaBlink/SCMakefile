@@ -4,7 +4,7 @@ JFLAGS= -Djava.ext.dirs="./bin":"/Applications/astahcommunity/astahcommunity.app
 all:	Statemachine.cpp
 
 Statemachine.cpp : Model.asta
-	$(JAVA) $(JFLAGS) -l cppx -v -p ASTAH -o Statemachine -t "Demo:SM"  Model.asta
+	$(JAVA) $(JFLAGS) -Trace -l cppx -v -p ASTAH -o Statemachine -t "Demo:SM"  Model.asta
 
 	
 clean:

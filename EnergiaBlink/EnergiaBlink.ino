@@ -18,6 +18,7 @@
 
 #include "Statemachine_ext.h"
 #include "Statemachine.h"
+#include "Statemachine_trace.h"
 
 extern "C"
 {
