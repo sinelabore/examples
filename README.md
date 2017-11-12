@@ -5,6 +5,6 @@ SinelaboreRT was built especially for embedded software developers. It focuses o
 
 Examples:
 - EnergiaBlink: Realzing a blinker using a state machine. Showing how to trace the event flow using Mscgen (http://www.sinelabore.com/doku.php?id=wiki:toolbox:trace-the-event-flow)
-- Vending Machine: Example for a more complex example of using state machines. Here some state machines works together to realize the system requirements.
+- Vending Machine: Example for a more complex example of using state machines. Here some state machines work together to realize the system requirements.
 
 See more on www.sinelabore.com
