@@ -1,6 +1,12 @@
-/* (C) Your company*//* Command line options: -l cx -v -p ASTAH -o vending_machine -t machine:vending_machine:ui ../vending_machine.asta   */
+/* (c) Sinelabore Software Tools GmbH - All rights reserved. Reproduction, modification,
+   use or disclosure to third parties without express
+   authority is forbidden. Generator running in demo mode!
+   Please purchase a license if you want to use this software in projects.
+ */
+
+/* Command line options: -l cx -v -p ASTAH -o vending_machine -t machine:vending_machine:ui ../vending_machine.asta   */
 /* This file is generated from vending_machine.asta - do not edit manually  */
-/* Generated on: Sun May 22 11:37:53 CEST 2016 / version 3.6.14 */
+/* Generated on: Sat Mar 13 15:41:47 CET 2021 / Version 5.0.6b1 */
 
 
 #include <stdio.h>
@@ -14,7 +20,9 @@
 uint8_t price;
 uint8_t insertedSum;
 
-void  vending_machine(VENDING_MACHINE_INSTANCEDATA_T *instanceVar, VENDING_MACHINE_EVENT_T msg){
+
+
+void  vending_machine(VENDING_MACHINE_INSTANCEDATA_T *instanceVar, VENDING_MACHINE_EVENT_T  msg){
 	
 	/*execute entry code of default state once to init machine */
 	if(instanceVar->waitforselectionEntry==1U){
@@ -92,8 +100,8 @@ void  vending_machine(VENDING_MACHINE_INSTANCEDATA_T *instanceVar, VENDING_MACHI
 
 		case SelectionDone:
 			if(msg==(VENDING_MACHINE_EVENT_T)evClearSelection){
-		/* OnExit code of state SelectionDone */
-		insertedSum+=getCoinValue();
+				/* OnExit code of state SelectionDone */
+				insertedSum+=getCoinValue();
 
 				/* Transition from SelectionDone to WaitForSelection */
 				/* Action code for transition  */
@@ -109,8 +117,8 @@ void  vending_machine(VENDING_MACHINE_INSTANCEDATA_T *instanceVar, VENDING_MACHI
 				/* adjust state variables  */
 				instanceVar->stateVar = WaitForSelection;
 			}else if(msg==(VENDING_MACHINE_EVENT_T)evCoin){
-		/* OnExit code of state SelectionDone */
-		insertedSum+=getCoinValue();
+				/* OnExit code of state SelectionDone */
+				insertedSum+=getCoinValue();
 
 				if(insertedSum==price){
 					/* Transition from SelectionDone to PricePayed */
@@ -150,8 +158,8 @@ void  vending_machine(VENDING_MACHINE_INSTANCEDATA_T *instanceVar, VENDING_MACHI
 					instanceVar->stateVar = SelectionDone;
 				} /*end of event selection */
 			}else if(msg==(VENDING_MACHINE_EVENT_T)evUnknownCoin){
-		/* OnExit code of state SelectionDone */
-		insertedSum+=getCoinValue();
+				/* OnExit code of state SelectionDone */
+				insertedSum+=getCoinValue();
 
 				/* Transition from SelectionDone to SelectionDone */
 				/* Action code for transition  */
@@ -207,7 +215,7 @@ void  vending_machine(VENDING_MACHINE_INSTANCEDATA_T *instanceVar, VENDING_MACHI
 }
 
 /* Implementation of the reset machine function */
-void vending_machineResetMachine(VENDING_MACHINE_INSTANCEDATA_T *instanceVar){
+void vending_machineResetMachine(VENDING_MACHINE_INSTANCEDATA_T * const instanceVar){
 	instanceVar->waitforselectionEntry = 1U;
 	instanceVar->stateVar = WaitForSelection;
 	
@@ -215,25 +223,25 @@ void vending_machineResetMachine(VENDING_MACHINE_INSTANCEDATA_T *instanceVar){
 
 // Helper(s) to find out if the machine is in a certain state
 
-uint8_t vending_machineIsInWaitForSelection(VENDING_MACHINE_INSTANCEDATA_T *instanceVar){
+uint8_t vending_machineIsInWaitForSelection(const VENDING_MACHINE_INSTANCEDATA_T * const instanceVar){
 	return(((instanceVar->stateVar== WaitForSelection)) ? (1U) : (0U));
 }
 
-uint8_t vending_machineIsInPricePayed(VENDING_MACHINE_INSTANCEDATA_T *instanceVar){
+uint8_t vending_machineIsInPricePayed(const VENDING_MACHINE_INSTANCEDATA_T * const instanceVar){
 	return(((instanceVar->stateVar== PricePayed)) ? (1U) : (0U));
 }
 
-uint8_t vending_machineIsInSelectionDone(VENDING_MACHINE_INSTANCEDATA_T *instanceVar){
+uint8_t vending_machineIsInSelectionDone(const VENDING_MACHINE_INSTANCEDATA_T * const instanceVar){
 	return(((instanceVar->stateVar== SelectionDone)) ? (1U) : (0U));
 }
 
-uint8_t vending_machineIsInFinalState0(VENDING_MACHINE_INSTANCEDATA_T *instanceVar){
+uint8_t vending_machineIsInFinalState0(const VENDING_MACHINE_INSTANCEDATA_T * const instanceVar){
 	return(((instanceVar->stateVar== FinalState0)) ? (1U) : (0U));
 }
 
 
 // Helper to get id of innermost active state
-VENDING_MACHINE_STATES_T vending_machineGetInnermostActiveState(VENDING_MACHINE_INSTANCEDATA_T *instanceVar){
+VENDING_MACHINE_STATES_T vending_machineGetInnermostActiveState(const VENDING_MACHINE_INSTANCEDATA_T * const instanceVar){
 	if(vending_machineIsInFinalState0(instanceVar)){
 		return FinalState0;
 	}else if(vending_machineIsInSelectionDone(instanceVar)){

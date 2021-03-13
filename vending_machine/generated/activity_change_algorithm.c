@@ -6,7 +6,7 @@
 
 /* Command line options: -A -l cx -v -p ASTAH -o activity -t machine:coin_store:change_algorithm ../vending_machine.asta   */
 /* This file is generated from vending_machine.asta - do not edit manually  */
-/* Generated on: Sun May 22 11:38:00 CEST 2016 / version 3.6.14 */
+/* Generated on: Sat Mar 13 15:41:58 CET 2021 / Version 5.0.6b1 */
 
 
 

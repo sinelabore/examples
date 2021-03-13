@@ -1,6 +1,12 @@
-/* (C) Your company*//* Command line options: -l cx -v -p ASTAH -o product_store_sm -t machine:product_store_sm:sm ../vending_machine.asta   */
+/* (c) Sinelabore Software Tools GmbH - All rights reserved. Reproduction, modification,
+   use or disclosure to third parties without express
+   authority is forbidden. Generator running in demo mode!
+   Please purchase a license if you want to use this software in projects.
+ */
+
+/* Command line options: -l cx -v -p ASTAH -o product_store_sm -t machine:product_store_sm:sm ../vending_machine.asta   */
 /* This file is generated from vending_machine.asta - do not edit manually*/
-/* Generated on: Sun May 22 11:37:57 CEST 2016 / version 3.6.14 */
+/* Generated on: Sat Mar 13 15:41:53 CET 2021 / Version 5.0.6b1 */
 
 
 #ifndef __PRODUCT_STORE_SM_H__
@@ -47,19 +53,18 @@ typedef struct{
 	(PRODUCT_STORE_SM_STATEVAR_T) Idle /* set init state of top state */,\
 	0 /* instance id */ } 
 
-/* Region handler prototypes  */
 
 /*Prototype of the state machine function */
-void  product_store_sm(PRODUCT_STORE_SM_INSTANCEDATA_T *instanceVar, PRODUCT_STORE_SM_EVENT_T msg);
+void  product_store_sm(PRODUCT_STORE_SM_INSTANCEDATA_T *instanceVar, PRODUCT_STORE_SM_EVENT_T  msg);
 
 
 /*Prototoye of the reset machine function */
-void product_store_smResetMachine(PRODUCT_STORE_SM_INSTANCEDATA_T *instanceVar);
+void product_store_smResetMachine(PRODUCT_STORE_SM_INSTANCEDATA_T * const instanceVar);
 
 // Helper(s) to find out if the machine is in a certain state
-uint8_t product_store_smIsInIdle(PRODUCT_STORE_SM_INSTANCEDATA_T *instanceVar);
-uint8_t product_store_smIsInMotorRunning(PRODUCT_STORE_SM_INSTANCEDATA_T *instanceVar);
-uint8_t product_store_smIsInReleasingOutletDoor(PRODUCT_STORE_SM_INSTANCEDATA_T *instanceVar);
+uint8_t product_store_smIsInIdle(const PRODUCT_STORE_SM_INSTANCEDATA_T * const instanceVar);
+uint8_t product_store_smIsInMotorRunning(const PRODUCT_STORE_SM_INSTANCEDATA_T * const instanceVar);
+uint8_t product_store_smIsInReleasingOutletDoor(const PRODUCT_STORE_SM_INSTANCEDATA_T * const instanceVar);
 
 
 /* Macros to test if the machine is in a certain state. */
@@ -69,6 +74,6 @@ uint8_t product_store_smIsInReleasingOutletDoor(PRODUCT_STORE_SM_INSTANCEDATA_T 
 
 
 /* Helper returning the innermost active state.*/
-PRODUCT_STORE_SM_STATES_T product_store_smGetInnermostActiveState(PRODUCT_STORE_SM_INSTANCEDATA_T *instanceVar);
+PRODUCT_STORE_SM_STATES_T product_store_smGetInnermostActiveState(const PRODUCT_STORE_SM_INSTANCEDATA_T * const instanceVar);
 
 #endif

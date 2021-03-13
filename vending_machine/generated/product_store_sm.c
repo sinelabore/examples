@@ -1,6 +1,12 @@
-/* (C) Your company*//* Command line options: -l cx -v -p ASTAH -o product_store_sm -t machine:product_store_sm:sm ../vending_machine.asta   */
+/* (c) Sinelabore Software Tools GmbH - All rights reserved. Reproduction, modification,
+   use or disclosure to third parties without express
+   authority is forbidden. Generator running in demo mode!
+   Please purchase a license if you want to use this software in projects.
+ */
+
+/* Command line options: -l cx -v -p ASTAH -o product_store_sm -t machine:product_store_sm:sm ../vending_machine.asta   */
 /* This file is generated from vending_machine.asta - do not edit manually  */
-/* Generated on: Sun May 22 11:37:57 CEST 2016 / version 3.6.14 */
+/* Generated on: Sat Mar 13 15:41:53 CET 2021 / Version 5.0.6b1 */
 
 
 #include <stdio.h>
@@ -16,7 +22,9 @@ uint8_t store_timer_id;
 extern FIFO_T* fifo2Self;
 extern FIFO_T fifo2VendingMachine;
 
-void  product_store_sm(PRODUCT_STORE_SM_INSTANCEDATA_T *instanceVar, PRODUCT_STORE_SM_EVENT_T msg){
+
+
+void  product_store_sm(PRODUCT_STORE_SM_INSTANCEDATA_T *instanceVar, PRODUCT_STORE_SM_EVENT_T  msg){
 	
 	/*execute entry code of default state once to init machine */
 	if(instanceVar->idleEntry==1U){
@@ -47,8 +55,8 @@ void  product_store_sm(PRODUCT_STORE_SM_INSTANCEDATA_T *instanceVar, PRODUCT_STO
 
 		case MotorRunning:
 			if(msg==(PRODUCT_STORE_SM_EVENT_T)evTimeout){
-		/* OnExit code of state MotorRunning */
-		printf("ProductStore::  product store motor stopped\n");
+				/* OnExit code of state MotorRunning */
+				printf("ProductStore::  product store motor stopped\n");
 
 				/* Transition from MotorRunning to ReleasingOutletDoor */
 				/* OnEntry code of state ReleasingOutletDoor */
@@ -88,7 +96,7 @@ void  product_store_sm(PRODUCT_STORE_SM_INSTANCEDATA_T *instanceVar, PRODUCT_STO
 }
 
 /* Implementation of the reset machine function */
-void product_store_smResetMachine(PRODUCT_STORE_SM_INSTANCEDATA_T *instanceVar){
+void product_store_smResetMachine(PRODUCT_STORE_SM_INSTANCEDATA_T * const instanceVar){
 	instanceVar->idleEntry = 1U;
 	instanceVar->stateVar = Idle;
 	
@@ -96,21 +104,21 @@ void product_store_smResetMachine(PRODUCT_STORE_SM_INSTANCEDATA_T *instanceVar){
 
 // Helper(s) to find out if the machine is in a certain state
 
-uint8_t product_store_smIsInIdle(PRODUCT_STORE_SM_INSTANCEDATA_T *instanceVar){
+uint8_t product_store_smIsInIdle(const PRODUCT_STORE_SM_INSTANCEDATA_T * const instanceVar){
 	return(((instanceVar->stateVar== Idle)) ? (1U) : (0U));
 }
 
-uint8_t product_store_smIsInMotorRunning(PRODUCT_STORE_SM_INSTANCEDATA_T *instanceVar){
+uint8_t product_store_smIsInMotorRunning(const PRODUCT_STORE_SM_INSTANCEDATA_T * const instanceVar){
 	return(((instanceVar->stateVar== MotorRunning)) ? (1U) : (0U));
 }
 
-uint8_t product_store_smIsInReleasingOutletDoor(PRODUCT_STORE_SM_INSTANCEDATA_T *instanceVar){
+uint8_t product_store_smIsInReleasingOutletDoor(const PRODUCT_STORE_SM_INSTANCEDATA_T * const instanceVar){
 	return(((instanceVar->stateVar== ReleasingOutletDoor)) ? (1U) : (0U));
 }
 
 
 // Helper to get id of innermost active state
-PRODUCT_STORE_SM_STATES_T product_store_smGetInnermostActiveState(PRODUCT_STORE_SM_INSTANCEDATA_T *instanceVar){
+PRODUCT_STORE_SM_STATES_T product_store_smGetInnermostActiveState(const PRODUCT_STORE_SM_INSTANCEDATA_T * const instanceVar){
 	if(product_store_smIsInReleasingOutletDoor(instanceVar)){
 		return ReleasingOutletDoor;
 	}else if(product_store_smIsInMotorRunning(instanceVar)){
