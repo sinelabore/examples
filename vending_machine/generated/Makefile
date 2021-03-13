@@ -1,7 +1,7 @@
 CC=clang
 JAVA=java
 CFLAGS=-Wall -g -I. -I.. -Igenerated
-JFLAGS= -Djava.ext.dirs="../../../../lib/":"/Applications/astahcommunity/astahcommunity.app/Contents/Java/" -Djava.awt.headless=true -jar ../../../../codegen.jar
+JFLAGS= -Djava.awt.headless=true -cp "../../bin/*":"/Applications/astahcommunity/astahcommunity.app/Contents/Java/*"  codegen.Main
 
 all:  vending_machine.c product_store_sm.c activity_change_algorithm.c
 
