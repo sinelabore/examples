@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ssc:StateChart xmlns:ssc="http://www.sinelabore.com/SSC/1_0" Version="1.0">
+  <!--Command line options: -p ssc -o oven -E oven_regions_vis_editor.xml -->
+  <!--This file is generated - do not edit manually-->
+  <!--Generated on: Sun Apr 25 20:03:39 CEST 2021 / Version 5.1-->
+  <ssc:Dimensions H="1038" W="1748" BA="50" DW="1096" NO="758" TV="422" />
+  <ssc:Header>#include &lt;stdint.h&gt;
+#include &lt;stdio.h&gt;
+#include "../lib/fifo.h"
+#include "../lib/timer.h"
+#include "oven_ext.h"
+#include "oven.h"
+
+uint16_t cookingTime=0U;
+uint8_t timerId;
+extern FIFO_T testMachineFifoInst;
+
+void timerInc(){
+	cookingTime+=T1S;
+	printf("Inc timer by 1s\n");
+}
+
+void timerDec(){
+	if(cookingTime&gt;=0U) {
+		cookingTime-=T1S;
+		printf("Dec timer by 1s\n");
+	}
+}
+
+#define PWR_HIGH 1U
+#define PWR_LOW 0U
+void ovenSetPower(uint8_t val){
+	printf("Set power to level %d\n",val);
+}
+
+void ovenOff(void){
+	printf("Oven switched off\n");
+}
+
+void ovenOn(void){
+	printf("Oven switched on\n");
+}
+
+
+#define L_ON 1U
+#define L_OFF 0U
+void switchLight(uint8_t val){
+	printf("Switch Light to %d\n", val);
+}</ssc:Header>
+  <ssc:Action />
+  <ssc:StateHeader />
+  <ssc:InitState Id="18be3d0c-6f0c-4138-98f2-f7ea91e4ce73">
+    <ssc:Transition ToState="Active" FromState="18be3d0c-6f0c-4138-98f2-f7ea91e4ce73" Action="timerId = timerCreate(&amp;testMachineFifoInst, evTimeout, 0);" />
+  </ssc:InitState>
+  <ssc:State Name="Active" History="Deep">
+    <ssc:Transition Event="evInc" ToState="Active" FromState="Active" Action="timerInc();" />
+    <ssc:Transition Event="evDec" ToState="Active" FromState="Active" Action="timerDec();" />
+    <ssc:Transition Event="evSelfTestFault" ToState="Final0" FromState="Active" />
+    <ssc:Region Name="Lamp">
+      <Note>Lamp</Note>
+      <ssc:InitState Id="a5a4179d-6938-4c62-ae02-2433ffd342f6">
+        <ssc:Transition ToState="LampOff" FromState="a5a4179d-6938-4c62-ae02-2433ffd342f6" />
+      </ssc:InitState>
+      <ssc:State Name="LampOn" History="Deep">
+        <Color>ffff66</Color>
+        <ssc:Transition Event="evDoorOpen" ToState="LampOff" FromState="LampOn" Guard="cookingTime==0" Action="switchLight(L_OFF);" />
+      </ssc:State>
+      <ssc:State Name="LampOff" History="Deep">
+        <ssc:Transition Event="evDoorClosed" ToState="LampOn" FromState="LampOff" Guard="cookingTime&gt;0U" Action="switchLight(L_ON);" />
+      </ssc:State>
+    </ssc:Region>
+    <ssc:Region Name="Power">
+      <Note>Power</Note>
+      <ssc:InitState Id="fec58860-4db5-49fc-8295-fa498d891d6c">
+        <ssc:Transition ToState="Low_Power" FromState="fec58860-4db5-49fc-8295-fa498d891d6c" />
+      </ssc:InitState>
+      <ssc:State Name="Low_Power" History="Deep">
+        <ssc:Transition Event="evPowerHigh" ToState="High_Power" FromState="Low_Power" Action="ovenSetPower(PWR_HIGH);" />
+      </ssc:State>
+      <ssc:State Name="High_Power" History="Deep">
+        <ssc:Transition Event="evPwrLow" ToState="Low_Power" FromState="High_Power" Action="ovenSetPower(PWR_LOW);" />
+      </ssc:State>
+    </ssc:Region>
+    <ssc:Region Name="Radiator">
+      <Note>Radiator</Note>
+      <ssc:InitState Id="5f936589-e4d0-4b1a-bff7-5a53981e82ed">
+        <ssc:Transition ToState="RadiatorOff" FromState="5f936589-e4d0-4b1a-bff7-5a53981e82ed" />
+      </ssc:InitState>
+      <ssc:State Name="RadiatorOff" History="Deep">
+        <ssc:Transition Event="evDoorClosed" ToState="Cooking" FromState="RadiatorOff" Guard="cookingTime&gt;0U" Action="ovenOn();&#xA;timerStart(timerId, cookingTime);" />
+      </ssc:State>
+      <ssc:State Name="Cooking" History="Deep">
+        <Color>ff9999</Color>
+        <ssc:Transition Event="evTimeout" ToState="RadiatorOff" FromState="Cooking" Action="ovenOff();&#xA;timerStop(timerId);" />
+        <ssc:Transition Event="evDoorOpen" ToState="CookingPause" FromState="Cooking" Action="ovenOff();&#xA;timerPause(timerId);" />
+      </ssc:State>
+      <ssc:State Name="CookingPause" History="Deep">
+        <ssc:Transition Event="evDoorClosed" ToState="Cooking" FromState="CookingPause" Action="ovenOn();&#xA;timerCont(timerId);" />
+      </ssc:State>
+    </ssc:Region>
+  </ssc:State>
+  <ssc:FinalState Name="Final0" Id="Final0" />
+</ssc:StateChart>

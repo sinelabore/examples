@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ssc:StateChart xmlns:ssc="http://www.sinelabore.com/SSC/1_0" Version="1.0">
+  <!--Command line options: ./oven_hierarchical_vi_editor.xml -->
+  <!--This file is generated - do not edit manually-->
+  <!--Generated on: Wed Aug 16 16:03:23 CEST 2023 / Version 6.0.5.3690-->
+  <ssc:Dimensions H="1096" W="1675" BA="55" DW="1057" NO="841" TV="411" />
+  <ssc:Header>#include &lt;stdint.h&gt;
+#include &lt;stdio.h&gt;
+#include "../lib/fifo.h"
+#include "../lib/timer.h"
+#include "oven_ext.h"
+#include "oven.h"
+
+uint16_t cookingTime=0U;
+uint8_t timerId;
+extern FIFO_T testMachineFifoInst;
+
+void timerInc(){
+	cookingTime+=T1S;
+	printf("Inc timer by 1s\n");
+}
+
+void timerDec(){
+	if(cookingTime&gt;=0U) {
+		cookingTime-=T1S;
+		printf("Dec timer by 1s\n");
+	}
+}
+
+#define PWR_HIGH 1U
+#define PWR_LOW 0U
+void ovenSetPower(uint8_t val){
+	printf("Set power to level %d\n",val);
+}
+
+void ovenOff(void){
+	printf("Oven switched off\n");
+}
+
+void ovenOn(void){
+	printf("Oven switched on\n");
+}
+
+
+#define L_ON 1U
+#define L_OFF 0U
+void switchLight(uint8_t val){
+	printf("Switch Light to %d\n", val);
+}</ssc:Header>
+  <ssc:Action />
+  <ssc:StateHeader />
+  <ssc:AdditionalIncludesStates />
+  <ssc:InitState Id="f78e80c4-0057-49b9-bb28-4e39c28879fd">
+    <ssc:Transition ToState="Active" FromState="f78e80c4-0057-49b9-bb28-4e39c28879fd" Action="timerCreate(&amp;testMachineFifoInst, evTimeout, 0);" />
+  </ssc:InitState>
+  <ssc:State Name="Active" History="Flat">
+    <ssc:Transition Event="evPwrLow" ToState="Active" FromState="Active" Action="ovenSetPower(PWR_LOW);" FromLayoutHint="N" ToLayoutHint="N" />
+    <ssc:Transition Event="evPowerHigh" ToState="Active" FromState="Active" Action="ovenSetPower(PWR_HIGH);" FromLayoutHint="E" ToLayoutHint="E" />
+    <ssc:Transition Event="evInc" ToState="Active" FromState="Active" Action="timerInc();" FromLayoutHint="S" ToLayoutHint="S" />
+    <ssc:Transition Event="evDec" ToState="Active" FromState="Active" Action="timerDec();" FromLayoutHint="W" ToLayoutHint="W" />
+    <ssc:Transition Event="evSelfTestFailed" ToState="Final0" FromState="Active" />
+    <ssc:InitState Id="5ae683fd-0edc-4d17-9384-e78178807ede">
+      <ssc:Transition ToState="Off" FromState="5ae683fd-0edc-4d17-9384-e78178807ede" />
+    </ssc:InitState>
+    <ssc:State Name="Off">
+      <ssc:Transition Event="evDoorClosed" ToState="On" FromState="Off" Guard="cookingTime&gt;0U" Action="ovenOn();&#xA;switchLight(L_ON);&#xA;timerStart(timerId, cookingTime);&#xA;" />
+    </ssc:State>
+    <ssc:State Name="On">
+      <ssc:Transition Event="evTimeout" ToState="WaitToOpen" FromState="On" Action="ovenOff();&#xA;timerStop(timerId);" />
+      <ssc:Transition Event="evDoorOpen" ToState="Pause" FromState="On" Action="ovenOff();&#xA;timerPause(timerId);" />
+    </ssc:State>
+    <ssc:State Name="Pause">
+      <ssc:Transition Event="evDoorClosed" ToState="On" FromState="Pause" Action="ovenOn();&#xA;timerCont(timerId);" />
+    </ssc:State>
+    <ssc:State Name="WaitToOpen">
+      <ssc:Transition Event="evDoorOpen" ToState="Off" FromState="WaitToOpen" Action="switchLight(L_OFF);" />
+    </ssc:State>
+  </ssc:State>
+  <ssc:FinalState Name="Final0" Id="Final0" />
+</ssc:StateChart>
