@@ -14,5 +14,6 @@ Download & Try it! There are examples for various UML modelling tools and target
 
 - LinuxMacBSD: Folder of examples that can be built on the command line with Make and gcc and friends.
 - OS_neutral: Folder with OS independent examples.
+- Windows: Filder with Windows nmake examples
 
 See more at www.sinelabore.com
