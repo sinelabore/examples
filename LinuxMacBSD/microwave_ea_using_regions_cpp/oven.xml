@@ -1,0 +1,1346 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<xmi:XMI xmi:version="2.1" xmlns:uml="http://schema.omg.org/spec/UML/2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1">
+	<xmi:Documentation exporter="Enterprise Architect" exporterVersion="6.5"/>
+	<uml:Model xmi:type="uml:Model" name="EA_Model" visibility="public">
+		<packagedElement xmi:type="uml:Package" xmi:id="EAPK_2FD5C524_A7D6_444b_B9DF_1E143A7DA49D" name="Model" visibility="public">
+			<packagedElement xmi:type="uml:Package" xmi:id="EAPK_F19A1E56_AC07_44ff_9655_3DB0FAB68F4E" name="implementation" visibility="public">
+				<ownedComment xmi:type="uml:Comment" xmi:id="EAID_4CB40ED1_7E77_4aa6_B4A5_45CB2BB5A1C0" body="header:&#xA;#include &quot;oven_ext.h&quot;&#xA;#include &quot;oven_hlp.h&quot;&#xA;#include &quot;oven.h&quot;&#xA;#include &amp;lt;stdio.h&amp;gt;&#xA;&#xA;extern unsigned char msg;&#xA;extern T_PWR pwr;">
+					<annotatedElement xmi:idref="EAID_3B9B0DDD_A31E_4962_A52C_3C94654CEAA6"/>
+				</ownedComment>
+				<packagedElement xmi:type="uml:Class" xmi:id="EAID_3B9B0DDD_A31E_4962_A52C_3C94654CEAA6" name="oven" visibility="public">
+					<nestedClassifier xmi:type="uml:Trigger" xmi:id="EAID_FA1F5546_035E_46b6_842E_69DF4CA58D76" name=" " visibility="public">
+						<event xmi:type="uml:Event" xmi:id="EAID_EX000000_035E_46b6_842E_69DF4CA58D76"/>
+					</nestedClassifier>
+					<nestedClassifier xmi:type="uml:Trigger" xmi:id="EAID_59BD6236_6A17_4a85_B308_EE5461479004" name="evDec" visibility="public">
+						<event xmi:type="uml:SignalEvent" xmi:id="EAID_EX000000_6A17_4a85_B308_EE5461479004">
+							<signal name="sigType" xmi:idref="EAID_568539BC_9A42_4259_8224_5D5A18A1D9A0"/>
+						</event>
+					</nestedClassifier>
+					<nestedClassifier xmi:type="uml:Trigger" xmi:id="EAID_5F2801B9_2EAE_4a80_99B3_0749B720203E" name="evDoorClosed" visibility="public">
+						<event xmi:type="uml:SignalEvent" xmi:id="EAID_EX000000_2EAE_4a80_99B3_0749B720203E">
+							<signal name="sigType" xmi:idref="EAID_568539BC_9A42_4259_8224_5D5A18A1D9A0"/>
+						</event>
+					</nestedClassifier>
+					<nestedClassifier xmi:type="uml:Trigger" xmi:id="EAID_6F496EDA_B6F2_4da1_AB71_B8F70DC9A8AB" name="evDoorOpen" visibility="public">
+						<event xmi:type="uml:SignalEvent" xmi:id="EAID_EX000000_B6F2_4da1_AB71_B8F70DC9A8AB">
+							<signal name="sigType" xmi:idref="EAID_568539BC_9A42_4259_8224_5D5A18A1D9A0"/>
+						</event>
+					</nestedClassifier>
+					<nestedClassifier xmi:type="uml:Trigger" xmi:id="EAID_82751599_D26D_4d06_9EC0_9B85662FADC8" name="evInc" visibility="public">
+						<event xmi:type="uml:SignalEvent" xmi:id="EAID_EX000000_D26D_4d06_9EC0_9B85662FADC8">
+							<signal name="sigType" xmi:idref="EAID_568539BC_9A42_4259_8224_5D5A18A1D9A0"/>
+						</event>
+					</nestedClassifier>
+					<nestedClassifier xmi:type="uml:Trigger" xmi:id="EAID_E7ED171B_53BC_438d_BEC5_8BCD93D821D9" name="evPwrHigh" visibility="public">
+						<event xmi:type="uml:SignalEvent" xmi:id="EAID_EX000000_53BC_438d_BEC5_8BCD93D821D9">
+							<signal name="sigType" xmi:idref="EAID_568539BC_9A42_4259_8224_5D5A18A1D9A0"/>
+						</event>
+					</nestedClassifier>
+					<nestedClassifier xmi:type="uml:Trigger" xmi:id="EAID_0FFA8C94_5B52_496a_BE05_588970425F8C" name="evPwrLow" visibility="public">
+						<event xmi:type="uml:SignalEvent" xmi:id="EAID_EX000000_5B52_496a_BE05_588970425F8C">
+							<signal name="sigType" xmi:idref="EAID_568539BC_9A42_4259_8224_5D5A18A1D9A0"/>
+						</event>
+					</nestedClassifier>
+					<nestedClassifier xmi:type="uml:Trigger" xmi:id="EAID_8F0529E7_3995_46b8_BCB3_91166C3AF6FA" name="evTimeout" visibility="public">
+						<event xmi:type="uml:SignalEvent" xmi:id="EAID_EX000000_3995_46b8_BCB3_91166C3AF6FA">
+							<signal name="sigType" xmi:idref="EAID_568539BC_9A42_4259_8224_5D5A18A1D9A0"/>
+						</event>
+					</nestedClassifier>
+					<ownedBehavior xmi:type="uml:StateMachine" xmi:id="EAID_B1917B96_F5B6_4e18_8980_BE1018B931CD" name="StateMachine" visibility="public">
+						<region xmi:type="uml:Region" xmi:id="EAID_SR000001_AC07_44ff_9655_3DB0FAB68F4E" name="EA_Region1" visibility="public">
+							<subvertex xmi:type="uml:State" xmi:id="EAID_250039F5_47E0_4cf9_9048_3E10B48F65C5" name="Active" visibility="public" isSubmachineState="false">
+								<incoming xmi:idref="EAID_F8C408CB_F5AE_4cbd_BCED_8019A2CF9B6E"/>
+								<incoming xmi:idref="EAID_C82E6594_18DC_4edc_8A79_1F69B73B610C"/>
+								<incoming xmi:idref="EAID_8A7695B6_0BEA_4519_BB9B_12BF6BC4B4AF"/>
+								<outgoing xmi:idref="EAID_F8C408CB_F5AE_4cbd_BCED_8019A2CF9B6E"/>
+								<outgoing xmi:idref="EAID_C82E6594_18DC_4edc_8A79_1F69B73B610C"/>
+								<region xmi:type="uml:Region" xmi:id="EAID_SP000000_47E0_4cf9_9048_3E10B48F65C5" name="Power" visibility="public">
+									<subvertex xmi:type="uml:State" xmi:id="EAID_38744BBC_CA4E_4409_A160_6BF694039705" name="HighPower" visibility="public" isSubmachineState="false">
+										<incoming xmi:idref="EAID_C009EE43_A180_4b5e_9D36_0FDF7D303000"/>
+										<outgoing xmi:idref="EAID_27E1F7C2_E0ED_4d92_9C73_6BCD49024652"/>
+										<entry xmi:type="uml:Behavior" xmi:id="EAID_BH000000_DC48_457b_A958_7AA990AA51FE" visibility="public">
+											<ownedOperation xmi:id="EAID_AE2B34F1_DC48_457b_A958_7AA990AA51FE" name="ovenSetPwr(PWR_HIGH);" visibility="public">
+												<ownedParameter xmi:id="EAID_RT000000_DC48_457b_A958_7AA990AA51FE" name="return" direction="return" type="EAJava_entry"/>
+											</ownedOperation>
+										</entry>
+									</subvertex>
+									<transition xmi:type="uml:Transition" xmi:id="EAID_27E1F7C2_E0ED_4d92_9C73_6BCD49024652" visibility="public" kind="local" source="EAID_38744BBC_CA4E_4409_A160_6BF694039705" target="EAID_5B8DE7F2_E001_47ed_BC51_CAD355483DC9">
+										<trigger xmi:idref="EAID_0FFA8C94_5B52_496a_BE05_588970425F8C"/>
+									</transition>
+									<subvertex xmi:type="uml:State" xmi:id="EAID_5B8DE7F2_E001_47ed_BC51_CAD355483DC9" name="LowPower" visibility="public" isSubmachineState="false">
+										<incoming xmi:idref="EAID_8E437ED4_1072_422c_B447_8E36413680BD"/>
+										<incoming xmi:idref="EAID_27E1F7C2_E0ED_4d92_9C73_6BCD49024652"/>
+										<outgoing xmi:idref="EAID_C009EE43_A180_4b5e_9D36_0FDF7D303000"/>
+										<entry xmi:type="uml:Behavior" xmi:id="EAID_BH000000_BE43_4d7b_9CE0_282947C5A6C8" visibility="public">
+											<ownedOperation xmi:id="EAID_98350DEA_BE43_4d7b_9CE0_282947C5A6C8" name="ovenSetPwr(PWR_LOW);" visibility="public">
+												<ownedParameter xmi:id="EAID_RT000000_BE43_4d7b_9CE0_282947C5A6C8" name="return" direction="return" type="EAJava_entry"/>
+											</ownedOperation>
+										</entry>
+									</subvertex>
+									<transition xmi:type="uml:Transition" xmi:id="EAID_C009EE43_A180_4b5e_9D36_0FDF7D303000" visibility="public" kind="local" source="EAID_5B8DE7F2_E001_47ed_BC51_CAD355483DC9" target="EAID_38744BBC_CA4E_4409_A160_6BF694039705">
+										<trigger xmi:idref="EAID_E7ED171B_53BC_438d_BEC5_8BCD93D821D9"/>
+									</transition>
+									<subvertex xmi:type="uml:Pseudostate" xmi:id="EAID_EE1722C6_B9A6_418c_9BB4_A68C0342BEFB" name="History" visibility="public" kind="shallowHistory"/>
+									<subvertex xmi:type="uml:Pseudostate" xmi:id="EAID_852BA464_30B7_41a1_B58A_E208844D2EF4" name="Initial" visibility="public" kind="initial">
+										<outgoing xmi:idref="EAID_8E437ED4_1072_422c_B447_8E36413680BD"/>
+									</subvertex>
+									<transition xmi:type="uml:Transition" xmi:id="EAID_8E437ED4_1072_422c_B447_8E36413680BD" visibility="public" kind="local" source="EAID_852BA464_30B7_41a1_B58A_E208844D2EF4" target="EAID_5B8DE7F2_E001_47ed_BC51_CAD355483DC9"/>
+								</region>
+								<region xmi:type="uml:Region" xmi:id="EAID_SP000001_47E0_4cf9_9048_3E10B48F65C5" name="Light" visibility="public">
+									<subvertex xmi:type="uml:State" xmi:id="EAID_B0166C9C_2693_4a07_B8A2_8DCCFBB49AC0" name="LightOff" visibility="public" isSubmachineState="false">
+										<incoming xmi:idref="EAID_A9B4B2B2_009A_4d49_87D6_A5B537AD8A1E"/>
+										<outgoing xmi:idref="EAID_445CE33A_1E6D_4db0_917A_D4CFA3B4FDED"/>
+										<entry xmi:type="uml:Behavior" xmi:id="EAID_BH000000_897C_4857_AF02_52A2844161A6" visibility="public">
+											<ownedOperation xmi:id="EAID_79605A1D_897C_4857_AF02_52A2844161A6" name="switchLight(L_OFF);" visibility="public">
+												<ownedParameter xmi:id="EAID_RT000000_897C_4857_AF02_52A2844161A6" name="return" direction="return" type="EAJava_entry"/>
+											</ownedOperation>
+										</entry>
+									</subvertex>
+									<transition xmi:type="uml:Transition" xmi:id="EAID_445CE33A_1E6D_4db0_917A_D4CFA3B4FDED" visibility="public" kind="local" source="EAID_B0166C9C_2693_4a07_B8A2_8DCCFBB49AC0" target="EAID_92B00D61_322B_4116_842B_1D9EA85F0217">
+										<trigger xmi:idref="EAID_5F2801B9_2EAE_4a80_99B3_0749B720203E"/>
+										<guard xmi:type="uml:Constraint" xmi:id="EAID_CO000000_1E6D_4db0_917A_D4CFA3B4FDED">
+											<specification xmi:type="uml:OpaqueExpression" xmi:id="EAID_OE000000_1E6D_4db0_917A_D4CFA3B4FDED" body="timer_preset()&gt;0"/>
+										</guard>
+									</transition>
+									<subvertex xmi:type="uml:State" xmi:id="EAID_92B00D61_322B_4116_842B_1D9EA85F0217" name="LightOn" visibility="public" isSubmachineState="false">
+										<incoming xmi:idref="EAID_445CE33A_1E6D_4db0_917A_D4CFA3B4FDED"/>
+										<incoming xmi:idref="EAID_33D5C2BA_5635_4e82_8F5C_829DF73D5640"/>
+										<outgoing xmi:idref="EAID_A9B4B2B2_009A_4d49_87D6_A5B537AD8A1E"/>
+										<entry xmi:type="uml:Behavior" xmi:id="EAID_BH000000_9060_4b3f_AA56_535F31CDCDB2" visibility="public">
+											<ownedOperation xmi:id="EAID_DBA2DD9A_9060_4b3f_AA56_535F31CDCDB2" name="switchLight(L_ON);" visibility="public">
+												<ownedParameter xmi:id="EAID_RT000000_9060_4b3f_AA56_535F31CDCDB2" name="return" direction="return" type="EAJava_entry"/>
+											</ownedOperation>
+										</entry>
+									</subvertex>
+									<transition xmi:type="uml:Transition" xmi:id="EAID_A9B4B2B2_009A_4d49_87D6_A5B537AD8A1E" visibility="public" kind="local" source="EAID_92B00D61_322B_4116_842B_1D9EA85F0217" target="EAID_B0166C9C_2693_4a07_B8A2_8DCCFBB49AC0">
+										<trigger xmi:idref="EAID_6F496EDA_B6F2_4da1_AB71_B8F70DC9A8AB"/>
+										<guard xmi:type="uml:Constraint" xmi:id="EAID_CO000000_009A_4d49_87D6_A5B537AD8A1E">
+											<specification xmi:type="uml:OpaqueExpression" xmi:id="EAID_OE000000_009A_4d49_87D6_A5B537AD8A1E" body="timer_preset()==0"/>
+										</guard>
+									</transition>
+									<subvertex xmi:type="uml:Pseudostate" xmi:id="EAID_B78B83B4_79A0_4aee_A346_EC7060FC5FE9" name="History" visibility="public" kind="shallowHistory"/>
+									<subvertex xmi:type="uml:Pseudostate" xmi:id="EAID_FB5C82CC_94AC_4d9f_B84D_1BBE4B0156A4" name="Initial" visibility="public" kind="initial">
+										<outgoing xmi:idref="EAID_33D5C2BA_5635_4e82_8F5C_829DF73D5640"/>
+									</subvertex>
+									<transition xmi:type="uml:Transition" xmi:id="EAID_33D5C2BA_5635_4e82_8F5C_829DF73D5640" visibility="public" kind="local" source="EAID_FB5C82CC_94AC_4d9f_B84D_1BBE4B0156A4" target="EAID_92B00D61_322B_4116_842B_1D9EA85F0217"/>
+								</region>
+								<region xmi:type="uml:Region" xmi:id="EAID_SP000002_47E0_4cf9_9048_3E10B48F65C5" name="Radioator" visibility="public">
+									<subvertex xmi:type="uml:State" xmi:id="EAID_55BA5447_4D9A_41e4_9E3C_C396BFED868C" name="Cooking" visibility="public" isSubmachineState="false">
+										<incoming xmi:idref="EAID_CC2EEF92_E5E4_48ef_AB4F_37D2A14D594B"/>
+										<incoming xmi:idref="EAID_73A46E7D_42A9_49fe_AE7C_33F620832835"/>
+										<outgoing xmi:idref="EAID_5F8B8DC2_66CD_4f97_BE2B_15985089F87D"/>
+										<outgoing xmi:idref="EAID_1D805F36_BE3B_4c88_BD62_00E081A8C6E3"/>
+									</subvertex>
+									<transition xmi:type="uml:Transition" xmi:id="EAID_1D805F36_BE3B_4c88_BD62_00E081A8C6E3" visibility="public" kind="local" source="EAID_55BA5447_4D9A_41e4_9E3C_C396BFED868C" target="EAID_9DB139F1_4D88_4b49_A276_28EC574D8273">
+										<trigger xmi:idref="EAID_8F0529E7_3995_46b8_BCB3_91166C3AF6FA"/>
+										<effect xmi:type="uml:OpaqueBehavior" xmi:id="EAID_OB000000_BE3B_4c88_BD62_00E081A8C6E3" body="ovenOff();&#xA;timer_clear();"/>
+									</transition>
+									<transition xmi:type="uml:Transition" xmi:id="EAID_5F8B8DC2_66CD_4f97_BE2B_15985089F87D" visibility="public" kind="local" source="EAID_55BA5447_4D9A_41e4_9E3C_C396BFED868C" target="EAID_2D9C8D12_B317_49a1_B614_28F46D0CC614">
+										<trigger xmi:idref="EAID_6F496EDA_B6F2_4da1_AB71_B8F70DC9A8AB"/>
+										<effect xmi:type="uml:OpaqueBehavior" xmi:id="EAID_OB000000_66CD_4f97_BE2B_15985089F87D" body="ovenOff();&#xA;timer_pause();"/>
+									</transition>
+									<subvertex xmi:type="uml:State" xmi:id="EAID_2D9C8D12_B317_49a1_B614_28F46D0CC614" name="CookingPause" visibility="public" isSubmachineState="false">
+										<incoming xmi:idref="EAID_5F8B8DC2_66CD_4f97_BE2B_15985089F87D"/>
+										<outgoing xmi:idref="EAID_73A46E7D_42A9_49fe_AE7C_33F620832835"/>
+									</subvertex>
+									<transition xmi:type="uml:Transition" xmi:id="EAID_73A46E7D_42A9_49fe_AE7C_33F620832835" visibility="public" kind="local" source="EAID_2D9C8D12_B317_49a1_B614_28F46D0CC614" target="EAID_55BA5447_4D9A_41e4_9E3C_C396BFED868C">
+										<trigger xmi:idref="EAID_5F2801B9_2EAE_4a80_99B3_0749B720203E"/>
+										<effect xmi:type="uml:OpaqueBehavior" xmi:id="EAID_OB000000_42A9_49fe_AE7C_33F620832835" body="timer_cont();"/>
+									</transition>
+									<subvertex xmi:type="uml:State" xmi:id="EAID_9DB139F1_4D88_4b49_A276_28EC574D8273" name="RadiatorOff" visibility="public" isSubmachineState="false">
+										<incoming xmi:idref="EAID_7CECD948_4467_4e13_9BA8_AAE373C89A30"/>
+										<incoming xmi:idref="EAID_1D805F36_BE3B_4c88_BD62_00E081A8C6E3"/>
+										<outgoing xmi:idref="EAID_CC2EEF92_E5E4_48ef_AB4F_37D2A14D594B"/>
+									</subvertex>
+									<transition xmi:type="uml:Transition" xmi:id="EAID_CC2EEF92_E5E4_48ef_AB4F_37D2A14D594B" visibility="public" kind="local" source="EAID_9DB139F1_4D88_4b49_A276_28EC574D8273" target="EAID_55BA5447_4D9A_41e4_9E3C_C396BFED868C">
+										<trigger xmi:idref="EAID_5F2801B9_2EAE_4a80_99B3_0749B720203E"/>
+										<guard xmi:type="uml:Constraint" xmi:id="EAID_CO000000_E5E4_48ef_AB4F_37D2A14D594B">
+											<specification xmi:type="uml:OpaqueExpression" xmi:id="EAID_OE000000_E5E4_48ef_AB4F_37D2A14D594B" body="timer_preset()&gt;0"/>
+										</guard>
+										<effect xmi:type="uml:OpaqueBehavior" xmi:id="EAID_OB000000_E5E4_48ef_AB4F_37D2A14D594B" body="timer_start();"/>
+									</transition>
+									<subvertex xmi:type="uml:Pseudostate" xmi:id="EAID_C456777B_1AE1_45a5_9EDF_287E8E9198E8" name="History" visibility="public" kind="shallowHistory"/>
+									<subvertex xmi:type="uml:Pseudostate" xmi:id="EAID_326B0489_3375_46da_B085_F8765D8F8FC4" name="Initial" visibility="public" kind="initial">
+										<outgoing xmi:idref="EAID_7CECD948_4467_4e13_9BA8_AAE373C89A30"/>
+									</subvertex>
+									<transition xmi:type="uml:Transition" xmi:id="EAID_7CECD948_4467_4e13_9BA8_AAE373C89A30" visibility="public" kind="local" source="EAID_326B0489_3375_46da_B085_F8765D8F8FC4" target="EAID_9DB139F1_4D88_4b49_A276_28EC574D8273"/>
+								</region>
+							</subvertex>
+							<transition xmi:type="uml:Transition" xmi:id="EAID_C82E6594_18DC_4edc_8A79_1F69B73B610C" visibility="public" kind="local" source="EAID_250039F5_47E0_4cf9_9048_3E10B48F65C5" target="EAID_250039F5_47E0_4cf9_9048_3E10B48F65C5">
+								<trigger xmi:idref="EAID_59BD6236_6A17_4a85_B308_EE5461479004"/>
+								<effect xmi:type="uml:OpaqueBehavior" xmi:id="EAID_OB000000_18DC_4edc_8A79_1F69B73B610C" body="timer_dec();"/>
+							</transition>
+							<transition xmi:type="uml:Transition" xmi:id="EAID_F8C408CB_F5AE_4cbd_BCED_8019A2CF9B6E" visibility="public" kind="local" source="EAID_250039F5_47E0_4cf9_9048_3E10B48F65C5" target="EAID_250039F5_47E0_4cf9_9048_3E10B48F65C5">
+								<trigger xmi:idref="EAID_82751599_D26D_4d06_9EC0_9B85662FADC8"/>
+								<effect xmi:type="uml:OpaqueBehavior" xmi:id="EAID_OB000000_F5AE_4cbd_BCED_8019A2CF9B6E" body="timer_inc();"/>
+							</transition>
+							<subvertex xmi:type="uml:State" xmi:id="EAID_15C95021_9C6C_4388_A716_5FAA22AC2C5B" name="Inactive" visibility="public" isSubmachineState="false">
+								<incoming xmi:idref="EAID_9F9631B1_3665_4058_A2D1_7C7FBD6218E7"/>
+							</subvertex>
+							<subvertex xmi:type="uml:Pseudostate" xmi:id="EAID_151EEB69_3E2B_49c6_B191_B1DA0B3F0FFA" name="Choice" visibility="public" kind="choice">
+								<incoming xmi:idref="EAID_805A3288_645F_494d_97AB_E67B33409AC9"/>
+								<outgoing xmi:idref="EAID_9F9631B1_3665_4058_A2D1_7C7FBD6218E7"/>
+								<outgoing xmi:idref="EAID_8A7695B6_0BEA_4519_BB9B_12BF6BC4B4AF"/>
+							</subvertex>
+							<transition xmi:type="uml:Transition" xmi:id="EAID_8A7695B6_0BEA_4519_BB9B_12BF6BC4B4AF" visibility="public" kind="local" source="EAID_151EEB69_3E2B_49c6_B191_B1DA0B3F0FFA" target="EAID_250039F5_47E0_4cf9_9048_3E10B48F65C5">
+								<trigger xmi:idref="EAID_FA1F5546_035E_46b6_842E_69DF4CA58D76"/>
+								<guard xmi:type="uml:Constraint" xmi:id="EAID_CO000000_0BEA_4519_BB9B_12BF6BC4B4AF">
+									<specification xmi:type="uml:OpaqueExpression" xmi:id="EAID_OE000000_0BEA_4519_BB9B_12BF6BC4B4AF" body="testResult==0"/>
+								</guard>
+							</transition>
+							<transition xmi:type="uml:Transition" xmi:id="EAID_9F9631B1_3665_4058_A2D1_7C7FBD6218E7" visibility="public" kind="local" source="EAID_151EEB69_3E2B_49c6_B191_B1DA0B3F0FFA" target="EAID_15C95021_9C6C_4388_A716_5FAA22AC2C5B">
+								<trigger xmi:idref="EAID_75EFDF6C_8121_46c2_A46D_BE5470039A05"/>
+								<guard xmi:type="uml:Constraint" xmi:id="EAID_CO000000_3665_4058_A2D1_7C7FBD6218E7">
+									<specification xmi:type="uml:OpaqueExpression" xmi:id="EAID_OE000000_3665_4058_A2D1_7C7FBD6218E7" body="else"/>
+								</guard>
+							</transition>
+							<subvertex xmi:type="uml:Pseudostate" xmi:id="EAID_737E730A_F281_4922_A7D9_DDDDFD79164F" name="Initial" visibility="public" kind="initial">
+								<outgoing xmi:idref="EAID_805A3288_645F_494d_97AB_E67B33409AC9"/>
+							</subvertex>
+							<transition xmi:type="uml:Transition" xmi:id="EAID_805A3288_645F_494d_97AB_E67B33409AC9" visibility="public" kind="local" source="EAID_737E730A_F281_4922_A7D9_DDDDFD79164F" target="EAID_151EEB69_3E2B_49c6_B191_B1DA0B3F0FFA">
+								<trigger xmi:idref="EAID_B50ED060_B32F_435d_B3F4_4E3C624FF606"/>
+								<effect xmi:type="uml:OpaqueBehavior" xmi:id="EAID_OB000000_645F_494d_97AB_E67B33409AC9" body="uint8_t testResult = hardwareTest();"/>
+							</transition>
+						</region>
+						<nestedClassifier xmi:type="uml:Trigger" xmi:id="EAID_B50ED060_B32F_435d_B3F4_4E3C624FF606" name=" " visibility="public">
+							<event xmi:type="uml:SignalEvent" xmi:id="EAID_EX000000_B32F_435d_B3F4_4E3C624FF606">
+								<signal name="sigType" xmi:idref="EAID_568539BC_9A42_4259_8224_5D5A18A1D9A0"/>
+							</event>
+						</nestedClassifier>
+						<nestedClassifier xmi:type="uml:Trigger" xmi:id="EAID_75EFDF6C_8121_46c2_A46D_BE5470039A05" name=" " visibility="public">
+							<event xmi:type="uml:Event" xmi:id="EAID_EX000000_8121_46c2_A46D_BE5470039A05"/>
+						</nestedClassifier>
+					</ownedBehavior>
+				</packagedElement>
+				<packagedElement xmi:type="uml:Signal" xmi:id="EAID_568539BC_9A42_4259_8224_5D5A18A1D9A0" name="sigType" visibility="public"/>
+			</packagedElement>
+		</packagedElement>
+	</uml:Model>
+	<xmi:Extension extender="Enterprise Architect" extenderID="6.5">
+		<elements>
+			<element xmi:idref="EAPK_2FD5C524_A7D6_444b_B9DF_1E143A7DA49D">
+				<packageproperties/>
+				<paths/>
+				<times/>
+				<flags iscontrolled="FALSE" isprotected="FALSE" usedtd="FALSE" logxml="FALSE" packageFlags="isModel=1;"/>
+			</element>
+			<element xmi:idref="EAPK_F19A1E56_AC07_44ff_9655_3DB0FAB68F4E" xmi:type="uml:Package" name="implementation" scope="public">
+				<model package2="EAID_F19A1E56_AC07_44ff_9655_3DB0FAB68F4E" package="EAPK_2FD5C524_A7D6_444b_B9DF_1E143A7DA49D" tpos="0" ea_localid="2" ea_eleType="package"/>
+				<properties isSpecification="false" sType="Package" nType="0" scope="public"/>
+				<project author="Besitzer" version="1.0" phase="1.0" created="2012-10-31 19:03:06" modified="2012-10-31 19:03:06" complexity="1" status="Proposed"/>
+				<code gentype="Java"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<tags/>
+				<xrefs/>
+				<extendedProperties tagged="0" package_name="Model"/>
+				<packageproperties version="1.0"/>
+				<paths/>
+				<times created="2012-10-31 00:00:00" modified="2012-10-31 00:00:00"/>
+				<flags iscontrolled="FALSE" isprotected="FALSE" usedtd="FALSE" logxml="FALSE" packageFlags="isModel=1;VICON=3;"/>
+			</element>
+			<element xmi:idref="EAID_3B9B0DDD_A31E_4962_A52C_3C94654CEAA6" xmi:type="uml:Class" name="oven" scope="public">
+				<model package="EAPK_F19A1E56_AC07_44ff_9655_3DB0FAB68F4E" tpos="0" ea_localid="2" ea_eleType="element"/>
+				<properties isSpecification="false" sType="Class" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false" isActive="false"/>
+				<project author="Besitzer" version="1.0" phase="1.0" created="2012-10-31 19:03:33" modified="2012-10-31 19:03:37" complexity="1" status="Proposed"/>
+				<code gentype="Java"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<tags/>
+				<xrefs/>
+				<extendedProperties tagged="0" package_name="implementation"/>
+				<links>
+					<NoteLink xmi:id="EAID_D693C870_1522_4cc1_8670_22FF3050EE35" start="EAID_4CB40ED1_7E77_4aa6_B4A5_45CB2BB5A1C0" end="EAID_3B9B0DDD_A31E_4962_A52C_3C94654CEAA6"/>
+				</links>
+			</element>
+			<element xmi:idref="EAID_FA1F5546_035E_46b6_842E_69DF4CA58D76" xmi:type="uml:Trigger" name=" " scope="public">
+				<model package="EAPK_F19A1E56_AC07_44ff_9655_3DB0FAB68F4E" owner="EAID_3B9B0DDD_A31E_4962_A52C_3C94654CEAA6" tpos="0" ea_localid="27" ea_eleType="element"/>
+				<properties isSpecification="false" sType="Trigger" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<project author="Besitzer" version="1.0" phase="1.0" created="2012-10-31 19:19:04" modified="2014-06-16 15:06:44" complexity="1" status="Proposed"/>
+				<code gentype="&lt;none&gt;"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<tags/>
+				<xrefs value="$XREFPROP=$XID={5446AB28-180D-4869-93FD-107A7BB06F62}$XID;$NAM=MOFProps$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$BEH=event$BEH;$PAR=0$PAR;$DES=RefGUID={1C0D69A9-87C3-4450-B047-FACC244B2CBD};$DES;$CLT={FA1F5546-035E-46b6-842E-69DF4CA58D76}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;$XREFPROP=$XID={B8903E7B-47E1-40e4-83C2-C35379B4966F}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=kind@ENDNAME;@TYPE=TriggerKind@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={FA1F5546-035E-46b6-842E-69DF4CA58D76}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<extendedProperties tagged="0" package_name="implementation"/>
+			</element>
+			<element xmi:idref="EAID_59BD6236_6A17_4a85_B308_EE5461479004" xmi:type="uml:Trigger" name="evDec" scope="public">
+				<model package="EAPK_F19A1E56_AC07_44ff_9655_3DB0FAB68F4E" owner="EAID_3B9B0DDD_A31E_4962_A52C_3C94654CEAA6" tpos="0" ea_localid="29" ea_eleType="element"/>
+				<properties isSpecification="false" sType="Trigger" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<project author="Besitzer" version="1.0" phase="1.0" created="2012-10-31 19:20:09" modified="2012-10-31 19:21:36" complexity="1" status="Proposed"/>
+				<code gentype="&lt;none&gt;"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<tags/>
+				<xrefs value="$XREFPROP=$XID={08D1D1CF-82E0-444b-81CE-70E5351082BA}$XID;$NAM=MOFProps$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$BEH=event$BEH;$PAR=0$PAR;$DES=RefGUID={568539BC-9A42-4259-8224-5D5A18A1D9A0};RefName=sigType;$DES;$CLT={59BD6236-6A17-4a85-B308-EE5461479004}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<extendedProperties tagged="0" package_name="implementation"/>
+			</element>
+			<element xmi:idref="EAID_5F2801B9_2EAE_4a80_99B3_0749B720203E" xmi:type="uml:Trigger" name="evDoorClosed" scope="public">
+				<model package="EAPK_F19A1E56_AC07_44ff_9655_3DB0FAB68F4E" owner="EAID_3B9B0DDD_A31E_4962_A52C_3C94654CEAA6" tpos="0" ea_localid="17" ea_eleType="element"/>
+				<properties isSpecification="false" sType="Trigger" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<project author="Besitzer" version="1.0" phase="1.0" created="2012-10-31 19:11:11" modified="2012-10-31 19:21:36" complexity="1" status="Proposed"/>
+				<code gentype="&lt;none&gt;"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<tags/>
+				<xrefs value="$XREFPROP=$XID={53F5EA08-4BD9-48d5-B3A9-93E45FC39E91}$XID;$NAM=MOFProps$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$BEH=event$BEH;$PAR=0$PAR;$DES=RefGUID={568539BC-9A42-4259-8224-5D5A18A1D9A0};RefName=sigType;$DES;$CLT={5F2801B9-2EAE-4a80-99B3-0749B720203E}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<extendedProperties tagged="0" package_name="implementation"/>
+			</element>
+			<element xmi:idref="EAID_6F496EDA_B6F2_4da1_AB71_B8F70DC9A8AB" xmi:type="uml:Trigger" name="evDoorOpen" scope="public">
+				<model package="EAPK_F19A1E56_AC07_44ff_9655_3DB0FAB68F4E" owner="EAID_3B9B0DDD_A31E_4962_A52C_3C94654CEAA6" tpos="0" ea_localid="25" ea_eleType="element"/>
+				<properties isSpecification="false" sType="Trigger" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<project author="Besitzer" version="1.0" phase="1.0" created="2012-10-31 19:16:56" modified="2012-10-31 19:21:36" complexity="1" status="Proposed"/>
+				<code gentype="&lt;none&gt;"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<tags/>
+				<xrefs value="$XREFPROP=$XID={7755604A-9468-46f3-9876-C28CEBF2F951}$XID;$NAM=MOFProps$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$BEH=event$BEH;$PAR=0$PAR;$DES=RefGUID={568539BC-9A42-4259-8224-5D5A18A1D9A0};RefName=sigType;$DES;$CLT={6F496EDA-B6F2-4da1-AB71-B8F70DC9A8AB}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<extendedProperties tagged="0" package_name="implementation"/>
+			</element>
+			<element xmi:idref="EAID_82751599_D26D_4d06_9EC0_9B85662FADC8" xmi:type="uml:Trigger" name="evInc" scope="public">
+				<model package="EAPK_F19A1E56_AC07_44ff_9655_3DB0FAB68F4E" owner="EAID_3B9B0DDD_A31E_4962_A52C_3C94654CEAA6" tpos="0" ea_localid="28" ea_eleType="element"/>
+				<properties isSpecification="false" sType="Trigger" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<project author="Besitzer" version="1.0" phase="1.0" created="2012-10-31 19:19:37" modified="2012-10-31 19:21:36" complexity="1" status="Proposed"/>
+				<code gentype="&lt;none&gt;"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<tags/>
+				<xrefs value="$XREFPROP=$XID={9165CC45-2734-4d4e-98B1-AF57AF77D66F}$XID;$NAM=MOFProps$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$BEH=event$BEH;$PAR=0$PAR;$DES=RefGUID={568539BC-9A42-4259-8224-5D5A18A1D9A0};RefName=sigType;$DES;$CLT={82751599-D26D-4d06-9EC0-9B85662FADC8}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<extendedProperties tagged="0" package_name="implementation"/>
+			</element>
+			<element xmi:idref="EAID_E7ED171B_53BC_438d_BEC5_8BCD93D821D9" xmi:type="uml:Trigger" name="evPwrHigh" scope="public">
+				<model package="EAPK_F19A1E56_AC07_44ff_9655_3DB0FAB68F4E" owner="EAID_3B9B0DDD_A31E_4962_A52C_3C94654CEAA6" tpos="0" ea_localid="12" ea_eleType="element"/>
+				<properties isSpecification="false" sType="Trigger" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<project author="Besitzer" version="1.0" phase="1.0" created="2012-10-31 19:07:24" modified="2012-10-31 19:21:36" complexity="1" status="Proposed"/>
+				<code gentype="&lt;none&gt;"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<tags/>
+				<xrefs value="$XREFPROP=$XID={497CCB01-C870-4907-8973-46DB2A605DDF}$XID;$NAM=MOFProps$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$BEH=event$BEH;$PAR=0$PAR;$DES=RefGUID={568539BC-9A42-4259-8224-5D5A18A1D9A0};RefName=sigType;$DES;$CLT={E7ED171B-53BC-438d-BEC5-8BCD93D821D9}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<extendedProperties tagged="0" package_name="implementation"/>
+			</element>
+			<element xmi:idref="EAID_0FFA8C94_5B52_496a_BE05_588970425F8C" xmi:type="uml:Trigger" name="evPwrLow" scope="public">
+				<model package="EAPK_F19A1E56_AC07_44ff_9655_3DB0FAB68F4E" owner="EAID_3B9B0DDD_A31E_4962_A52C_3C94654CEAA6" tpos="0" ea_localid="13" ea_eleType="element"/>
+				<properties isSpecification="false" sType="Trigger" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<project author="Besitzer" version="1.0" phase="1.0" created="2012-10-31 19:07:35" modified="2012-10-31 19:21:36" complexity="1" status="Proposed"/>
+				<code gentype="&lt;none&gt;"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<tags/>
+				<xrefs value="$XREFPROP=$XID={88083C9B-3206-4ed2-B7D6-F10F045AD724}$XID;$NAM=MOFProps$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$BEH=event$BEH;$PAR=0$PAR;$DES=RefGUID={568539BC-9A42-4259-8224-5D5A18A1D9A0};RefName=sigType;$DES;$CLT={0FFA8C94-5B52-496a-BE05-588970425F8C}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<extendedProperties tagged="0" package_name="implementation"/>
+			</element>
+			<element xmi:idref="EAID_8F0529E7_3995_46b8_BCB3_91166C3AF6FA" xmi:type="uml:Trigger" name="evTimeout" scope="public">
+				<model package="EAPK_F19A1E56_AC07_44ff_9655_3DB0FAB68F4E" owner="EAID_3B9B0DDD_A31E_4962_A52C_3C94654CEAA6" tpos="0" ea_localid="23" ea_eleType="element"/>
+				<properties isSpecification="false" sType="Trigger" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<project author="Besitzer" version="1.0" phase="1.0" created="2012-10-31 19:14:53" modified="2012-10-31 19:21:36" complexity="1" status="Proposed"/>
+				<code gentype="&lt;none&gt;"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<tags/>
+				<xrefs value="$XREFPROP=$XID={D273B245-7C86-4603-A4C4-8B0E9EE0A165}$XID;$NAM=MOFProps$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$BEH=event$BEH;$PAR=0$PAR;$DES=RefGUID={568539BC-9A42-4259-8224-5D5A18A1D9A0};RefName=sigType;$DES;$CLT={8F0529E7-3995-46b8-BCB3-91166C3AF6FA}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<extendedProperties tagged="0" package_name="implementation"/>
+			</element>
+			<element xmi:idref="EAID_B1917B96_F5B6_4e18_8980_BE1018B931CD" xmi:type="uml:StateMachine" name="StateMachine" scope="public">
+				<model package="EAPK_F19A1E56_AC07_44ff_9655_3DB0FAB68F4E" owner="EAID_3B9B0DDD_A31E_4962_A52C_3C94654CEAA6" tpos="0" ea_localid="3" ea_eleType="element"/>
+				<properties isSpecification="false" sType="StateMachine" nType="0" scope="public"/>
+				<project author="Besitzer" version="1.0" phase="1.0" created="2012-10-31 19:03:42" modified="2012-10-31 19:03:42" complexity="1" status="Proposed"/>
+				<code gentype="Java"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<tags/>
+				<xrefs/>
+				<extendedProperties tagged="0" package_name="implementation"/>
+			</element>
+			<element xmi:idref="EAID_250039F5_47E0_4cf9_9048_3E10B48F65C5" xmi:type="uml:State" name="Active" scope="public">
+				<model package="EAPK_F19A1E56_AC07_44ff_9655_3DB0FAB68F4E" owner="EAID_B1917B96_F5B6_4e18_8980_BE1018B931CD" tpos="0" ea_localid="6" ea_eleType="element"/>
+				<properties isSpecification="false" sType="State" nType="0" scope="public"/>
+				<project author="Besitzer" version="1.0" phase="1.0" created="2012-10-31 19:04:15" modified="2012-10-31 19:04:28" complexity="1" status="Proposed"/>
+				<code gentype="Java"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=0;HSwimLanes=0;BorderStyle=0;"/>
+				<tags/>
+				<xrefs value="$XREFPROP=$XID={C1A89F9C-7E9B-41e9-8544-313D747905F4}$XID;$NAM=Partitions$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PAR;Name=Radioator;Size=232;GUID={645B28D9-337F-44ff-8384-AA7269ADAA12};@ENDPAR;@PAR;Name=Light;Size=165;GUID={9712DA18-3E03-4a8d-B343-E81DD908AA74};@ENDPAR;@PAR;Name=Power;Size=181;GUID={EF186B03-95D5-48bb-ABF6-812A904A428E};@ENDPAR;$DES;$CLT={250039F5-47E0-4cf9-9048-3E10B48F65C5}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<extendedProperties tagged="0" package_name="implementation"/>
+				<links>
+					<StateFlow xmi:id="EAID_C82E6594_18DC_4edc_8A79_1F69B73B610C" start="EAID_250039F5_47E0_4cf9_9048_3E10B48F65C5" end="EAID_250039F5_47E0_4cf9_9048_3E10B48F65C5"/>
+					<StateFlow xmi:id="EAID_F8C408CB_F5AE_4cbd_BCED_8019A2CF9B6E" start="EAID_250039F5_47E0_4cf9_9048_3E10B48F65C5" end="EAID_250039F5_47E0_4cf9_9048_3E10B48F65C5"/>
+					<StateFlow xmi:id="EAID_8A7695B6_0BEA_4519_BB9B_12BF6BC4B4AF" start="EAID_151EEB69_3E2B_49c6_B191_B1DA0B3F0FFA" end="EAID_250039F5_47E0_4cf9_9048_3E10B48F65C5"/>
+					<StateFlow xmi:id="EAID_C82E6594_18DC_4edc_8A79_1F69B73B610C" start="EAID_250039F5_47E0_4cf9_9048_3E10B48F65C5" end="EAID_250039F5_47E0_4cf9_9048_3E10B48F65C5"/>
+					<StateFlow xmi:id="EAID_F8C408CB_F5AE_4cbd_BCED_8019A2CF9B6E" start="EAID_250039F5_47E0_4cf9_9048_3E10B48F65C5" end="EAID_250039F5_47E0_4cf9_9048_3E10B48F65C5"/>
+				</links>
+			</element>
+			<element xmi:idref="EAID_55BA5447_4D9A_41e4_9E3C_C396BFED868C" xmi:type="uml:State" name="Cooking" scope="public">
+				<model package="EAPK_F19A1E56_AC07_44ff_9655_3DB0FAB68F4E" owner="EAID_250039F5_47E0_4cf9_9048_3E10B48F65C5" tpos="0" ea_localid="19" ea_eleType="element"/>
+				<properties isSpecification="false" sType="State" nType="0" scope="public"/>
+				<project author="Besitzer" version="1.0" phase="1.0" created="2012-10-31 19:13:01" modified="2012-10-31 19:20:11" complexity="1" status="Proposed"/>
+				<code gentype="Java"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=0;HSwimLanes=0;BorderStyle=0;"/>
+				<tags/>
+				<xrefs/>
+				<extendedProperties tagged="0" package_name="implementation"/>
+				<links>
+					<StateFlow xmi:id="EAID_1D805F36_BE3B_4c88_BD62_00E081A8C6E3" start="EAID_55BA5447_4D9A_41e4_9E3C_C396BFED868C" end="EAID_9DB139F1_4D88_4b49_A276_28EC574D8273"/>
+					<StateFlow xmi:id="EAID_5F8B8DC2_66CD_4f97_BE2B_15985089F87D" start="EAID_55BA5447_4D9A_41e4_9E3C_C396BFED868C" end="EAID_2D9C8D12_B317_49a1_B614_28F46D0CC614"/>
+					<StateFlow xmi:id="EAID_73A46E7D_42A9_49fe_AE7C_33F620832835" start="EAID_2D9C8D12_B317_49a1_B614_28F46D0CC614" end="EAID_55BA5447_4D9A_41e4_9E3C_C396BFED868C"/>
+					<StateFlow xmi:id="EAID_CC2EEF92_E5E4_48ef_AB4F_37D2A14D594B" start="EAID_9DB139F1_4D88_4b49_A276_28EC574D8273" end="EAID_55BA5447_4D9A_41e4_9E3C_C396BFED868C"/>
+				</links>
+			</element>
+			<element xmi:idref="EAID_2D9C8D12_B317_49a1_B614_28F46D0CC614" xmi:type="uml:State" name="CookingPause" scope="public">
+				<model package="EAPK_F19A1E56_AC07_44ff_9655_3DB0FAB68F4E" owner="EAID_250039F5_47E0_4cf9_9048_3E10B48F65C5" tpos="0" ea_localid="20" ea_eleType="element"/>
+				<properties isSpecification="false" sType="State" nType="0" scope="public"/>
+				<project author="Besitzer" version="1.0" phase="1.0" created="2012-10-31 19:13:12" modified="2012-10-31 19:13:20" complexity="1" status="Proposed"/>
+				<code gentype="Java"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=0;HSwimLanes=0;BorderStyle=0;"/>
+				<tags/>
+				<xrefs/>
+				<extendedProperties tagged="0" package_name="implementation"/>
+				<links>
+					<StateFlow xmi:id="EAID_73A46E7D_42A9_49fe_AE7C_33F620832835" start="EAID_2D9C8D12_B317_49a1_B614_28F46D0CC614" end="EAID_55BA5447_4D9A_41e4_9E3C_C396BFED868C"/>
+					<StateFlow xmi:id="EAID_5F8B8DC2_66CD_4f97_BE2B_15985089F87D" start="EAID_55BA5447_4D9A_41e4_9E3C_C396BFED868C" end="EAID_2D9C8D12_B317_49a1_B614_28F46D0CC614"/>
+				</links>
+			</element>
+			<element xmi:idref="EAID_38744BBC_CA4E_4409_A160_6BF694039705" xmi:type="uml:State" name="HighPower" scope="public">
+				<model package="EAPK_F19A1E56_AC07_44ff_9655_3DB0FAB68F4E" owner="EAID_250039F5_47E0_4cf9_9048_3E10B48F65C5" tpos="0" ea_localid="8" ea_eleType="element"/>
+				<properties isSpecification="false" sType="State" nType="0" scope="public"/>
+				<project author="Besitzer" version="1.0" phase="1.0" created="2012-10-31 19:06:19" modified="2012-10-31 19:06:24" complexity="1" status="Proposed"/>
+				<code gentype="Java"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=0;HSwimLanes=0;BorderStyle=0;"/>
+				<tags/>
+				<xrefs/>
+				<extendedProperties tagged="0" package_name="implementation">
+					<states type="entry" name="ovenSetPwr(PWR_HIGH);" visibility="public" isAsynchronous="false">
+						<model ea_guid="{AE2B34F1-DC48-457b-A958-7AA990AA51FE}" ea_localid="2"/>
+						<type type="entry" const="false" static="false" isAbstract="false" synchronised="0" pure="0" isQuery="false"/>
+						<behaviour/>
+						<code/>
+						<style/>
+						<styleex/>
+						<documentation/>
+						<tags/>
+						<properties position="0"/>
+						<xrefs/>
+						<parameters>
+							<parameter xmi:idref="EAID_RETURNID_DC48_457b_A958_7AA990AA51FE" visibility="public">
+								<properties pos="0" type="entry" const="false" ea_guid="{RETURNID-DC48-457b-A958-7AA990AA51FE}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+						</parameters>
+					</states>
+				</extendedProperties>
+				<links>
+					<StateFlow xmi:id="EAID_27E1F7C2_E0ED_4d92_9C73_6BCD49024652" start="EAID_38744BBC_CA4E_4409_A160_6BF694039705" end="EAID_5B8DE7F2_E001_47ed_BC51_CAD355483DC9"/>
+					<StateFlow xmi:id="EAID_C009EE43_A180_4b5e_9D36_0FDF7D303000" start="EAID_5B8DE7F2_E001_47ed_BC51_CAD355483DC9" end="EAID_38744BBC_CA4E_4409_A160_6BF694039705"/>
+				</links>
+			</element>
+			<element xmi:idref="EAID_B0166C9C_2693_4a07_B8A2_8DCCFBB49AC0" xmi:type="uml:State" name="LightOff" scope="public">
+				<model package="EAPK_F19A1E56_AC07_44ff_9655_3DB0FAB68F4E" owner="EAID_250039F5_47E0_4cf9_9048_3E10B48F65C5" tpos="0" ea_localid="15" ea_eleType="element"/>
+				<properties isSpecification="false" sType="State" nType="0" scope="public"/>
+				<project author="Besitzer" version="1.0" phase="1.0" created="2012-10-31 19:08:36" modified="2012-10-31 19:08:42" complexity="1" status="Proposed"/>
+				<code gentype="Java"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=0;HSwimLanes=0;BorderStyle=0;"/>
+				<tags/>
+				<xrefs/>
+				<extendedProperties tagged="0" package_name="implementation">
+					<states type="entry" name="switchLight(L_OFF);" visibility="public" isAsynchronous="false">
+						<model ea_guid="{79605A1D-897C-4857-AF02-52A2844161A6}" ea_localid="4"/>
+						<type type="entry" const="false" static="false" isAbstract="false" synchronised="0" pure="0" isQuery="false"/>
+						<behaviour/>
+						<code/>
+						<style/>
+						<styleex/>
+						<documentation/>
+						<tags/>
+						<properties position="0"/>
+						<xrefs/>
+						<parameters>
+							<parameter xmi:idref="EAID_RETURNID_897C_4857_AF02_52A2844161A6" visibility="public">
+								<properties pos="0" type="entry" const="false" ea_guid="{RETURNID-897C-4857-AF02-52A2844161A6}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+						</parameters>
+					</states>
+				</extendedProperties>
+				<links>
+					<StateFlow xmi:id="EAID_445CE33A_1E6D_4db0_917A_D4CFA3B4FDED" start="EAID_B0166C9C_2693_4a07_B8A2_8DCCFBB49AC0" end="EAID_92B00D61_322B_4116_842B_1D9EA85F0217"/>
+					<StateFlow xmi:id="EAID_A9B4B2B2_009A_4d49_87D6_A5B537AD8A1E" start="EAID_92B00D61_322B_4116_842B_1D9EA85F0217" end="EAID_B0166C9C_2693_4a07_B8A2_8DCCFBB49AC0"/>
+				</links>
+			</element>
+			<element xmi:idref="EAID_92B00D61_322B_4116_842B_1D9EA85F0217" xmi:type="uml:State" name="LightOn" scope="public">
+				<model package="EAPK_F19A1E56_AC07_44ff_9655_3DB0FAB68F4E" owner="EAID_250039F5_47E0_4cf9_9048_3E10B48F65C5" tpos="0" ea_localid="14" ea_eleType="element"/>
+				<properties isSpecification="false" sType="State" nType="0" scope="public"/>
+				<project author="Besitzer" version="1.0" phase="1.0" created="2012-10-31 19:08:29" modified="2012-10-31 19:08:34" complexity="1" status="Proposed"/>
+				<code gentype="Java"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=0;HSwimLanes=0;BorderStyle=0;"/>
+				<tags/>
+				<xrefs/>
+				<extendedProperties tagged="0" package_name="implementation">
+					<states type="entry" name="switchLight(L_ON);" visibility="public" isAsynchronous="false">
+						<model ea_guid="{DBA2DD9A-9060-4b3f-AA56-535F31CDCDB2}" ea_localid="3"/>
+						<type type="entry" const="false" static="false" isAbstract="false" synchronised="0" pure="0" isQuery="false"/>
+						<behaviour/>
+						<code/>
+						<style/>
+						<styleex/>
+						<documentation/>
+						<tags/>
+						<properties position="0"/>
+						<xrefs/>
+						<parameters>
+							<parameter xmi:idref="EAID_RETURNID_9060_4b3f_AA56_535F31CDCDB2" visibility="public">
+								<properties pos="0" type="entry" const="false" ea_guid="{RETURNID-9060-4b3f-AA56-535F31CDCDB2}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+						</parameters>
+					</states>
+				</extendedProperties>
+				<links>
+					<StateFlow xmi:id="EAID_A9B4B2B2_009A_4d49_87D6_A5B537AD8A1E" start="EAID_92B00D61_322B_4116_842B_1D9EA85F0217" end="EAID_B0166C9C_2693_4a07_B8A2_8DCCFBB49AC0"/>
+					<StateFlow xmi:id="EAID_33D5C2BA_5635_4e82_8F5C_829DF73D5640" start="EAID_FB5C82CC_94AC_4d9f_B84D_1BBE4B0156A4" end="EAID_92B00D61_322B_4116_842B_1D9EA85F0217"/>
+					<StateFlow xmi:id="EAID_445CE33A_1E6D_4db0_917A_D4CFA3B4FDED" start="EAID_B0166C9C_2693_4a07_B8A2_8DCCFBB49AC0" end="EAID_92B00D61_322B_4116_842B_1D9EA85F0217"/>
+				</links>
+			</element>
+			<element xmi:idref="EAID_5B8DE7F2_E001_47ed_BC51_CAD355483DC9" xmi:type="uml:State" name="LowPower" scope="public">
+				<model package="EAPK_F19A1E56_AC07_44ff_9655_3DB0FAB68F4E" owner="EAID_250039F5_47E0_4cf9_9048_3E10B48F65C5" tpos="0" ea_localid="7" ea_eleType="element"/>
+				<properties isSpecification="false" sType="State" nType="0" scope="public"/>
+				<project author="Besitzer" version="1.0" phase="1.0" created="2012-10-31 19:06:09" modified="2012-10-31 19:06:17" complexity="1" status="Proposed"/>
+				<code gentype="Java"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=0;HSwimLanes=0;BorderStyle=0;"/>
+				<tags/>
+				<xrefs/>
+				<extendedProperties tagged="0" package_name="implementation">
+					<states type="entry" name="ovenSetPwr(PWR_LOW);" visibility="public" isAsynchronous="false">
+						<model ea_guid="{98350DEA-BE43-4d7b-9CE0-282947C5A6C8}" ea_localid="1"/>
+						<type type="entry" const="false" static="false" isAbstract="false" synchronised="0" pure="0" isQuery="false"/>
+						<behaviour/>
+						<code/>
+						<style/>
+						<styleex/>
+						<documentation/>
+						<tags/>
+						<properties position="0"/>
+						<xrefs/>
+						<parameters>
+							<parameter xmi:idref="EAID_RETURNID_BE43_4d7b_9CE0_282947C5A6C8" visibility="public">
+								<properties pos="0" type="entry" const="false" ea_guid="{RETURNID-BE43-4d7b-9CE0-282947C5A6C8}"/>
+								<style/>
+								<styleex/>
+								<documentation/>
+								<tags/>
+								<xrefs/>
+							</parameter>
+						</parameters>
+					</states>
+				</extendedProperties>
+				<links>
+					<StateFlow xmi:id="EAID_C009EE43_A180_4b5e_9D36_0FDF7D303000" start="EAID_5B8DE7F2_E001_47ed_BC51_CAD355483DC9" end="EAID_38744BBC_CA4E_4409_A160_6BF694039705"/>
+					<StateFlow xmi:id="EAID_27E1F7C2_E0ED_4d92_9C73_6BCD49024652" start="EAID_38744BBC_CA4E_4409_A160_6BF694039705" end="EAID_5B8DE7F2_E001_47ed_BC51_CAD355483DC9"/>
+					<StateFlow xmi:id="EAID_8E437ED4_1072_422c_B447_8E36413680BD" start="EAID_852BA464_30B7_41a1_B58A_E208844D2EF4" end="EAID_5B8DE7F2_E001_47ed_BC51_CAD355483DC9"/>
+				</links>
+			</element>
+			<element xmi:idref="EAID_9DB139F1_4D88_4b49_A276_28EC574D8273" xmi:type="uml:State" name="RadiatorOff" scope="public">
+				<model package="EAPK_F19A1E56_AC07_44ff_9655_3DB0FAB68F4E" owner="EAID_250039F5_47E0_4cf9_9048_3E10B48F65C5" tpos="0" ea_localid="18" ea_eleType="element"/>
+				<properties isSpecification="false" sType="State" nType="0" scope="public"/>
+				<project author="Besitzer" version="1.0" phase="1.0" created="2012-10-31 19:12:41" modified="2012-10-31 19:12:56" complexity="1" status="Proposed"/>
+				<code gentype="Java"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=0;HSwimLanes=0;BorderStyle=0;"/>
+				<tags/>
+				<xrefs/>
+				<extendedProperties tagged="0" package_name="implementation"/>
+				<links>
+					<StateFlow xmi:id="EAID_CC2EEF92_E5E4_48ef_AB4F_37D2A14D594B" start="EAID_9DB139F1_4D88_4b49_A276_28EC574D8273" end="EAID_55BA5447_4D9A_41e4_9E3C_C396BFED868C"/>
+					<StateFlow xmi:id="EAID_1D805F36_BE3B_4c88_BD62_00E081A8C6E3" start="EAID_55BA5447_4D9A_41e4_9E3C_C396BFED868C" end="EAID_9DB139F1_4D88_4b49_A276_28EC574D8273"/>
+					<StateFlow xmi:id="EAID_7CECD948_4467_4e13_9BA8_AAE373C89A30" start="EAID_326B0489_3375_46da_B085_F8765D8F8FC4" end="EAID_9DB139F1_4D88_4b49_A276_28EC574D8273"/>
+				</links>
+			</element>
+			<element xmi:idref="EAID_EE1722C6_B9A6_418c_9BB4_A68C0342BEFB" xmi:type="uml:StateNode" name="History" scope="public">
+				<model package="EAPK_F19A1E56_AC07_44ff_9655_3DB0FAB68F4E" owner="EAID_250039F5_47E0_4cf9_9048_3E10B48F65C5" tpos="0" ea_localid="9" ea_eleType="element"/>
+				<properties isSpecification="false" sType="StateNode" nType="5" scope="public"/>
+				<project author="Besitzer" version="1.0" phase="1.0" created="2012-10-31 19:06:31" modified="2012-10-31 19:06:33" complexity="1" status="Proposed"/>
+				<code gentype="&lt;none&gt;"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<tags/>
+				<xrefs/>
+				<extendedProperties tagged="0" package_name="implementation"/>
+			</element>
+			<element xmi:idref="EAID_B78B83B4_79A0_4aee_A346_EC7060FC5FE9" xmi:type="uml:StateNode" name="History" scope="public">
+				<model package="EAPK_F19A1E56_AC07_44ff_9655_3DB0FAB68F4E" owner="EAID_250039F5_47E0_4cf9_9048_3E10B48F65C5" tpos="0" ea_localid="34" ea_eleType="element"/>
+				<properties isSpecification="false" sType="StateNode" nType="5" scope="public"/>
+				<project author="Peter" version="1.0" phase="1.0" created="2014-06-16 15:10:49" modified="2014-06-16 15:10:57" complexity="1" status="Proposed"/>
+				<code gentype="&lt;none&gt;"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<tags/>
+				<xrefs/>
+				<extendedProperties tagged="0" package_name="implementation"/>
+			</element>
+			<element xmi:idref="EAID_C456777B_1AE1_45a5_9EDF_287E8E9198E8" xmi:type="uml:StateNode" name="History" scope="public">
+				<model package="EAPK_F19A1E56_AC07_44ff_9655_3DB0FAB68F4E" owner="EAID_250039F5_47E0_4cf9_9048_3E10B48F65C5" tpos="0" ea_localid="35" ea_eleType="element"/>
+				<properties isSpecification="false" sType="StateNode" nType="5" scope="public"/>
+				<project author="Peter" version="1.0" phase="1.0" created="2014-06-16 15:10:57" modified="2014-06-16 15:11:01" complexity="1" status="Proposed"/>
+				<code gentype="&lt;none&gt;"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<tags/>
+				<xrefs/>
+				<extendedProperties tagged="0" package_name="implementation"/>
+			</element>
+			<element xmi:idref="EAID_852BA464_30B7_41a1_B58A_E208844D2EF4" xmi:type="uml:StateNode" name="Initial" scope="public">
+				<model package="EAPK_F19A1E56_AC07_44ff_9655_3DB0FAB68F4E" owner="EAID_250039F5_47E0_4cf9_9048_3E10B48F65C5" tpos="0" ea_localid="10" ea_eleType="element"/>
+				<properties isSpecification="false" sType="StateNode" nType="3" scope="public"/>
+				<project author="Besitzer" version="1.0" phase="1.0" created="2012-10-31 19:06:38" modified="2012-10-31 19:06:40" complexity="1" status="Proposed"/>
+				<code gentype="&lt;none&gt;"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<tags/>
+				<xrefs/>
+				<extendedProperties tagged="0" package_name="implementation"/>
+				<links>
+					<StateFlow xmi:id="EAID_8E437ED4_1072_422c_B447_8E36413680BD" start="EAID_852BA464_30B7_41a1_B58A_E208844D2EF4" end="EAID_5B8DE7F2_E001_47ed_BC51_CAD355483DC9"/>
+				</links>
+			</element>
+			<element xmi:idref="EAID_FB5C82CC_94AC_4d9f_B84D_1BBE4B0156A4" xmi:type="uml:StateNode" name="Initial" scope="public">
+				<model package="EAPK_F19A1E56_AC07_44ff_9655_3DB0FAB68F4E" owner="EAID_250039F5_47E0_4cf9_9048_3E10B48F65C5" tpos="0" ea_localid="21" ea_eleType="element"/>
+				<properties isSpecification="false" sType="StateNode" nType="3" scope="public"/>
+				<project author="Besitzer" version="1.0" phase="1.0" created="2012-10-31 19:13:30" modified="2012-10-31 19:13:32" complexity="1" status="Proposed"/>
+				<code gentype="&lt;none&gt;"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<tags/>
+				<xrefs/>
+				<extendedProperties tagged="0" package_name="implementation"/>
+				<links>
+					<StateFlow xmi:id="EAID_33D5C2BA_5635_4e82_8F5C_829DF73D5640" start="EAID_FB5C82CC_94AC_4d9f_B84D_1BBE4B0156A4" end="EAID_92B00D61_322B_4116_842B_1D9EA85F0217"/>
+				</links>
+			</element>
+			<element xmi:idref="EAID_326B0489_3375_46da_B085_F8765D8F8FC4" xmi:type="uml:StateNode" name="Initial" scope="public">
+				<model package="EAPK_F19A1E56_AC07_44ff_9655_3DB0FAB68F4E" owner="EAID_250039F5_47E0_4cf9_9048_3E10B48F65C5" tpos="0" ea_localid="22" ea_eleType="element"/>
+				<properties isSpecification="false" sType="StateNode" nType="3" scope="public"/>
+				<project author="Besitzer" version="1.0" phase="1.0" created="2012-10-31 19:14:01" modified="2012-10-31 19:14:04" complexity="1" status="Proposed"/>
+				<code gentype="&lt;none&gt;"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<tags/>
+				<xrefs/>
+				<extendedProperties tagged="0" package_name="implementation"/>
+				<links>
+					<StateFlow xmi:id="EAID_7CECD948_4467_4e13_9BA8_AAE373C89A30" start="EAID_326B0489_3375_46da_B085_F8765D8F8FC4" end="EAID_9DB139F1_4D88_4b49_A276_28EC574D8273"/>
+				</links>
+			</element>
+			<element xmi:idref="EAID_15C95021_9C6C_4388_A716_5FAA22AC2C5B" xmi:type="uml:State" name="Inactive" scope="public">
+				<model package="EAPK_F19A1E56_AC07_44ff_9655_3DB0FAB68F4E" owner="EAID_B1917B96_F5B6_4e18_8980_BE1018B931CD" tpos="0" ea_localid="4" ea_eleType="element"/>
+				<properties isSpecification="false" sType="State" nType="0" scope="public"/>
+				<project author="Besitzer" version="1.0" phase="1.0" created="2012-10-31 19:03:48" modified="2020-11-06 18:56:55" complexity="1" status="Proposed"/>
+				<code gentype="Java"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=0;HSwimLanes=0;BorderStyle=0;"/>
+				<tags/>
+				<xrefs/>
+				<extendedProperties tagged="0" package_name="implementation"/>
+				<links>
+					<StateFlow xmi:id="EAID_9F9631B1_3665_4058_A2D1_7C7FBD6218E7" start="EAID_151EEB69_3E2B_49c6_B191_B1DA0B3F0FFA" end="EAID_15C95021_9C6C_4388_A716_5FAA22AC2C5B"/>
+				</links>
+			</element>
+			<element xmi:idref="EAID_B50ED060_B32F_435d_B3F4_4E3C624FF606" xmi:type="uml:Trigger" name=" " scope="public">
+				<model package="EAPK_F19A1E56_AC07_44ff_9655_3DB0FAB68F4E" owner="EAID_B1917B96_F5B6_4e18_8980_BE1018B931CD" tpos="0" ea_localid="32" ea_eleType="element"/>
+				<properties isSpecification="false" sType="Trigger" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<project author="Peter" version="1.0" phase="1.0" created="2014-06-16 15:06:22" modified="2014-06-16 15:06:22" complexity="1" status="Proposed"/>
+				<code gentype="&lt;none&gt;"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<tags/>
+				<xrefs value="$XREFPROP=$XID={E2AC4439-5DEB-4278-BF6A-8449BC02A5C2}$XID;$NAM=MOFProps$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$BEH=event$BEH;$PAR=0$PAR;$DES=RefGUID={568539BC-9A42-4259-8224-5D5A18A1D9A0};RefName=sigType;$DES;$CLT={B50ED060-B32F-435d-B3F4-4E3C624FF606}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<extendedProperties tagged="0" package_name="implementation"/>
+			</element>
+			<element xmi:idref="EAID_75EFDF6C_8121_46c2_A46D_BE5470039A05" xmi:type="uml:Trigger" name=" " scope="public">
+				<model package="EAPK_F19A1E56_AC07_44ff_9655_3DB0FAB68F4E" owner="EAID_B1917B96_F5B6_4e18_8980_BE1018B931CD" tpos="0" ea_localid="33" ea_eleType="element"/>
+				<properties isSpecification="false" sType="Trigger" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<project author="Peter" version="1.0" phase="1.0" created="2014-06-16 15:06:57" modified="2014-06-16 15:06:57" complexity="1" status="Proposed"/>
+				<code gentype="&lt;none&gt;"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<tags/>
+				<xrefs value="$XREFPROP=$XID={ECC00480-791E-47c9-98F5-6E9DE13EAFBB}$XID;$NAM=MOFProps$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$BEH=event$BEH;$PAR=0$PAR;$DES=RefGUID={FEABC5C0-8C7E-477f-A496-0ECE8A278361};$DES;$CLT={75EFDF6C-8121-46c2-A46D-BE5470039A05}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;$XREFPROP=$XID={3EC2274D-DEE8-4a87-8672-675902D87E7F}$XID;$NAM=CustomProperties$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=kind@ENDNAME;@TYPE=TriggerKind@ENDTYPE;@VALU=@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={75EFDF6C-8121-46c2-A46D-BE5470039A05}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+				<extendedProperties tagged="0" package_name="implementation"/>
+			</element>
+			<element xmi:idref="EAID_151EEB69_3E2B_49c6_B191_B1DA0B3F0FFA" xmi:type="uml:StateNode" name="Choice" scope="public">
+				<model package="EAPK_F19A1E56_AC07_44ff_9655_3DB0FAB68F4E" owner="EAID_B1917B96_F5B6_4e18_8980_BE1018B931CD" tpos="0" ea_localid="31" ea_eleType="element"/>
+				<properties isSpecification="false" sType="StateNode" nType="11" scope="public"/>
+				<project author="Peter" version="1.0" phase="1.0" created="2014-06-16 15:04:47" modified="2014-06-16 15:04:47" complexity="1" status="Proposed"/>
+				<code gentype="&lt;none&gt;"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<tags/>
+				<xrefs/>
+				<extendedProperties tagged="0" package_name="implementation"/>
+				<links>
+					<StateFlow xmi:id="EAID_8A7695B6_0BEA_4519_BB9B_12BF6BC4B4AF" start="EAID_151EEB69_3E2B_49c6_B191_B1DA0B3F0FFA" end="EAID_250039F5_47E0_4cf9_9048_3E10B48F65C5"/>
+					<StateFlow xmi:id="EAID_9F9631B1_3665_4058_A2D1_7C7FBD6218E7" start="EAID_151EEB69_3E2B_49c6_B191_B1DA0B3F0FFA" end="EAID_15C95021_9C6C_4388_A716_5FAA22AC2C5B"/>
+					<StateFlow xmi:id="EAID_805A3288_645F_494d_97AB_E67B33409AC9" start="EAID_737E730A_F281_4922_A7D9_DDDDFD79164F" end="EAID_151EEB69_3E2B_49c6_B191_B1DA0B3F0FFA"/>
+				</links>
+			</element>
+			<element xmi:idref="EAID_737E730A_F281_4922_A7D9_DDDDFD79164F" xmi:type="uml:StateNode" name="Initial" scope="public">
+				<model package="EAPK_F19A1E56_AC07_44ff_9655_3DB0FAB68F4E" owner="EAID_B1917B96_F5B6_4e18_8980_BE1018B931CD" tpos="0" ea_localid="5" ea_eleType="element"/>
+				<properties isSpecification="false" sType="StateNode" nType="3" scope="public"/>
+				<project author="Besitzer" version="1.0" phase="1.0" created="2012-10-31 19:04:06" modified="2012-10-31 19:04:06" complexity="1" status="Proposed"/>
+				<code gentype="&lt;none&gt;"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<tags/>
+				<xrefs/>
+				<extendedProperties tagged="0" package_name="implementation"/>
+				<links>
+					<StateFlow xmi:id="EAID_805A3288_645F_494d_97AB_E67B33409AC9" start="EAID_737E730A_F281_4922_A7D9_DDDDFD79164F" end="EAID_151EEB69_3E2B_49c6_B191_B1DA0B3F0FFA"/>
+				</links>
+			</element>
+			<element xmi:idref="EAID_568539BC_9A42_4259_8224_5D5A18A1D9A0" xmi:type="uml:Signal" name="sigType" scope="public">
+				<model package="EAPK_F19A1E56_AC07_44ff_9655_3DB0FAB68F4E" tpos="0" ea_localid="11" ea_eleType="element"/>
+				<properties isSpecification="false" sType="Signal" nType="0" scope="public" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<project author="Besitzer" version="1.0" phase="1.0" created="2012-10-31 19:07:09" modified="2012-10-31 19:07:09" complexity="1" status="Proposed"/>
+				<code gentype="Java"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<tags/>
+				<xrefs/>
+				<extendedProperties tagged="0" package_name="implementation"/>
+			</element>
+			<element xmi:idref="EAID_4CB40ED1_7E77_4aa6_B4A5_45CB2BB5A1C0" xmi:type="uml:Note" scope="public">
+				<model package="EAPK_F19A1E56_AC07_44ff_9655_3DB0FAB68F4E" tpos="0" ea_localid="30" ea_eleType="element"/>
+				<properties documentation="header:&#xA;#include &quot;oven_ext.h&quot;&#xA;#include &quot;oven_hlp.h&quot;&#xA;#include &quot;oven.h&quot;&#xA;#include &amp;lt;stdio.h&amp;gt;&#xA;&#xA;extern unsigned char msg;&#xA;extern T_PWR pwr;" isSpecification="false" sType="Note" nType="0" scope="public"/>
+				<project author="Besitzer" version="1.0" phase="1.0" created="2012-10-31 19:22:47" modified="2012-10-31 19:28:50" complexity="1" status="Proposed"/>
+				<code gentype="&lt;none&gt;"/>
+				<style appearance="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+				<tags/>
+				<xrefs/>
+				<extendedProperties tagged="0" package_name="implementation"/>
+				<links>
+					<NoteLink xmi:id="EAID_D693C870_1522_4cc1_8670_22FF3050EE35" start="EAID_4CB40ED1_7E77_4aa6_B4A5_45CB2BB5A1C0" end="EAID_3B9B0DDD_A31E_4962_A52C_3C94654CEAA6"/>
+				</links>
+			</element>
+		</elements>
+		<connectors>
+			<connector xmi:idref="EAID_D693C870_1522_4cc1_8670_22FF3050EE35">
+				<source xmi:idref="EAID_4CB40ED1_7E77_4aa6_B4A5_45CB2BB5A1C0">
+					<model ea_localid="30" type="Note"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</source>
+				<target xmi:idref="EAID_3B9B0DDD_A31E_4962_A52C_3C94654CEAA6">
+					<model ea_localid="2" type="Class" name="oven"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</target>
+				<model ea_localid="16"/>
+				<properties ea_type="NoteLink" direction="Source -&gt; Destination"/>
+				<modifiers isRoot="false" isLeaf="false"/>
+				<documentation/>
+				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels/>
+				<extendedProperties virtualInheritance="0"/>
+				<style/>
+				<xrefs/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_C82E6594_18DC_4edc_8A79_1F69B73B610C">
+				<source xmi:idref="EAID_250039F5_47E0_4cf9_9048_3E10B48F65C5">
+					<model ea_localid="6" type="State" name="Active"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</source>
+				<target xmi:idref="EAID_250039F5_47E0_4cf9_9048_3E10B48F65C5">
+					<model ea_localid="6" type="State" name="Active"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</target>
+				<model ea_localid="15"/>
+				<properties ea_type="StateFlow" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels/>
+				<extendedProperties virtualInheritance="0" privatedata1="evDec" privatedata3="timer_dec();"/>
+				<style/>
+				<xrefs/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_F8C408CB_F5AE_4cbd_BCED_8019A2CF9B6E">
+				<source xmi:idref="EAID_250039F5_47E0_4cf9_9048_3E10B48F65C5">
+					<model ea_localid="6" type="State" name="Active"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</source>
+				<target xmi:idref="EAID_250039F5_47E0_4cf9_9048_3E10B48F65C5">
+					<model ea_localid="6" type="State" name="Active"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</target>
+				<model ea_localid="14"/>
+				<properties ea_type="StateFlow" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels/>
+				<extendedProperties virtualInheritance="0" privatedata1="evInc" privatedata3="timer_inc();"/>
+				<style/>
+				<xrefs/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_8A7695B6_0BEA_4519_BB9B_12BF6BC4B4AF">
+				<source xmi:idref="EAID_151EEB69_3E2B_49c6_B191_B1DA0B3F0FFA">
+					<model ea_localid="31" type="StateNode" name="Choice"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</source>
+				<target xmi:idref="EAID_250039F5_47E0_4cf9_9048_3E10B48F65C5">
+					<model ea_localid="6" type="State" name="Active"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</target>
+				<model ea_localid="13"/>
+				<properties ea_type="StateFlow" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels/>
+				<extendedProperties virtualInheritance="0" privatedata1=" " privatedata2="testResult==0"/>
+				<style/>
+				<xrefs/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_1D805F36_BE3B_4c88_BD62_00E081A8C6E3">
+				<source xmi:idref="EAID_55BA5447_4D9A_41e4_9E3C_C396BFED868C">
+					<model ea_localid="19" type="State" name="Cooking"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</source>
+				<target xmi:idref="EAID_9DB139F1_4D88_4b49_A276_28EC574D8273">
+					<model ea_localid="18" type="State" name="RadiatorOff"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</target>
+				<model ea_localid="9"/>
+				<properties ea_type="StateFlow" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels/>
+				<extendedProperties virtualInheritance="0" privatedata1="evTimeout" privatedata3="ovenOff();&#xA;timer_clear();"/>
+				<style/>
+				<xrefs/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_5F8B8DC2_66CD_4f97_BE2B_15985089F87D">
+				<source xmi:idref="EAID_55BA5447_4D9A_41e4_9E3C_C396BFED868C">
+					<model ea_localid="19" type="State" name="Cooking"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</source>
+				<target xmi:idref="EAID_2D9C8D12_B317_49a1_B614_28F46D0CC614">
+					<model ea_localid="20" type="State" name="CookingPause"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</target>
+				<model ea_localid="11"/>
+				<properties ea_type="StateFlow" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels/>
+				<extendedProperties virtualInheritance="0" privatedata1="evDoorOpen" privatedata3="ovenOff();&#xA;timer_pause();"/>
+				<style/>
+				<xrefs/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_73A46E7D_42A9_49fe_AE7C_33F620832835">
+				<source xmi:idref="EAID_2D9C8D12_B317_49a1_B614_28F46D0CC614">
+					<model ea_localid="20" type="State" name="CookingPause"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</source>
+				<target xmi:idref="EAID_55BA5447_4D9A_41e4_9E3C_C396BFED868C">
+					<model ea_localid="19" type="State" name="Cooking"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</target>
+				<model ea_localid="12"/>
+				<properties ea_type="StateFlow" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels/>
+				<extendedProperties virtualInheritance="0" privatedata1="evDoorClosed" privatedata3="timer_cont();"/>
+				<style/>
+				<xrefs/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_CC2EEF92_E5E4_48ef_AB4F_37D2A14D594B">
+				<source xmi:idref="EAID_9DB139F1_4D88_4b49_A276_28EC574D8273">
+					<model ea_localid="18" type="State" name="RadiatorOff"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</source>
+				<target xmi:idref="EAID_55BA5447_4D9A_41e4_9E3C_C396BFED868C">
+					<model ea_localid="19" type="State" name="Cooking"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</target>
+				<model ea_localid="10"/>
+				<properties ea_type="StateFlow" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels/>
+				<extendedProperties virtualInheritance="0" privatedata1="evDoorClosed" privatedata2="timer_preset()&gt;0" privatedata3="timer_start();"/>
+				<style/>
+				<xrefs/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_27E1F7C2_E0ED_4d92_9C73_6BCD49024652">
+				<source xmi:idref="EAID_38744BBC_CA4E_4409_A160_6BF694039705">
+					<model ea_localid="8" type="State" name="HighPower"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</source>
+				<target xmi:idref="EAID_5B8DE7F2_E001_47ed_BC51_CAD355483DC9">
+					<model ea_localid="7" type="State" name="LowPower"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</target>
+				<model ea_localid="4"/>
+				<properties ea_type="StateFlow" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels/>
+				<extendedProperties virtualInheritance="0" privatedata1="evPwrLow"/>
+				<style/>
+				<xrefs/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_C009EE43_A180_4b5e_9D36_0FDF7D303000">
+				<source xmi:idref="EAID_5B8DE7F2_E001_47ed_BC51_CAD355483DC9">
+					<model ea_localid="7" type="State" name="LowPower"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</source>
+				<target xmi:idref="EAID_38744BBC_CA4E_4409_A160_6BF694039705">
+					<model ea_localid="8" type="State" name="HighPower"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</target>
+				<model ea_localid="3"/>
+				<properties ea_type="StateFlow" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels/>
+				<extendedProperties virtualInheritance="0" privatedata1="evPwrHigh"/>
+				<style/>
+				<xrefs/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_445CE33A_1E6D_4db0_917A_D4CFA3B4FDED">
+				<source xmi:idref="EAID_B0166C9C_2693_4a07_B8A2_8DCCFBB49AC0">
+					<model ea_localid="15" type="State" name="LightOff"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</source>
+				<target xmi:idref="EAID_92B00D61_322B_4116_842B_1D9EA85F0217">
+					<model ea_localid="14" type="State" name="LightOn"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</target>
+				<model ea_localid="6"/>
+				<properties ea_type="StateFlow" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels/>
+				<extendedProperties virtualInheritance="0" privatedata1="evDoorClosed" privatedata2="timer_preset()&gt;0"/>
+				<style/>
+				<xrefs/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_A9B4B2B2_009A_4d49_87D6_A5B537AD8A1E">
+				<source xmi:idref="EAID_92B00D61_322B_4116_842B_1D9EA85F0217">
+					<model ea_localid="14" type="State" name="LightOn"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</source>
+				<target xmi:idref="EAID_B0166C9C_2693_4a07_B8A2_8DCCFBB49AC0">
+					<model ea_localid="15" type="State" name="LightOff"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</target>
+				<model ea_localid="5"/>
+				<properties ea_type="StateFlow" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels/>
+				<extendedProperties virtualInheritance="0" privatedata1="evDoorOpen" privatedata2="timer_preset()==0"/>
+				<style/>
+				<xrefs/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_33D5C2BA_5635_4e82_8F5C_829DF73D5640">
+				<source xmi:idref="EAID_FB5C82CC_94AC_4d9f_B84D_1BBE4B0156A4">
+					<model ea_localid="21" type="StateNode" name="Initial"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</source>
+				<target xmi:idref="EAID_92B00D61_322B_4116_842B_1D9EA85F0217">
+					<model ea_localid="14" type="State" name="LightOn"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</target>
+				<model ea_localid="7"/>
+				<properties ea_type="StateFlow" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels/>
+				<extendedProperties virtualInheritance="0"/>
+				<style/>
+				<xrefs/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_8E437ED4_1072_422c_B447_8E36413680BD">
+				<source xmi:idref="EAID_852BA464_30B7_41a1_B58A_E208844D2EF4">
+					<model ea_localid="10" type="StateNode" name="Initial"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</source>
+				<target xmi:idref="EAID_5B8DE7F2_E001_47ed_BC51_CAD355483DC9">
+					<model ea_localid="7" type="State" name="LowPower"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</target>
+				<model ea_localid="2"/>
+				<properties ea_type="StateFlow" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels/>
+				<extendedProperties virtualInheritance="0"/>
+				<style/>
+				<xrefs/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_7CECD948_4467_4e13_9BA8_AAE373C89A30">
+				<source xmi:idref="EAID_326B0489_3375_46da_B085_F8765D8F8FC4">
+					<model ea_localid="22" type="StateNode" name="Initial"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</source>
+				<target xmi:idref="EAID_9DB139F1_4D88_4b49_A276_28EC574D8273">
+					<model ea_localid="18" type="State" name="RadiatorOff"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</target>
+				<model ea_localid="8"/>
+				<properties ea_type="StateFlow" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels/>
+				<extendedProperties virtualInheritance="0"/>
+				<style/>
+				<xrefs/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_9F9631B1_3665_4058_A2D1_7C7FBD6218E7">
+				<source xmi:idref="EAID_151EEB69_3E2B_49c6_B191_B1DA0B3F0FFA">
+					<model ea_localid="31" type="StateNode" name="Choice"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</source>
+				<target xmi:idref="EAID_15C95021_9C6C_4388_A716_5FAA22AC2C5B">
+					<model ea_localid="4" type="State" name="Inactive"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</target>
+				<model ea_localid="17"/>
+				<properties ea_type="StateFlow" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels/>
+				<extendedProperties virtualInheritance="0" privatedata1=" " privatedata2="else"/>
+				<style/>
+				<xrefs/>
+				<tags/>
+			</connector>
+			<connector xmi:idref="EAID_805A3288_645F_494d_97AB_E67B33409AC9">
+				<source xmi:idref="EAID_737E730A_F281_4922_A7D9_DDDDFD79164F">
+					<model ea_localid="5" type="StateNode" name="Initial"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="false"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</source>
+				<target xmi:idref="EAID_151EEB69_3E2B_49c6_B191_B1DA0B3F0FFA">
+					<model ea_localid="31" type="StateNode" name="Choice"/>
+					<role visibility="Public" targetScope="instance"/>
+					<type aggregation="none" containment="Unspecified"/>
+					<constraints/>
+					<modifiers isOrdered="false" changeable="none" isNavigable="true"/>
+					<style value="Union=0;Derived=0;AllowDuplicates=0;"/>
+					<documentation/>
+					<xrefs/>
+					<tags/>
+				</target>
+				<model ea_localid="1"/>
+				<properties ea_type="StateFlow" direction="Source -&gt; Destination"/>
+				<documentation/>
+				<appearance linemode="3" linecolor="-1" linewidth="0" seqno="0" headStyle="0" lineStyle="0"/>
+				<labels/>
+				<extendedProperties virtualInheritance="0" privatedata1=" " privatedata3="uint8_t testResult = hardwareTest();"/>
+				<style/>
+				<xrefs/>
+				<tags/>
+			</connector>
+		</connectors>
+		<primitivetypes>
+			<packagedElement xmi:type="uml:Package" xmi:id="EAPrimitiveTypesPackage" name="EA_PrimitiveTypes_Package" visibility="public">
+				<packagedElement xmi:type="uml:Package" xmi:id="EAJavaTypesPackage" name="EA_Java_Types_Package" visibility="public">
+					<packagedElement xmi:type="uml:PrimitiveType" xmi:id="EAJava_entry" name="entry" visibility="public"/>
+				</packagedElement>
+			</packagedElement>
+		</primitivetypes>
+		<profiles/>
+		<diagrams>
+			<diagram xmi:id="EAID_53277A69_DD0F_4a2e_AB38_B8E2C75920E7">
+				<model package="EAPK_F19A1E56_AC07_44ff_9655_3DB0FAB68F4E" localID="1" owner="EAPK_F19A1E56_AC07_44ff_9655_3DB0FAB68F4E"/>
+				<properties name="oven_classes" type="Logical"/>
+				<project author="Besitzer" version="1.0" created="2012-10-31 19:03:16" modified="2012-10-31 19:28:51"/>
+				<style1 value="ShowPrivate=1;ShowProtected=1;ShowPublic=1;HideRelationships=0;Locked=0;Border=1;HighlightForeign=1;PackageContents=1;SequenceNotes=0;ScalePrintImage=0;PPgs.cx=1;PPgs.cy=1;DocSize.cx=799;DocSize.cy=1067;ShowDetails=0;Orientation=P;Zoom=100;ShowTags=0;OpParams=1;VisibleAttributeDetail=0;ShowOpRetType=1;ShowIcons=1;CollabNums=0;HideProps=0;ShowReqs=0;ShowCons=0;PaperSize=1;HideParents=0;UseAlias=0;HideAtts=0;HideOps=0;HideStereo=0;HideElemStereo=0;ShowTests=0;ShowMaint=0;ConnectorNotation=UML 2.1;ExplicitNavigability=0;ShowShape=1;AllDockable=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;m_bElementClassifier=1;SPT=1;ShowNotes=0;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;"/>
+				<style2 value="ExcludeRTF=0;DocAll=0;HideQuals=0;AttPkg=1;ShowTests=0;ShowMaint=0;SuppressFOC=1;MatrixActive=0;SwimlanesActive=1;MatrixLineWidth=1;MatrixLocked=0;TConnectorNotation=UML 2.1;TExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;ProfileData=;MDGDgm=;STBLDgm=;ShowNotes=0;VisibleAttributeDetail=0;ShowOpRetType=1;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;SaveTag=D5E03B14;"/>
+				<swimlanes value="locked=false;orientation=0;width=0;inbar=false;names=false;color=0;bold=false;fcol=0;tcol=-1;ofCol=-1;ufCol=-1;hl=1;ufh=0;hh=0;cls=0;bw=0;hli=0;SwimlaneFont=lfh:-10,lfw:0,lfi:0,lfu:0,lfs:0,lfface:Calibri,lfe:0,lfo:0,lfchar:1,lfop:0,lfcp:0,lfq:0,lfpf=0,lfWidth=0;"/>
+				<matrixitems value="locked=false;matrixactive=false;swimlanesactive=true;kanbanactive=false;width=1;clrLine=0;"/>
+				<extendedProperties/>
+				<elements>
+					<element geometry="Left=487;Top=193;Right=729;Bottom=317;" subject="EAID_4CB40ED1_7E77_4aa6_B4A5_45CB2BB5A1C0" seqno="1" style="DUID=D8A90AD2;"/>
+					<element geometry="Left=247;Top=128;Right=337;Bottom=198;" subject="EAID_3B9B0DDD_A31E_4962_A52C_3C94654CEAA6" seqno="2" style="DUID=3EB5D7AF;"/>
+					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=4;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_D693C870_1522_4cc1_8670_22FF3050EE35" style="Mode=3;EOID=3EB5D7AF;SOID=D8A90AD2;Color=-1;LWidth=0;Hidden=0;"/>
+				</elements>
+			</diagram>
+			<diagram xmi:id="EAID_5A492935_D036_4af3_87FE_E981B08A9516">
+				<model package="EAPK_F19A1E56_AC07_44ff_9655_3DB0FAB68F4E" localID="2" owner="EAPK_F19A1E56_AC07_44ff_9655_3DB0FAB68F4E" parent="EAID_B1917B96_F5B6_4e18_8980_BE1018B931CD"/>
+				<properties name="StateMachine" type="Statechart"/>
+				<project author="Besitzer" version="1.0" created="2012-10-31 19:03:43" modified="2020-11-06 18:56:28"/>
+				<style1 value="ShowPrivate=1;ShowProtected=1;ShowPublic=1;HideRelationships=0;Locked=0;Border=1;HighlightForeign=1;PackageContents=1;SequenceNotes=0;ScalePrintImage=0;PPgs.cx=2;PPgs.cy=1;DocSize.cx=799;DocSize.cy=1067;ShowDetails=0;Orientation=P;Zoom=100;ShowTags=0;OpParams=1;VisibleAttributeDetail=0;ShowOpRetType=1;ShowIcons=1;CollabNums=0;HideProps=0;ShowReqs=0;ShowCons=0;PaperSize=1;HideParents=0;UseAlias=0;HideAtts=0;HideOps=0;HideStereo=0;HideElemStereo=0;ShowTests=0;ShowMaint=0;ConnectorNotation=UML 2.1;ExplicitNavigability=0;ShowShape=1;AllDockable=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;m_bElementClassifier=1;SPT=1;ShowNotes=0;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;"/>
+				<style2 value="ExcludeRTF=0;DocAll=0;HideQuals=0;AttPkg=1;ShowTests=0;ShowMaint=0;SuppressFOC=1;MatrixActive=0;SwimlanesActive=1;KanbanActive=0;MatrixLineWidth=1;MatrixLineClr=0;MatrixLocked=0;TConnectorNotation=UML 2.1;TExplicitNavigability=0;AdvancedElementProps=1;AdvancedFeatureProps=1;AdvancedConnectorProps=1;m_bElementClassifier=1;SPT=1;MDGDgm=;STBLDgm=;ShowNotes=0;OPTIONS_54A92CD0=EF186=181:645B2=232:9712D=165:;VisibleAttributeDetail=0;ShowOpRetType=1;SuppressBrackets=0;SuppConnectorLabels=0;PrintPageHeadFoot=0;ShowAsList=0;SuppressedCompartments=;SF=1;Theme=:119;SaveTag=F959C16C;"/>
+				<swimlanes value="locked=false;orientation=0;width=0;inbar=false;names=false;color=0;bold=false;fcol=0;tcol=-1;ofCol=-1;ufCol=-1;hl=0;ufh=0;hh=0;cls=0;bw=0;hli=0;SwimlaneFont=lfh:-10,lfw:0,lfi:0,lfu:0,lfs:0,lfface:Calibri,lfe:0,lfo:0,lfchar:1,lfop:0,lfcp:0,lfq:0,lfpf=0,lfWidth=0;"/>
+				<matrixitems value="locked=false;matrixactive=false;swimlanesactive=true;kanbanactive=false;width=1;clrLine=0;"/>
+				<extendedProperties/>
+				<elements>
+					<element geometry="Left=309;Top=676;Right=329;Bottom=696;" subject="EAID_C456777B_1AE1_45a5_9EDF_287E8E9198E8" seqno="1" style="DUID=23D44D40;LBL=CX=28:CY=13:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:ALT=0:ROT=0;"/>
+					<element geometry="Left=358;Top=425;Right=378;Bottom=445;" subject="EAID_B78B83B4_79A0_4aee_A346_EC7060FC5FE9" seqno="2" style="DUID=61ED92D6;LBL=CX=28:CY=13:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:ALT=0:ROT=0;"/>
+					<element geometry="Left=777;Top=265;Right=803;Bottom=299;" subject="EAID_151EEB69_3E2B_49c6_B191_B1DA0B3F0FFA" seqno="3" style="DUID=44216A7B;LBL=CX=26:CY=13:OX=41:OY=-4:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:ALT=0:ROT=0;"/>
+					<element geometry="Left=227;Top=661;Right=247;Bottom=681;" subject="EAID_326B0489_3375_46da_B085_F8765D8F8FC4" seqno="4" style="DUID=84EAF1D9;LBL=CX=22:CY=13:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:ALT=0:ROT=0;"/>
+					<element geometry="Left=183;Top=389;Right=203;Bottom=409;" subject="EAID_FB5C82CC_94AC_4d9f_B84D_1BBE4B0156A4" seqno="5" style="DUID=5151D51C;LBL=CX=22:CY=13:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:ALT=0:ROT=0;"/>
+					<element geometry="Left=435;Top=677;Right=555;Bottom=737;" subject="EAID_2D9C8D12_B317_49a1_B614_28F46D0CC614" seqno="6" style="DUID=57CD470B;"/>
+					<element geometry="Left=465;Top=548;Right=585;Bottom=608;" subject="EAID_55BA5447_4D9A_41e4_9E3C_C396BFED868C" seqno="7" style="DUID=4861E300;BFol=0;font=ARIAL;fontsz=80;bold=0;italic=0;ul=0;charset=0;pitch=0;BCol=65535;LCol=-1;"/>
+					<element geometry="Left=168;Top=568;Right=288;Bottom=628;" subject="EAID_9DB139F1_4D88_4b49_A276_28EC574D8273" seqno="8" style="DUID=543E2C6D;"/>
+					<element geometry="Left=447;Top=418;Right=599;Bottom=478;" subject="EAID_B0166C9C_2693_4a07_B8A2_8DCCFBB49AC0" seqno="9" style="DUID=32556AD1;"/>
+					<element geometry="Left=172;Top=421;Right=319;Bottom=481;" subject="EAID_92B00D61_322B_4116_842B_1D9EA85F0217" seqno="10" style="DUID=8DA1129D;"/>
+					<element geometry="Left=231;Top=213;Right=251;Bottom=233;" subject="EAID_852BA464_30B7_41a1_B58A_E208844D2EF4" seqno="11" style="DUID=7B65A2FF;LBL=CX=22:CY=13:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:ALT=0:ROT=0;"/>
+					<element geometry="Left=409;Top=206;Right=429;Bottom=226;" subject="EAID_EE1722C6_B9A6_418c_9BB4_A68C0342BEFB" seqno="12" style="DUID=091A835C;LBL=CX=28:CY=13:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:ALT=0:ROT=0;"/>
+					<element geometry="Left=414;Top=262;Right=592;Bottom=322;" subject="EAID_38744BBC_CA4E_4409_A160_6BF694039705" seqno="13" style="DUID=63E5886F;"/>
+					<element geometry="Left=163;Top=256;Right=339;Bottom=316;" subject="EAID_5B8DE7F2_E001_47ed_BC51_CAD355483DC9" seqno="14" style="DUID=4BE133F4;"/>
+					<element geometry="Left=136;Top=158;Right=656;Bottom=757;" subject="EAID_250039F5_47E0_4cf9_9048_3E10B48F65C5" seqno="15" style="DUID=54A92CD0;"/>
+					<element geometry="Left=747;Top=88;Right=767;Bottom=108;" subject="EAID_737E730A_F281_4922_A7D9_DDDDFD79164F" seqno="16" style="DUID=B6D1332E;LBL=CX=22:CY=13:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:ALT=0:ROT=0;"/>
+					<element geometry="Left=754;Top=355;Right=874;Bottom=415;" subject="EAID_15C95021_9C6C_4388_A716_5FAA22AC2C5B" seqno="17" style="DUID=A1712403;BCol=255;LCol=-1;"/>
+					<element geometry="Left=20;Top=20;Right=911;Bottom=794;" subject="EAID_B1917B96_F5B6_4e18_8980_BE1018B931CD" seqno="18" style=" DUID=AE2B18CA;NSL=1;"/>
+					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=4;$LLB=;LLT=;LMT=CX=54:CY=39:OX=85:OY=22:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_1D805F36_BE3B_4c88_BD62_00E081A8C6E3" style="Mode=3;EOID=543E2C6D;SOID=4861E300;Color=-1;LWidth=0;Hidden=0;"/>
+					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=3;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_8E437ED4_1072_422c_B447_8E36413680BD" style="Mode=3;EOID=4BE133F4;SOID=7B65A2FF;Color=-1;LWidth=0;Hidden=0;"/>
+					<element geometry="SX=3;SY=13;EX=3;EY=20;EDGE=2;$LLB=;LLT=;LMT=CX=43:CY=13:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_C009EE43_A180_4b5e_9D36_0FDF7D303000" style="Mode=3;EOID=63E5886F;SOID=4BE133F4;Color=-1;LWidth=0;Hidden=0;"/>
+					<element geometry="SX=-3;SY=-5;EX=-3;EY=-11;EDGE=4;$LLB=;LLT=;LMT=CX=41:CY=13:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_27E1F7C2_E0ED_4d92_9C73_6BCD49024652" style="Mode=3;EOID=4BE133F4;SOID=63E5886F;Color=-1;LWidth=0;Hidden=0;"/>
+					<element geometry="SX=1;SY=24;EX=1;EY=24;EDGE=1;$LLB=;LLT=;LMT=CX=131:CY=13:OX=2:OY=-2:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=344:-352$;" subject="EAID_A9B4B2B2_009A_4d49_87D6_A5B537AD8A1E" style="Mode=8;EOID=32556AD1;SOID=8DA1129D;Color=-1;LWidth=0;Hidden=0;"/>
+					<element geometry="SX=-3;SY=-12;EX=-3;EY=-12;EDGE=3;$LLB=;LLT=;LMT=CX=130:CY=13:OX=1:OY=-11:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=360:-510$;" subject="EAID_445CE33A_1E6D_4db0_917A_D4CFA3B4FDED" style="Mode=8;EOID=8DA1129D;SOID=32556AD1;Color=-1;LWidth=0;Hidden=0;"/>
+					<element geometry="SX=0;SY=1;EX=0;EY=0;EDGE=3;$LLB=;LLT=;LMT=CX=146:CY=13:OX=24:OY=-19:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_805A3288_645F_494d_97AB_E67B33409AC9" style="Mode=3;EOID=44216A7B;SOID=B6D1332E;Color=-1;LWidth=0;Hidden=0;"/>
+					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_7CECD948_4467_4e13_9BA8_AAE373C89A30" style="Mode=3;EOID=543E2C6D;SOID=84EAF1D9;Color=-1;LWidth=0;Hidden=0;"/>
+					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=3;$LLB=;LLT=;LMT=CX=22:CY=13:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_9F9631B1_3665_4058_A2D1_7C7FBD6218E7" style="Mode=3;EOID=A1712403;SOID=44216A7B;Color=-1;LWidth=0;Hidden=0;"/>
+					<element geometry="SX=-3;SY=17;EX=-3;EY=17;EDGE=2;$LLB=;LLT=;LMT=CX=130:CY=26:OX=25:OY=-21:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_CC2EEF92_E5E4_48ef_AB4F_37D2A14D594B" style="Mode=3;EOID=4861E300;SOID=543E2C6D;Color=-1;LWidth=0;Hidden=0;"/>
+					<element geometry="SX=-33;SY=-3;EX=-33;EY=-3;EDGE=3;$LLB=;LLT=;LMT=CX=59:CY=39:OX=71:OY=-11:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_5F8B8DC2_66CD_4f97_BE2B_15985089F87D" style="Mode=3;EOID=57CD470B;SOID=4861E300;Color=-1;LWidth=0;Hidden=0;"/>
+					<element geometry="SX=37;SY=29;EX=40;EY=-29;EDGE=1;$LLB=;LLT=;LMT=CX=56:CY=26:OX=68:OY=2:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_73A46E7D_42A9_49fe_AE7C_33F620832835" style="Mode=3;EOID=4861E300;SOID=57CD470B;Color=-1;LWidth=0;Hidden=0;"/>
+					<element geometry="SX=0;SY=0;EX=259;EY=160;EDGE=4;$LLB=;LLT=;LMT=CX=60:CY=13:OX=0:OY=0:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_8A7695B6_0BEA_4519_BB9B_12BF6BC4B4AF" style="Mode=3;EOID=54A92CD0;SOID=44216A7B;Color=-1;LWidth=0;Hidden=0;"/>
+					<element geometry="SX=0;SY=0;EX=0;EY=0;SCME=1;SCTR=1;EDGE=2;SCTR.LEFT=655;SCTR.TOP=-360;SCTR.RIGHT=703;SCTR.BOTTOM=-337;$LLB=;LLT=;LMT=CX=50:CY=26:OX=12:OY=33:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=656:-360$703:-360$703:-337$656:-337$;" subject="EAID_F8C408CB_F5AE_4cbd_BCED_8019A2CF9B6E" style="Mode=3;EOID=54A92CD0;SOID=54A92CD0;Color=-1;LWidth=0;Hidden=0;"/>
+					<element geometry="SX=0;SY=0;EX=0;EY=0;SCME=1;SCTR=1;EDGE=2;SCTR.LEFT=655;SCTR.TOP=-468;SCTR.RIGHT=687;SCTR.BOTTOM=-448;$LLB=;LLT=;LMT=CX=53:CY=26:OX=31:OY=28:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=0:DIR=0:ROT=0;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=656:-468$687:-468$687:-448$656:-448$;" subject="EAID_C82E6594_18DC_4edc_8A79_1F69B73B610C" style="Mode=3;EOID=54A92CD0;SOID=54A92CD0;Color=-1;LWidth=0;Hidden=0;"/>
+					<element geometry="SX=0;SY=0;EX=0;EY=0;EDGE=2;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;Path=;" subject="EAID_33D5C2BA_5635_4e82_8F5C_829DF73D5640" style="Mode=3;EOID=8DA1129D;SOID=5151D51C;Color=-1;LWidth=0;Hidden=0;"/>
+				</elements>
+			</diagram>
+		</diagrams>
+	</xmi:Extension>
+</xmi:XMI>

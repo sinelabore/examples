@@ -1,0 +1,54 @@
+@startuml
+
+
+
+
+state Super_H {
+
+  state Idle {
+     Idle : onEntry: ovenOff();
+  }
+  
+  state Cooking {
+     Cooking : onEntry: ovenOn();
+  }
+
+  [*]  --> Idle
+  Idle --> Cooking : evDoorClosed[timer_preset()>0]/timer_start();
+  Cooking --> CookingPause : evDoorOpen/ovenOff();timer_pause();
+  CookingPause --> Cooking : evDoorClosed/timer_cont();
+  Cooking --> Completed : evTimeout/ovenOff();
+  Completed --> Idle : evDoorOpen
+}
+
+note left of Super_H
+header:
+#include "oven_ext.h"
+#include "oven.h"
+#include "oven_hlp.h"
+#include <stdio.h>
+extern unsigned char msg;
+extern T_PWR pwr;
+
+static int res;
+
+// just a dummy
+int hardware_test(void){
+   return 0U;
+}
+
+end note
+
+Super_H --> Super_H : evInc/timer_inc();
+Super_H --> Super_H : evDec/timer_dec();
+Super_H --> Super_H : evPwr/ovenSetPwr(pwr);
+
+
+state c <<choice>>
+[*] --> c : / res = hardware_test();
+c --> [*] : [res!=0U]
+c --> Super_H : [else]
+
+
+
+@enduml

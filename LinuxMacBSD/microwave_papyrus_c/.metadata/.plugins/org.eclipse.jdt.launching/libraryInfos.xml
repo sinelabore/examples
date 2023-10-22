@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<libraryInfos>
+    <libraryInfo home="/Users/pmueller/.p2/pool/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.macosx.aarch64_17.0.5.v20221102-0933" version="17.0.5"/>
+    <libraryInfo home="/Library/Java/JavaVirtualMachines/jdk-16.0.1.jdk/Contents/Home" version="16.0.1"/>
+    <libraryInfo home="/Library/Java/JavaVirtualMachines/jdk-11.0.2.jdk/Contents/Home" version="11.0.2"/>
+    <libraryInfo home="/Library/Java/JavaVirtualMachines/adoptopenjdk-16.jdk/Contents/Home" version="16.0.1"/>
+    <libraryInfo home="/Users/pmueller/.p2/pool/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.macosx.aarch64_17.0.5.v20221102-0933/jre" version="17.0.5"/>
+    <libraryInfo home="/Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home" version="11.0.11"/>
+    <libraryInfo home="/Library/Java/JavaVirtualMachines/jdk-17.jdk/Contents/Home" version="17"/>
+    <libraryInfo home="/Library/Java/JavaVirtualMachines/jdk-16+10-beta/Contents/Home" version="16"/>
+</libraryInfos>

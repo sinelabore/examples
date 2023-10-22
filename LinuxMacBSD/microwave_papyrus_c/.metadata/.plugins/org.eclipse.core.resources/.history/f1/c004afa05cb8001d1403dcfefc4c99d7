@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_2O1vQLhaEe23t6NYadJx4A" name="oven">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_2QZ1gLhaEe23t6NYadJx4A">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Model" xmi:id="_-Pt1cLhaEe23t6NYadJx4A" name="Model">
+    <packagedElement xmi:type="uml:Package" xmi:id="_-5i1kLhaEe23t6NYadJx4A" name="Package">
+      <packagedElement xmi:type="uml:Class" xmi:id="_F1Tt0LhbEe23t6NYadJx4A" name="oven" classifierBehavior="_J6-isLhbEe23t6NYadJx4A">
+        <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_J6-isLhbEe23t6NYadJx4A" name="StateMachine1">
+          <region xmi:type="uml:Region" xmi:id="_KTGHwLhbEe23t6NYadJx4A" name="Region1">
+            <transition xmi:type="uml:Transition" xmi:id="_d6XCQLhbEe23t6NYadJx4A" source="_c-q2ELhbEe23t6NYadJx4A" target="_bKCPsLhbEe23t6NYadJx4A"/>
+            <transition xmi:type="uml:Transition" xmi:id="_wYDFkLhbEe23t6NYadJx4A" source="_bKCPsLhbEe23t6NYadJx4A" target="_bKCPsLhbEe23t6NYadJx4A">
+              <trigger xmi:type="uml:Trigger" xmi:id="_aSiKgLhcEe23t6NYadJx4A" event="_C12doLhcEe23t6NYadJx4A"/>
+            </transition>
+            <transition xmi:type="uml:Transition" xmi:id="_42R2ILhbEe23t6NYadJx4A" source="_bKCPsLhbEe23t6NYadJx4A" target="_bKCPsLhbEe23t6NYadJx4A">
+              <trigger xmi:type="uml:Trigger" xmi:id="_fkl6ALhcEe23t6NYadJx4A" event="_LE6w0LhcEe23t6NYadJx4A"/>
+            </transition>
+            <transition xmi:type="uml:Transition" xmi:id="_7cts4LhbEe23t6NYadJx4A" source="_bKCPsLhbEe23t6NYadJx4A" target="_bKCPsLhbEe23t6NYadJx4A">
+              <trigger xmi:type="uml:Trigger" xmi:id="_dKl8wLhcEe23t6NYadJx4A" event="_B7qtULhcEe23t6NYadJx4A"/>
+            </transition>
+            <subvertex xmi:type="uml:State" xmi:id="_bKCPsLhbEe23t6NYadJx4A" name="Super">
+              <region xmi:type="uml:Region" xmi:id="_g-KxgLhbEe23t6NYadJx4A" name="Region1">
+                <transition xmi:type="uml:Transition" xmi:id="_ns56YLhbEe23t6NYadJx4A" source="_j_-VoLhbEe23t6NYadJx4A" target="_mOSnULhbEe23t6NYadJx4A"/>
+                <transition xmi:type="uml:Transition" xmi:id="_oZM_sLhbEe23t6NYadJx4A" source="_mOSnULhbEe23t6NYadJx4A" target="_j_-VoLhbEe23t6NYadJx4A"/>
+                <transition xmi:type="uml:Transition" xmi:id="_p3jNALhbEe23t6NYadJx4A" source="_j_-VoLhbEe23t6NYadJx4A" target="_g-N00LhbEe23t6NYadJx4A"/>
+                <transition xmi:type="uml:Transition" xmi:id="_rcejcLhbEe23t6NYadJx4A" source="_g-N00LhbEe23t6NYadJx4A" target="_iZrGMLhbEe23t6NYadJx4A"/>
+                <transition xmi:type="uml:Transition" xmi:id="_sQidoLhbEe23t6NYadJx4A" source="_iZrGMLhbEe23t6NYadJx4A" target="_j_-VoLhbEe23t6NYadJx4A"/>
+                <subvertex xmi:type="uml:State" xmi:id="_g-N00LhbEe23t6NYadJx4A" name="Completed"/>
+                <subvertex xmi:type="uml:State" xmi:id="_iZrGMLhbEe23t6NYadJx4A" name="Idle"/>
+                <subvertex xmi:type="uml:State" xmi:id="_j_-VoLhbEe23t6NYadJx4A" name="Cooking"/>
+                <subvertex xmi:type="uml:State" xmi:id="_mOSnULhbEe23t6NYadJx4A" name="CookingPause"/>
+                <subvertex xmi:type="uml:Pseudostate" xmi:id="_9W3FYLhbEe23t6NYadJx4A" name="ShallowHistory" kind="shallowHistory"/>
+              </region>
+            </subvertex>
+            <subvertex xmi:type="uml:Pseudostate" xmi:id="_c-q2ELhbEe23t6NYadJx4A" name="Initial2"/>
+          </region>
+        </ownedBehavior>
+      </packagedElement>
+      <packagedElement xmi:type="uml:SignalEvent" xmi:id="_B7qtULhcEe23t6NYadJx4A" name="evDec"/>
+      <packagedElement xmi:type="uml:SignalEvent" xmi:id="_C12doLhcEe23t6NYadJx4A" name="evInc"/>
+      <packagedElement xmi:type="uml:SignalEvent" xmi:id="_LE6w0LhcEe23t6NYadJx4A" name="evPwr"/>
+      <packagedElement xmi:type="uml:SignalEvent" xmi:id="_OHIkoLhcEe23t6NYadJx4A" name="evDoorOpen"/>
+      <packagedElement xmi:type="uml:SignalEvent" xmi:id="_O8GdwLhcEe23t6NYadJx4A" name="evDoorClosed"/>
+    </packagedElement>
+  </packagedElement>
+</uml:Model>

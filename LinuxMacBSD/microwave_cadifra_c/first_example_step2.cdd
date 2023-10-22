@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<c:Diagram
+xmlns:c="http://www.cadifra.com/schema/1.0"
+xmlns:c1v3="http://www.cadifra.com/schema/1.3"
+ProductVersion="1.3.1">
+
+<Page id="r1"
+Size="9"
+Width="21000"
+Height="29700"
+Landscape="1"
+Rows="1"
+Columns="1"
+Margins="1000 1000 1000 1000"
+CutGlueMargins="1000 1000 1000 1000"
+Scale="1"/>
+
+<DiagramType id="r2"
+TypeValue="5"/>
+
+<Style id="r3">
+<dir n="Base" Typeface="arial" Size="11" Bold="0">
+<dir n="Free Text" Size="10" Bold="0"/>
+<dir n="State Diagram">
+<dir n="State" Bold="0">
+<dir n="Compartment" Size="8"/>
+<dir n="Header" Bold="1"/>
+</dir>
+<dir n="Transition" Bold="0"/>
+</dir>
+</dir>
+</Style>
+
+<InitialState id="r8"
+Pos="2700 -2400"/>
+
+<Transition id="r9">
+<End id="r10"
+Pos="3100 -2600"
+State="r8"
+Type="1"/>
+<Segment id="r11"/>
+<End id="r12"
+Pos="3500 -2600"
+State="r145"
+Type="2"/>
+</Transition>
+
+<Transition id="r13">
+<End id="r14"
+Pos="19900 -3800"
+State="r145"
+Type="1"/>
+<Segment id="r15">
+<Anchor id="r21"
+Pos="20700 -3800">
+<FreeText id="r22"
+Pos="21100 -3954"
+Origin="1">
+<Text>evPwr</Text>
+</FreeText>
+</Anchor>
+</Segment>
+<Join id="r16"
+Pos="20700 -3800"/>
+<Segment id="r17"/>
+<Join id="r18"
+Pos="20700 -4600"/>
+<Segment id="r19"/>
+<End id="r20"
+Pos="19900 -4600"
+State="r145"
+Type="2"/>
+</Transition>
+
+<Transition id="r28">
+<End id="r37"
+Pos="6500 -4300"
+State="r4"
+Type="1"/>
+<Segment id="r36"/>
+<Join id="r35"
+Pos="6500 -1400"/>
+<Segment id="r29">
+<Anchor id="r32"
+Pos="9700 -1400">
+<FreeText id="r33"
+Pos="10140 -1300"
+Origin="3">
+<Text>evDoorClosed</Text>
+</FreeText>
+</Anchor>
+</Segment>
+<Join id="r30"
+Pos="11000 -1400"/>
+<Segment id="r31"/>
+<End id="r34"
+Pos="11000 -2600"
+State="r5"
+Type="2"/>
+</Transition>
+
+<Transition id="r78">
+<End id="r79"
+Pos="13400 -3000"
+State="r5"
+Type="1"/>
+<Segment id="r80">
+<Anchor id="r84"
+Pos="15200 -3000">
+<FreeText id="r85"
+Pos="14600 -2800"
+Origin="4">
+<Text>evDoorOpen</Text>
+</FreeText>
+</Anchor>
+</Segment>
+<Join id="r81"
+Pos="18000 -3000"/>
+<Segment id="r82"/>
+<End id="r83"
+Pos="18000 -3800"
+State="r7"
+Type="2"/>
+</Transition>
+
+<Transition id="r87">
+<End id="r88"
+Pos="16600 -5400"
+State="r7"
+Type="1"/>
+<Segment id="r89">
+<Anchor id="r91"
+Pos="14400 -5400">
+<FreeText id="r92"
+Pos="13900 -5300"
+Origin="4">
+<Text>evDoorClosed</Text>
+</FreeText>
+</Anchor>
+</Segment>
+<End id="r90"
+Pos="13400 -5400"
+State="r5"
+Type="2"/>
+</Transition>
+
+<Transition id="r93">
+<End id="r94"
+Pos="10600 -6200"
+State="r5"
+Type="1"/>
+<Segment id="r95">
+<Anchor id="r97"
+Pos="10600 -7700">
+<FreeText id="r98"
+Pos="10700 -7146"
+Origin="4">
+<Text>evTimeout</Text>
+</FreeText>
+</Anchor>
+</Segment>
+<End id="r96"
+Pos="10600 -8000"
+State="r6"
+Type="2"/>
+</Transition>
+
+<Transition id="r99">
+<End id="r100"
+Pos="9500 -8700"
+State="r6"
+Type="1"/>
+<Segment id="r101">
+<Anchor id="r105"
+Pos="7900 -8700">
+<FreeText id="r106"
+Pos="8640 -8854"
+Origin="2">
+<Text>evDoorOpen</Text>
+</FreeText>
+</Anchor>
+</Segment>
+<Join id="r102"
+Pos="6700 -8700"/>
+<Segment id="r103"/>
+<End id="r104"
+Pos="6700 -6300"
+State="r4"
+Type="2"/>
+</Transition>
+
+<Transition id="r108">
+<End id="r109"
+Pos="4700 -3500"
+State="r107"
+Type="1"/>
+<Segment id="r112"/>
+<Join id="r113"
+Pos="5200 -3500"/>
+<Segment id="r114"/>
+<End id="r115"
+Pos="5200 -4300"
+State="r4"
+Type="2"/>
+</Transition>
+
+<Transition id="r125">
+<End id="r126"
+Pos="19900 -5300"
+State="r145"
+Type="1"/>
+<Segment id="r127"/>
+<Join id="r128"
+Pos="20700 -5300"/>
+<Segment id="r129">
+<Anchor id="r133"
+Pos="20700 -5500">
+<FreeText id="r134"
+Pos="20900 -5546"
+Origin="4">
+<Text>evInc</Text>
+</FreeText>
+</Anchor>
+</Segment>
+<Join id="r130"
+Pos="20700 -5900"/>
+<Segment id="r131"/>
+<End id="r132"
+Pos="19900 -5900"
+State="r145"
+Type="2"/>
+</Transition>
+
+<Transition id="r135">
+<End id="r136"
+Pos="19900 -6400"
+State="r145"
+Type="1"/>
+<Segment id="r137"/>
+<Join id="r138"
+Pos="20700 -6400"/>
+<Segment id="r139">
+<Anchor id="r143"
+Pos="20700 -6500">
+<FreeText id="r144"
+Pos="20900 -6400"
+Origin="1">
+<Text>evDec</Text>
+</FreeText>
+</Anchor>
+</Segment>
+<Join id="r140"
+Pos="20700 -7200"/>
+<Segment id="r141"/>
+<End id="r142"
+Pos="19900 -7200"
+State="r145"
+Type="2"/>
+</Transition>
+
+<State id="r145"
+Pos="3500 -600"
+Size="16400 9300"
+Large="1">
+<Text>Super</Text>
+<State id="r4"
+Pos="3700 -4300"
+Size="3700 2000">
+<Text>Idle</Text>
+</State>
+<State id="r5"
+Pos="8700 -2600"
+Size="4700 3600">
+<Text>Cooking</Text>
+</State>
+<State id="r6"
+Pos="9500 -8000"
+Size="2800 1400">
+<Text>Completed</Text>
+</State>
+<State id="r7"
+Pos="16600 -3800"
+Size="2900 2900">
+<Text>CookingPause</Text>
+</State>
+<InitialState id="r107"
+Pos="4300 -3300"/>
+</State>
+
+</c:Diagram>

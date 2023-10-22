@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="NewModelWizard">
+		<list key="architectureContexts">
+			<item value="org.eclipse.papyrus.infra.services.edit.TypeContext"/>
+		</list>
+	</section>
+</section>

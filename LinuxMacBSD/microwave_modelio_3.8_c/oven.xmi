@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?><uml:Model xmlns:uml="http://www.omg.org/spec/UML/20110701" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmi:version="2.1" xmi:id="_sy2HYN4xEemwcowPqYbcmw" name="oven">
+  <eAnnotations xmi:id="_sy2HYd4xEemwcowPqYbcmw" source="Objing">
+    <contents xmi:type="uml:Property" xmi:id="_sy2HYt4xEemwcowPqYbcmw" name="exporterVersion">
+      <defaultValue xmi:type="uml:LiteralString" xmi:id="_sy2HY94xEemwcowPqYbcmw" value="3.0.0"/>
+    </contents>
+  </eAnnotations>
+  <packagedElement xmi:type="uml:Class" xmi:id="_sy2HZN4xEemwcowPqYbcmw" name="OvenClass">
+    <ownedComment xmi:type="uml:Comment" xmi:id="_sy2HZd4xEemwcowPqYbcmw">
+      <body>header:
+#include &lt;stdint.h&gt;
+#include "oven_selftest.h"
+#include "oven.h"
+#include "oven_ext.h"
+#include "oven_hlp.h"
+#include &lt;stdio.h&gt;
+
+extern unsigned char msg;
+extern T_PWR pwr;
+
+uint8_t hwStatus;</body>
+    </ownedComment>
+    <ownedComment xmi:type="uml:Comment" xmi:id="_sy2HZt4xEemwcowPqYbcmw">
+      <body>activity_header:
+#include &lt;stdio.h&gt;
+#include &lt;stdint.h&gt;
+
+uint8_t hwSta=0;
+uint8_t n=0;
+uint8_t i=0;
+</body>
+    </ownedComment>
+    <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_sy2HZ94xEemwcowPqYbcmw" name="State Machine">
+      <region xmi:id="_sy2HaN4xEemwcowPqYbcmw">
+        <subvertex xmi:type="uml:State" xmi:id="_sy2Had4xEemwcowPqYbcmw" name="Super">
+          <region xmi:id="_sy2Hat4xEemwcowPqYbcmw" name="Region">
+            <subvertex xmi:type="uml:State" xmi:id="_sy2Ha94xEemwcowPqYbcmw" name="Idle"/>
+            <subvertex xmi:type="uml:Pseudostate" xmi:id="_sy2HbN4xEemwcowPqYbcmw" name="Initial State"/>
+            <subvertex xmi:type="uml:State" xmi:id="_sy2Hbd4xEemwcowPqYbcmw" name="Cooking">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_sy2Hbt4xEemwcowPqYbcmw">
+                <body>&lt;Enter note text here&gt;</body>
+              </ownedComment>
+            </subvertex>
+            <subvertex xmi:type="uml:State" xmi:id="_sy2Hb94xEemwcowPqYbcmw" name="Completed"/>
+            <subvertex xmi:type="uml:State" xmi:id="_sy2HcN4xEemwcowPqYbcmw" name="CookingPause"/>
+            <subvertex xmi:type="uml:Pseudostate" xmi:id="_sy2Hcd4xEemwcowPqYbcmw" name="Shallow History" kind="shallowHistory"/>
+            <transition xmi:type="uml:Transition" xmi:id="_sy2Hct4xEemwcowPqYbcmw" name="evDoorClosed" source="_sy2Ha94xEemwcowPqYbcmw" target="_sy2Hbd4xEemwcowPqYbcmw" guard="_sy2HdN4xEemwcowPqYbcmw">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_sy2Hc94xEemwcowPqYbcmw">
+                <body/>
+              </ownedComment>
+              <ownedRule xmi:type="uml:Constraint" xmi:id="_sy2HdN4xEemwcowPqYbcmw" name="timer_preset()&gt;0" constrainedElement="_sy2Hct4xEemwcowPqYbcmw">
+                <specification xmi:type="uml:LiteralString" xmi:id="_sy2Hdd4xEemwcowPqYbcmw" value="timer_preset()&gt;0"/>
+              </ownedRule>
+              <effect xmi:type="uml:OpaqueBehavior" xmi:id="_sy2Hdt4xEemwcowPqYbcmw">
+                <body>timer_start();</body>
+              </effect>
+              <trigger xmi:type="uml:Trigger" xmi:id="_sy2Hd94xEemwcowPqYbcmw" name="evDoorClosed" event="_sy2H594xEemwcowPqYbcmw"/>
+            </transition>
+            <transition xmi:type="uml:Transition" xmi:id="_sy2HeN4xEemwcowPqYbcmw" name="Transition" source="_sy2HbN4xEemwcowPqYbcmw" target="_sy2Ha94xEemwcowPqYbcmw"/>
+            <transition xmi:type="uml:Transition" xmi:id="_sy2Hed4xEemwcowPqYbcmw" name="Transition" source="_sy2Hbd4xEemwcowPqYbcmw" target="_sy2HcN4xEemwcowPqYbcmw">
+              <effect xmi:type="uml:OpaqueBehavior" xmi:id="_sy2Het4xEemwcowPqYbcmw">
+                <body>ovenOff(); timer_pause();</body>
+              </effect>
+              <trigger xmi:type="uml:Trigger" xmi:id="_sy2He94xEemwcowPqYbcmw" name="evDoorOpen" event="_sy2H5d4xEemwcowPqYbcmw"/>
+            </transition>
+            <transition xmi:type="uml:Transition" xmi:id="_sy2HfN4xEemwcowPqYbcmw" name="Transition1" source="_sy2Hbd4xEemwcowPqYbcmw" target="_sy2Hb94xEemwcowPqYbcmw">
+              <effect xmi:type="uml:OpaqueBehavior" xmi:id="_sy2Hfd4xEemwcowPqYbcmw">
+                <body>ovenOff(); timer_clear();</body>
+              </effect>
+              <trigger xmi:type="uml:Trigger" xmi:id="_sy2Hft4xEemwcowPqYbcmw" name="evTimeout" event="_sy2H5N4xEemwcowPqYbcmw"/>
+            </transition>
+            <transition xmi:type="uml:Transition" xmi:id="_sy2Hf94xEemwcowPqYbcmw" name="Transition" source="_sy2Hb94xEemwcowPqYbcmw" target="_sy2Ha94xEemwcowPqYbcmw">
+              <trigger xmi:type="uml:Trigger" xmi:id="_sy2HgN4xEemwcowPqYbcmw" name="evDoorOpen" event="_sy2H5d4xEemwcowPqYbcmw"/>
+            </transition>
+            <transition xmi:type="uml:Transition" xmi:id="_sy2Hgd4xEemwcowPqYbcmw" name="Transition" source="_sy2HcN4xEemwcowPqYbcmw" target="_sy2Hbd4xEemwcowPqYbcmw">
+              <effect xmi:type="uml:OpaqueBehavior" xmi:id="_sy2Hgt4xEemwcowPqYbcmw">
+                <body>timer_cont();</body>
+              </effect>
+              <trigger xmi:type="uml:Trigger" xmi:id="_sy2Hg94xEemwcowPqYbcmw" name="evDoorClosed" event="_sy2H594xEemwcowPqYbcmw"/>
+            </transition>
+          </region>
+        </subvertex>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="_sy2HhN4xEemwcowPqYbcmw" name="Initial State"/>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="_sy2Hhd4xEemwcowPqYbcmw" name="Choice" kind="choice"/>
+        <subvertex xmi:type="uml:State" xmi:id="_sy2Hht4xEemwcowPqYbcmw" name="Error"/>
+        <transition xmi:type="uml:Transition" xmi:id="_sy2Hh94xEemwcowPqYbcmw" name="Transition" source="_sy2Had4xEemwcowPqYbcmw" target="_sy2Had4xEemwcowPqYbcmw">
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="_sy2HiN4xEemwcowPqYbcmw">
+            <body>ovenSetPwr(pwr);</body>
+          </effect>
+          <trigger xmi:type="uml:Trigger" xmi:id="_sy2Hid4xEemwcowPqYbcmw" name="evPwr" event="_sy2H6N4xEemwcowPqYbcmw"/>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_sy2Hit4xEemwcowPqYbcmw" name="Transition1" source="_sy2Had4xEemwcowPqYbcmw" target="_sy2Had4xEemwcowPqYbcmw">
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="_sy2Hi94xEemwcowPqYbcmw">
+            <body>timer_dec();</body>
+          </effect>
+          <trigger xmi:type="uml:Trigger" xmi:id="_sy2HjN4xEemwcowPqYbcmw" name="evDec" event="_sy2H4t4xEemwcowPqYbcmw"/>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_sy2Hjd4xEemwcowPqYbcmw" name="Transition2" source="_sy2Had4xEemwcowPqYbcmw" target="_sy2Had4xEemwcowPqYbcmw">
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="_sy2Hjt4xEemwcowPqYbcmw">
+            <body>timer_inc();</body>
+          </effect>
+          <trigger xmi:type="uml:Trigger" xmi:id="_sy2Hj94xEemwcowPqYbcmw" name="evInc" event="_sy2H494xEemwcowPqYbcmw"/>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_sy2HkN4xEemwcowPqYbcmw" name="Transition" source="_sy2HhN4xEemwcowPqYbcmw" target="_sy2Hhd4xEemwcowPqYbcmw">
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="_sy2Hkd4xEemwcowPqYbcmw">
+            <body>hwStatus = selftest();</body>
+          </effect>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_sy2Hkt4xEemwcowPqYbcmw" name="Transition" source="_sy2Hhd4xEemwcowPqYbcmw" target="_sy2Had4xEemwcowPqYbcmw" guard="_sy2Hk94xEemwcowPqYbcmw">
+          <ownedRule xmi:type="uml:Constraint" xmi:id="_sy2Hk94xEemwcowPqYbcmw" name="else" constrainedElement="_sy2Hkt4xEemwcowPqYbcmw">
+            <specification xmi:type="uml:LiteralString" xmi:id="_sy2HlN4xEemwcowPqYbcmw" value="else"/>
+          </ownedRule>
+        </transition>
+        <transition xmi:type="uml:Transition" xmi:id="_sy2Hld4xEemwcowPqYbcmw" name="Transition1" source="_sy2Hhd4xEemwcowPqYbcmw" target="_sy2Hht4xEemwcowPqYbcmw" guard="_sy2Hlt4xEemwcowPqYbcmw">
+          <ownedRule xmi:type="uml:Constraint" xmi:id="_sy2Hlt4xEemwcowPqYbcmw" name="hwStatus!=0" constrainedElement="_sy2Hld4xEemwcowPqYbcmw">
+            <specification xmi:type="uml:LiteralString" xmi:id="_sy2Hl94xEemwcowPqYbcmw" value="hwStatus!=0"/>
+          </ownedRule>
+        </transition>
+      </region>
+    </ownedBehavior>
+    <ownedBehavior xmi:type="uml:Activity" xmi:id="_sy2HmN4xEemwcowPqYbcmw" name="selftest">
+      <nestedClassifier xmi:type="uml:Collaboration" xmi:id="_sy2Hmd4xEemwcowPqYbcmw" name="locals">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_sy2Hmt4xEemwcowPqYbcmw" name="this" type="_sy2HZN4xEemwcowPqYbcmw" aggregation="composite"/>
+      </nestedClassifier>
+      <node xmi:type="uml:CentralBufferNode" xmi:id="_sy2Hm94xEemwcowPqYbcmw" name="this">
+        <upperBound xmi:type="uml:LiteralString" xmi:id="_sy2HnN4xEemwcowPqYbcmw" name="UpperBound" value="1"/>
+      </node>
+      <node xmi:type="uml:OpaqueAction" xmi:id="_sy2Hnd4xEemwcowPqYbcmw" name="Step1" outgoing="_sy2HwN4xEemwcowPqYbcmw" incoming="_sy2Hwt4xEemwcowPqYbcmw">
+        <body>// step 1 action
+printf("step1 self-test\n");</body>
+      </node>
+      <node xmi:type="uml:InitialNode" xmi:id="_sy2Hnt4xEemwcowPqYbcmw" name="Initial Node" outgoing="_sy2Hwt4xEemwcowPqYbcmw"/>
+      <node xmi:type="uml:DecisionNode" xmi:id="_sy2Hn94xEemwcowPqYbcmw" name="Decision_Merge" outgoing="_sy2HxN4xEemwcowPqYbcmw _sy2Hx94xEemwcowPqYbcmw _sy2Hyt4xEemwcowPqYbcmw" incoming="_sy2HwN4xEemwcowPqYbcmw"/>
+      <node xmi:type="uml:OpaqueAction" xmi:id="_sy2HoN4xEemwcowPqYbcmw" name="Step2" outgoing="_sy2Hzd4xEemwcowPqYbcmw" incoming="_sy2HxN4xEemwcowPqYbcmw">
+        <body>printf("Step 2a selftest\n");</body>
+      </node>
+      <node xmi:type="uml:OpaqueAction" xmi:id="_sy2Hod4xEemwcowPqYbcmw" name="Step3" outgoing="_sy2Hz94xEemwcowPqYbcmw" incoming="_sy2Hx94xEemwcowPqYbcmw">
+        <body>printf("Step 2b selftest\n");</body>
+      </node>
+      <node xmi:type="uml:FlowFinalNode" xmi:id="_sy2Hot4xEemwcowPqYbcmw" name="Flow Final Node" incoming="_sy2Hz94xEemwcowPqYbcmw _sy2H0d4xEemwcowPqYbcmw _sy2H094xEemwcowPqYbcmw"/>
+      <node xmi:type="uml:LoopNode" xmi:id="_sy2Ho94xEemwcowPqYbcmw" name="Loop Node" outgoing="_sy2H0d4xEemwcowPqYbcmw" incoming="_sy2Hzd4xEemwcowPqYbcmw" isTestedFirst="true" bodyPart="_sy2HpN4xEemwcowPqYbcmw" setupPart="_sy2Hpd4xEemwcowPqYbcmw" test="_sy2Hqd4xEemwcowPqYbcmw">
+        <node xmi:type="uml:OpaqueAction" xmi:id="_sy2HpN4xEemwcowPqYbcmw" name="LP_A1">
+          <body>n++;
+printf("Inside Loop\n");</body>
+        </node>
+      </node>
+      <node xmi:type="uml:ValueSpecificationAction" xmi:id="_sy2Hpd4xEemwcowPqYbcmw" name="n=0;">
+        <eAnnotations xmi:id="_sy2Hpt4xEemwcowPqYbcmw" source="Objing">
+          <contents xmi:type="uml:Property" xmi:id="_sy2Hp94xEemwcowPqYbcmw" name="isDeleted"/>
+        </eAnnotations>
+        <value xmi:type="uml:LiteralString" xmi:id="_sy2HqN4xEemwcowPqYbcmw" value="n=0;"/>
+      </node>
+      <node xmi:type="uml:ValueSpecificationAction" xmi:id="_sy2Hqd4xEemwcowPqYbcmw" name="n&lt;10">
+        <eAnnotations xmi:id="_sy2Hqt4xEemwcowPqYbcmw" source="Objing">
+          <contents xmi:type="uml:Property" xmi:id="_sy2Hq94xEemwcowPqYbcmw" name="isDeleted"/>
+        </eAnnotations>
+        <value xmi:type="uml:LiteralString" xmi:id="_sy2HrN4xEemwcowPqYbcmw" value="n&lt;10"/>
+      </node>
+      <node xmi:type="uml:ConditionalNode" xmi:id="_sy2Hrd4xEemwcowPqYbcmw" name="CN" outgoing="_sy2H094xEemwcowPqYbcmw" incoming="_sy2Hyt4xEemwcowPqYbcmw">
+        <node xmi:type="uml:OpaqueAction" xmi:id="_sy2Hrt4xEemwcowPqYbcmw" name="CN_A1">
+          <body>printf("CN Action 1\n");</body>
+        </node>
+        <node xmi:type="uml:OpaqueAction" xmi:id="_sy2Hr94xEemwcowPqYbcmw" name="CN_A2">
+          <body>printf("CN Action 2\n");</body>
+        </node>
+        <clause xmi:id="_sy2HsN4xEemwcowPqYbcmw" test="_sy2HuN4xEemwcowPqYbcmw" body="_sy2Hrt4xEemwcowPqYbcmw">
+          <eAnnotations xmi:id="_sy2Hsd4xEemwcowPqYbcmw" source="Objing">
+            <contents xmi:type="uml:Property" xmi:id="_sy2Hst4xEemwcowPqYbcmw" name="Name">
+              <defaultValue xmi:type="uml:LiteralString" xmi:id="_sy2Hs94xEemwcowPqYbcmw" value="Clause"/>
+            </contents>
+          </eAnnotations>
+        </clause>
+        <clause xmi:id="_sy2HtN4xEemwcowPqYbcmw" test="_sy2HvN4xEemwcowPqYbcmw" body="_sy2Hr94xEemwcowPqYbcmw">
+          <eAnnotations xmi:id="_sy2Htd4xEemwcowPqYbcmw" source="Objing">
+            <contents xmi:type="uml:Property" xmi:id="_sy2Htt4xEemwcowPqYbcmw" name="Name">
+              <defaultValue xmi:type="uml:LiteralString" xmi:id="_sy2Ht94xEemwcowPqYbcmw" value="Clause"/>
+            </contents>
+          </eAnnotations>
+        </clause>
+      </node>
+      <node xmi:type="uml:ValueSpecificationAction" xmi:id="_sy2HuN4xEemwcowPqYbcmw" name="i==3">
+        <eAnnotations xmi:id="_sy2Hud4xEemwcowPqYbcmw" source="Objing">
+          <contents xmi:type="uml:Property" xmi:id="_sy2Hut4xEemwcowPqYbcmw" name="isDeleted"/>
+        </eAnnotations>
+        <value xmi:type="uml:LiteralString" xmi:id="_sy2Hu94xEemwcowPqYbcmw" value="i==3"/>
+      </node>
+      <node xmi:type="uml:ValueSpecificationAction" xmi:id="_sy2HvN4xEemwcowPqYbcmw" name="i==4">
+        <eAnnotations xmi:id="_sy2Hvd4xEemwcowPqYbcmw" source="Objing">
+          <contents xmi:type="uml:Property" xmi:id="_sy2Hvt4xEemwcowPqYbcmw" name="isDeleted"/>
+        </eAnnotations>
+        <value xmi:type="uml:LiteralString" xmi:id="_sy2Hv94xEemwcowPqYbcmw" value="i==4"/>
+      </node>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_sy2HwN4xEemwcowPqYbcmw" name="ControlFlow" source="_sy2Hnd4xEemwcowPqYbcmw" target="_sy2Hn94xEemwcowPqYbcmw">
+        <weight xmi:type="uml:LiteralInteger" xmi:id="_sy2Hwd4xEemwcowPqYbcmw" value="1"/>
+      </edge>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_sy2Hwt4xEemwcowPqYbcmw" name="ControlFlow" source="_sy2Hnt4xEemwcowPqYbcmw" target="_sy2Hnd4xEemwcowPqYbcmw">
+        <weight xmi:type="uml:LiteralInteger" xmi:id="_sy2Hw94xEemwcowPqYbcmw" value="1"/>
+      </edge>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_sy2HxN4xEemwcowPqYbcmw" name="ControlFlow" source="_sy2Hn94xEemwcowPqYbcmw" target="_sy2HoN4xEemwcowPqYbcmw">
+        <guard xmi:type="uml:OpaqueExpression" xmi:id="_sy2Hxd4xEemwcowPqYbcmw">
+          <body>1==1</body>
+        </guard>
+        <weight xmi:type="uml:LiteralInteger" xmi:id="_sy2Hxt4xEemwcowPqYbcmw" value="1"/>
+      </edge>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_sy2Hx94xEemwcowPqYbcmw" name="ControlFlow" source="_sy2Hn94xEemwcowPqYbcmw" target="_sy2Hod4xEemwcowPqYbcmw">
+        <guard xmi:type="uml:OpaqueExpression" xmi:id="_sy2HyN4xEemwcowPqYbcmw">
+          <body>else</body>
+        </guard>
+        <weight xmi:type="uml:LiteralInteger" xmi:id="_sy2Hyd4xEemwcowPqYbcmw" value="1"/>
+      </edge>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_sy2Hyt4xEemwcowPqYbcmw" name="ControlFlow" source="_sy2Hn94xEemwcowPqYbcmw" target="_sy2Hrd4xEemwcowPqYbcmw">
+        <guard xmi:type="uml:OpaqueExpression" xmi:id="_sy2Hy94xEemwcowPqYbcmw">
+          <body>1==0</body>
+        </guard>
+        <weight xmi:type="uml:LiteralInteger" xmi:id="_sy2HzN4xEemwcowPqYbcmw" value="1"/>
+      </edge>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_sy2Hzd4xEemwcowPqYbcmw" name="ControlFlow" source="_sy2HoN4xEemwcowPqYbcmw" target="_sy2Ho94xEemwcowPqYbcmw">
+        <weight xmi:type="uml:LiteralInteger" xmi:id="_sy2Hzt4xEemwcowPqYbcmw" value="1"/>
+      </edge>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_sy2Hz94xEemwcowPqYbcmw" name="ControlFlow" source="_sy2Hod4xEemwcowPqYbcmw" target="_sy2Hot4xEemwcowPqYbcmw">
+        <weight xmi:type="uml:LiteralInteger" xmi:id="_sy2H0N4xEemwcowPqYbcmw" value="1"/>
+      </edge>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_sy2H0d4xEemwcowPqYbcmw" name="ControlFlow" source="_sy2Ho94xEemwcowPqYbcmw" target="_sy2Hot4xEemwcowPqYbcmw">
+        <weight xmi:type="uml:LiteralInteger" xmi:id="_sy2H0t4xEemwcowPqYbcmw" value="1"/>
+      </edge>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_sy2H094xEemwcowPqYbcmw" name="ControlFlow" source="_sy2Hrd4xEemwcowPqYbcmw" target="_sy2Hot4xEemwcowPqYbcmw">
+        <weight xmi:type="uml:LiteralInteger" xmi:id="_sy2H1N4xEemwcowPqYbcmw" value="1"/>
+      </edge>
+    </ownedBehavior>
+    <ownedBehavior xmi:type="uml:Activity" xmi:id="_sy2H1d4xEemwcowPqYbcmw" name="dummy">
+      <nestedClassifier xmi:type="uml:Collaboration" xmi:id="_sy2H1t4xEemwcowPqYbcmw" name="locals">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_sy2H194xEemwcowPqYbcmw" name="this" type="_sy2HZN4xEemwcowPqYbcmw" aggregation="composite"/>
+      </nestedClassifier>
+      <node xmi:type="uml:CentralBufferNode" xmi:id="_sy2H2N4xEemwcowPqYbcmw" name="this">
+        <upperBound xmi:type="uml:LiteralString" xmi:id="_sy2H2d4xEemwcowPqYbcmw" name="UpperBound" value="1"/>
+      </node>
+      <node xmi:type="uml:InitialNode" xmi:id="_sy2H2t4xEemwcowPqYbcmw" name="Initial Node" outgoing="_sy2H3d4xEemwcowPqYbcmw"/>
+      <node xmi:type="uml:OpaqueAction" xmi:id="_sy2H294xEemwcowPqYbcmw" name="Action" outgoing="_sy2H394xEemwcowPqYbcmw" incoming="_sy2H3d4xEemwcowPqYbcmw">
+        <body>printf("test activity\n");</body>
+      </node>
+      <node xmi:type="uml:ActivityFinalNode" xmi:id="_sy2H3N4xEemwcowPqYbcmw" name="Activity Final Node" incoming="_sy2H394xEemwcowPqYbcmw"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_sy2H3d4xEemwcowPqYbcmw" name="ControlFlow" source="_sy2H2t4xEemwcowPqYbcmw" target="_sy2H294xEemwcowPqYbcmw">
+        <weight xmi:type="uml:LiteralInteger" xmi:id="_sy2H3t4xEemwcowPqYbcmw" value="1"/>
+      </edge>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_sy2H394xEemwcowPqYbcmw" name="ControlFlow" source="_sy2H294xEemwcowPqYbcmw" target="_sy2H3N4xEemwcowPqYbcmw">
+        <weight xmi:type="uml:LiteralInteger" xmi:id="_sy2H4N4xEemwcowPqYbcmw" value="1"/>
+      </edge>
+    </ownedBehavior>
+    <nestedClassifier xmi:type="uml:Signal" xmi:id="_sy2H4d4xEemwcowPqYbcmw" name="Signal"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:SignalEvent" xmi:id="_sy2H4t4xEemwcowPqYbcmw" name="evDec"/>
+  <packagedElement xmi:type="uml:SignalEvent" xmi:id="_sy2H494xEemwcowPqYbcmw" name="evInc"/>
+  <packagedElement xmi:type="uml:SignalEvent" xmi:id="_sy2H5N4xEemwcowPqYbcmw" name="evTimeout"/>
+  <packagedElement xmi:type="uml:SignalEvent" xmi:id="_sy2H5d4xEemwcowPqYbcmw" name="evDoorOpen">
+    <ownedComment xmi:type="uml:Comment" xmi:id="_sy2H5t4xEemwcowPqYbcmw">
+      <body>&lt;Enter note text here&gt;</body>
+    </ownedComment>
+  </packagedElement>
+  <packagedElement xmi:type="uml:SignalEvent" xmi:id="_sy2H594xEemwcowPqYbcmw" name="evDoorClosed"/>
+  <packagedElement xmi:type="uml:SignalEvent" xmi:id="_sy2H6N4xEemwcowPqYbcmw" name="evPwr"/>
+</uml:Model>

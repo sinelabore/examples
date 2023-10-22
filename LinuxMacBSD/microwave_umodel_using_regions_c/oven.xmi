@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://schema.omg.org/spec/UML/2.3" xmi:version="2.1">
+	<xmi:Documentation contact="www.altova.com" exporter="Altova UModel2011" exporterVersion="8"/>
+	<xmi:Extension extender="UModel">
+		<Settings ResolveCSharpAliases="false" ResolveVBasicAliases="false"/>
+		<OpenDiagrams activeDiagram="abf31115-b44f-4645-ba6c-c49eb9a70ed4">
+			<OpenDiagramEntry>28187140-7b36-4bc0-953e-ba3ebe1e9517</OpenDiagramEntry>
+			<OpenDiagramEntry>abf31115-b44f-4645-ba6c-c49eb9a70ed4</OpenDiagramEntry>
+		</OpenDiagrams>
+	</xmi:Extension>
+	<uml:Package xmi:id="U00000001-7510-11d9-86f2-000476a22f44" xmi:uuid="00000001-7510-11d9-86f2-000476a22f44" name="Root">
+		<packagedElement xmi:type="uml:Package" xmi:id="U00000003-7510-11d9-86f2-000476a22f44" xmi:uuid="00000003-7510-11d9-86f2-000476a22f44" name="Component View"/>
+		<packagedElement xmi:type="uml:Package" xmi:id="U02fd862b-69a4-47c2-b09a-7ea60251a249" xmi:uuid="02fd862b-69a4-47c2-b09a-7ea60251a249" name="MicrowaveOven">
+			<packagedElement xmi:type="uml:Class" xmi:id="Ubf68eee5-24ad-4d83-8896-cffd3f9d9021" xmi:uuid="bf68eee5-24ad-4d83-8896-cffd3f9d9021" name="MachineClass" DocComment="Ufc5f3f2e-66a8-4970-b28c-a549039c9071">
+				<ownedBehavior xmi:type="uml:StateMachine" xmi:id="U3365b4c4-9c12-4335-a58a-9e6085a755e8" xmi:uuid="3365b4c4-9c12-4335-a58a-9e6085a755e8" name="StateMachine1" isReentrant="false">
+					<region xmi:type="uml:Region" xmi:id="U203d1643-b30d-4367-a914-544e40dc2b7d" xmi:uuid="203d1643-b30d-4367-a914-544e40dc2b7d" name="Region1">
+						<subvertex xmi:type="uml:State" xmi:id="U01a04475-72e5-4f56-a81e-2636e7a6e42c" xmi:uuid="01a04475-72e5-4f56-a81e-2636e7a6e42c" name="Active">
+							<region xmi:type="uml:Region" xmi:id="U2d669f08-eb44-436b-8ce1-18d36dcc1dc2" xmi:uuid="2d669f08-eb44-436b-8ce1-18d36dcc1dc2" name="Region1">
+								<subvertex xmi:type="uml:State" xmi:id="Uafdc5464-49bd-4241-8765-9f5dc46798c4" xmi:uuid="afdc5464-49bd-4241-8765-9f5dc46798c4" name="Idle">
+									<entry xmi:type="uml:Activity" xmi:id="U64cd62c1-cbbe-4946-b100-fc2755f603f5" xmi:uuid="64cd62c1-cbbe-4946-b100-fc2755f603f5" name="ovenOff();" isReentrant="false"/>
+								</subvertex>
+								<subvertex xmi:type="uml:State" xmi:id="Uad4e4b0c-6e43-419d-92f7-279219a8e5cd" xmi:uuid="ad4e4b0c-6e43-419d-92f7-279219a8e5cd" name="Cooking">
+									<entry xmi:type="uml:Activity" xmi:id="U85447b7d-9027-409b-872f-29848e95161e" xmi:uuid="85447b7d-9027-409b-872f-29848e95161e" name="ovenOn();" isReentrant="false"/>
+								</subvertex>
+								<subvertex xmi:type="uml:State" xmi:id="Ue5b11f4e-c6c4-4cc1-9c7e-fbae9e388a92" xmi:uuid="e5b11f4e-c6c4-4cc1-9c7e-fbae9e388a92" name="CookingPause"/>
+								<subvertex xmi:type="uml:State" xmi:id="U41305dff-e0f7-48fa-a982-457f8b4e53e1" xmi:uuid="41305dff-e0f7-48fa-a982-457f8b4e53e1" name="Completed"/>
+								<subvertex xmi:type="uml:Pseudostate" xmi:id="U380d905b-3691-4578-beb6-f9822fe2502e" xmi:uuid="380d905b-3691-4578-beb6-f9822fe2502e"/>
+								<subvertex xmi:type="uml:Pseudostate" kind="shallowHistory" xmi:id="U726d3bc1-8846-4e20-bc19-0f39b93a779a" xmi:uuid="726d3bc1-8846-4e20-bc19-0f39b93a779a"/>
+								<transition xmi:type="uml:Transition" xmi:id="Ufa3be5a3-6526-4b2f-90b3-9064045065e8" xmi:uuid="fa3be5a3-6526-4b2f-90b3-9064045065e8" source="Uafdc5464-49bd-4241-8765-9f5dc46798c4" target="Uad4e4b0c-6e43-419d-92f7-279219a8e5cd">
+									<guard xmi:type="uml:Constraint" xmi:id="U8d3ccebb-36b4-4e90-b127-41490985ec31" xmi:uuid="8d3ccebb-36b4-4e90-b127-41490985ec31">
+										<specification xmi:type="uml:LiteralString" xmi:id="Ueb395ed1-3d3d-4c76-a9c3-74a20cd5e6cd" xmi:uuid="eb395ed1-3d3d-4c76-a9c3-74a20cd5e6cd" value="timer_preset()&gt;0"/>
+									</guard>
+									<effect xmi:type="uml:Activity" xmi:id="U421a1916-553c-450c-b1f1-d61e817a9e61" xmi:uuid="421a1916-553c-450c-b1f1-d61e817a9e61" name="timer_start();" isReentrant="false"/>
+									<trigger xmi:type="uml:Trigger" xmi:id="Ud5e3e912-47a2-4c98-8f34-22d9f22dbd29" xmi:uuid="d5e3e912-47a2-4c98-8f34-22d9f22dbd29" name="evDoorClosed"/>
+								</transition>
+								<transition xmi:type="uml:Transition" xmi:id="U0ceb2d6a-6e4c-4d37-b855-1c4495da94e2" xmi:uuid="0ceb2d6a-6e4c-4d37-b855-1c4495da94e2" source="Ue5b11f4e-c6c4-4cc1-9c7e-fbae9e388a92" target="Uad4e4b0c-6e43-419d-92f7-279219a8e5cd">
+									<effect xmi:type="uml:Activity" xmi:id="U7cc441bb-02d3-47fc-8efc-056371b05b9b" xmi:uuid="7cc441bb-02d3-47fc-8efc-056371b05b9b" name="timer_cont();" isReentrant="false"/>
+									<trigger xmi:type="uml:Trigger" xmi:id="U454c0528-bc82-4820-9b83-de939773a946" xmi:uuid="454c0528-bc82-4820-9b83-de939773a946" name="evDoorClosed"/>
+								</transition>
+								<transition xmi:type="uml:Transition" xmi:id="U6d0c7043-4139-4375-a81a-2f835a26435b" xmi:uuid="6d0c7043-4139-4375-a81a-2f835a26435b" source="Uad4e4b0c-6e43-419d-92f7-279219a8e5cd" target="U41305dff-e0f7-48fa-a982-457f8b4e53e1">
+									<effect xmi:type="uml:Activity" xmi:id="U8ba925e1-c3a0-4ccf-9269-6f25e4abd780" xmi:uuid="8ba925e1-c3a0-4ccf-9269-6f25e4abd780" name="ovenOff();
+timer_clear();" isReentrant="false"/>
+									<trigger xmi:type="uml:Trigger" xmi:id="Ue7033e83-64f9-420d-9161-e1bd8ce01e69" xmi:uuid="e7033e83-64f9-420d-9161-e1bd8ce01e69" name="evTimeout"/>
+								</transition>
+								<transition xmi:type="uml:Transition" xmi:id="U805cf4ce-ca70-4fab-9f80-0197ee01d42c" xmi:uuid="805cf4ce-ca70-4fab-9f80-0197ee01d42c" source="U41305dff-e0f7-48fa-a982-457f8b4e53e1" target="Uafdc5464-49bd-4241-8765-9f5dc46798c4">
+									<trigger xmi:type="uml:Trigger" xmi:id="U6b689926-bf65-48d2-8591-a624536d0889" xmi:uuid="6b689926-bf65-48d2-8591-a624536d0889" name="evDoorOpen"/>
+								</transition>
+								<transition xmi:type="uml:Transition" xmi:id="Ud49baf07-ceb4-4a19-8a34-5efacc9034dd" xmi:uuid="d49baf07-ceb4-4a19-8a34-5efacc9034dd" source="Uad4e4b0c-6e43-419d-92f7-279219a8e5cd" target="Ue5b11f4e-c6c4-4cc1-9c7e-fbae9e388a92">
+									<effect xmi:type="uml:Activity" xmi:id="U13e4830b-f3e2-475e-9b55-5fa64d1ed360" xmi:uuid="13e4830b-f3e2-475e-9b55-5fa64d1ed360" name="ovenOff();
+timer_pause();" isReentrant="false"/>
+									<trigger xmi:type="uml:Trigger" xmi:id="U2b1ba577-0518-4dad-933a-c3e364b03bbf" xmi:uuid="2b1ba577-0518-4dad-933a-c3e364b03bbf" name="evDoorOpen"/>
+								</transition>
+								<transition xmi:type="uml:Transition" xmi:id="Ud87b9a54-7fe2-47f6-b4da-ebc945929bf5" xmi:uuid="d87b9a54-7fe2-47f6-b4da-ebc945929bf5" source="U380d905b-3691-4578-beb6-f9822fe2502e" target="Uafdc5464-49bd-4241-8765-9f5dc46798c4"/>
+							</region>
+						</subvertex>
+						<subvertex xmi:type="uml:Pseudostate" xmi:id="Ubbf163b9-858f-4414-9209-2cec81218bc4" xmi:uuid="bbf163b9-858f-4414-9209-2cec81218bc4"/>
+						<transition xmi:type="uml:Transition" xmi:id="U009afdbe-673e-4ca6-b0bc-63f2b55332a9" xmi:uuid="009afdbe-673e-4ca6-b0bc-63f2b55332a9" source="Ubbf163b9-858f-4414-9209-2cec81218bc4" target="U01a04475-72e5-4f56-a81e-2636e7a6e42c"/>
+						<transition xmi:type="uml:Transition" xmi:id="U53ec697a-3f03-42b0-b1c5-a58ffea016ea" xmi:uuid="53ec697a-3f03-42b0-b1c5-a58ffea016ea" source="U01a04475-72e5-4f56-a81e-2636e7a6e42c" target="U01a04475-72e5-4f56-a81e-2636e7a6e42c">
+							<effect xmi:type="uml:Activity" xmi:id="U5bf8333b-e028-469a-a661-ae803057794b" xmi:uuid="5bf8333b-e028-469a-a661-ae803057794b" name="ovenSetPwr(pwr);" isReentrant="false"/>
+							<trigger xmi:type="uml:Trigger" xmi:id="U391d379c-9470-443d-b2a7-366953d9a0cc" xmi:uuid="391d379c-9470-443d-b2a7-366953d9a0cc" name="evPwr"/>
+						</transition>
+						<transition xmi:type="uml:Transition" xmi:id="U2d9c1d3d-0a17-4c17-b622-d39b60e30aab" xmi:uuid="2d9c1d3d-0a17-4c17-b622-d39b60e30aab" source="U01a04475-72e5-4f56-a81e-2636e7a6e42c" target="U01a04475-72e5-4f56-a81e-2636e7a6e42c">
+							<effect xmi:type="uml:Activity" xmi:id="U24e6cfab-d45e-4916-9913-a0f5dda5d4a3" xmi:uuid="24e6cfab-d45e-4916-9913-a0f5dda5d4a3" name="timer_inc();" isReentrant="false"/>
+							<trigger xmi:type="uml:Trigger" xmi:id="Ub4977e4a-b03e-42ef-aae0-bfc1fae54f02" xmi:uuid="b4977e4a-b03e-42ef-aae0-bfc1fae54f02" name="evInc"/>
+						</transition>
+						<transition xmi:type="uml:Transition" xmi:id="U1a00407d-d225-4920-962c-ec4eaf3e1ee9" xmi:uuid="1a00407d-d225-4920-962c-ec4eaf3e1ee9" source="U01a04475-72e5-4f56-a81e-2636e7a6e42c" target="U01a04475-72e5-4f56-a81e-2636e7a6e42c">
+							<effect xmi:type="uml:Activity" xmi:id="Uab0906f6-e84f-45e4-90e0-12b827ea2bbd" xmi:uuid="ab0906f6-e84f-45e4-90e0-12b827ea2bbd" name="timer_dec();" isReentrant="false"/>
+							<trigger xmi:type="uml:Trigger" xmi:id="Ud4b4d6c2-ee81-4ee4-9092-0ec67ebe8599" xmi:uuid="d4b4d6c2-ee81-4ee4-9092-0ec67ebe8599" name="evDec"/>
+						</transition>
+					</region>
+				</ownedBehavior>
+				<ownedComment xmi:type="uml:Comment" xmi:id="Ufc5f3f2e-66a8-4970-b28c-a549039c9071" xmi:uuid="fc5f3f2e-66a8-4970-b28c-a549039c9071" body="header:§
+#include &quot;oven.h&quot;§
+#include &quot;oven_ext.h&quot;§
+#include &quot;oven_hlp.h&quot;§
+#include &lt;stdio.h&gt;§
+§
+extern unsigned char msg;§
+extern T_PWR pwr;§
+§">
+					<annotatedElement xmi:idref="Ubf68eee5-24ad-4d83-8896-cffd3f9d9021"/>
+				</ownedComment>
+			</packagedElement>
+		</packagedElement>
+		<packagedElement xmi:type="uml:Package" xmi:id="U0927cd7b-a1e1-4b01-8bda-6a732afff134" xmi:uuid="0927cd7b-a1e1-4b01-8bda-6a732afff134" name="MicrowaveOvenWithRegions">
+			<packagedElement xmi:type="uml:Class" xmi:id="U66db7a38-f9d1-46f2-9e17-2ef1b1d978cb" xmi:uuid="66db7a38-f9d1-46f2-9e17-2ef1b1d978cb" name="MachineClass" DocComment="U95dcef30-a5f2-4c2f-af1b-de29fb2c9823">
+				<ownedBehavior xmi:type="uml:StateMachine" xmi:id="U14c871c3-1505-480e-899d-a9e494bf7574" xmi:uuid="14c871c3-1505-480e-899d-a9e494bf7574" name="StateMachine1">
+					<region xmi:type="uml:Region" xmi:id="Uc1607105-a729-47dc-9570-ed8a6d61c0b8" xmi:uuid="c1607105-a729-47dc-9570-ed8a6d61c0b8" name="Region1">
+						<subvertex xmi:type="uml:State" xmi:id="U9a3757d2-1630-4525-abf7-a307e0c14774" xmi:uuid="9a3757d2-1630-4525-abf7-a307e0c14774" name="Active">
+							<region xmi:type="uml:Region" xmi:id="U11a61290-9c04-4850-8b26-9305e7aeb966" xmi:uuid="11a61290-9c04-4850-8b26-9305e7aeb966" name="Power">
+								<subvertex xmi:type="uml:State" xmi:id="U6a58c73b-e86b-42eb-81e8-1e27bb587eff" xmi:uuid="6a58c73b-e86b-42eb-81e8-1e27bb587eff" name="LowPower">
+									<entry xmi:type="uml:Activity" xmi:id="Ub0f70ae0-39e7-42e4-b76c-c295907011a1" xmi:uuid="b0f70ae0-39e7-42e4-b76c-c295907011a1" name="ovenSetPwr(PWR_LOW);"/>
+								</subvertex>
+								<subvertex xmi:type="uml:State" xmi:id="U076578db-b9ef-426f-aeeb-9446d27e9d6d" xmi:uuid="076578db-b9ef-426f-aeeb-9446d27e9d6d" name="HighPower">
+									<entry xmi:type="uml:Activity" xmi:id="U33f4ee43-6f03-4347-a93c-a2f622fc0701" xmi:uuid="33f4ee43-6f03-4347-a93c-a2f622fc0701" name="ovenSetPwr(PWR_HIGH);"/>
+								</subvertex>
+								<subvertex xmi:type="uml:Pseudostate" xmi:id="Ufff2b968-6afc-4489-b478-df8dfce83d6e" xmi:uuid="fff2b968-6afc-4489-b478-df8dfce83d6e"/>
+								<subvertex xmi:type="uml:Pseudostate" kind="shallowHistory" xmi:id="Uf35207dd-ebfe-43de-afbc-d1036e672141" xmi:uuid="f35207dd-ebfe-43de-afbc-d1036e672141"/>
+								<transition xmi:type="uml:Transition" xmi:id="Ud46ffce5-9b33-4f93-8519-d6568b0dc313" xmi:uuid="d46ffce5-9b33-4f93-8519-d6568b0dc313" source="Ufff2b968-6afc-4489-b478-df8dfce83d6e" target="U6a58c73b-e86b-42eb-81e8-1e27bb587eff"/>
+								<transition xmi:type="uml:Transition" xmi:id="Ue388d4b5-00be-474c-b9fb-ed4212a6b6c0" xmi:uuid="e388d4b5-00be-474c-b9fb-ed4212a6b6c0" source="U6a58c73b-e86b-42eb-81e8-1e27bb587eff" target="U076578db-b9ef-426f-aeeb-9446d27e9d6d">
+									<trigger xmi:type="uml:Trigger" xmi:id="Ua4083181-629f-4057-850d-1795eb36c240" xmi:uuid="a4083181-629f-4057-850d-1795eb36c240" name="evPwrHigh"/>
+								</transition>
+								<transition xmi:type="uml:Transition" xmi:id="U0883290e-058b-4574-aef6-bbedd8fe3685" xmi:uuid="0883290e-058b-4574-aef6-bbedd8fe3685" source="U076578db-b9ef-426f-aeeb-9446d27e9d6d" target="U6a58c73b-e86b-42eb-81e8-1e27bb587eff">
+									<trigger xmi:type="uml:Trigger" xmi:id="Ud359bd2e-bad8-4bf7-9935-f00f176db2bf" xmi:uuid="d359bd2e-bad8-4bf7-9935-f00f176db2bf" name="evPwrLow"/>
+								</transition>
+							</region>
+							<region xmi:type="uml:Region" xmi:id="U046e7b13-0885-4034-8e07-babe53d10ee4" xmi:uuid="046e7b13-0885-4034-8e07-babe53d10ee4" name="Light">
+								<subvertex xmi:type="uml:State" xmi:id="U1ce6f3a7-cac1-4c44-a997-fe4dcb553209" xmi:uuid="1ce6f3a7-cac1-4c44-a997-fe4dcb553209" name="LightOn">
+									<entry xmi:type="uml:Activity" xmi:id="U5cac32d4-9293-4a3e-b48d-a0bfd507aea6" xmi:uuid="5cac32d4-9293-4a3e-b48d-a0bfd507aea6" name="switchLight(L_ON);"/>
+								</subvertex>
+								<subvertex xmi:type="uml:State" xmi:id="Ud80cd87b-bbb2-4634-9f0d-e0d314cbbcc9" xmi:uuid="d80cd87b-bbb2-4634-9f0d-e0d314cbbcc9" name="LightOff">
+									<entry xmi:type="uml:Activity" xmi:id="U6bebe6ef-613e-4fa3-975f-fe0ab8d65972" xmi:uuid="6bebe6ef-613e-4fa3-975f-fe0ab8d65972" name="switchLight(L_OFF);"/>
+								</subvertex>
+								<subvertex xmi:type="uml:Pseudostate" xmi:id="Ud1b2e1a4-992e-4ea1-9dea-c455897166e1" xmi:uuid="d1b2e1a4-992e-4ea1-9dea-c455897166e1"/>
+								<transition xmi:type="uml:Transition" xmi:id="U41c4a50a-824e-4ca1-9392-12c4021bfe39" xmi:uuid="41c4a50a-824e-4ca1-9392-12c4021bfe39" source="U1ce6f3a7-cac1-4c44-a997-fe4dcb553209" target="Ud80cd87b-bbb2-4634-9f0d-e0d314cbbcc9">
+									<guard xmi:type="uml:Constraint" xmi:id="U48b4636f-c064-4017-8303-c56a5daf8ab5" xmi:uuid="48b4636f-c064-4017-8303-c56a5daf8ab5">
+										<specification xmi:type="uml:LiteralString" xmi:id="Ua764ac9e-becc-4f9d-9a4f-f8d4c0e12dd8" xmi:uuid="a764ac9e-becc-4f9d-9a4f-f8d4c0e12dd8" value="timer_preset()==0"/>
+									</guard>
+									<trigger xmi:type="uml:Trigger" xmi:id="Ud8ee5822-dde2-4adc-b01f-99480f19d53d" xmi:uuid="d8ee5822-dde2-4adc-b01f-99480f19d53d" name="evDoorOpen"/>
+								</transition>
+								<transition xmi:type="uml:Transition" xmi:id="U04cd73ba-87b2-4bae-8252-50963fb42036" xmi:uuid="04cd73ba-87b2-4bae-8252-50963fb42036" source="Ud1b2e1a4-992e-4ea1-9dea-c455897166e1" target="U1ce6f3a7-cac1-4c44-a997-fe4dcb553209"/>
+								<transition xmi:type="uml:Transition" xmi:id="U8227987a-088b-44c5-99e7-d56df488c791" xmi:uuid="8227987a-088b-44c5-99e7-d56df488c791" source="Ud80cd87b-bbb2-4634-9f0d-e0d314cbbcc9" target="U1ce6f3a7-cac1-4c44-a997-fe4dcb553209">
+									<guard xmi:type="uml:Constraint" xmi:id="U07d90bff-c736-4885-9297-25da7b95b4fd" xmi:uuid="07d90bff-c736-4885-9297-25da7b95b4fd">
+										<specification xmi:type="uml:LiteralString" xmi:id="Udb1f9c43-68b6-4890-b6f0-8981222f7ab8" xmi:uuid="db1f9c43-68b6-4890-b6f0-8981222f7ab8" value="timer_preset()&gt;0"/>
+									</guard>
+									<trigger xmi:type="uml:Trigger" xmi:id="U77d096d2-b243-423a-89b5-dfa64babe327" xmi:uuid="77d096d2-b243-423a-89b5-dfa64babe327" name="evDoorClosed"/>
+								</transition>
+							</region>
+							<region xmi:type="uml:Region" xmi:id="U78b1ca8d-9e64-4c4d-86ad-a2ffaa7f16bc" xmi:uuid="78b1ca8d-9e64-4c4d-86ad-a2ffaa7f16bc" name="Radiator">
+								<subvertex xmi:type="uml:State" xmi:id="Ubb0202a8-2d4a-4d15-8161-5bc6bfacfa67" xmi:uuid="bb0202a8-2d4a-4d15-8161-5bc6bfacfa67" name="Cooking"/>
+								<subvertex xmi:type="uml:State" xmi:id="U3a1c87a8-129d-4745-bcc7-9c317286b16a" xmi:uuid="3a1c87a8-129d-4745-bcc7-9c317286b16a" name="RadiatorOff"/>
+								<subvertex xmi:type="uml:Pseudostate" xmi:id="Ub69166fe-ad0e-48ba-8278-36c75bad7016" xmi:uuid="b69166fe-ad0e-48ba-8278-36c75bad7016"/>
+								<subvertex xmi:type="uml:State" xmi:id="Uae7f3295-0b8e-4035-8ed0-ec9be53a821d" xmi:uuid="ae7f3295-0b8e-4035-8ed0-ec9be53a821d" name="CookingPause"/>
+								<transition xmi:type="uml:Transition" xmi:id="U3860a5ac-e19f-42a9-8dec-fbdd89f5c28b" xmi:uuid="3860a5ac-e19f-42a9-8dec-fbdd89f5c28b" source="Ub69166fe-ad0e-48ba-8278-36c75bad7016" target="U3a1c87a8-129d-4745-bcc7-9c317286b16a"/>
+								<transition xmi:type="uml:Transition" xmi:id="U43bb110a-7038-4880-a602-1dd955420947" xmi:uuid="43bb110a-7038-4880-a602-1dd955420947" source="U3a1c87a8-129d-4745-bcc7-9c317286b16a" target="Ubb0202a8-2d4a-4d15-8161-5bc6bfacfa67">
+									<guard xmi:type="uml:Constraint" xmi:id="U0a74f3bf-41fc-41fa-b035-6c2e9dedcfc2" xmi:uuid="0a74f3bf-41fc-41fa-b035-6c2e9dedcfc2">
+										<specification xmi:type="uml:LiteralString" xmi:id="U01b46641-c7ae-4e71-9ad6-d08deb3690bf" xmi:uuid="01b46641-c7ae-4e71-9ad6-d08deb3690bf" value="timer_preset()&gt;0"/>
+									</guard>
+									<effect xmi:type="uml:Activity" xmi:id="U9e72ace1-a225-47ea-8649-09ae4f447660" xmi:uuid="9e72ace1-a225-47ea-8649-09ae4f447660" name="timer_start();"/>
+									<trigger xmi:type="uml:Trigger" xmi:id="U7a29bc2c-eafd-44a6-903f-5b7897dedb8b" xmi:uuid="7a29bc2c-eafd-44a6-903f-5b7897dedb8b" name="evDoorClosed"/>
+								</transition>
+								<transition xmi:type="uml:Transition" xmi:id="Ue3c1e3c7-7d6c-4752-b9d4-eff837a2e31e" xmi:uuid="e3c1e3c7-7d6c-4752-b9d4-eff837a2e31e" source="Ubb0202a8-2d4a-4d15-8161-5bc6bfacfa67" target="U3a1c87a8-129d-4745-bcc7-9c317286b16a">
+									<effect xmi:type="uml:Activity" xmi:id="U340f2b42-954d-4461-ae4b-bd741290a6e7" xmi:uuid="340f2b42-954d-4461-ae4b-bd741290a6e7" name="ovenOff();
+timer_clear();"/>
+									<trigger xmi:type="uml:Trigger" xmi:id="Ufc7b48de-23f2-4460-b2ed-c3539eab3745" xmi:uuid="fc7b48de-23f2-4460-b2ed-c3539eab3745" name="evTimeout"/>
+								</transition>
+								<transition xmi:type="uml:Transition" xmi:id="U09290d99-86c6-4040-9e7e-0a4dc21e98ab" xmi:uuid="09290d99-86c6-4040-9e7e-0a4dc21e98ab" source="Ubb0202a8-2d4a-4d15-8161-5bc6bfacfa67" target="Uae7f3295-0b8e-4035-8ed0-ec9be53a821d">
+									<effect xmi:type="uml:Activity" xmi:id="Ucbc42bb1-791d-47f2-91b9-93653e96df6f" xmi:uuid="cbc42bb1-791d-47f2-91b9-93653e96df6f" name="ovenOff();
+timer_pause();"/>
+									<trigger xmi:type="uml:Trigger" xmi:id="Ue8553f52-f971-49a9-8ab8-6ef81bede32c" xmi:uuid="e8553f52-f971-49a9-8ab8-6ef81bede32c" name="evDoorOpen"/>
+								</transition>
+								<transition xmi:type="uml:Transition" xmi:id="Uac29f5b8-cec0-4355-8b4c-189662a0d7cf" xmi:uuid="ac29f5b8-cec0-4355-8b4c-189662a0d7cf" source="Uae7f3295-0b8e-4035-8ed0-ec9be53a821d" target="Ubb0202a8-2d4a-4d15-8161-5bc6bfacfa67">
+									<effect xmi:type="uml:Activity" xmi:id="U23f6ec21-22c9-49a1-a98b-e21b46ac942a" xmi:uuid="23f6ec21-22c9-49a1-a98b-e21b46ac942a" name="timer_cont();"/>
+									<trigger xmi:type="uml:Trigger" xmi:id="Ue61138f6-b3c4-47f8-ac73-92aee132a1e6" xmi:uuid="e61138f6-b3c4-47f8-ac73-92aee132a1e6" name="evDoorClosed"/>
+								</transition>
+							</region>
+						</subvertex>
+						<subvertex xmi:type="uml:State" xmi:id="Ub9b5a59f-cad6-4554-b121-830632adf3a4" xmi:uuid="b9b5a59f-cad6-4554-b121-830632adf3a4" name="Inactive"/>
+						<subvertex xmi:type="uml:Pseudostate" xmi:id="Ud7af191b-ec76-480b-8954-f2d272f9c8e2" xmi:uuid="d7af191b-ec76-480b-8954-f2d272f9c8e2"/>
+						<transition xmi:type="uml:Transition" xmi:id="U1f8ceb28-2d00-4967-afe9-7ad4fd69f6f1" xmi:uuid="1f8ceb28-2d00-4967-afe9-7ad4fd69f6f1" source="Ud7af191b-ec76-480b-8954-f2d272f9c8e2" target="Ub9b5a59f-cad6-4554-b121-830632adf3a4"/>
+						<transition xmi:type="uml:Transition" xmi:id="U4e59a210-f009-4a81-975b-2ab300c0af60" xmi:uuid="4e59a210-f009-4a81-975b-2ab300c0af60" source="Ub9b5a59f-cad6-4554-b121-830632adf3a4" target="U9a3757d2-1630-4525-abf7-a307e0c14774">
+							<trigger xmi:type="uml:Trigger" xmi:id="U81b0baa9-5785-4db5-8921-7801424bb2c4" xmi:uuid="81b0baa9-5785-4db5-8921-7801424bb2c4" name="#1"/>
+						</transition>
+						<transition xmi:type="uml:Transition" xmi:id="U0e5f1d84-4b08-4e5b-8ff5-c5661a5bdfbb" xmi:uuid="0e5f1d84-4b08-4e5b-8ff5-c5661a5bdfbb" source="U9a3757d2-1630-4525-abf7-a307e0c14774" target="U9a3757d2-1630-4525-abf7-a307e0c14774">
+							<effect xmi:type="uml:Activity" xmi:id="Ue8a20dd1-559d-448f-99d6-bb199ec0b06a" xmi:uuid="e8a20dd1-559d-448f-99d6-bb199ec0b06a" name="timer_inc();"/>
+							<trigger xmi:type="uml:Trigger" xmi:id="U8e7bcef0-dda2-4151-8d4d-cc70fb6f067d" xmi:uuid="8e7bcef0-dda2-4151-8d4d-cc70fb6f067d" name="evInc"/>
+						</transition>
+						<transition xmi:type="uml:Transition" xmi:id="U5bcf182c-ea41-4b02-8036-c9d21a2d5e85" xmi:uuid="5bcf182c-ea41-4b02-8036-c9d21a2d5e85" source="U9a3757d2-1630-4525-abf7-a307e0c14774" target="U9a3757d2-1630-4525-abf7-a307e0c14774">
+							<effect xmi:type="uml:Activity" xmi:id="U60fcf121-18d5-4005-98b7-5156e731b36b" xmi:uuid="60fcf121-18d5-4005-98b7-5156e731b36b" name="timer_dec();"/>
+							<trigger xmi:type="uml:Trigger" xmi:id="Ua2a5552a-1cc2-45bc-8563-ee990c465f6c" xmi:uuid="a2a5552a-1cc2-45bc-8563-ee990c465f6c" name="evDec"/>
+						</transition>
+					</region>
+				</ownedBehavior>
+				<ownedComment xmi:type="uml:Comment" xmi:id="U95dcef30-a5f2-4c2f-af1b-de29fb2c9823" xmi:uuid="95dcef30-a5f2-4c2f-af1b-de29fb2c9823" body="header:§
+#include &quot;oven_ext.h&quot;§
+#include &quot;oven_hlp.h&quot;§
+#include &quot;oven.h&quot;§
+#include &lt;stdio.h&gt;§
+§
+extern unsigned char msg;§
+extern T_PWR pwr;§
+§">
+					<annotatedElement xmi:idref="U66db7a38-f9d1-46f2-9e17-2ef1b1d978cb"/>
+				</ownedComment>
+			</packagedElement>
+		</packagedElement>
+	</uml:Package>
+</xmi:XMI>

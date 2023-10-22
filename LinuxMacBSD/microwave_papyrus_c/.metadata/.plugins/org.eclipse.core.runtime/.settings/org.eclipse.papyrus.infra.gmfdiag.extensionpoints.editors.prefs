@@ -1,0 +1,13 @@
+eclipse.preferences.version=1
+papyrus.directeditor.org.eclipse.papyrus.uml.profile.structure.AppliedStereotypeProperty=Advanced Property Textual Editor
+papyrus.directeditor.org.eclipse.uml2.uml.CollaborationUse=Advanced CollaborationUse Editor
+papyrus.directeditor.org.eclipse.uml2.uml.ConnectionPointReference=Textual editor for connection point references
+papyrus.directeditor.org.eclipse.uml2.uml.Constraint=Essential OCL constraint editor
+papyrus.directeditor.org.eclipse.uml2.uml.Message=Advanced message editor
+papyrus.directeditor.org.eclipse.uml2.uml.OpaqueExpression=Essential OCL constraint editor
+papyrus.directeditor.org.eclipse.uml2.uml.Parameter=Advanced Parameter Editor
+papyrus.directeditor.org.eclipse.uml2.uml.Port=Advanced Port Textual Editor
+papyrus.directeditor.org.eclipse.uml2.uml.Property=Advanced Property Textual Editor
+papyrus.directeditor.org.eclipse.uml2.uml.State=Advanced State Textual Editor
+papyrus.directeditor.org.eclipse.uml2.uml.Transition=Advanced transition textual editor
+papyrus.directeditor.org.eclipse.uml2.uml.ValueSpecification=Advanced Value Specification Textual Editor

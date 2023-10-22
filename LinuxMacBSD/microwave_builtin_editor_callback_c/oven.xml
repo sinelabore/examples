@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ssc:StateChart xmlns:ssc="http://www.sinelabore.com/SSC/1_0" Version="1.0">
+  <!--Command line options: -p ssc -E -l cx -o oven oven.xml -->
+  <!--This file is generated - do not edit manually-->
+  <!--Generated on: Sun Sep 10 21:19:29 CEST 2023 / Version 6.0.5.3690-->
+  <ssc:Dimensions H="1058" W="1545" BA="55" DW="934" NO="725" TV="398" />
+  <ssc:Attributes>
+    <ssc:Attribute DataType="struct oven_callback" VariableName="*cb_array[OVEN_MAX_CB]" DefaultValue="{0}" Visibility="public" />
+    <ssc:Attribute DataType="T_PWR" VariableName="pwr" DefaultValue="PWR_LOW" Visibility="public" />
+  </ssc:Attributes>
+  <ssc:Header>#include &lt;stdio.h&gt;
+#include &lt;stdint.h&gt;
+#include "mydefs.h"
+#include "oven_hlp.h"
+#include "oven_ext.h"
+#include "oven.h"
+#include "oven_cb.h"</ssc:Header>
+  <ssc:Action>/* just a comment */</ssc:Action>
+  <ssc:PostAction>oven_check_cb(instanceVar);</ssc:PostAction>
+  <ssc:StateHeader />
+  <ssc:AdditionalIncludesStates />
+  <ssc:State Name="Super" History="Flat">
+    <ssc:Transition Event="evInc" ToState="Super" FromState="Super" Action="timer_inc();" FromLayoutHint="N" ToLayoutHint="N" />
+    <ssc:Transition Event="evDec" ToState="Super" FromState="Super" Action="timer_dec();" FromLayoutHint="W" ToLayoutHint="W" />
+    <ssc:Transition Event="evPwr" ToState="Super" FromState="Super" Action="ovenSetPwr(instanceVar-&gt;pwr);" />
+    <ssc:State Name="Completed">
+      <ssc:Transition Event="evDoorOpen" ToState="Idle" FromState="Completed" />
+    </ssc:State>
+    <ssc:State Name="Cooking">
+      <EntryCode>ovenOn();</EntryCode>
+      <ssc:Transition Event="evTimeout" ToState="Completed" FromState="Cooking" Action="ovenOff();&#xA;timer_clear();" />
+      <ssc:Transition Event="evDoorOpen" ToState="CookingPause" FromState="Cooking" Action="ovenOff();&#xA;timer_pause();" />
+    </ssc:State>
+    <ssc:State Name="CookingPause">
+      <ssc:Transition Event="evDoorClosed" ToState="Cooking" FromState="CookingPause" Action="timer_cont();" />
+    </ssc:State>
+    <ssc:State Name="Idle">
+      <EntryCode>ovenOff();</EntryCode>
+      <ssc:Transition Event="evDoorClosed" ToState="Cooking" FromState="Idle" Guard="timer_preset()&gt;0" Action="timer_start();" />
+    </ssc:State>
+    <ssc:InitState Id="EAID_42B3BCA3_B7F6_4585_8598_EC705B12DF9F">
+      <ssc:Transition ToState="Idle" FromState="EAID_42B3BCA3_B7F6_4585_8598_EC705B12DF9F" />
+    </ssc:InitState>
+  </ssc:State>
+  <ssc:InitState Id="EAID_0A58F362_3AC3_41b4_861F_9D4749BA1D48">
+    <ssc:Transition ToState="Super" FromState="EAID_0A58F362_3AC3_41b4_861F_9D4749BA1D48" />
+  </ssc:InitState>
+</ssc:StateChart>

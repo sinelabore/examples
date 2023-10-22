@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.papyrus.infra.ui.emf.providers.EMFGraphicalContentProvider_history__uml:Event:event">
+		<section name="History">
+			<list key="PreviousSelection">
+				<item value="platform:/resource/oven/oven.uml#_Dwr4wLhdEe23t6NYadJx4A"/>
+				<item value="platform:/resource/oven/oven.uml#_O8GdwLhcEe23t6NYadJx4A"/>
+				<item value="platform:/resource/oven/oven.uml#_OHIkoLhcEe23t6NYadJx4A"/>
+				<item value="platform:/resource/oven/oven.uml#_LE6w0LhcEe23t6NYadJx4A"/>
+				<item value="platform:/resource/oven/oven.uml#_B7qtULhcEe23t6NYadJx4A"/>
+				<item value="platform:/resource/oven/oven.uml#_C12doLhcEe23t6NYadJx4A"/>
+			</list>
+		</section>
+	</section>
+	<section name="org.eclipse.papyrus.infra.ui.emf.providers.EMFGraphicalContentProvider_history__platform:/resource/oven/oven.uml:uml:Signal:signal">
+	</section>
+</section>

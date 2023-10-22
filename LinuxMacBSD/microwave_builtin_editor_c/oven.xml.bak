@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ssc:StateChart xmlns:ssc="http://www.sinelabore.com/SSC/1_0" Version="1.0">
+  <!--Command line options: -p ssc -E /Users/pmueller/develop/sinelabore/codegen/codegen/distribution_folder/sinelaboreRT5.0/examples/microwave_handbook_builtin_editor/oven.xml -->
+  <!--This file is generated - do not edit manually-->
+  <!--Generated on: Sat Feb 06 22:35:34 CET 2021 / version 5.0.1-->
+  <ssc:Header>#include "mydefs.h"
+#include "oven.h"
+#include "oven_ext.h"
+#include "oven_hlp.h"
+#include &lt;stdio.h&gt;
+
+extern unsigned char msg;
+extern T_PWR pwr;</ssc:Header>
+  <ssc:Action>/* just a comment */</ssc:Action>
+  <ssc:StateHeader />
+  <ssc:Transition Event="evDoorOpen" FromState="Completed" ToState="Idle" />
+  <ssc:Transition Event="evTimeout" FromState="Cooking" ToState="Completed" Action="ovenOff();&#xA;timer_clear();" />
+  <ssc:Transition Event="evDoorOpen" FromState="Cooking" ToState="CookingPause" Action="ovenOff();&#xA;timer_pause();" />
+  <ssc:Transition Event="evDoorClosed" FromState="CookingPause" ToState="Cooking" Action="timer_cont();" />
+  <ssc:Transition Event="evDoorClosed" FromState="Idle" ToState="Cooking" Guard="timer_preset()&gt;0" Action="timer_start();" />
+  <ssc:Transition FromState="EAID_42B3BCA3_B7F6_4585_8598_EC705B12DF9F" ToState="Idle" />
+  <ssc:Transition Event="evInc" FromState="Super" ToState="Super" Action="timer_inc();" FromLayoutHint="N" ToLayoutHint="N" />
+  <ssc:Transition Event="evDec" FromState="Super" ToState="Super" Action="timer_dec();" FromLayoutHint="W" ToLayoutHint="W" />
+  <ssc:Transition Event="evPwr" FromState="Super" ToState="Super" Action="ovenSetPwr(pwr);" />
+  <ssc:Transition FromState="EAID_0A58F362_3AC3_41b4_861F_9D4749BA1D48" ToState="Super" />
+  <ssc:State Name="Super" History="Flat">
+    <ssc:State Name="Completed" />
+    <ssc:State Name="Cooking">
+      <EntryCode>ovenOn();</EntryCode>
+    </ssc:State>
+    <ssc:State Name="CookingPause" />
+    <ssc:State Name="Idle">
+      <EntryCode>ovenOff();</EntryCode>
+    </ssc:State>
+    <ssc:InitState Id="EAID_42B3BCA3_B7F6_4585_8598_EC705B12DF9F" />
+  </ssc:State>
+  <ssc:InitState Id="EAID_0A58F362_3AC3_41b4_861F_9D4749BA1D48" />
+</ssc:StateChart>
