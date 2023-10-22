@@ -1,14 +1,20 @@
 # Examples
-Example projects showing how to generate code from state machines using the Sinelabore code generator. 
+Example projects showing how to generate code from state machines using the Sinelabore code generator.
 
-SinelaboreRT was built especially for embedded software developers. It focuses on just one task: Generation of readable and maintainable code from hierarchical UML state machines and from activity diagrams. With its unique features the tool covers well the requirements of embedded real-time and low power application developers.
+## Sinelabore enables embedded developers to effectively combine event-driven architecture, hierarchical state machines, model-based design and automatic code generation.
 
-Examples:
-- EnergiaBlink: Realzing a blinker using a state machine. Showing how to trace the event flow using Mscgen (http://www.sinelabore.com/doku.php?id=wiki:toolbox:trace-the-event-flow)
-- Vending Machine: Example for a more complex example of using state machines. Here some state machines work together to realize the system requirements. This example was created with Astah UML tool. To generate the code from the model you need to install this software first.
-- sm_using_timer_queue_osx_freebsd_linux: Example that shows how to use state machines with timers and queues. The state machine receives its events from an event queue. The queue is filled from timer events, other state machines (cooperating machines) or interrupt handlers. You can compile this example Linux/OS-X and FreeBSD. The machine was created with the state machine editor built into the codegen. To edit the state machine you need to have Graphviz (https://graphviz.org) installed on your computer. An image is avaibale in the doc folder.
-- sm_using_timer_queue_win32: Example that shows how to use state machines with timers and queues. The state machine receives its events from an event queue. The queue is filled from timer events, other state machines (cooperating machines) or interrupt handlers. To compile this example on Windows install the MinGW compiler or use Visual Studio.  The machine was created with the state machine editor built into the codegen. To edit the state machine you need to have Graphviz (https://graphviz.org) installed on your computer. An image is avaibale in the doc folder.
+Many embedded systems are likely candidates for implementation as finite state machines. A system that must sequence a series of actions or that must handle inputs differently depending on the mode it is in is often best implemented as a finite state machine. Typical examples are control-logic-oriented applications such as metering, monitoring, and control applications.
 
-Many more samples created with all the supported UML tools and for different target languages are available in the example folder of the demo download.
+## Specifically for Embedded Developers
 
-See more on www.sinelabore.com
+SinelaboreRT focus is on generation of readable and maintainable code from flat or hierarchical UML state machine diagrams. With its unique features the tool covers perfectly the requirements of embedded real-time and low-power application developers coding in C / CPP. The generated code is independent of CPU and operating system. For IoT applications where parts of the application are implemented in Java / Python / C# / Lua / Rust or Swift, the code can also be generated in these languages. A payback is usually given already immediately.
+
+[[sinelabore_working_principle.svg|Image showing to sinelabore works from model to code]]
+
+Use your existing favourite modelling tool and generate code from it with an easy-to-use command line tool. Or use the built editor to create state machines within minutes. Automatic model checks warn from design flaws. Configure the generation process according to your needs. Simulate your model. Generate trace code automatically if needed. All major state diagram features like hierarchical states, regions, history, sub-machines … are supported.
+
+Download & Try it! There are examples for various UML modelling tools and target languages for having a quick start
+
+- LinuxMacBSD: Folder of examples that can be built on the command line with Make and gcc and friends.
+
+See more at www.sinelabore.com
