@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ssc:StateChart xmlns:ssc="http://www.sinelabore.com/SSC/1_0" Version="1.0">
+  <!--Command line options: -->
+  <!--This file is generated - do not edit manually-->
+  <!--Generated on: Sun Oct 08 21:03:24 CEST 2023 / Version 6.1.3705-->
+  <ssc:Dimensions H="941" W="1269" BA="55" DW="695" NO="637" TV="180" />
+  <ssc:Header>#include "main.h"
+#include "cmsis_os.h"
+#include "sm_ext.h"
+#include "sm.h"
+
+extern osTimerId_t cyclicTimer0Handle;</ssc:Header>
+  <ssc:Action />
+  <ssc:StateHeader />
+  <ssc:AdditionalIncludesStates />
+  <ssc:InitState Id="5c9acb63-a998-483e-9114-cedbde733324">
+    <ssc:Transition ToState="Operational" FromState="5c9acb63-a998-483e-9114-cedbde733324" />
+  </ssc:InitState>
+  <ssc:State Name="Failsafe">
+    <EntryCode>osTimerStop(cyclicTimer0Handle); // stop timer
+HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);</EntryCode>
+  </ssc:State>
+  <ssc:State Name="Operational">
+    <EntryCode>osTimerStart(cyclicTimer0Handle, 100 /* ms */); // start timer</EntryCode>
+    <ssc:Transition Event="evGoFailsafe" ToState="Failsafe" FromState="Operational" />
+    <ssc:InitState Id="15f498ef-4176-4017-b61a-eaced3480663">
+      <ssc:Transition ToState="Off" FromState="15f498ef-4176-4017-b61a-eaced3480663" />
+    </ssc:InitState>
+    <ssc:State Name="On">
+      <EntryCode>HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);</EntryCode>
+      <ssc:Transition Event="evTimeout" ToState="Off" FromState="On" />
+    </ssc:State>
+    <ssc:State Name="Off">
+      <EntryCode>HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);</EntryCode>
+      <ssc:Transition Event="evTimeout" ToState="On" FromState="Off" />
+    </ssc:State>
+  </ssc:State>
+</ssc:StateChart>

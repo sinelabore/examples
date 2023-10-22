@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<c:Diagram
+xmlns:c="http://www.cadifra.com/schema/1.0"
+xmlns:c1v3="http://www.cadifra.com/schema/1.3"
+ProductVersion="1.3.1">
+
+<Page id="r1"
+Size="9"
+Width="21000"
+Height="29700"
+Landscape="1"
+Rows="1"
+Columns="1"
+Margins="1000 1000 1000 1000"
+CutGlueMargins="1000 1000 1000 1000"
+Scale="1"/>
+
+<DiagramType id="r2"
+TypeValue="5"/>
+
+<Style id="r3">
+<dir n="Base" Typeface="arial" Size="11" Bold="0">
+<dir n="Free Text" Size="10" Bold="0"/>
+<dir n="Note" Size="9" Bold="0"/>
+<dir n="State Diagram">
+<dir n="State" Bold="0">
+<dir n="Compartment" Size="8"/>
+<dir n="Header" Bold="1"/>
+</dir>
+<dir n="Transition" Bold="0"/>
+</dir>
+</dir>
+</Style>
+
+<InitialState id="r8"
+Pos="1500 -2400"/>
+
+<Transition id="r9">
+<End id="r10"
+Pos="1900 -2600"
+State="r8"
+Type="1"/>
+<Segment id="r11"/>
+<End id="r12"
+Pos="3000 -2600"
+State="r145"
+Type="2"/>
+</Transition>
+
+<Note id="r20"
+Pos="3000 -11700"
+Size="5900 5700">
+<Text>header:<p/>
+#include "mydefs.h"<p/>
+#include "oven.h"<p/>
+#include "oven_ext.h"<p/>
+#include "oven_hlp.h"<p/>
+#include &lt;stdio.h&gt;<p/>
+#include &lt;bsp.h&gt;<p/>
+<p/>
+extern T_PWR pwr;<p/>
+extern rtems_id Queue_id;<p/>
+<p/>
+uint8_t msg=NO_MSG;<p/>
+size_t received;<p/>
+rtems_status_code status;<p/>
+</Text>
+</Note>
+
+<Note id="r22"
+Pos="10000 -12100"
+Size="10900 4300">
+<Text>action:<p/>
+/* wait for message */<p/>
+status = rtems_message_queue_receive(<p/>
+      Queue_id,<p/>
+      (void *) &amp;msg,<p/>
+      &amp;received,<p/>
+      RTEMS_DEFAULT_OPTIONS,<p/>
+      RTEMS_NO_TIMEOUT<p/>
+    );<p/>
+if ( status != RTEMS_SUCCESSFUL )<p/>
+  fputs( "receive did not work\n", stderr );</Text>
+</Note>
+
+<Transition id="r27">
+<End id="r38"
+Pos="18800 -3600"
+State="r145"
+Type="1"/>
+<Segment id="r39"/>
+<Join id="r40"
+Pos="19300 -3600"/>
+<Segment id="r41">
+<Anchor id="r45"
+Pos="19300 -3900">
+<FreeText id="r46"
+Pos="19500 -3700"
+Origin="1">
+<Text>evPwr/<p/>
+ovenSetPwr(pwr);</Text>
+</FreeText>
+</Anchor>
+</Segment>
+<Join id="r42"
+Pos="19300 -4500"/>
+<Segment id="r43"/>
+<End id="r44"
+Pos="18800 -4500"
+State="r145"
+Type="2"/>
+</Transition>
+
+<Transition id="r28">
+<End id="r37"
+Pos="7000 -3900"
+State="r4"
+Type="1"/>
+<Segment id="r36"/>
+<Join id="r35"
+Pos="7000 -2800"/>
+<Segment id="r29">
+<Anchor id="r32"
+Pos="9700 -2800">
+<FreeText id="r33"
+Pos="11240 -2700"
+Origin="3">
+<Text>evDoorClosed[timer_preset()&gt;0]/<p/>
+timer_start();</Text>
+</FreeText>
+</Anchor>
+</Segment>
+<Join id="r30"
+Pos="11400 -2800"/>
+<Segment id="r31"/>
+<End id="r34"
+Pos="11400 -3900"
+State="r5"
+Type="2"/>
+</Transition>
+
+<Transition id="r78">
+<End id="r15"
+Pos="12200 -3900"
+State="r5"
+Type="1"/>
+<Segment id="r14"/>
+<Join id="r13"
+Pos="12200 -2600"/>
+<Segment id="r80">
+<Anchor id="r84"
+Pos="15200 -2600">
+<FreeText id="r85"
+Pos="16301 -2400"
+Origin="3">
+<Text>evDoorOpen/<p/>
+ovenOff();<p/>
+timer_pause();</Text>
+</FreeText>
+</Anchor>
+</Segment>
+<Join id="r81"
+Pos="17100 -2600"/>
+<Segment id="r82"/>
+<End id="r83"
+Pos="17100 -3800"
+State="r7"
+Type="2"/>
+</Transition>
+
+<Transition id="r87">
+<End id="r88"
+Pos="15700 -4700"
+State="r7"
+Type="1"/>
+<Segment id="r89">
+<Anchor id="r91"
+Pos="14400 -4700">
+<FreeText id="r92"
+Pos="15566 -4500"
+Origin="3">
+<Text>evDoorClosed/<p/>
+timer_cont();</Text>
+</FreeText>
+</Anchor>
+</Segment>
+<End id="r90"
+Pos="12700 -4700"
+State="r5"
+Type="2"/>
+</Transition>
+
+<Transition id="r93">
+<End id="r94"
+Pos="10900 -6100"
+State="r5"
+Type="1"/>
+<Segment id="r95">
+<Anchor id="r97"
+Pos="10900 -7700">
+<FreeText id="r98"
+Pos="11000 -7554"
+Origin="1">
+<Text>evTimeout/<p/>
+ovenOff();<p/>
+timer_clear();</Text>
+</FreeText>
+</Anchor>
+</Segment>
+<End id="r96"
+Pos="10900 -8900"
+State="r6"
+Type="2"/>
+</Transition>
+
+<Transition id="r99">
+<End id="r100"
+Pos="9400 -9600"
+State="r6"
+Type="1"/>
+<Segment id="r101">
+<Anchor id="r105"
+Pos="7900 -9600">
+<FreeText id="r106"
+Pos="8640 -9754"
+Origin="2">
+<Text>evDoorOpen</Text>
+</FreeText>
+</Anchor>
+</Segment>
+<Join id="r102"
+Pos="7200 -9600"/>
+<Segment id="r103"/>
+<End id="r104"
+Pos="7200 -7300"
+State="r4"
+Type="2"/>
+</Transition>
+
+<Transition id="r108">
+<End id="r18"
+Pos="4500 -5600"
+State="r107"
+Type="1"/>
+<Segment id="r16"/>
+<End id="r17"
+Pos="5400 -5600"
+State="r4"
+Type="2"/>
+</Transition>
+
+<Transition id="r125">
+<End id="r126"
+Pos="18800 -5300"
+State="r145"
+Type="1"/>
+<Segment id="r127"/>
+<Join id="r128"
+Pos="19300 -5300"/>
+<Segment id="r129">
+<Anchor id="r133"
+Pos="19300 -5500">
+<FreeText id="r134"
+Pos="19600 -5254"
+Origin="1">
+<Text>evInc/<p/>
+timer_inc();</Text>
+</FreeText>
+</Anchor>
+</Segment>
+<Join id="r130"
+Pos="19300 -5900"/>
+<Segment id="r131"/>
+<End id="r132"
+Pos="18800 -5900"
+State="r145"
+Type="2"/>
+</Transition>
+
+<Transition id="r135">
+<End id="r136"
+Pos="18800 -7100"
+State="r145"
+Type="1"/>
+<Segment id="r137"/>
+<Join id="r138"
+Pos="19300 -7100"/>
+<Segment id="r139">
+<Anchor id="r143"
+Pos="19300 -7100">
+<FreeText id="r144"
+Pos="19500 -6900"
+Origin="1">
+<Text>evDec/<p/>
+timer_dec();</Text>
+</FreeText>
+</Anchor>
+</Segment>
+<Join id="r140"
+Pos="19300 -7800"/>
+<Segment id="r141"/>
+<End id="r142"
+Pos="18800 -7800"
+State="r145"
+Type="2"/>
+</Transition>
+
+<State id="r145"
+Pos="3000 -700"
+Size="15800 10200"
+Large="1">
+<Text>Super (H)</Text>
+<State id="r4"
+Pos="5400 -3900"
+Size="2900 3400">
+<Text>Idle</Text>
+<Compartment id="r21"
+Pos="5400 -6100"
+Size="2900 1200">
+<Text>onEntry:<p/>
+ovenOff();</Text>
+</Compartment>
+</State>
+<State id="r5"
+Pos="9300 -3900"
+Size="3400 2200">
+<Text>Cooking</Text>
+<Compartment id="r19"
+Pos="9300 -4600"
+Size="3400 1500">
+<Text>onEntry:<p/>
+ovenOn();</Text>
+</Compartment>
+</State>
+<State id="r6"
+Pos="9400 -8900"
+Size="2800 1400">
+<Text>Completed</Text>
+</State>
+<State id="r7"
+Pos="15700 -3800"
+Size="2900 2500">
+<Text>CookingPause</Text>
+</State>
+<InitialState id="r107"
+Pos="4100 -5400"/>
+</State>
+
+</c:Diagram>
