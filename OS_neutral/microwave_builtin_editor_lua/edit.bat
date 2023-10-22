@@ -1,0 +1,1 @@
+java -cp "../../bin/*" codegen.Main -p ssc -E -l cx -o oven.xml oven.xml

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ssc:StateChart xmlns:ssc="http://www.sinelabore.com/SSC/1_0" Version="1.0">
+  <!--Command line options: -p ssc -E -l cx -o oven.xml oven.xml -->
+  <!--This file is generated - do not edit manually-->
+  <!--Generated on: Thu Feb 13 21:43:34 CET 2020 / version 4.1-->
+  <ssc:Header />
+  <ssc:Action>-- just a comment</ssc:Action>
+  <ssc:StateHeader />
+  <ssc:Transition Event="evDoorOpen" FromState="Completed" ToState="Idle" />
+  <ssc:Transition Event="evTimeout" FromState="Cooking" ToState="Completed" Action="self:ovenOff()&#xA;self:timer_clear()" />
+  <ssc:Transition Event="evDoorOpen" FromState="Cooking" ToState="CookingPause" Action="self:ovenOff()&#xA;self:timer_pause()" />
+  <ssc:Transition Event="evDoorClosed" FromState="CookingPause" ToState="Cooking" Action="self:timer_cont()" />
+  <ssc:Transition Event="evDoorClosed" FromState="Idle" ToState="Cooking" Guard="self:timer_preset()&gt;0" Action="self:timer_start()" />
+  <ssc:Transition FromState="EAID_42B3BCA3_B7F6_4585_8598_EC705B12DF9F" ToState="Idle" />
+  <ssc:Transition Event="evInc" FromState="Super" ToState="Super" Action="self:timer_inc()" />
+  <ssc:Transition Event="evDec" FromState="Super" ToState="Super" Action="self:timer_dec()" />
+  <ssc:Transition Event="evPwr" FromState="Super" ToState="Super" Action="self:ovenSetPwr(Event.pwr)" />
+  <ssc:Transition FromState="EAID_0A58F362_3AC3_41b4_861F_9D4749BA1D48" ToState="Super" />
+  <ssc:State Name="Super" History="Flat">
+    <ssc:State Name="Completed" />
+    <ssc:State Name="Cooking">
+      <EntryCode>self:ovenOn()</EntryCode>
+    </ssc:State>
+    <ssc:State Name="CookingPause" />
+    <ssc:State Name="Idle">
+      <EntryCode>self:ovenOff()</EntryCode>
+    </ssc:State>
+    <ssc:InitState Id="EAID_42B3BCA3_B7F6_4585_8598_EC705B12DF9F" />
+  </ssc:State>
+  <ssc:InitState Id="EAID_0A58F362_3AC3_41b4_861F_9D4749BA1D48" />
+</ssc:StateChart>
