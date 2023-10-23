@@ -88,3 +88,6 @@ Then type: cmd and start example.vxe
     In STOP
     Exit STOP
     Entering Final
+
+
+More information is available here: https://www.sinelabore.de/doku.php/wiki/howto/vxworks
