@@ -72,7 +72,8 @@ template <class T>  class SimpleTimer {
      */
     void inc() {
         millis += 1000;
-        std::cout << "Timer timeout set to " << millis << " milli seconds" << std::endl;
+        std::cout << "Timer timeout set to "
+                  << millis << " milli seconds" << std::endl;
     }
 
     /**
@@ -83,7 +84,8 @@ template <class T>  class SimpleTimer {
         if (millis >= 1000) {
             millis -= 1000;
         }
-        std::cout << "Timer timeout set to " << millis << " milli seconds" << std::endl;
+        std::cout << "Timer timeout set to "
+                  << millis << " milli seconds" << std::endl;
     }
 
     /**
@@ -114,7 +116,7 @@ template <class T>  class SimpleTimer {
      * 
      */
     void cont() {
-        if (state == SimpleTimerState::PAUSE){
+        if (state == SimpleTimerState::PAUSE) {
             state = SimpleTimerState::ON;
             std::cout << "Timer continued" << std::endl;
         }

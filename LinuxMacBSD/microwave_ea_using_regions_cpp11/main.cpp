@@ -22,7 +22,7 @@
 
 
 extern SafeQueue<OVEN_EVENT_T> q;
-//SimpleTimer<Events> t1(q), t2(q);
+// SimpleTimer<Events> t1(q), t2(q);
 
 
 std::thread eventHandlerThread() {
