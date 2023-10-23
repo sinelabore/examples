@@ -1,8 +1,0 @@
-{
-    "files.associations": {
-        "vxworks.h": "c",
-        "tasklib.h": "c",
-        "tasklibcommon.h": "c"
-    },
-    "C_Cpp.errorSquiggles": "enabled"
-}
