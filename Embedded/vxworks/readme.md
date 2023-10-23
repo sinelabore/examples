@@ -6,19 +6,23 @@ make
 As a result you will get a file called: example.vxe
 
 Start an ftp server to be able to load the programm into Qemu
-python3 -m pyftpdlib -p 21 -u target -P vxTarget -d ~/vxworks/wrsdk-vxworks7-qemu/examples/sinelabore/vxworks
+
+    python3 -m pyftpdlib -p 21 -u target -P vxTarget -d ~/vxworks/wrsdk-vxworks7-qemu/examples/sinelabore/vxworks
 
 The output should look like similar to this:
+
     [I 2023-10-23 11:21:11] concurrency model: async
     [I 2023-10-23 11:21:11] masquerade (NAT) address: None
     [I 2023-10-23 11:21:11] passive ports: None
     [I 2023-10-23 11:21:11] >>> starting FTP server on 0.0.0.0:21, pid=3024 <<<
 
 Start the qemu in another terminal:
+
     cd ~/vxworks/wrsdk-vxworks7-qemu
     ./run-qemu.sh
 
 After a moment you should see the output:
+
       Instantiating /ram0 as rawFs, device = 0x1
       Instantiating /ram0 as rawFs,  device = 0x1
       Formatting /ram0 for HRFS v1.2
@@ -55,11 +59,9 @@ After a moment you should see the output:
 
 
       Adding 24485 symbols for standalone.
+      ->
 
-->
-
-Then type: cmd
-then start example.vxe
+Then type: cmd and start example.vxe
 
     [vxWorks *]#example.vxe
     Launching process 'example.vxe' ...
