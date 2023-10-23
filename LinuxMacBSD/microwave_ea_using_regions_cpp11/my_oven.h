@@ -19,4 +19,8 @@ class my_oven : public oven{
   void validationHandler(const States from, const States to) const {
     std::cout << "Transition from state: " << getNameByState(from) << " to state " << getNameByState(to) << std::endl;
   }
+
+  virtual ~my_oven(){
+    
+  }
 };

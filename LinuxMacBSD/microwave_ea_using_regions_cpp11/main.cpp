@@ -12,6 +12,7 @@
 #include <iostream>
 #include <string>
 #include <array>
+#include <memory>
 #include <chrono>
 #include <thread>
 #include "oven_ext.h"
@@ -26,7 +27,7 @@ extern SafeQueue<OVEN_EVENT_T> q;
 
 
 std::thread eventHandlerThread() {
-  my_oven* machine = new my_oven();
+  std::unique_ptr<my_oven> machine(new my_oven);
   machine->initialize();
   while (true) {
     OVEN_EVENT_T msg;
