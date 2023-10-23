@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ssc:StateChart xmlns:ssc="http://www.sinelabore.com/SSC/1_0" Version="1.0">
+  <!--Command line options: -E -p ssc -->
+  <!--This file is generated - do not edit manually-->
+  <!--Generated on: Tue Mar 07 15:02:33 CET 2023 / Version 5.5.6.3515-->
+  <ssc:Dimensions H="805" W="1277" BA="55" DW="749" NO="550" TV="180" />
+  <ssc:Header>#include &lt;stdio.h&gt;
+#include &lt;stdint.h&gt;
+#include &lt;vxWorks.h&gt;
+
+#include "state_machine_ext.h"
+#include "state_machine.h"
+
+void startTimer(void);
+void stopTimer(void);</ssc:Header>
+  <ssc:Action />
+  <ssc:StateHeader />
+  <ssc:InitState Id="eb111d10-40a0-4581-944b-79451c2c9724">
+    <ssc:Transition ToState="STOP" FromState="eb111d10-40a0-4581-944b-79451c2c9724" />
+  </ssc:InitState>
+  <ssc:State Name="RUN" History="Flat">
+    <DoCode>printf("In RUN\n");</DoCode>
+    <ExitCode>printf("Exit RUN\n");</ExitCode>
+    <EntryCode>printf("Enter RUN\n");</EntryCode>
+    <ssc:Transition Event="evStop" ToState="STOP" FromState="RUN" Action="stopTimer();" />
+    <ssc:InitState Id="bf00acfd-9f89-47c3-bbb5-2c5b1dfec23a">
+      <ssc:Transition ToState="Slow" FromState="bf00acfd-9f89-47c3-bbb5-2c5b1dfec23a" />
+    </ssc:InitState>
+    <ssc:State Name="Fast">
+      <ExitCode>printf("Exit Fast\n");</ExitCode>
+      <EntryCode>printf("Enter Fast\n");</EntryCode>
+      <ssc:Transition Event="evSlow" ToState="Slow" FromState="Fast" />
+      <ssc:Transition Event="evTimeout" ToState="Slow" FromState="Fast" />
+    </ssc:State>
+    <ssc:State Name="Slow">
+      <ExitCode>printf("Exit Slow\n");</ExitCode>
+      <EntryCode>printf("Enter Slow\n");</EntryCode>
+      <ssc:Transition Event="evFast" ToState="Fast" FromState="Slow" />
+      <ssc:Transition Event="evTimeout" ToState="Fast" FromState="Slow" />
+    </ssc:State>
+  </ssc:State>
+  <ssc:State Name="STOP">
+    <Color>ccffcc</Color>
+    <DoCode>printf("In STOP\n");</DoCode>
+    <ExitCode>printf("Exit STOP\n");</ExitCode>
+    <EntryCode>printf("Enter STOP\n");</EntryCode>
+    <ssc:Transition Event="evStart" ToState="RUN" FromState="STOP" Action="startTimer();" />
+    <ssc:Transition Event="evShutdown" ToState="Final0" FromState="STOP" Action="printf(&quot;Entering Final\n&quot;);" />
+  </ssc:State>
+  <ssc:FinalState Name="Final0" Id="Final0" />
+</ssc:StateChart>
