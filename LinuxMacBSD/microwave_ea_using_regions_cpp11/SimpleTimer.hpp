@@ -137,6 +137,9 @@ template <class T>  class SimpleTimer {
                 // sleep for defined millis
                 std::this_thread::sleep_for(std::chrono::milliseconds(10));
                 elapsed += 10;
+                if (elapsed % 100 == 0) {
+                    std::cout << "." << std::endl;
+                }
                 if (elapsed >= millis) {
                     // timeout
                     std::cout << "Timer timeout fired" << std::endl;
