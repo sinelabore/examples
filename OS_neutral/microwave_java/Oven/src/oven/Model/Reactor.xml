@@ -2,17 +2,17 @@
 <ssc:StateChart xmlns:ssc="http://www.sinelabore.com/SSC/1_0" Version="1.0">
   <!--Command line options: -p ssc -E -l java -U ./codegen.cfg -o Reactor Reactor.xml -->
   <!--This file is generated - do not edit manually-->
-  <!--Generated on: Thu Oct 26 17:32:44 CEST 2023 / Version 6.1.3706-->
+  <!--Generated on: Thu Oct 26 22:15:48 CEST 2023 / Version 6.1.3706-->
   <ssc:Dimensions H="1108" W="1846" BA="55" DW="1231" NO="897" TV="385" />
   <ssc:Header>import oven.*;</ssc:Header>
   <ssc:Action>// just a comment</ssc:Action>
   <ssc:StateHeader />
   <ssc:AdditionalIncludesStates />
   <ssc:State Name="Super" History="Flat">
-    <ssc:Transition Event="evDec" ToState="Super" FromState="Super" Action="tm.dec(id);" />
-    <ssc:Transition Event="evPwrHigh" ToState="Super" FromState="Super" Action="radiator.ovenSetPwrHigh();" />
-    <ssc:Transition Event="evPwrLow" ToState="Super" FromState="Super" Action="radiator.ovenSetPwrLow();" />
-    <ssc:Transition Event="evInc" ToState="Super" FromState="Super" Action="tm.inc(id);" />
+    <ssc:Transition Event="evDec" ToState="Super" FromState="Super" Action="tm.dec(id);" FromLayoutHint="N" ToLayoutHint="N" />
+    <ssc:Transition Event="evPwrHigh" ToState="Super" FromState="Super" Action="radiator.ovenSetPwrHigh();" FromLayoutHint="E" ToLayoutHint="E" />
+    <ssc:Transition Event="evPwrLow" ToState="Super" FromState="Super" Action="radiator.ovenSetPwrLow();" FromLayoutHint="S" ToLayoutHint="S" />
+    <ssc:Transition Event="evInc" ToState="Super" FromState="Super" Action="tm.inc(id);" FromLayoutHint="W" ToLayoutHint="W" />
     <ssc:State Name="Completed">
       <EntryCode>radiator.ovenOff();
 tm.stop(id);</EntryCode>
