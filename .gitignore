@@ -30,3 +30,6 @@
 
 # Debug files
 *.dSYM/
+.DS_Store
+/OS_neutral/microwave_java/Oven/nbproject/private/
+/OS_neutral/microwave_java/Oven/dist/
