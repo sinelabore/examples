@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ssc:StateChart xmlns:ssc="http://www.sinelabore.com/SSC/1_0" Version="1.0">
+  <!--Command line options: -p ssc -E -o oven.xml oven.xml -->
+  <!--This file is generated - do not edit manually-->
+  <!--Generated on: Sat Oct 15 17:39:37 CEST 2016 / version 3.6.15 beta 2-->
+  <ssc:Header>from oven_base import *</ssc:Header>
+  <ssc:Action># just a comment</ssc:Action>
+  <ssc:Transition Event="evDoorOpen" FromState="Completed" ToState="Idle" />
+  <ssc:Transition Event="evTimeout" FromState="Cooking" ToState="Completed" Action="self.radiator.ovenOff();&#xA;self.tm.clear();" />
+  <ssc:Transition Event="evDoorOpen" FromState="Cooking" ToState="CookingPause" Action="self.radiator.ovenOff();&#xA;self.tm.pause();" />
+  <ssc:Transition Event="evDoorClosed" FromState="CookingPause" ToState="Cooking" Action="self.tm.cont();" />
+  <ssc:Transition Event="evDoorClosed" FromState="Idle" ToState="Cooking" Guard="self.tm.preset()&gt;0" Action="self.tm.start();" />
+  <ssc:Transition FromState="EAID_42B3BCA3_B7F6_4585_8598_EC705B12DF9F" ToState="Idle" />
+  <ssc:Transition Event="evInc" FromState="Super" ToState="Super" Action="self.tm.inc();" />
+  <ssc:Transition Event="evDec" FromState="Super" ToState="Super" Action="self.tm.dec();" />
+  <ssc:Transition Event="evPwrHigh" FromState="Super" ToState="Super" Action="self.radiator.ovenSetPwrHigh();" />
+  <ssc:Transition Event="evPwrLow" FromState="Super" ToState="Super" Action="self.radiator.ovenSetPwrLow();" />
+  <ssc:Transition FromState="fb1d26db-54c8-46f9-a4a2-6d7e29638850" ToState="Super" />
+  <ssc:State Name="Super" History="Flat">
+    <ssc:State Name="Completed" />
+    <ssc:State Name="Cooking">
+      <EntryCode>self.radiator.ovenOn();</EntryCode>
+    </ssc:State>
+    <ssc:State Name="CookingPause" />
+    <ssc:State Name="Idle">
+      <EntryCode>self.radiator.ovenOff();</EntryCode>
+    </ssc:State>
+    <ssc:InitState Id="EAID_42B3BCA3_B7F6_4585_8598_EC705B12DF9F" />
+  </ssc:State>
+  <ssc:InitState Id="fb1d26db-54c8-46f9-a4a2-6d7e29638850" />
+</ssc:StateChart>
