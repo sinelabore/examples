@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ssc:StateChart xmlns:ssc="http://www.sinelabore.com/SSC/1_0" Version="1.0">
+  <!--Command line options: -Trace -p ssc -E -l go -o oven oven.xml -->
+  <!--This file is generated - do not edit manually-->
+  <!--Generated on: Tue Nov 14 18:47:23 CET 2023 / Version 6.2.3731-->
+  <ssc:Dimensions H="1092" W="2177" BA="55" DW="1549" NO="838" TV="398" />
+  <ssc:Header>package main
+
+import (
+		"fmt"
+        "errors"
+)</ssc:Header>
+  <ssc:Action>// prefix code would go here</ssc:Action>
+  <ssc:PostAction>// postfix code would go here</ssc:PostAction>
+  <ssc:StateHeader />
+  <ssc:AdditionalIncludesStates />
+  <ssc:State Name="Super" History="Flat">
+    <ssc:Transition Event="EvInc" ToState="Super" FromState="Super" Action="smBase.Timers.Increment(smBase.id,1000)" FromLayoutHint="S" ToLayoutHint="S" />
+    <ssc:Transition Event="EvDec" ToState="Super" FromState="Super" Action="smBase.Timers.Decrement(smBase.id,1000)" FromLayoutHint="W" ToLayoutHint="W" />
+    <ssc:Transition Event="EvPwr" ToState="Super" FromState="Super" Action="//ovenSetPwr(pwr);" />
+    <ssc:Transition Event="EvError" ToState="Error" FromState="Super" FromLayoutHint="SE" />
+    <ssc:Region Name="MainRegion">
+      <Note>Created by conversion</Note>
+      <ssc:State Name="Completed">
+        <ssc:Transition Event="EvDoorOpen" ToState="Idle" FromState="Completed" />
+      </ssc:State>
+      <ssc:State Name="Cooking">
+        <ExitCode>smBase.Timers.Stop(smBase.idBlink)
+fmt.Println("LED Off")</ExitCode>
+        <EntryCode>smBase.OvenOn();</EntryCode>
+        <ssc:Transition Event="EvTimeout" ToState="Completed" FromState="Cooking" Action="smBase.OvenOff();&#xA;smBase.Timers.Stop(smBase.id);" />
+        <ssc:Transition Event="EvDoorOpen" ToState="CookingPause" FromState="Cooking" Action="smBase.OvenOff();&#xA;smBase.Timers.Pause(smBase.id)" />
+        <ssc:InitState Id="e58fa970-2d45-4501-ade5-8c98e83fe86a">
+          <ssc:Transition ToState="LedOn" FromState="e58fa970-2d45-4501-ade5-8c98e83fe86a" Action="smBase.Timers.Start(smBase.idBlink,500)" />
+        </ssc:InitState>
+        <ssc:State Name="LedOn">
+          <Color>ffff00</Color>
+          <EntryCode>fmt.Println("LED on")</EntryCode>
+          <ssc:Transition Event="EvTimeoutBlink" ToState="LedOff" FromState="LedOn" />
+        </ssc:State>
+        <ssc:State Name="LedOff">
+          <Color>cccccc</Color>
+          <EntryCode>fmt.Println("LED off")</EntryCode>
+          <ssc:Transition Event="EvTimeoutBlink" ToState="LedOn" FromState="LedOff" />
+        </ssc:State>
+      </ssc:State>
+      <ssc:State Name="CookingPause">
+        <ssc:Transition Event="EvDoorClosed" ToState="Cooking" FromState="CookingPause" Action="smBase.Timers.Resume(smBase.id)" />
+      </ssc:State>
+      <ssc:State Name="Idle">
+        <EntryCode>smBase.OvenOff();</EntryCode>
+        <ssc:Transition Event="EvDoorClosed" ToState="Cooking" FromState="Idle" Guard="smBase.Timers.GetPresetInSec(smBase.id)&gt;0" Action="smBase.Timers.StartWithPreset(smBase.id)" />
+        <ssc:Transition Event="EvDoorClosed" ToState="Idle" FromState="Idle" Guard="smBase.Timers.GetPresetInSec(smBase.id)==0" Action="fmt.Println(&quot;Time zero, increase cooking time&quot;)" />
+      </ssc:State>
+      <ssc:InitState Id="EAID_42B3BCA3_B7F6_4585_8598_EC705B12DF9F">
+        <ssc:Transition ToState="Idle" FromState="EAID_42B3BCA3_B7F6_4585_8598_EC705B12DF9F" />
+      </ssc:InitState>
+    </ssc:Region>
+  </ssc:State>
+  <ssc:InitState Id="EAID_0A58F362_3AC3_41b4_861F_9D4749BA1D48">
+    <ssc:Transition ToState="Super" FromState="EAID_0A58F362_3AC3_41b4_861F_9D4749BA1D48" Action="smBase.id = smBase.Timers.Create(EvTimeout, true)&#xA;smBase.idBlink = smBase.Timers.Create(EvTimeoutBlink, false)" />
+  </ssc:InitState>
+  <ssc:State Name="Error">
+    <ssc:InitState Id="dd99139a-ebd6-403b-a4a6-245a785bde82">
+      <ssc:Transition ToState="Error1" FromState="dd99139a-ebd6-403b-a4a6-245a785bde82" />
+    </ssc:InitState>
+    <ssc:State Name="Error1" />
+  </ssc:State>
+</ssc:StateChart>
