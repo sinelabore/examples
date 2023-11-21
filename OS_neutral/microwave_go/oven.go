@@ -8,7 +8,7 @@
 
 /* Command line options: -Trace -p ssc -l go -o oven oven.xml  */
 /* This file is generated from oven.xml - do not edit manually */
-/* Generated on: Mon Nov 20 19:43:21 CET 2023 / Version 6.2.3735*/
+/* Generated on: Tue Nov 21 18:30:08 CET 2023 / Version 6.2.3735*/
 
 
 
@@ -82,10 +82,10 @@ var TraceLookupSlice = []string{
 	"EvError",
 	"EvDoorOpen",
 	"EvTimeout",
-	"EvTimeoutBlink",
 	"EvDoorClosed",
 	"EvDoorClosed[smBase.Timers.GetPresetInSec(smBase.id)>0]",
 	"EvDoorClosed[smBase.Timers.GetPresetInSec(smBase.id)==0]",
+	"EvTimeoutBlink",
 	"__INIT__",
 }
 
@@ -99,7 +99,7 @@ type Oven struct {
 	isInit bool
 	stateVar OvenState
 	stateVarMainRegion OvenState
-	stateVarCooking OvenState
+	stateVarNewRegion1 OvenState
 	stateVarError OvenState
 }
 
@@ -130,8 +130,8 @@ func (sm *Oven) IsInCompleted() (bool) { return (sm.stateVarMainRegion == Comple
 func (sm *Oven) IsInCooking() (bool) { return (sm.stateVarMainRegion == Cooking) && sm.IsInSuper()}
 func (sm *Oven) IsInCookingPause() (bool) { return (sm.stateVarMainRegion == CookingPause) && sm.IsInSuper()}
 func (sm *Oven) IsInIdle() (bool) { return (sm.stateVarMainRegion == Idle) && sm.IsInSuper()}
-func (sm *Oven) IsInLedOff() (bool) { return (sm.stateVarCooking == LedOff)&&(sm.stateVarMainRegion == Cooking) && sm.IsInSuper()}
-func (sm *Oven) IsInLedOn() (bool) { return (sm.stateVarCooking == LedOn)&&(sm.stateVarMainRegion == Cooking) && sm.IsInSuper()}
+func (sm *Oven) IsInLedOff() (bool) { return (sm.stateVarNewRegion1 == LedOff) && sm.IsInCooking()}
+func (sm *Oven) IsInLedOn() (bool) { return (sm.stateVarNewRegion1 == LedOn) && sm.IsInCooking()}
 
 // Initialize state machine
 func (smBase *Reactor) Init() (error) {
@@ -142,7 +142,7 @@ func (smBase *Reactor) Init() (error) {
 	// Set state vars to default states
 	sm.stateVar = Super /* set init state of top state */
 	sm.stateVarMainRegion = Idle; /* set init state of MainRegion */
-	sm.stateVarCooking = LedOn; /* set init state of Cooking */
+	sm.stateVarNewRegion1 = LedOn; /* set init state of NewRegion1 */
 	sm.stateVarError = Error1; /* set init state of Error */
 
 	sm.isInit = true
@@ -158,7 +158,7 @@ func (o *Oven) Copy() *Oven {
 	return &Oven {
 		stateVar : o.stateVar,
 		stateVarMainRegion : o.stateVarMainRegion,
-		stateVarCooking :  o.stateVarCooking,
+		stateVarNewRegion1 : o.stateVarNewRegion1,
 		stateVarError :  o.stateVarError,
 
 		isInit : o.isInit,
@@ -169,7 +169,7 @@ func (o *Oven) Copy() *Oven {
 func (sm *Oven) copyBack(copy *Oven) {
 	sm.stateVar = copy.stateVar
 	sm.stateVarMainRegion = copy.stateVarMainRegion
-	sm.stateVarCooking =  copy.stateVarCooking
+	sm.stateVarNewRegion1 = copy.stateVarNewRegion1
 	sm.stateVarError =  copy.stateVarError
 
 	sm.isInit = copy.isInit
@@ -363,6 +363,7 @@ func (smBase *Reactor) ProcessEvent(msg OvenEvent) (int, error) {
 // Region code for state MainRegion
 func (sm *Oven) processEventMainRegion(msg OvenEvent, smCopy* Oven, smBase *Reactor) (int, error) {
 	var eventConsumed int = 0
+	var eventConsumedNewRegion1 int = 0
 
 	var err error = nil
 
@@ -386,47 +387,14 @@ func (sm *Oven) processEventMainRegion(msg OvenEvent, smCopy* Oven, smBase *Reac
 		break; /* end of case Completed */
 
 		case Cooking:
+			/* calling region code */
+			eventConsumedNewRegion1, err = sm.processEventNewRegion1(msg, smCopy, smBase)
+			if err != nil {
+				return 0, err
+			}
+			
+			eventConsumed |= eventConsumedNewRegion1
 
-			switch sm.stateVarCooking {
-
-				case LedOn:
-					if msg == EvTimeoutBlink {
-						/* Transition from LedOn to LedOff*/
-						smBase.ValidationHandler(LedOn, LedOff)
-						eventConsumed=1
-
-						/* OnEntry code of state LedOff*/
-						fmt.Println("LED off")
-
-						/* adjust state variables */
-						smCopy.stateVarCooking = LedOff;
-						smBase.TraceEvent(6)
-					}else{
-						/* Intentionally left blank*/
-					} /*end of event selection*/
-				break; /* end of case LedOn */
-
-				case LedOff:
-					if msg == EvTimeoutBlink {
-						/* Transition from LedOff to LedOn*/
-						smBase.ValidationHandler(LedOff, LedOn)
-						eventConsumed=1
-
-						/* OnEntry code of state LedOn*/
-						fmt.Println("LED on")
-
-						/* adjust state variables */
-						smCopy.stateVarCooking = LedOn;
-						smBase.TraceEvent(6)
-					}else{
-						/* Intentionally left blank*/
-					} /*end of event selection*/
-				break; /* end of case LedOff */
-
-				default:
-					/* Intentionally left blank*/
-				break;
-			} /* end switch Cooking*/
 
 			/* Check if event was already processed */
 			if eventConsumed == 0 {
@@ -435,6 +403,8 @@ func (sm *Oven) processEventMainRegion(msg OvenEvent, smCopy* Oven, smBase *Reac
 					/* Transition from Cooking to CookingPause*/
 					smBase.ValidationHandler(Cooking, CookingPause)
 					eventConsumed=1
+
+					/* Exit code for regions in state Cooking*/
 					
 					smBase.Timers.Stop(smBase.idBlink)
 					fmt.Println("LED Off")
@@ -451,6 +421,8 @@ func (sm *Oven) processEventMainRegion(msg OvenEvent, smCopy* Oven, smBase *Reac
 					/* Transition from Cooking to Completed*/
 					smBase.ValidationHandler(Cooking, Completed)
 					eventConsumed=1
+
+					/* Exit code for regions in state Cooking*/
 					
 					smBase.Timers.Stop(smBase.idBlink)
 					fmt.Println("LED Off")
@@ -480,12 +452,17 @@ func (sm *Oven) processEventMainRegion(msg OvenEvent, smCopy* Oven, smBase *Reac
 
 				/* OnEntry code of state Cooking*/
 				smBase.OvenOn();
+
+				/* Entry code for regions in state Cooking*/
 				smBase.Timers.Start(smBase.idBlink,500)
 				fmt.Println("LED on")
-				smCopy.stateVarMainRegion = Cooking;/* Default in entry chain */
-				smCopy.stateVarCooking = LedOn;/* Default in entry chain */
+				/* Default in entry chain */
+				smCopy.stateVarNewRegion1 = LedOn;/* Default in entry chain */
 
-				smBase.TraceEvent(7)
+
+				/* adjust state variables */
+				smCopy.stateVarMainRegion = Cooking;
+				smBase.TraceEvent(6)
 			}else{
 				/* Intentionally left blank*/
 			} /*end of event selection*/
@@ -506,7 +483,7 @@ func (sm *Oven) processEventMainRegion(msg OvenEvent, smCopy* Oven, smBase *Reac
 
 					/* adjust state variables */
 					smCopy.stateVarMainRegion = Idle;
-					smBase.TraceEvent(9)
+					smBase.TraceEvent(8)
 				}else if smBase.Timers.GetPresetInSec(smBase.id)>0 {
 					/* Transition from Idle to Cooking*/
 					smBase.ValidationHandler(Idle, Cooking)
@@ -517,12 +494,17 @@ func (sm *Oven) processEventMainRegion(msg OvenEvent, smCopy* Oven, smBase *Reac
 
 					/* OnEntry code of state Cooking*/
 					smBase.OvenOn();
+
+					/* Entry code for regions in state Cooking*/
 					smBase.Timers.Start(smBase.idBlink,500)
 					fmt.Println("LED on")
-					smCopy.stateVarMainRegion = Cooking;/* Default in entry chain */
-					smCopy.stateVarCooking = LedOn;/* Default in entry chain */
+					/* Default in entry chain */
+					smCopy.stateVarNewRegion1 = LedOn;/* Default in entry chain */
 
-					smBase.TraceEvent(8)
+
+					/* adjust state variables */
+					smCopy.stateVarMainRegion = Cooking;
+					smBase.TraceEvent(7)
 				}else{
 					/* Intentionally left blank*/
 				} /*end of event selection*/
@@ -530,6 +512,59 @@ func (sm *Oven) processEventMainRegion(msg OvenEvent, smCopy* Oven, smBase *Reac
 				/* Intentionally left blank*/
 			} /*end of event selection*/
 		break; /* end of case Idle */
+
+		default:
+			/* Intentionally left blank*/
+		break;
+	} /* end switch stateVar_root*/
+
+	return eventConsumed, err
+}
+
+
+
+
+// Region code for state NewRegion1
+func (sm *Oven) processEventNewRegion1(msg OvenEvent, smCopy* Oven, smBase *Reactor) (int, error) {
+	var eventConsumed int = 0
+
+	var err error = nil
+
+	switch sm.stateVarNewRegion1 {
+
+		case LedOn:
+			if msg == EvTimeoutBlink {
+				/* Transition from LedOn to LedOff*/
+				smBase.ValidationHandler(LedOn, LedOff)
+				eventConsumed=1
+
+				/* OnEntry code of state LedOff*/
+				fmt.Println("LED off")
+
+				/* adjust state variables */
+				smCopy.stateVarNewRegion1 = LedOff;
+				smBase.TraceEvent(9)
+			}else{
+				/* Intentionally left blank*/
+			} /*end of event selection*/
+		break; /* end of case LedOn */
+
+		case LedOff:
+			if msg == EvTimeoutBlink {
+				/* Transition from LedOff to LedOn*/
+				smBase.ValidationHandler(LedOff, LedOn)
+				eventConsumed=1
+
+				/* OnEntry code of state LedOn*/
+				fmt.Println("LED on")
+
+				/* adjust state variables */
+				smCopy.stateVarNewRegion1 = LedOn;
+				smBase.TraceEvent(9)
+			}else{
+				/* Intentionally left blank*/
+			} /*end of event selection*/
+		break; /* end of case LedOff */
 
 		default:
 			/* Intentionally left blank*/
