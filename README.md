@@ -4,7 +4,7 @@ Many embedded systems are likely candidates for implementation as finite state m
 
 # Specifically for Embedded Developers
 
-SinelaboreRT focus is on generation of readable and maintainable code from flat or hierarchical UML state machine diagrams. With its unique features the tool covers perfectly the requirements of embedded real-time and low-power application developers coding in C / C++. The generated code is independent of CPU and operating system. For IoT applications where parts of the application are implemented in Java / Python / C# / Lua / Rust or Swift, the code can also be generated in these languages. A payback is usually given already immediately.
+SinelaboreRT focus is on generation of readable and maintainable code from flat or hierarchical UML state machine diagrams. With its unique features the tool covers perfectly the requirements of embedded real-time and low-power application developers coding in C / C++. The generated code is independent of CPU and operating system. For IoT applications where parts of the application are implemented in Java / Python / C# / Lua / Rust / Go / JavaScript or Swift, the code can also be generated in these languages. A payback is usually given already immediately.
 
 ![Image showing to sinelabore works from model to code](sinelabore_working_principle.svg)
 
