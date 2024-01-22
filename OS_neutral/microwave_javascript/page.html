@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oven Simulation</title>
+</head>
+<body>
+
+    <script type="module">
+        import { oven } from './oven.mjs';
+        import { TimerManager } from './TimerManager.mjs';
+
+        let myOven;  // Declare myOven in the outer scope
+        const userData={
+        };
+
+        window.buttonDecClicked= function() {
+            myOven.processEvent(myOven.events.evDec,userData);
+            logStateSet();
+        }
+        
+        window.buttonIncClicked=function() {
+            myOven.processEvent(myOven.events.evInc,userData);
+            logStateSet();
+        }
+
+        window.buttonOpenDoorClicked= function() {
+            myOven.processEvent(myOven.events.evDoorOpen,userData);
+            logStateSet();
+        }
+        
+        window.buttonCloseDoorClicked=function() {
+            myOven.processEvent(myOven.events.evDoorClosed,userData);
+            logStateSet();
+        }        
+
+        window.onload = function () {
+            document.timerMgr = new TimerManager(); // new instance of my timer manager
+            myOven = new oven();
+            myOven.initialize();
+            logStateSet();
+        };
+
+        function changeImage() {
+            //document.getElementById("myImage").src = "Bild2.jpg";
+            myOven.processEvent(myOven.events.evInc,userData)
+            logStateSet();
+        }
+
+
+        function logStateSet (){
+            var states = myOven.innermostActiveStates();
+            var statestext = JSON.stringify(Array.from(states.entries()));
+            document.getElementById("states").innerText = statestext;
+        };
+
+        // Set up a cyclic timer to call TimerManager every x milliseconds
+        setInterval(function() {
+            //console.log("Tick");
+            //console.log(myOven.innermostActiveStates());
+            var timeouts = document.timerMgr.tick();
+            for (var j = 0; j < timeouts.length; j++) {
+                var evt = timeouts[j];
+                console.log("Schedule Event: " + evt);
+                myOven.processEvent(evt, userData);
+                logStateSet();
+             }
+        }, 100);
+
+    </script>
+
+    <div>
+        <img id="myImage" src="images/oven_closed_off.png" alt="Bild">
+        <div>
+            <button onclick="buttonIncClicked()">+ 1s</button>
+            <button onclick="buttonDecClicked()">- 1s</button>
+            <button onclick="buttonOpenDoorClicked()">Open Door</button>
+            <button onclick="buttonCloseDoorClicked()">Close Doors</button>            
+        </div>
+        <div id="outputField">Cooking time [s]: <span id="time">0</span></div>
+        <div id="stateInfoField">Stateset: <span id="states">a</span></div>
+    </div>    
+
+</body>
+</html>
