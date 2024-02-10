@@ -6,28 +6,30 @@
  * authority is forbidden.
  */
 
-/* Command line options: -p ssc -l mjs oven.xml  */
-/* This file is generated from oven.xml - do not edit manually */
-/* Generated on: Mon Jan 22 21:11:59 CET 2024 / Version 6.3.3788*/
-
-
+/* Command line options: -Trace -p ssc -l mjs oven.xml  */
 
 import { TimerManager } from './TimerManager.mjs';
 import { DisplayInterface } from './DisplayInterface.mjs';
 
 
+/**
+ * oven statemachine implementation 
+ * This file is generated from oven.xml - do not edit manually 
+ * Generated: Sat Feb 10 15:43:06 CET 2024 / Version 6.3.1.3798
+ * @constructor
+*/
 export function oven() {
 
 	this.init =  false;
 	this.instId = 0;
-	// State machine state data
+	/* State machine state data */
 	this.stateVars = {
 		stateVar: null,
 		stateVarMainRegion : null,
 		stateVarCookingRegion : null,
 	};
 
-	// States of the state machine 
+	/** States of the state machine */
 	this.states = Object.freeze({
 			none: 0,
 			Super: 1,
@@ -39,7 +41,7 @@ export function oven() {
 			TimeShown: 7,
 		})
 
-	// Events the state machine can process
+	/** Events the state machine can process */
 	this.events = Object.freeze({
 			none: 0,
 			evTimeout: 1,
@@ -51,8 +53,27 @@ export function oven() {
 		})
 
 
-	// Initialize state machine
+	/** Strings to be used for lookup in trace code for example 
+	 * @example
+	 * myMachine.traceFunction(instId, ev){
+	 *   console.log("trace event =" + myMachine.traceEventStrings[ev]);
+	 * }
+	 */
+	this.traceEventStrings = Object.freeze([
+		"evInc",
+		"evDec",
+		"evDoorOpen",
+		"evTimeout",
+		"evDoorClosed",
+		"evDoorClosed[document.timerMgr.getPreset(this.tid)]",
+		"evDoorClosed[else]",
+		"evBlink",
+		"__INIT__"
+	]);
+
+	/** Initialize state machine one after creation */
 	this.initialize = function(){
+		this.ovenTraceEvent(this.instId,8);
 		this.init = true;
 		// Set state vars to default states
 		this.stateVars.stateVar = this.states.Super /* set init state of top state */
@@ -65,28 +86,59 @@ export function oven() {
 
 	}
 
+	/** 
+	 * Find out if the machine is in a certain state
+	 * @returns {boolean} true if the machine is in this state. False otherwise
+	 */ 
 	this.isInSuper = function() { return (this.stateVars.stateVar === this.states.Super);}
+	/** 
+	 * Find out if the machine is in a certain state
+	 * @returns {boolean} true if the machine is in this state. False otherwise
+	 */ 
 	this.isInTimeNotShown = function() { return (this.stateVars.stateVarCookingRegion === this.states.TimeNotShown) && this.isInCooking();}
+	/** 
+	 * Find out if the machine is in a certain state
+	 * @returns {boolean} true if the machine is in this state. False otherwise
+	 */ 
 	this.isInTimeShown = function() { return (this.stateVars.stateVarCookingRegion === this.states.TimeShown) && this.isInCooking();}
+	/** 
+	 * Find out if the machine is in a certain state
+	 * @returns {boolean} true if the machine is in this state. False otherwise
+	 */ 
 	this.isInCompleted = function() { return (this.stateVars.stateVarMainRegion === this.states.Completed) && this.isInSuper();}
+	/** 
+	 * Find out if the machine is in a certain state
+	 * @returns {boolean} true if the machine is in this state. False otherwise
+	 */ 
 	this.isInCooking = function() { return (this.stateVars.stateVarMainRegion === this.states.Cooking) && this.isInSuper();}
+	/** 
+	 * Find out if the machine is in a certain state
+	 * @returns {boolean} true if the machine is in this state. False otherwise
+	 */ 
 	this.isInCookingPause = function() { return (this.stateVars.stateVarMainRegion === this.states.CookingPause) && this.isInSuper();}
+	/** 
+	 * Find out if the machine is in a certain state
+	 * @returns {boolean} true if the machine is in this state. False otherwise
+	 */ 
 	this.isInIdle = function() { return (this.stateVars.stateVarMainRegion === this.states.Idle) && this.isInSuper();}
 
-	//Return the state name string based on the state value
+	/** Return the state name string based on the state value */
 	this.stateToString = function(stateValue) {
 		const value = Object.keys(this.states).find(key => this.states[key] === stateValue);
 		return value || `UnknownState(${stateValue})`;
 	}
 
-	//Return the event name string based on the event value
+	/** Return the event name string based on the event value */
 	this.eventToString = function(eventValue) {
 		const value = Object.keys(this.events).find(key => this.events[key] === eventValue);
 		return value || `UnknownEvent(${eventValue})`;
 	}
 
 
-	// Return of a map with the states in which the state machine is currently in
+	/** 
+	 * Return of a map with the states in which the state machine is currently in 
+	 * @returns {Map} Map with more or more states
+	 */ 
 	this.innermostActiveStates = function() {
 		var statesMap = new Map();
 		if ( this.isInCompleted() ) {statesMap.set(this.states.Completed,"Completed");}
@@ -98,7 +150,15 @@ export function oven() {
 	}
 
 
-	// State machine event handler
+	/** 
+	 * State machine event handler
+	 * @param {events} msg is the event from the available events to be processed by the state machine
+	 * @param {object} userData can be any user provided data for use in the state machine (e.g. as guard)
+	 * @returns {number} Value indicates whether the event could be processed.
+	 * 0=not processed
+	 * 1=processed
+	 * 16=conditional event processed
+	 */ 
 	this.processEvent = function(msg, userData) {
 		var evConsumed=0;
 		if (this.init === false) {
@@ -152,6 +212,7 @@ export function oven() {
 
 						/* adjust state variables */
 						this.stateVars.stateVar = this.states.Super;
+						this.ovenTraceEvent(this.instId, 1);
 					} else if (msg === this.events.evInc) {
 						/* Transition from Super to Super*/
 
@@ -182,6 +243,7 @@ export function oven() {
 
 						/* adjust state variables */
 						this.stateVars.stateVar = this.states.Super;
+						this.ovenTraceEvent(this.instId, 0);
 					} else {
 						/* Intentionally left blank*/
 					} /*end of event selection*/
@@ -203,7 +265,10 @@ export function oven() {
 
 
 
-	// Region code for region CookingRegion
+	/**
+	 * Region code for region used internally by the event handlerCookingRegion
+	 * @private
+	 */
 	this.processEventCookingRegion = function(msg, userData) {
 		var evConsumed = 0;
 
@@ -221,6 +286,7 @@ export function oven() {
 
 					/* adjust state variables */
 					this.stateVarsCopy.stateVarCookingRegion = this.states.TimeNotShown;
+					this.ovenCookingRegionTraceEvent(this.instId, 7);
 				} else {
 					/* Intentionally left blank*/
 				} /*end of event selection*/
@@ -237,6 +303,7 @@ export function oven() {
 
 					/* adjust state variables */
 					this.stateVarsCopy.stateVarCookingRegion = this.states.TimeShown;
+					this.ovenCookingRegionTraceEvent(this.instId, 7);
 				} else {
 					/* Intentionally left blank*/
 				} /*end of event selection*/
@@ -252,7 +319,10 @@ export function oven() {
 
 
 
-	// Region code for region MainRegion
+	/**
+	 * Region code for region used internally by the event handlerMainRegion
+	 * @private
+	 */
 	this.processEventMainRegion = function(msg, userData) {
 		var evConsumed = 0;
 	var eventConsumedCookingRegion = 0
@@ -271,6 +341,7 @@ export function oven() {
 
 					/* adjust state variables */
 					this.stateVarsCopy.stateVarMainRegion = this.states.Idle;
+					this.ovenMainRegionTraceEvent(this.instId, 2);
 				} else {
 					/* Intentionally left blank*/
 				} /*end of event selection*/
@@ -297,6 +368,7 @@ export function oven() {
 
 						/* adjust state variables */
 						this.stateVarsCopy.stateVarMainRegion = this.states.CookingPause;
+						this.ovenMainRegionTraceEvent(this.instId, 2);
 					} else if (msg === this.events.evTimeout) {
 						/* Transition from Cooking to Completed*/
 						evConsumed=1;
@@ -312,6 +384,7 @@ export function oven() {
 
 						/* adjust state variables */
 						this.stateVarsCopy.stateVarMainRegion = this.states.Completed;
+						this.ovenMainRegionTraceEvent(this.instId, 3);
 					} else {
 						/* Intentionally left blank*/
 					} /*end of event selection*/
@@ -334,6 +407,7 @@ export function oven() {
 
 					/* adjust state variables */
 					this.stateVarsCopy.stateVarMainRegion = this.states.Cooking;
+					this.ovenMainRegionTraceEvent(this.instId, 4);
 				} else {
 					/* Intentionally left blank*/
 				} /*end of event selection*/
@@ -357,6 +431,7 @@ export function oven() {
 
 						/* adjust state variables */
 						this.stateVarsCopy.stateVarMainRegion = this.states.Cooking;
+						this.ovenMainRegionTraceEvent(this.instId, 5);
 					} else {
 						/* Transition from Idle to Idle*/
 						evConsumed=1;
@@ -367,6 +442,7 @@ export function oven() {
 
 						/* adjust state variables */
 						this.stateVarsCopy.stateVarMainRegion = this.states.Idle;
+						this.ovenMainRegionTraceEvent(this.instId, 6);
 					} /*end of event selection*/
 				} else if (msg === this.events.evDoorOpen) {
 					/* Transition from Idle to Idle*/
@@ -378,6 +454,7 @@ export function oven() {
 
 					/* adjust state variables */
 					this.stateVarsCopy.stateVarMainRegion = this.states.Idle;
+					this.ovenMainRegionTraceEvent(this.instId, 2);
 				} else {
 					/* Intentionally left blank*/
 				} /*end of event selection*/

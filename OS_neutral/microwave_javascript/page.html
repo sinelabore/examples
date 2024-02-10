@@ -37,9 +37,24 @@
         }        
 
         window.onload = function () {
-            document.timerMgr = new TimerManager(); // new instance of my timer manager
             myOven = new oven();
+
+            myOven.ovenTraceEvent = function(instId, ev){
+                console.log("trace event =" + myOven.eventToString(ev)+","+ev);
+            }
+
+            myOven.ovenCookingRegionTraceEvent = function(instId, ev){
+                console.log("trace event =" + myOven.eventToString(ev)+","+ev);
+            }
+
+            myOven.ovenMainRegionTraceEvent = function(instId, ev){
+                console.log("trace event =" + myOven.eventToString(ev)+","+ev);
+            }
+
+            document.timerMgr = new TimerManager(); // new instance of my timer manager
             myOven.initialize();
+
+
             logStateSet();
         };
 
