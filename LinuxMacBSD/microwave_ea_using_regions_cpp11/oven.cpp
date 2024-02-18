@@ -8,7 +8,7 @@
 
 /* Command line options: -l cppx -p EA -t Model:implementation:oven -o oven oven.xml   */
 /* This file is generated from oven.xml - do not edit manually  */
-/* Generated on: Sun Feb 18 11:30:09 CET 2024 / Version 6.3.2.3812 */
+/* Generated on: Sun Feb 18 13:09:47 CET 2024 / Version 6.3.2.3812 */
 
 
 #include "oven_ext.h"
@@ -77,8 +77,8 @@ auto oven::isInRadiatorOff() const -> bool {return(((stateVars.stateVarRadioator
 
 
 // Return a list with the states in which the state machine is currently in 
-auto oven::getInnermostActiveStates(void) const -> std::forward_list<States>{
-	std::forward_list<States> stateList;
+auto oven::getInnermostActiveStates() const -> std::forward_list<oven::States> {
+	std::forward_list<oven::States> stateList;
 
 	if ( isInLightOff() ) {stateList.push_front(States::LightOff);}
 	if ( isInLightOn() ) {stateList.push_front(States::LightOn);}

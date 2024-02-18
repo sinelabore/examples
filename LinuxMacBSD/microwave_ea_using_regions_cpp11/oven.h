@@ -8,7 +8,7 @@
 
 /* Command line options: -l cppx -p EA -t Model:implementation:oven -o oven oven.xml   */
 /* This file is generated from oven.xml - do not edit manually  */
-/* Generated on: Sun Feb 18 11:30:09 CET 2024 / Version 6.3.2.3812 */
+/* Generated on: Sun Feb 18 13:09:47 CET 2024 / Version 6.3.2.3812 */
 
 
 #ifndef OVEN_H
@@ -107,7 +107,7 @@ class oven: public ovenbase
 		 * Get information about what state(s) the state machine is in.
 		 * Returns a list of one or more states.
 		 */ 
-		auto getInnermostActiveStates(void) const -> std::forward_list<States>;
+		auto getInnermostActiveStates() const -> std::forward_list<oven::States>;
 
 
 		// Returns the state name as string
