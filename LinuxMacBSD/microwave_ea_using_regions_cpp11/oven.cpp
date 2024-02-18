@@ -1,5 +1,5 @@
 /*
- * (c) Sinelabore Software Tools GmbH, 2008 - 2023
+ * (c) Sinelabore Software Tools GmbH, 2008 - 2024
  *
  * All rights reserved. Reproduction, modification,
  * use or disclosure to third parties without express
@@ -8,7 +8,7 @@
 
 /* Command line options: -l cppx -p EA -t Model:implementation:oven -o oven oven.xml   */
 /* This file is generated from oven.xml - do not edit manually  */
-/* Generated on: Sun Oct 22 18:07:54 CEST 2023 / Version 6.1.3706 */
+/* Generated on: Sun Feb 18 11:30:09 CET 2024 / Version 6.3.2.3812 */
 
 
 #include "oven_ext.h"
@@ -47,28 +47,50 @@ auto oven::getNameByEvent(const OVEN_EVENT_T evt) const -> std::string {
 }
 
 
-// Helper(s) to reset history
 
-// Helper(s) to find out if the machine is in a certain state
+auto oven::isInInactive() const -> bool {return(((stateVars.stateVar == States::Inactive)) ? (true) : (false));}
 
-auto oven::isInInactive() const -> bool {return(((stateVars.stateVar== States::Inactive)) ? (true) : (false));}
-auto oven::isInActive() const -> bool {return(((stateVars.stateVar== States::Active)) ? (true) : (false));}
 
-// Helper to get id of innermost active state
+auto oven::isInActive() const -> bool {return(((stateVars.stateVar == States::Active)) ? (true) : (false));}
 
-auto oven::getInnermostActiveState() const -> oven::States{
 
-	oven::States state = States::NUM_STATES;
+auto oven::isInLightOn() const -> bool {return(((stateVars.stateVarLight == States::LightOn) && isInActive()));}
 
-	if(isInActive()){
-		state = States::Active;
-	}else if(isInInactive()){
-		state = States::Inactive;
-	}else{
-		// intentionally left blank
-	}
-	return (state);
+
+auto oven::isInLightOff() const -> bool {return(((stateVars.stateVarLight == States::LightOff) && isInActive()));}
+
+
+auto oven::isInHighPower() const -> bool {return(((stateVars.stateVarPower == States::HighPower) && isInActive()));}
+
+
+auto oven::isInLowPower() const -> bool {return(((stateVars.stateVarPower == States::LowPower) && isInActive()));}
+
+
+auto oven::isInCookingPause() const -> bool {return(((stateVars.stateVarRadioator == States::CookingPause) && isInActive()));}
+
+
+auto oven::isInCooking() const -> bool {return(((stateVars.stateVarRadioator == States::Cooking) && isInActive()));}
+
+
+auto oven::isInRadiatorOff() const -> bool {return(((stateVars.stateVarRadioator == States::RadiatorOff) && isInActive()));}
+
+
+
+// Return a list with the states in which the state machine is currently in 
+auto oven::getInnermostActiveStates(void) const -> std::forward_list<States>{
+	std::forward_list<States> stateList;
+
+	if ( isInLightOff() ) {stateList.push_front(States::LightOff);}
+	if ( isInLightOn() ) {stateList.push_front(States::LightOn);}
+	if ( isInHighPower() ) {stateList.push_front(States::HighPower);}
+	if ( isInLowPower() ) {stateList.push_front(States::LowPower);}
+	if ( isInCooking() ) {stateList.push_front(States::Cooking);}
+	if ( isInCookingPause() ) {stateList.push_front(States::CookingPause);}
+	if ( isInRadiatorOff() ) {stateList.push_front(States::RadiatorOff);}
+	if ( isInInactive() ) {stateList.push_front(States::Inactive);}
+	return stateList;
 }
+
 
 // Initialize method. Must be called once to init the machine
 void oven::initialize(){
@@ -82,7 +104,7 @@ void oven::initialize(){
 		// Set state vars to default states
 
 		stateVarsCopy.stateVar = States::Inactive; /* set init state of top state */
-		stateVarsCopy.stateVarLight = States::LightOn; /* set init state of Light */
+		stateVarsCopy.stateVarLight = States::LightOff; /* set init state of Light */
 		stateVarsCopy.stateVarPower = States::LowPower; /* set init state of Power */
 		stateVarsCopy.stateVarRadioator = States::RadiatorOff; /* set init state of Radioator */
 
@@ -119,7 +141,7 @@ auto oven::processEvent(const OVEN_EVENT_T msg) -> std::uint16_t {
 	switch (stateVars.stateVar) {
 
 		case States::Active:
-			/* calling region code */
+			/* calling region code  */
 			evConsumed |= ovenLight(msg);
 			evConsumed |= ovenPower(msg);
 			evConsumed |= ovenRadioator(msg);

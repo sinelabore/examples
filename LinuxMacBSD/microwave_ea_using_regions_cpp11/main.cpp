@@ -25,6 +25,14 @@
 extern SafeQueue<OVEN_EVENT_T> q;
 // SimpleTimer<Events> t1(q), t2(q);
 
+void printList(const std::unique_ptr<my_oven>& machine, const std::forward_list<oven::States>& list){
+	    // Printing the returned list
+		std::cout << "    In states(s):";
+    for (oven::States state: list) {
+        std::cout << (machine->getNameByState(state)) << " ";
+    }
+    std::cout << std::endl;
+}
 
 std::thread eventHandlerThread() {
   std::unique_ptr<my_oven> machine(new my_oven);
@@ -34,6 +42,9 @@ std::thread eventHandlerThread() {
     q.waitAndPop(msg);
     // std::cout << static_cast<int>(msg) << std::endl;
     machine->processEvent(msg);
+    // show in which states the machine is
+	  std::forward_list<oven::States> list = machine->getInnermostActiveStates();
+	  printList(machine, list);    
   }
 }
 

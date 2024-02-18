@@ -1,5 +1,5 @@
 /*
- * (c) Sinelabore Software Tools GmbH, 2008 - 2023
+ * (c) Sinelabore Software Tools GmbH, 2008 - 2024
  *
  * All rights reserved. Reproduction, modification,
  * use or disclosure to third parties without express
@@ -8,7 +8,7 @@
 
 /* Command line options: -l cppx -p EA -t Model:implementation:oven -o oven oven.xml   */
 /* This file is generated from oven.xml - do not edit manually  */
-/* Generated on: Sun Oct 22 18:07:54 CEST 2023 / Version 6.1.3706 */
+/* Generated on: Sun Feb 18 11:30:09 CET 2024 / Version 6.3.2.3812 */
 
 
 #ifndef OVEN_EXT_H
