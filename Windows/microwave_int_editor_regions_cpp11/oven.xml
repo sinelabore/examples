@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ssc:StateChart xmlns:ssc="http://www.sinelabore.com/SSC/1_0" Version="1.0">
+  <!--Command line options: -E -p ssc oven.xml -->
+  <!--This file is generated - do not edit manually-->
+  <!--Generated on: Wed Feb 21 16:18:55 CET 2024 / Version 6.3.2.3814-->
+  <ssc:Dimensions H="1177" W="2346" BA="55" DW="1936" NO="966" TV="180" />
+  <ssc:Header>#include "oven_ext.h"
+#include "SafeQueue.hpp"
+#include "SimpleTimer.hpp"
+#include "oven.h"
+#include &lt;stdio.h&gt;
+
+SafeQueue&lt;OVEN_EVENT_T&gt; q;
+SimpleTimer&lt;OVEN_EVENT_T&gt; timer(q);</ssc:Header>
+  <ssc:StateHeader />
+  <ssc:AdditionalIncludesStates />
+  <ssc:State Name="Active">
+    <ssc:Transition Event="evDec" ToState="Active" FromState="Active" Action="timer.dec();" />
+    <ssc:Transition Event="evInc" ToState="Active" FromState="Active" Action="timer.inc();" />
+    <ssc:Region Name="Light">
+      <ssc:State Name="LightOff">
+        <ssc:Transition Event="evDoorClosed" ToState="LightOn" FromState="LightOff" Guard="timer.preset()&gt;0" Action="switchLight(T_LIGHT::L_ON);" />
+      </ssc:State>
+      <ssc:State Name="LightOn">
+        <ssc:Transition Event="evDoorOpen" ToState="LightOff" FromState="LightOn" Guard="timer.preset()==0" Action="switchLight(T_LIGHT::L_OFF);" />
+      </ssc:State>
+      <ssc:InitState Id="EAID_FB5C82CC_94AC_4d9f_B84D_1BBE4B0156A4">
+        <ssc:Transition ToState="LightOff" FromState="EAID_FB5C82CC_94AC_4d9f_B84D_1BBE4B0156A4" />
+      </ssc:InitState>
+    </ssc:Region>
+    <ssc:Region Name="Power">
+      <ssc:State Name="HighPower">
+        <ssc:Transition Event="evPwrLow" ToState="LowPower" FromState="HighPower" Action="ovenSetPwr(T_PWR::PWR_LOW);" />
+      </ssc:State>
+      <ssc:State Name="LowPower">
+        <ssc:Transition Event="evPwrHigh" ToState="HighPower" FromState="LowPower" Action="ovenSetPwr(T_PWR::PWR_HIGH);" />
+      </ssc:State>
+      <ssc:InitState Id="EAID_852BA464_30B7_41a1_B58A_E208844D2EF4">
+        <ssc:Transition ToState="LowPower" FromState="EAID_852BA464_30B7_41a1_B58A_E208844D2EF4" />
+      </ssc:InitState>
+    </ssc:Region>
+    <ssc:Region Name="Radioator">
+      <ssc:State Name="Cooking">
+        <ssc:Transition Event="evTimeout" ToState="RadiatorOff" FromState="Cooking" Action="ovenOff();" />
+        <ssc:Transition Event="evDoorOpen" ToState="CookingPause" FromState="Cooking" Action="ovenOff();  timer.pause();" />
+      </ssc:State>
+      <ssc:State Name="CookingPause">
+        <ssc:Transition Event="evDoorClosed" ToState="Cooking" FromState="CookingPause" Action="timer.cont();&#xA;ovenOn();" />
+      </ssc:State>
+      <ssc:State Name="RadiatorOff">
+        <ssc:Transition Event="evDoorClosed" ToState="Cooking" FromState="RadiatorOff" Guard="timer.preset()&gt;0" Action="timer.start(SimpleTimerKind::SINGLE,timer.preset());&#xA;ovenOn();" />
+      </ssc:State>
+      <ssc:InitState Id="EAID_326B0489_3375_46da_B085_F8765D8F8FC4">
+        <ssc:Transition ToState="RadiatorOff" FromState="EAID_326B0489_3375_46da_B085_F8765D8F8FC4" />
+      </ssc:InitState>
+    </ssc:Region>
+  </ssc:State>
+  <ssc:State Name="Inactive" />
+  <ssc:ChoiceState Name="Choice" Id="EAID_151EEB69_3E2B_49c6_B191_B1DA0B3F0FFA">
+    <ssc:Transition ToState="Active" FromState="EAID_151EEB69_3E2B_49c6_B191_B1DA0B3F0FFA" Guard="else" />
+    <ssc:Transition ToState="Inactive" FromState="EAID_151EEB69_3E2B_49c6_B191_B1DA0B3F0FFA" Guard="testResult!=0" />
+  </ssc:ChoiceState>
+  <ssc:InitState Id="EAID_737E730A_F281_4922_A7D9_DDDDFD79164F">
+    <ssc:Transition ToState="EAID_151EEB69_3E2B_49c6_B191_B1DA0B3F0FFA" FromState="EAID_737E730A_F281_4922_A7D9_DDDDFD79164F" Action="timer.create(OVEN_EVENT_T::evTimeout);&#xA;uint8_t testResult = hardwareTest();" />
+  </ssc:InitState>
+</ssc:StateChart>
