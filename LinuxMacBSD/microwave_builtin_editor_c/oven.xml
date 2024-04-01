@@ -2,18 +2,18 @@
 <ssc:StateChart xmlns:ssc="http://www.sinelabore.com/SSC/1_0" Version="1.0">
   <!--Command line options: -p ssc -E -l cx -o oven oven.xml -->
   <!--This file is generated - do not edit manually-->
-  <!--Generated on: Wed Aug 18 17:57:48 CEST 2021 / Version 5.3-->
+  <!--Generated on: Fri Mar 15 11:16:56 CET 2024 / Version 6.3.2.3814-->
   <ssc:Dimensions H="800" W="1200" BA="51" DW="589" NO="550" TV="398" />
   <ssc:Header>#include "mydefs.h"
-#include "oven.h"
 #include "oven_ext.h"
+#include "oven.h"
 #include "oven_hlp.h"
 #include &lt;stdio.h&gt;
 
-extern unsigned char msg;
 extern T_PWR pwr;</ssc:Header>
   <ssc:Action>/* just a comment */</ssc:Action>
   <ssc:StateHeader />
+  <ssc:AdditionalIncludesStates />
   <ssc:State Name="Super" History="Flat">
     <ssc:Transition Event="evInc" ToState="Super" FromState="Super" Action="timer_inc();" FromLayoutHint="N" ToLayoutHint="N" />
     <ssc:Transition Event="evDec" ToState="Super" FromState="Super" Action="timer_dec();" FromLayoutHint="W" ToLayoutHint="W" />

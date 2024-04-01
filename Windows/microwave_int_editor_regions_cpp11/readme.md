@@ -17,7 +17,7 @@ set JAR_FILE_PATH=c:\sinelaboreRT6.3.2\bin\codegen.jar
 cmake  -G "Visual Studio 17 2022" ..\
 make
 
-Then open the generated VS project file. cmake crates three project:
+Then open the generated VS project file. cmake creates three project:
  - ALL_BUILD
  - oven
  - ZERO_CHECK

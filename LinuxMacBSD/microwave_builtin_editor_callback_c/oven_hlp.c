@@ -5,8 +5,8 @@
 #include <stdio.h>
 
 static T_TIMER_STATE timerStatus;
-static unsigned short tickval=0;
-static unsigned char presetval=0;
+static uint16_t tickval=0;
+static uint8_t presetval=0;
 
 extern T_PWR pwr;
 
@@ -16,7 +16,7 @@ extern T_PWR pwr;
 //
 
 // tick is called every 100ms
-unsigned char tick(void){
+uint8_t tick(void){
 	if(timerStatus==ON){		
 		
 		if(tickval<presetval*10){
@@ -45,7 +45,7 @@ void timer_clear(void){
 	presetval=0;
 }
 
-unsigned char timer_preset(void){
+uint8_t timer_preset(void){
 	return presetval;
 }
 

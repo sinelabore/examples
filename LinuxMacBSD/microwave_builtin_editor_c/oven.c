@@ -1,15 +1,14 @@
-/* (C) Your company*//* Command line options: -p ssc -o oven oven.xml   */
+/* (C) Your company *//* Command line options: -p ssc -o oven oven.xml   */
 /* This file is generated from oven.xml - do not edit manually  */
-/* Generated on: Sun Oct 22 17:46:34 CEST 2023 / Version 6.1.3706 */
+/* Generated on: Fri Mar 15 11:23:55 CET 2024 / Version 6.3.2.3814 */
 
 
 #include "mydefs.h"
-#include "oven.h"
 #include "oven_ext.h"
+#include "oven.h"
 #include "oven_hlp.h"
 #include <stdio.h>
 
-extern unsigned char msg;
 extern T_PWR pwr;
 
 
@@ -17,7 +16,7 @@ extern T_PWR pwr;
 /* Region handler prototypes  */
 static OVEN_EV_CONSUMED_FLAG_T ovenMainRegion(const OVEN_INSTANCEDATA_T * const instanceVar, OVEN_INSTANCEDATA_T *instanceVarCopy, OVEN_EVENT_T msg);
 
-void  oven(OVEN_INSTANCEDATA_T *instanceVar){
+void  oven(OVEN_INSTANCEDATA_T *instanceVar, OVEN_EVENT_T  msg){
 
 	OVEN_EV_CONSUMED_FLAG_T evConsumed = 0U;
 
@@ -42,7 +41,7 @@ void  oven(OVEN_INSTANCEDATA_T *instanceVar){
 	switch (instanceVar->stateVar) {
 
 		case Super:
-			/* calling region code */
+			/* calling region code  */
 			evConsumed |= ovenMainRegion(instanceVar, &instanceVarCopy, msg);
 
 			/* Check if event was already processed  */

@@ -1,5 +1,5 @@
 /*
- * (c) Sinelabore Software Tools GmbH, 2008 - 2023
+ * (c) Sinelabore Software Tools GmbH, 2008 - 2024
  *
  * All rights reserved. Reproduction, modification,
  * use or disclosure to third parties without express
@@ -8,7 +8,7 @@
 
 /* Command line options: -l cppx -p EA -t Model:implementation:oven -o oven oven.xml   */
 /* This file is generated from oven.xml - do not edit manually  */
-/* Generated on: Sun Oct 22 18:06:57 CEST 2023 / Version 6.1.3706 */
+/* Generated on: Mon Apr 01 18:02:30 CEST 2024 / Version 6.3.2.3814 */
 
 
 #ifndef OVEN_H
@@ -31,12 +31,7 @@ class oven: public ovenbase
 		void initialize(void);
 
 
-		// Helper(s) to find out if the machine is in a certain state
-		bool isInInactive(void) const;
-		bool isInActive(void) const;
 
-
-		// Helper returning the innermost active state id.
 		enum States{
 			Inactive,
 			Active,
@@ -50,6 +45,62 @@ class oven: public ovenbase
 			NUM_STATES  // number of states in the machine
 		};
 
+		/** 
+		 * Find out if the machine is in a certain state
+		 * Returns true if the machine is in this state. False otherwise
+		 */ 
+		bool isInInactive(void) const;
+
+		/** 
+		 * Find out if the machine is in a certain state
+		 * Returns true if the machine is in this state. False otherwise
+		 */ 
+		bool isInActive(void) const;
+
+		/** 
+		 * Find out if the machine is in a certain state
+		 * Returns true if the machine is in this state. False otherwise
+		 */ 
+		bool isInLightOn(void) const;
+
+		/** 
+		 * Find out if the machine is in a certain state
+		 * Returns true if the machine is in this state. False otherwise
+		 */ 
+		bool isInLightOff(void) const;
+
+		/** 
+		 * Find out if the machine is in a certain state
+		 * Returns true if the machine is in this state. False otherwise
+		 */ 
+		bool isInHighPower(void) const;
+
+		/** 
+		 * Find out if the machine is in a certain state
+		 * Returns true if the machine is in this state. False otherwise
+		 */ 
+		bool isInLowPower(void) const;
+
+		/** 
+		 * Find out if the machine is in a certain state
+		 * Returns true if the machine is in this state. False otherwise
+		 */ 
+		bool isInCookingPause(void) const;
+
+		/** 
+		 * Find out if the machine is in a certain state
+		 * Returns true if the machine is in this state. False otherwise
+		 */ 
+		bool isInCooking(void) const;
+
+		/** 
+		 * Find out if the machine is in a certain state
+		 * Returns true if the machine is in this state. False otherwise
+		 */ 
+		bool isInRadiatorOff(void) const;
+
+
+		// Helper returning the innermost active state id.
 		States getInnermostActiveState(void) const;
 
 

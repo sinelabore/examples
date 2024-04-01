@@ -1,11 +1,11 @@
+#include <stdint.h>
 #include "mydefs.h"
 #include "oven_hlp.h"
-#include "oven.h"
 #include <stdio.h>
 
 static T_TIMER_STATE timerStatus;
-static unsigned short tickval=0;
-static unsigned char presetval=0;
+static uint16_t tickval=0;
+static uint8_t presetval=0;
 
 extern T_PWR pwr;
 

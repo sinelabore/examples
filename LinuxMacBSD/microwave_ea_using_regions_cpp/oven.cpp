@@ -1,5 +1,5 @@
 /*
- * (c) Sinelabore Software Tools GmbH, 2008 - 2023
+ * (c) Sinelabore Software Tools GmbH, 2008 - 2024
  *
  * All rights reserved. Reproduction, modification,
  * use or disclosure to third parties without express
@@ -8,7 +8,7 @@
 
 /* Command line options: -l cppx -p EA -t Model:implementation:oven -o oven oven.xml   */
 /* This file is generated from oven.xml - do not edit manually  */
-/* Generated on: Sun Oct 22 18:06:57 CEST 2023 / Version 6.1.3706 */
+/* Generated on: Mon Apr 01 18:02:30 CEST 2024 / Version 6.3.2.3814 */
 
 
 #include "oven_ext.h"
@@ -48,15 +48,36 @@ const char* oven::getNameByEvent(const OVEN_EVENT_T evt) const {
 }
 
 
-// Helper(s) to reset history
 
-// Helper(s) to find out if the machine is in a certain state
+bool oven::isInInactive(void) const {return(((stateVars.stateVar == Inactive)) ? (true) : (false));}
 
-bool oven::isInInactive(void) const {return(((stateVars.stateVar== Inactive)) ? (true) : (false));}
-bool oven::isInActive(void) const {return(((stateVars.stateVar== Active)) ? (true) : (false));}
+
+bool oven::isInActive(void) const {return(((stateVars.stateVar == Active)) ? (true) : (false));}
+
+
+bool oven::isInLightOn(void) const {return(((stateVars.stateVarLight == LightOn) && isInActive()));}
+
+
+bool oven::isInLightOff(void) const {return(((stateVars.stateVarLight == LightOff) && isInActive()));}
+
+
+bool oven::isInHighPower(void) const {return(((stateVars.stateVarPower == HighPower) && isInActive()));}
+
+
+bool oven::isInLowPower(void) const {return(((stateVars.stateVarPower == LowPower) && isInActive()));}
+
+
+bool oven::isInCookingPause(void) const {return(((stateVars.stateVarRadioator == CookingPause) && isInActive()));}
+
+
+bool oven::isInCooking(void) const {return(((stateVars.stateVarRadioator == Cooking) && isInActive()));}
+
+
+bool oven::isInRadiatorOff(void) const {return(((stateVars.stateVarRadioator == RadiatorOff) && isInActive()));}
+
+
 
 // Helper to get id of innermost active state
-
 oven::States oven::getInnermostActiveState(void) const {
 
 	oven::States state = NUM_STATES;
@@ -127,7 +148,7 @@ int oven::processEvent(const OVEN_EVENT_T msg){
 	switch (stateVars.stateVar) {
 
 		case Active:
-			/* calling region code */
+			/* calling region code  */
 			evConsumed |= ovenLight(msg);
 			evConsumed |= ovenPower(msg);
 			evConsumed |= ovenRadioator(msg);

@@ -1,12 +1,14 @@
 Example realizing a microwave oven. 
 Model created with the integrated statediagram editor (edit.sh)
 
-This examples has set 
+This example uses the Opaque object pattern: 
+This is similar to the object pattern, but hides the 
+implementation from the outside of the generating state 
+machine code. This further reduces dependencies 
+between the state machine implementation and other code.
+
+Therefor this examples has set 
 EnableOpaqueStateMachinePattern=yes
 UseTypedefForInstanceData=no
 
-to generate code that hides the implementation.
-This helps to reduce dependencies in projects.
-
-More info is available in the
-manual.
+More info is available in the manual.

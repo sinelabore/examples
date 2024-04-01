@@ -15,15 +15,14 @@
 #include <memory>
 #include <chrono>
 #include <thread>
-#include "oven_ext.h"
-#include "oven.h"
-#include "my_oven.h"
-#include "SafeQueue.hpp"
-#include "SimpleTimer.hpp"
+#include <oven_ext.h>
+#include <oven.h>
+#include <my_oven.h>
+#include <SafeQueue.hpp>
+#include <SimpleTimer.hpp>
 
 
 extern SafeQueue<OVEN_EVENT_T> q;
-// SimpleTimer<Events> t1(q), t2(q);
 
 void printList(const std::unique_ptr<my_oven>& machine, const std::forward_list<oven::States>& list){
 	    // Printing the returned list

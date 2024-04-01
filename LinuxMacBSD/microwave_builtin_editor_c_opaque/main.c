@@ -1,30 +1,32 @@
 #include <time.h>
 #include <stdio.h>
+#include <stdint.h>
 #include <string.h>
 #include <stdlib.h>
-#include <stdio.h>
 #include <unistd.h>
 #include <stddef.h>
-#include "oven_ext.h"
-#include "oven.h"
-#include "oven_hlp.h"
 #include <termios.h>
 #include <sys/time.h>
 #include <curses.h>
+
+// Note: main does not include oven.h which make sure the internal structure
+// of oven instance data is unknown to users (opaque pattern).
+// See 'readme.txt' for more explanations
+#include "oven_ext.h"
+#include "oven_hlp.h"
+
 
 static struct timespec tv={0,1000*1000*100}; // ~100ms
 
 // parameter
 T_PWR pwr = PWR_LOW;
-
-
-// message to state machine
-OVEN_EVENT_T msg;
 WINDOW *win, *borderwindow, *logwin;     
 
 int main(int argc, char* argv[]){
-
-	unsigned char timer_status;
+	// message to state machine
+	OVEN_EVENT_T msg;
+	
+	uint8_t timer_status;
 	
 	struct OVEN_INSTANCEDATA *instData = malloc(ovenSizeOf());
 	ovenInitMachine(instData,0U);

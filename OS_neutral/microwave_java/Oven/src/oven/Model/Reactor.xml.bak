@@ -2,7 +2,7 @@
 <ssc:StateChart xmlns:ssc="http://www.sinelabore.com/SSC/1_0" Version="1.0">
   <!--Command line options: -p ssc -E -l java -U ./codegen.cfg -o Reactor Reactor.xml -->
   <!--This file is generated - do not edit manually-->
-  <!--Generated on: Thu Oct 26 17:31:19 CEST 2023 / Version 6.1.3706-->
+  <!--Generated on: Thu Oct 26 17:32:44 CEST 2023 / Version 6.1.3706-->
   <ssc:Dimensions H="1108" W="1846" BA="55" DW="1231" NO="897" TV="385" />
   <ssc:Header>import oven.*;</ssc:Header>
   <ssc:Action>// just a comment</ssc:Action>
@@ -19,7 +19,7 @@ tm.stop(id);</EntryCode>
       <ssc:Transition Event="evDoorOpen" ToState="Idle" FromState="Completed" />
     </ssc:State>
     <ssc:State Name="Cooking">
-      <ExitCode>tm.start(idLed);</ExitCode>
+      <ExitCode>tm.stop(idLed);</ExitCode>
       <EntryCode>radiator.ovenOn();
 tm.start(idLed);</EntryCode>
       <ssc:Transition Event="evTimeout" ToState="Completed" FromState="Cooking" />

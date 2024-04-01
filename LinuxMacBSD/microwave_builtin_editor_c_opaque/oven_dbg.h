@@ -1,6 +1,7 @@
-/* Sinelabore Software Tools GmbH *//* Command line options: -p ssc -o oven oven.xml   */
+/* (C) Sinelabore Software Tools GmbH */
+/* Command line options: -p ssc -o oven oven.xml   */
 /* This file is generated from oven.xml - do not edit manually */
-/* Generated on: Sun Oct 22 17:49:33 CEST 2023 / Version 6.1.3706 */
+/* Generated on: Mon Apr 01 18:02:43 CEST 2024 / Version 6.3.2.3814 */
 
 
 

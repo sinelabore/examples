@@ -1,5 +1,5 @@
 /*
- * (c) Sinelabore Software Tools GmbH, 2008 - 2023
+ * (c) Sinelabore Software Tools GmbH, 2008 - 2024
  *
  * All rights reserved. Reproduction, modification,
  * use or disclosure to third parties without express
@@ -8,7 +8,7 @@
 
 /* Command line options: -A -l cx -v -p ASTAH -o oven -t final:oven:selftest oven_model.asta   */
 /* This file is generated from oven_model.asta - do not edit manually  */
-/* Generated on: Sun Oct 22 17:21:54 CEST 2023 / Version 6.1.3706 */
+/* Generated on: Mon Apr 01 17:59:19 CEST 2024 / Version 6.3.2.3814 */
 
 
 
@@ -23,7 +23,7 @@ uint8_t hwStatus=0;
 typedef enum {
 	SELFTEST_INITIALNODE0,
 	SELFTEST_ACTIVITYFINAL0,
-	SELFTEST_421127AE_5AE5_48D8_B78E_930653DB631C,
+	SELFTEST_42D96F03_F47D_4974_847D_CBAB5F2B8AF4,
 	SELFTEST,__END__,
 } BRANCHES;
 
@@ -32,7 +32,7 @@ uint8_t selftest(void){
 
 	BRANCHES id;
 
-	id = SELFTEST_421127AE_5AE5_48D8_B78E_930653DB631C;
+	id = SELFTEST_42D96F03_F47D_4974_847D_CBAB5F2B8AF4;
 	while(id != __END__) { 
 		switch(id) {
 			case SELFTEST_ACTIVITYFINAL0:
@@ -40,7 +40,7 @@ uint8_t selftest(void){
 				break;
 
 			/* Merged from nodes:   TestMicrowave TestLamp TestSomethingElse */
-			case SELFTEST_421127AE_5AE5_48D8_B78E_930653DB631C:
+			case SELFTEST_42D96F03_F47D_4974_847D_CBAB5F2B8AF4:
 				// test microwave code goes here
 				// test lamp code goes here
 				// test code goes here

@@ -23,10 +23,6 @@ static struct timespec tv={0,1000*1000*100}; // ~100ms
 // parameter
 T_PWR pwr = PWR_LOW;
 
-
-// message to state machine
-OVEN_EVENT_T msg;
-
 void init_keyboard()
 {            
     tcgetattr(0,&init_tio);
@@ -80,6 +76,8 @@ int main(int argc, char* argv[]){
 
 	unsigned char timer_status;
 	int i;
+	// message to state machine
+	OVEN_EVENT_T msg;
 	
 /*	
 	do{
@@ -102,7 +100,7 @@ int main(int argc, char* argv[]){
 			else
 				msg=events[i];
 				
-			oven(&instData);	
+			oven(&instData, msg);	
 		}
 	}else{
 		//
@@ -145,7 +143,7 @@ int main(int argc, char* argv[]){
 				msg=OVEN_NO_MSG;
 			}
 				
-			oven(&instData);			
+			oven(&instData,msg);			
 		
 		}while(1);
 	}

@@ -1,5 +1,5 @@
 /*
- * (c) Sinelabore Software Tools GmbH, 2008 - 2023
+ * (c) Sinelabore Software Tools GmbH, 2008 - 2024
  *
  * All rights reserved. Reproduction, modification,
  * use or disclosure to third parties without express
@@ -8,17 +8,16 @@
 
 /* Command line options: -l cx -v -p ASTAH -o oven -t final:oven:machine oven_model.asta   */
 /* This file is generated from oven_model.asta - do not edit manually  */
-/* Generated on: Sun Oct 22 17:21:53 CEST 2023 / Version 6.1.3706 */
+/* Generated on: Mon Apr 01 17:59:18 CEST 2024 / Version 6.3.2.3814 */
 
 
 #include <stdint.h>
 #include "oven_selftest.h"
-#include "oven.h"
 #include "oven_ext.h"
+#include "oven.h"
 #include "oven_hlp.h"
 #include <stdio.h>
 
-extern unsigned char msg;
 extern T_PWR pwr;
 
 uint8_t hwStatus;
@@ -27,7 +26,7 @@ uint8_t hwStatus;
 
 
 
-void  oven(OVEN_INSTANCEDATA_T *instanceVar){
+void  oven(OVEN_INSTANCEDATA_T *instanceVar, OVEN_EVENT_T  msg){
 
 	OVEN_EV_CONSUMED_FLAG_T evConsumed = 0U;
 

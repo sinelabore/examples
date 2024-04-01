@@ -1,6 +1,8 @@
 #ifndef __STARTER_HLP_H__
 #define __STARTER_HLP_H__
 
+#include <stdint.h>
+
 // Defines for the timer
 typedef enum {
 	OFF=0,
@@ -26,7 +28,7 @@ void stop_timer(void);
 // either returns ON or OFF or PAUSE
 T_TIMER_STATE timer_status(void);
 
-unsigned char tick();
+uint8_t tick(void);
 
 // shortens timeout by 1s
 void timer_dec(void);
@@ -35,7 +37,7 @@ void timer_dec(void);
 void timer_inc(void);
 
 // returns initial timeout time
-unsigned char timer_preset(void);
+uint8_t timer_preset(void);
 
 // pause timer
 void timer_pause(void);

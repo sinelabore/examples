@@ -1,16 +1,16 @@
+#include <time.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <termios.h>
+#include <sys/time.h>
+
 #include "mydefs.h"
 #include "oven_ext.h"
 #include "oven_hlp.h"
 #include "oven.h"
 #include "observer.h"
-#include <time.h>
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <termios.h>
-#include <sys/time.h>
 
 void init_keyboard(void);
 void close_keyboard(void);
@@ -20,9 +20,6 @@ int readch(void);
 OVEN_INSTANCEDATA_T instData = OVEN_INSTANCEDATA_INIT;
 static struct termios init_tio;
 static struct timespec tv={0,1000*1000*100}; // ~100ms
-
-// message to state machine
-OVEN_EVENT_T msg;
 
 void init_keyboard(void)
 {            
@@ -72,7 +69,10 @@ struct observer my_observer1;
 
 int main(int argc, char* argv[]){
 
-	unsigned char timer_status;
+	// message to state machine
+	OVEN_EVENT_T msg;
+	
+	uint8_t timer_status;
 	
 	// init observer with callback
   observer_init(&my_observer1, &instData, Cooking);
