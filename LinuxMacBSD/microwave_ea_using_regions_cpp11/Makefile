@@ -1,6 +1,6 @@
 CC=g++
 JAVA=java
-CFLAGS=-Wall -pedantic -Wextra --std=c++11 
+CFLAGS=-Wall -pedantic -Wextra --std=c++11 -I.
 
 ifndef CODEGEN_PATH
 $(error CODEGEN_PATH is not set. Please set it before running this Makefile.)
