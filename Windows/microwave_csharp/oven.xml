@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ssc:StateChart xmlns:ssc="http://www.sinelabore.com/SSC/1_0" Version="1.0">
+  <!--Command line options: -p ssc -E oven.xml -->
+  <!--This file is generated - do not edit manually-->
+  <!--Generated on: Sun Jun 02 16:42:50 CEST 2024 / Version 6.3.3.4114-->
+  <ssc:Dimensions H="1234" W="2143" BA="55" DW="1623" NO="1023" TV="180" />
+  <ssc:Header />
+  <ssc:Action />
+  <ssc:StateHeader />
+  <ssc:AdditionalIncludesStates />
+  <ssc:State Name="Super" History="Flat">
+    <ssc:Transition Event="evInc" ToState="Super" FromState="Super" Action="tm.IncrementTimer();" />
+    <ssc:Transition Event="evDec" ToState="Super" FromState="Super" Action="tm.DecrementTimer();" />
+    <ssc:Transition Event="evPwrHigh" ToState="Super" FromState="Super" Action="radiator.ovenSetPwrHigh();" />
+    <ssc:Transition Event="evPwrLow" ToState="Super" FromState="Super" Action="radiator.ovenSetPwrLow();" />
+    <ssc:State Name="Completed">
+      <ssc:Transition Event="evDoorOpen" ToState="Idle" FromState="Completed" />
+    </ssc:State>
+    <ssc:State Name="Cooking">
+      <EntryCode>radiator.ovenOn();</EntryCode>
+      <ssc:Transition Event="evTimeout" ToState="Completed" FromState="Cooking" Action="radiator.ovenOff();&#xA;tm.StopTimer();" />
+      <ssc:Transition Event="evDoorOpen" ToState="CookingPause" FromState="Cooking" Action="radiator.ovenOff();&#xA;tm.PauseTimer();" />
+    </ssc:State>
+    <ssc:State Name="CookingPause">
+      <ssc:Transition Event="evDoorClosed" ToState="Cooking" FromState="CookingPause" Action="tm.ContinueTimer();" />
+    </ssc:State>
+    <ssc:State Name="Idle">
+      <EntryCode>radiator.ovenOff();</EntryCode>
+      <ssc:Transition Event="evDoorClosed" ToState="Cooking" FromState="Idle" Guard="tm.PresetTimer()&gt;0" Action="tm.StartTimer(false); //singleshot" />
+    </ssc:State>
+    <ssc:InitState Id="EAID_42B3BCA3_B7F6_4585_8598_EC705B12DF9F">
+      <ssc:Transition ToState="Idle" FromState="EAID_42B3BCA3_B7F6_4585_8598_EC705B12DF9F" />
+    </ssc:InitState>
+  </ssc:State>
+  <ssc:InitState Id="fb1d26db-54c8-46f9-a4a2-6d7e29638850">
+    <ssc:Transition ToState="Super" FromState="fb1d26db-54c8-46f9-a4a2-6d7e29638850" />
+  </ssc:InitState>
+</ssc:StateChart>
