@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ssc:StateChart xmlns:ssc="http://www.sinelabore.com/SSC/1_0" Version="1.0">
+  <!--Command line options: -E -p ssc -o sm.xml sm.xml -->
+  <!--This file is generated - do not edit manually-->
+  <!--Generated on: Fri Jul 19 18:23:25 CEST 2024 / Version 6.3.3.-->
+  <ssc:Dimensions H="661" W="1000" BA="55" DW="480" NO="450" TV="180" />
+  <ssc:Header>#include "RTOS.h"
+#include &lt;stdio.h&gt;
+#include &lt;stdint.h&gt;
+
+#include "sm_ext.h"
+#include "sm.h"
+#include "../embos_setup/BSP.h"
+
+
+extern OS_TIMER MyTimer;
+uint8_t cnt;</ssc:Header>
+  <ssc:Action />
+  <ssc:StateHeader />
+  <ssc:AdditionalIncludesStates />
+  <ssc:ChoiceState Name="C0" Id="2dfac22a-7dcb-4033-bca4-21dc27f5a51b">
+    <ssc:Transition ToState="FAST" FromState="2dfac22a-7dcb-4033-bca4-21dc27f5a51b" Guard="cnt&gt;10" Action="OS_SetTimerPeriod(&amp;MyTimer, 100);&#xA;cnt=0;" />
+    <ssc:Transition ToState="SLOW" FromState="2dfac22a-7dcb-4033-bca4-21dc27f5a51b" Guard="else" Action="cnt++;" />
+  </ssc:ChoiceState>
+  <ssc:State Name="SLOW">
+    <EntryCode>OS_RetriggerTimer(&amp;MyTimer);
+BSP_ToggleLED(0);</EntryCode>
+    <ssc:Transition Event="evtTimeout" ToState="2dfac22a-7dcb-4033-bca4-21dc27f5a51b" FromState="SLOW" />
+  </ssc:State>
+  <ssc:InitState Id="12d61e58-998f-4cbb-b10c-5348fbf28d2a">
+    <ssc:Transition ToState="ON" FromState="12d61e58-998f-4cbb-b10c-5348fbf28d2a" />
+  </ssc:InitState>
+  <ssc:ChoiceState Name="C1" Id="e62a2f41-53b2-4153-8227-713c8491157b">
+    <ssc:Transition ToState="FAST" FromState="e62a2f41-53b2-4153-8227-713c8491157b" Guard="else" Action="cnt++;" />
+    <ssc:Transition ToState="ON" FromState="e62a2f41-53b2-4153-8227-713c8491157b" Guard="cnt&gt;10" Action="cnt=0;&#xA;OS_SetTimerPeriod(&amp;MyTimer, 2000);" />
+  </ssc:ChoiceState>
+  <ssc:State Name="FAST">
+    <EntryCode>OS_RetriggerTimer(&amp;MyTimer);
+BSP_ToggleLED(0);</EntryCode>
+    <ssc:Transition Event="evtTimeout" ToState="e62a2f41-53b2-4153-8227-713c8491157b" FromState="FAST" />
+  </ssc:State>
+  <ssc:State Name="ON">
+    <EntryCode>OS_RetriggerTimer(&amp;MyTimer);
+BSP_SetLED(0);</EntryCode>
+    <ssc:Transition Event="evtTimeout" ToState="SLOW" FromState="ON" Action="OS_SetTimerPeriod(&amp;MyTimer, 500);" />
+  </ssc:State>
+</ssc:StateChart>
