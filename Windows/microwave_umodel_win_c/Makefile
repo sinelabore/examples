@@ -1,7 +1,13 @@
 CC=cl.exe
 JAVA=java
 CFLAGS=/W4
-JFLAGS= -cp "../../../bin/*" codegen.Main -p UModel
+
+!IF "$(CODEGEN_PATH)" == ""
+!ERROR CODEGEN_PATH is not set. Please set it before running this Makefile.
+!ENDIF
+
+JFLAGS=-cp "$(CODEGEN_PATH)/*" codegen.Main
+
 LFLAGS=
 
 objects = oven_hlp.obj oven_selftest.obj oven.obj main.obj
@@ -22,8 +28,8 @@ oven.obj : oven.c oven.xmi
 	$(CC) $(CFLAGS) -c oven.c
 
 oven.c : oven.xmi
-	$(JAVA) $(JFLAGS) -l cx -t "MicrowaveOven:MachineClass" -doxygen -o oven oven.xmi
-	$(JAVA) $(JFLAGS) -A -l cx -t "MicrowaveOven:MachineClass" -o oven oven.xmi 
+	$(JAVA) $(JFLAGS) -p Umodel -l cx -t "MicrowaveOven:MachineClass" -doxygen -o oven oven.xmi
+	$(JAVA) $(JFLAGS) -p Umodel -A -l cx -t "MicrowaveOven:MachineClass" -o oven oven.xmi 
 
 clean:
 	del *.obj
