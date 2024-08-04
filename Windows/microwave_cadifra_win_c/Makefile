@@ -2,7 +2,11 @@ CC=cl.exe
 JAVA=java
 CFLAGS=/W4
 
-JFLAGS=-cp "../../../bin/*" codegen.Main -p CADIFRA
+!IF "$(CODEGEN_PATH)" == ""
+!ERROR CODEGEN_PATH is not set. Please set it before running this Makefile.
+!ENDIF
+
+JFLAGS=-cp "$(CODEGEN_PATH)/*" codegen.Main
 
 objects = oven_hlp.obj oven.obj main.obj
 
