@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<c:Diagram
+xmlns:c="http://www.cadifra.com/schema/1.0"
+xmlns:c1v3="http://www.cadifra.com/schema/1.3"
+ProductVersion="1.3.1">
+
+<Page id="r1"
+Size="8"
+Width="29700"
+Height="42000"
+Landscape="1"
+Rows="1"
+Columns="1"
+Margins="1000 1000 1000 1000"
+CutGlueMargins="1000 1000 1000 1000"
+Scale="1"/>
+
+<DiagramType id="r2"
+TypeValue="5"/>
+
+<Style id="r3">
+<dir n="Base" Typeface="arial" Size="11" Bold="0">
+<dir n="Free Text" Size="10" Bold="0"/>
+<dir n="Note" Size="9" Bold="0"/>
+<dir n="State Diagram">
+<dir n="State" Bold="0">
+<dir n="Compartment" Size="8"/>
+<dir n="Header" Bold="1"/>
+</dir>
+<dir n="Transition" Bold="0"/>
+</dir>
+</dir>
+</Style>
+
+<State id="r4"
+Pos="5900 -2200"
+Size="6100 10000"
+Large="1">
+<Text>S1</Text>
+<State id="r5"
+Pos="7300 -2500"
+Size="3200 3500">
+<Text>S11</Text>
+<Compartment id="r26"
+Pos="7300 -3200"
+Size="3200 2800">
+<Text>onEntry:<p/>
+printf("S11Entry\n");<p/>
+<p/>
+onExit:<p/>
+printf("S11Exit\n");<p/>
+<p/>
+action:<p/>
+printf("S11 Action\n");</Text>
+</Compartment>
+</State>
+<State id="r6"
+Pos="7000 -7400"
+Size="3300 4400">
+<Text>S12</Text>
+<Compartment id="r25"
+Pos="7000 -8600"
+Size="3300 3200">
+<Text>onEntry:<p/>
+printf("S12Entry\n");<p/>
+<p/>
+onExit:<p/>
+printf("S12Exit\n");<p/>
+<p/>
+action:<p/>
+printf("S12 Action\n");</Text>
+</Compartment>
+</State>
+<InitialState id="r21"
+Pos="11200 -9100"/>
+</State>
+
+<InitialState id="r7"
+Pos="7300 -1200"/>
+
+<Transition id="r8">
+<End id="r9"
+Pos="7500 -1600"
+State="r7"
+Type="1"/>
+<Segment id="r12"/>
+<End id="r13"
+Pos="7500 -2200"
+State="r4"
+Type="2"/>
+</Transition>
+
+<Transition id="r17">
+<End id="r14"
+Pos="12000 -9600"
+State="r4"
+Type="1"/>
+<Segment id="r15">
+<Anchor id="r18"
+Pos="14400 -9600">
+<FreeText id="r19"
+Pos="15732 -9500"
+Origin="3">
+<Text>e2/printf("e2Act\n");</Text>
+</FreeText>
+</Anchor>
+</Segment>
+<End id="r16"
+Pos="18000 -9600"
+State="r35"
+Type="2"/>
+</Transition>
+
+<Transition id="r22">
+<End id="r114"
+Pos="11400 -9100"
+State="r21"
+Type="1"/>
+<Segment id="r113"/>
+<Join id="r23"
+Pos="11400 -8600"/>
+<Segment id="r24"/>
+<End id="r27"
+Pos="10300 -8600"
+State="r6"
+Type="2"/>
+</Transition>
+
+<Transition id="r28">
+<End id="r29"
+Pos="16200 -6900"
+State="r31"
+Type="1"/>
+<Segment id="r30">
+<Anchor id="r38"
+Pos="13700 -6900">
+<FreeText id="r66"
+Pos="12400 -6600"
+Origin="4">
+<Text>e6/printf("e6Act\n");</Text>
+</FreeText>
+</Anchor>
+</Segment>
+<End id="r37"
+Pos="12000 -6900"
+State="r4"
+Type="2"/>
+</Transition>
+
+<State id="r31"
+Pos="16200 -2200"
+Size="6700 12200"
+Large="1">
+<Text>S2 (H)</Text>
+<State id="r32"
+Pos="17700 -2800"
+Size="3200 3500">
+<Text>S21</Text>
+<Compartment id="r33"
+Pos="17700 -3500"
+Size="3200 2800">
+<Text>onEntry:<p/>
+printf("S21Entry\n");<p/>
+<p/>
+onExit:<p/>
+printf("S21Exit\n");<p/>
+<p/>
+action:<p/>
+printf("S21 Action\n");</Text>
+</Compartment>
+</State>
+<InitialState id="r34"
+Pos="21500 -3000"/>
+<State id="r35"
+Pos="18000 -7600"
+Size="3300 6300">
+<Text>S22</Text>
+<Compartment id="r36"
+Pos="18000 -8800"
+Size="3300 5100">
+<Text>onEntry:<p/>
+printf("S22Entry\n");<p/>
+<p/>
+onExit:<p/>
+printf("S22Exit\n");<p/>
+<p/>
+action:<p/>
+printf("S22 Action\n");<p/>
+<p/>
+onEvent:<p/>
+e20/printf("e20Act\n");</Text>
+</Compartment>
+</State>
+</State>
+
+<Transition id="r39">
+<End id="r40"
+Pos="12000 -11600"
+State="r4"
+Type="1"/>
+<Segment id="r41"/>
+<Join id="r42"
+Pos="13200 -11600"/>
+<Segment id="r43">
+<Anchor id="r55"
+Pos="13200 -12700">
+<FreeText id="r56"
+Pos="13400 -12700"
+Origin="1">
+<Text>e4/printf("e4Act\n");</Text>
+</FreeText>
+</Anchor>
+</Segment>
+<Join id="r44"
+Pos="13200 -13500"/>
+<Segment id="r51"/>
+<Join id="r52"
+Pos="11100 -13500"/>
+<Segment id="r53"/>
+<End id="r54"
+Pos="11100 -12200"
+State="r4"
+Type="2"/>
+</Transition>
+
+<Transition id="r48">
+<End id="r45"
+Pos="21600 -3373.2050807568876"
+State="r34"
+Type="1"/>
+<Segment id="r46"/>
+<Join id="r47"
+Pos="21600 -4600"/>
+<Segment id="r49"/>
+<End id="r50"
+Pos="20900 -4600"
+State="r32"
+Type="2"/>
+</Transition>
+
+<Transition id="r57">
+<End id="r58"
+Pos="6900 -12200"
+State="r4"
+Type="1"/>
+<Segment id="r59"/>
+<Join id="r60"
+Pos="6900 -13200"/>
+<Segment id="r61">
+<Anchor id="r67"
+Pos="5900 -13200">
+<FreeText id="r68"
+Pos="6440 -13354"
+Origin="2">
+<Text>e5/printf("e5Act\n");</Text>
+</FreeText>
+</Anchor>
+</Segment>
+<Join id="r62"
+Pos="4800 -13200"/>
+<Segment id="r63"/>
+<Join id="r64"
+Pos="4800 -4800"/>
+<Segment id="r65"/>
+<End id="r20"
+Pos="7300 -4800"
+State="r5"
+Type="2"/>
+</Transition>
+
+<State id="r69"
+Pos="300 -3300"
+Size="3300 6500">
+<Text>S3</Text>
+<Compartment id="r70"
+Pos="300 -5600"
+Size="3300 4200">
+<Text>onEntry:<p/>
+printf("S3Entry\n");<p/>
+<p/>
+onExit:<p/>
+printf("S3Exit\n");<p/>
+<p/>
+action:<p/>
+printf("S3 Action\n");<p/>
+<p/>
+onEvent:<p/>
+e21/printf("e21Act\n");</Text>
+</Compartment>
+</State>
+
+<Transition id="r71">
+<End id="r72"
+Pos="5900 -2900"
+State="r4"
+Type="1"/>
+<Segment id="r73">
+<Anchor id="r74"
+Pos="4300 -2900">
+<FreeText id="r75"
+Pos="4040 -2600"
+Origin="3">
+<Text>e7/printf("e7Act\n");</Text>
+</FreeText>
+</Anchor>
+</Segment>
+<Join id="r76"
+Pos="1800 -2900"/>
+<Segment id="r77"/>
+<End id="r78"
+Pos="1800 -3300"
+State="r69"
+Type="2"/>
+</Transition>
+
+<Transition id="r79">
+<End id="r80"
+Pos="3600 -9000"
+State="r69"
+Type="1"/>
+<Segment id="r81"/>
+<Join id="r82"
+Pos="4100 -9000"/>
+<Segment id="r83"/>
+<Join id="r84"
+Pos="4100 -10400"/>
+<Segment id="r91">
+<Anchor id="r95"
+Pos="2900 -10400">
+<FreeText id="r96"
+Pos="3640 -10454"
+Origin="2">
+<Text>e8/printf("e8Act\n");</Text>
+</FreeText>
+</Anchor>
+</Segment>
+<Join id="r92"
+Pos="2200 -10400"/>
+<Segment id="r93"/>
+<End id="r94"
+Pos="2200 -9800"
+State="r69"
+Type="2"/>
+</Transition>
+
+<Transition id="r85">
+<End id="r86"
+Pos="12000 -4200"
+State="r4"
+Type="1"/>
+<Segment id="r87">
+<Anchor id="r89"
+Pos="14400 -4200">
+<FreeText id="r90"
+Pos="15732 -4100"
+Origin="3">
+<Text>e1/printf("e1Act\n");</Text>
+</FreeText>
+</Anchor>
+</Segment>
+<End id="r88"
+Pos="16200 -4200"
+State="r31"
+Type="2"/>
+</Transition>
+
+<State id="r97"
+Pos="300 -14600"
+Size="3200 4100">
+<Text>S4</Text>
+<Compartment id="r98"
+Pos="300 -15900"
+Size="3200 2800">
+<Text>onEntry:<p/>
+printf("S4Entry\n");<p/>
+<p/>
+onExit:<p/>
+printf("S4Exit\n");<p/>
+<p/>
+action:<p/>
+printf("S4 Action\n");</Text>
+</Compartment>
+</State>
+
+<Transition id="r99">
+<End id="r100"
+Pos="1300 -9800"
+State="r69"
+Type="1"/>
+<Segment id="r101">
+<Anchor id="r103"
+Pos="1300 -12500">
+<FreeText id="r104"
+Pos="1400 -12646"
+Origin="4">
+<Text>e9/printf("e9Act\n");</Text>
+</FreeText>
+</Anchor>
+</Segment>
+<End id="r102"
+Pos="1300 -14600"
+State="r97"
+Type="2"/>
+</Transition>
+
+<Transition id="r105">
+<End id="r106"
+Pos="3500 -16800"
+State="r97"
+Type="1"/>
+<Segment id="r107">
+<Anchor id="r111"
+Pos="7700 -16800">
+<FreeText id="r112"
+Pos="8240 -16700"
+Origin="3">
+<Text>e10/printf("e10Act\n");</Text>
+</FreeText>
+</Anchor>
+</Segment>
+<Join id="r108"
+Pos="8700 -16800"/>
+<Segment id="r109"/>
+<End id="r110"
+Pos="8700 -12200"
+State="r4"
+Type="2"/>
+</Transition>
+
+<Transition id="r115">
+<End id="r116"
+Pos="3500 -17900"
+State="r97"
+Type="1"/>
+<Segment id="r117">
+<Anchor id="r121"
+Pos="6900 -17900">
+<FreeText id="r122"
+Pos="8340 -17700"
+Origin="3">
+<Text>e11/printf("e11Act\n");</Text>
+</FreeText>
+</Anchor>
+</Segment>
+<Join id="r118"
+Pos="9600 -17900"/>
+<Segment id="r119"/>
+<End id="r120"
+Pos="9600 -11800"
+State="r6"
+Type="2"/>
+</Transition>
+
+<Note id="r123"
+Pos="24100 -1300"
+Size="5400 2800">
+<Text>header:<p/>
+#include "complex.h"<p/>
+#include "complex_ext.h"<p/>
+#include &lt;stdio.h&gt;<p/>
+<p/>
+extern unsigned char msg;</Text>
+</Note>
+
+<Transition id="r124">
+<End id="r126"
+Pos="10500 -3700"
+State="r5"
+Type="1"/>
+<Segment id="r127"/>
+<Join id="r128"
+Pos="11200 -3700"/>
+<Segment id="r129">
+<Anchor id="r133"
+Pos="11200 -4300">
+<FreeText id="r134"
+Pos="10600 -4600"
+Origin="1">
+<Text>e1/<p/>
+printf("e1Act\n");</Text>
+</FreeText>
+</Anchor>
+</Segment>
+<Join id="r130"
+Pos="11200 -4800"/>
+<Segment id="r131"/>
+<End id="r132"
+Pos="10500 -4800"
+State="r5"
+Type="2"/>
+</Transition>
+
+<Note id="r125"
+Pos="24100 -4900"
+Size="4500 2900">
+<Text>action:<p/>
+printf("Outer test action\n");</Text>
+</Note>
+
+<Transition id="r135">
+<End id="r136"
+Pos="8700 -6000"
+State="r5"
+Type="1"/>
+<Segment id="r137">
+<Anchor id="r139"
+Pos="8700 -6700">
+<FreeText id="r140"
+Pos="8800 -6746"
+Origin="4">
+<Text>e12/printf("e12\n");</Text>
+</FreeText>
+</Anchor>
+</Segment>
+<End id="r138"
+Pos="8700 -7400"
+State="r6"
+Type="2"/>
+</Transition>
+
+<Transition id="r141">
+<End id="r142"
+Pos="10300 -10700"
+State="r6"
+Type="1"/>
+<Segment id="r143">
+<Anchor id="r145"
+Pos="14600 -10700">
+<FreeText id="r146"
+Pos="15940 -10600"
+Origin="3">
+<Text>e13/printf("e13Act\n");</Text>
+</FreeText>
+</Anchor>
+</Segment>
+<End id="r144"
+Pos="18000 -10700"
+State="r35"
+Type="2"/>
+</Transition>
+
+<Transition id="r147">
+<End id="r148"
+Pos="7800 -7400"
+State="r6"
+Type="1"/>
+<Segment id="r149">
+<Anchor id="r151"
+Pos="7800 -6700">
+<FreeText id="r152"
+Pos="8530 -6700"
+Origin="2">
+<Text>e14/printf("e14\n");</Text>
+</FreeText>
+</Anchor>
+</Segment>
+<End id="r150"
+Pos="7800 -6000"
+State="r5"
+Type="2"/>
+</Transition>
+
+<Transition id="r153">
+<End id="r154"
+Pos="20400 -7600"
+State="r35"
+Type="1"/>
+<Segment id="r155">
+<Anchor id="r161"
+Pos="20400 -7100">
+<FreeText id="r162"
+Pos="19600 -7000"
+Origin="1">
+<Text>e15/printf("e15\n");</Text>
+</FreeText>
+</Anchor>
+</Segment>
+<End id="r156"
+Pos="20400 -6300"
+State="r32"
+Type="2"/>
+</Transition>
+
+<Transition id="r157">
+<End id="r158"
+Pos="19000 -6300"
+State="r32"
+Type="1"/>
+<Segment id="r159">
+<Anchor id="r163"
+Pos="19000 -6700">
+<FreeText id="r164"
+Pos="19840 -6600"
+Origin="2">
+<Text>e16/printf("e16\n");</Text>
+</FreeText>
+</Anchor>
+</Segment>
+<End id="r160"
+Pos="19000 -7600"
+State="r35"
+Type="2"/>
+</Transition>
+
+</c:Diagram>
