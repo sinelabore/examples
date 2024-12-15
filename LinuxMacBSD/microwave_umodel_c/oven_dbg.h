@@ -8,7 +8,7 @@
 
 /* Command line options: -p UModel -l cx -t MicrowaveOven:MachineClass -doxygen -o oven oven.xmi   */
 /* This file is generated from oven.xmi - do not edit manually */
-/* Generated on: Sun Oct 22 18:26:38 CEST 2023 / Version 6.1.3706 */
+/* Generated on: Sun Dec 15 20:35:28 CET 2024 / Version 6.4.1B1 */
 
 
 
