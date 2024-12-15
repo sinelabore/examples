@@ -8,7 +8,7 @@
 
 /* Command line options: -p UModel -A -l cx -t MicrowaveOven:MachineClass -doxygen -o oven oven.xmi   */
 /* This file is generated from oven.xmi - do not edit manually  */
-/* Generated on: Sun Dec 15 20:35:28 CET 2024 / Version 6.4.1B1 */
+/* Generated on: Sun Dec 15 20:38:46 CET 2024 / Version 6.4.1B1 */
 
 
 
@@ -16,8 +16,6 @@
 
 #include <stdint.h>
 #include <stdio.h>
-
-uint8_t testResult=0;
 
 /*Enumeration of all node names */
 typedef enum {
