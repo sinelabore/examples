@@ -23,7 +23,7 @@ oven_hlp.o : oven_hlp.c oven.plantuml
 	$(CC) $(CFLAGS) oven_hlp.c -c -o oven_hlp.o
 
 oven.c : oven.plantuml
-	$(JAVA) $(JFLAGS) -L states -v -p plantuml -o oven  oven.plantuml
+	$(JAVA) $(JFLAGS) -Lstates -v -p plantuml -o oven  oven.plantuml
 
 clean:
 	rm -f oven *.o 
