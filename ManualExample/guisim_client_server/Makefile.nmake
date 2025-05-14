@@ -1,0 +1,43 @@
+!IFNDEF CC
+CC=cl
+!ENDIF
+
+!IFNDEF JAVA
+JAVA=java
+!ENDIF
+
+!IFNDEF CODEGEN_PATH
+CODEGEN_PATH=.
+!ENDIF
+
+CFLAGS=/W3 /Zi /Od /D_CRT_SECURE_NO_WARNINGS /D_WINSOCK_DEPRECATED_NO_WARNINGS
+JFLAGS=-cp $(CODEGEN_PATH)\* codegen.Main
+LFLAGS=ws2_32.lib iphlpapi.lib
+
+objects=complex.obj main.obj
+
+all: complex.exe
+
+complex.exe: $(objects)
+    $(CC) /Fe:complex.exe $(objects) $(LFLAGS)
+
+main.obj: main.c complex.c complex.h
+    $(CC) $(CFLAGS) /c main.c
+
+complex.obj: complex.c
+    $(CC) $(CFLAGS) /c complex.c
+
+clean:
+    -del /Q *.exe *.obj *.pdb *.ilk
+
+!IF "$(CFG)" == ""
+CFG=Debug
+!ENDIF
+
+!IF "$(CFG)" == "Debug"
+CFLAGS=$(CFLAGS) /D_DEBUG
+!ENDIF
+
+!IF "$(CFG)" == "Release"
+CFLAGS=$(CFLAGS) /DNDEBUG
+!ENDIF 
