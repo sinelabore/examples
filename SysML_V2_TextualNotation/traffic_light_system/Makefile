@@ -1,6 +1,6 @@
 CC=clang++
 JAVA=java
-CFLAGS=-Wall -g -I.  -std=c++17 -stdlib=libc++ -pthread -Wall -Wpedantic
+CFLAGS=-Wall -g -I.  -std=c++17 -pthread -Wall -Wpedantic
 GEN_SYS_NAME=system
 INPUT_SYSML_FILE=tl.sysml
 
