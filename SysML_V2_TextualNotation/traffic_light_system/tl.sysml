@@ -4,19 +4,23 @@ package TrafficLight {
 
 
 	// definition of events to control TrafficLightController
-	enum def TRAFFICLIGHTCONTROLLERSM_EVENT_T {
+	enum def TLCEvent {
 		//@TrafficLightController
 		evOperational;
 		evError;
 	}
 
 	//@TrafficManagementCenter
-	enum def TRAFFICMANAGEMENTCENTERSM_EVENT_T {
+	enum def TMCEvent {
 	}
 
+	attribute def PortData{
+		attribute msg : TLCEvent;
+	}
+
+
 	port def ControlPortData {
-		attribute msg : TRAFFICLIGHTCONTROLLERSM_EVENT_T;
-		attribute test:Integer;
+		attribute data:PortData;
 	}
 
 	part def Test{}
@@ -24,14 +28,14 @@ package TrafficLight {
 	// traffic management center
 	part def TrafficManagementCenter{
 		out port sendPort : ControlPortData;
+		attribute msg:TMCEvent;
 		part test1 : Test;
 
 		state def tmcStateMachine {
 			entry; then PreOperational;
 
 			state PreOperational;
-			accept after 2[SI::second] do send TRAFFICLIGHTCONTROLLERSM_EVENT_T::evOperational via sendPort then Operational;
-			//accept after 2[SI::second] do send new ControlPortData(TRAFFICLIGHTCONTROLLERSM_EVENT_T::evOperational,5) via sendPort then Operational;
+			accept after 2[SI::second] do send TLCEvent::evOperational via sendPort then Operational;
 
 			state Operational {
 
@@ -40,10 +44,17 @@ package TrafficLight {
 	}
 
 	part def TrafficLightController{
-	
+
 		attribute redtime:Integer default 1;
+		attribute msg:TLCEvent;
+
 		in port recvPort : ~ControlPortData;
+
 		part test1 : Test;
+
+		action def readEvent{
+				assign msg := recvPort.data.msg;
+		}
 
 		action def setRedLED{}
 		action def resetRedLED{}
@@ -56,6 +67,7 @@ package TrafficLight {
 
 		state def tlcStateMachine {
 			entry; then OutOfService;
+			do action readEvent{}
 
 			state  OutOfService {
 				entry; then OutOfServiceYellowOn;
@@ -70,7 +82,7 @@ package TrafficLight {
 				}
 				accept after 0.5[SI::second] then OutOfServiceYellowOn;
 
-				transition t1 first OutOfService  accept TRAFFICLIGHTCONTROLLERSM_EVENT_T::evOperational then Operational;
+				transition t1 first OutOfService  accept TLCEvent::evOperational then Operational;
 			}
 				
 			state Operational {
@@ -100,7 +112,7 @@ package TrafficLight {
 				transition t2 first OperationalRedYellow  accept after 1[SI::second] then OperationalGreen;
 				transition t3 first OperationalGreen  accept after 1[SI::second] then OperationalYellow;
 				transition t4 first OperationalYellow  accept after 1[SI::second] then OperationalRed;
-				transition t5 first Operational accept TRAFFICLIGHTCONTROLLERSM_EVENT_T::evError then OutOfService;
+				transition t5 first Operational accept TLCEvent::evError then OutOfService;
 			}
 		}
 	}

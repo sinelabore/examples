@@ -1,50 +1,59 @@
+/*
+ * (c) Sinelabore Software Tools GmbH, 2008 - 2026
+ *
+ * All rights reserved. Reproduction, modification,
+ * use or disclosure to third parties without express
+ * authority is forbidden.
+ */
+
 #include <thread>
 #include <atomic>
 #include <chrono>
 #include <iostream>
-#include "TrafficLightControllerSM.h"
-#include "TrafficManagementCenterSM.h"
+#include <memory>
+#include "system.h"
 
+using namespace TrafficLight;
 
-class MyTrafficLightController : public TrafficLightControllerSM {
-    public:
+class MyTrafficLightController : public TrafficLightController {
+ public:
 
-    void init(void) {
+    void init(void) override{
         test1 = std::make_unique<Test>();
-        TrafficLightController::init();
         initialize();
     }
 
-    virtual void onTimeout(const TRAFFICLIGHTCONTROLLERSM_EVENT_T& event){
-        std::cout << "[MyTrafficLightController] Timeout fired with id=" 
-            << getNameByEvent(event)<< std::endl;
-        processEvent(event);
+    void onTimeout(const TLCEvent& e) override{
+        std::cout << "[MyTrafficLightController] Timeout fired with id="
+            << getNameByEvent(e)<< std::endl;
+        recvPort.receive(ControlPortDataDef{e});
+        tlcStateMachine();
     }
 
-    virtual void handle(const ControlPortDataDef& e) {
-        std::cout << "  [MyTrafficLightController] received: value = "  
-            << getNameByEvent(e.msg) << "," << e.test << "\n";
-        processEvent(e.msg);
+    void handle(const ControlPortDataDef& e) override{
+        std::cout << "[MyTrafficLightController] received: value = "
+            << getNameByEvent(e.data.msg) << "\n";
+        tlcStateMachine();
     }
 };
 
-class MyTrafficManagementCenter : public TrafficManagementCenterSM {
-    public:
+class MyTrafficManagementCenter : public TrafficManagementCenter {
+ public:
 
-    void init(void) {
+    void init(void) override{
         test1 = std::make_unique<Test>();
-        TrafficManagementCenterSM::init();
         initialize();
     }
 
-    void onTimeout(const TRAFFICMANAGEMENTCENTERSM_EVENT_T& event) {
+    void onTimeout(const TMCEvent& event) override{
         std::cout << "[MyTrafficManagementCenter] Timeout fired with id=" << getNameByEvent(event) << std::endl;
-        processEvent(event);
+        msg = event;
+        tmcStateMachine();
     }
 };
 
 class MyTrafficLightSystem : public TrafficLightSystem{
-public:
+ public:
     void init(void) {
         tmc = std::make_unique<MyTrafficManagementCenter>();
         tlc = std::make_unique<MyTrafficLightController>();
@@ -60,7 +69,7 @@ int main() {
     tls.init();
 
     // Start process thread
-    for(int i = 0; i < 80; i++) {
+    for ( int i = 0; i < 80; i++ ) {
         tls.process();
         std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
