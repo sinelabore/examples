@@ -25,6 +25,6 @@ Even though this can lead to code that looks verbose, modern optimizing compiler
 
 This can be proven using Compiler Explorer (https://godbolt.org), as shown in the next picture: you can see how few assembly lines are generated from the complete C++ code produced by the `tst_action_basic` example.
 
-![Sinelabore working principle](../doc/compiler_explorer.jpg)
+![Sinelabore working principle](doc/compiler_explorer.jpg)
 
 Compiler Explorer (https://godbolt.org) is an online playground for C/C++ (and other languages) that lets you compile the same code with many compiler versions and optimization settings. After compilation, it shows what the compiler produces (for example, generated assembly and intermediate representations) so you can directly inspect what optimizations are applied. This is handy to verify that the verbose, model-close generated code still turns into efficient machine code on modern toolchains.
