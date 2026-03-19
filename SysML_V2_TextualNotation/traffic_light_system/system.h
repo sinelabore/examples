@@ -8,7 +8,7 @@
 
 // Command line options: -d -l cppx -p sysml2text -o system tl.sysml 
 // This file is generated from tl.sysml - do not edit manually
-// Generated on: Sun Mar 15 20:44:11 CET 2026 / 7.1
+// Generated on: Mon Mar 16 19:57:59 CET 2026 / 7.1
 
 
 #pragma once
@@ -91,13 +91,9 @@ public:
  	}
 
 
- 	// State machine initialize function. Must be called once before event processing.
 
- 	// Debug support functions
 
- 	// Reporting functions
 
- 	// State machine handler function
 
 };
 
@@ -1407,13 +1403,9 @@ public:
  	}
 
 
- 	// State machine initialize function. Must be called once before event processing.
 
- 	// Debug support functions
 
- 	// Reporting functions
 
- 	// State machine handler function
 
 };
 

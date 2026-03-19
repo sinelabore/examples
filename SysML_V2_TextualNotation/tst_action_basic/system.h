@@ -8,7 +8,7 @@
 
 // Command line options: -d -l cppx -p sysml2text -o system test.sysml 
 // This file is generated from test.sysml - do not edit manually
-// Generated on: Mon Mar 16 19:54:03 CET 2026 / 7.1
+// Generated on: Mon Mar 16 19:57:29 CET 2026 / 7.1
 
 
 #pragma once
@@ -59,13 +59,9 @@ public:
  	}
 
 
- 	// State machine initialize function. Must be called once before event processing.
 
- 	// Debug support functions
 
- 	// Reporting functions
 
- 	// State machine handler function
 
 };
 
@@ -571,13 +567,9 @@ public:
 
 
 
- 	// State machine initialize function. Must be called once before event processing.
 
- 	// Debug support functions
 
- 	// Reporting functions
 
- 	// State machine handler function
 
 };
 
