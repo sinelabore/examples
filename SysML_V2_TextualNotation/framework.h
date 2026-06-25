@@ -1,11 +1,3 @@
-/*
- * (c) Sinelabore Software Tools GmbH, 2008 - 2026
- *
- * All rights reserved. Reproduction, modification,
- * use or disclosure to third parties without express
- * authority is forbidden.
- */
-
 #pragma once
 
 #include <iostream>
@@ -26,6 +18,7 @@
 #include <cmath>
 #include <type_traits>
 #include <variant>
+#include <iomanip>
 
 enum class PreFillPolicy { None, Min, Max, FixedOnly };
 
@@ -230,6 +223,21 @@ public:
         queue.push(data);
     }
 
+    // if data is available load it into the port and return true, 
+    // otherwise return false
+    bool hasEvent() {
+        T data;
+        if (!queue.try_pop(data)) {
+            return false;
+        }
+        static_cast<PayloadType<T>&>(*this) = std::get<PayloadType<T>>(data);
+        return true;
+    }
+
+    PayloadType<T> getPayload() const {
+        return static_cast<const PayloadType<T>&>(*this);
+    }
+
     void process() {
         T data;
         while (queue.try_pop(data)) {
@@ -253,6 +261,27 @@ void connect(Port<T>* out, InputPort<T>* in) {
     });
 }
 
+inline std::string currentTime()
+{
+    auto now = std::chrono::system_clock::now();
+
+    auto ms = std::chrono::duration_cast<std::chrono::milliseconds>(
+                  now.time_since_epoch()) % 1000;
+
+    std::time_t t = std::chrono::system_clock::to_time_t(now);
+    std::tm tm = *std::localtime(&t);
+
+    std::ostringstream oss;
+    oss << std::setfill('0')
+        << std::setw(2) << tm.tm_hour << ":"
+        << std::setw(2) << tm.tm_min << ":"
+        << std::setw(2) << tm.tm_sec << ":"
+        << std::setw(3) << ms.count();
+
+    return oss.str();
+}
+
+
 inline std::chrono::milliseconds msFromTimeUnit(double value, const std::string& unit) {
     // Precomputed scale factors to milliseconds
     static const std::unordered_map<std::string, double> unitToMs{
@@ -273,96 +302,6 @@ inline std::chrono::milliseconds msFromTimeUnit(double value, const std::string&
     return std::chrono::milliseconds(static_cast<long long>(std::round(ms)));
 }
 
-// --- TimeoutManager with generic callback and cancellation ---
-class TimeoutManager {
-public:
-    using Callback = std::function<void()>;
-    using TimeoutHandle = int64_t;
-    std::thread workerThread;
-
-    TimeoutManager() {
-        running = true;
-        nextId = 1;
-        workerThread = std::thread([this]() {
-            run();
-        });
-    }
-
-    ~TimeoutManager() {
-        stop();
-        if (workerThread.joinable()) {
-            workerThread.join();
-        }
-    }
-
-private:
-    struct Entry {
-        std::chrono::steady_clock::time_point time;
-        TimeoutHandle id;
-        Callback cb;
-        bool operator<(const Entry& other) const {
-            return time > other.time;  // min-heap
-        }
-    };
-
-    std::priority_queue<Entry> queue;
-    std::unordered_set<TimeoutHandle> canceled;
-    std::mutex m;
-    std::condition_variable cv;
-    std::atomic<bool> running;
-    std::atomic<TimeoutHandle> nextId;
-
-public:
-
-    TimeoutHandle startTimer(std::chrono::milliseconds delay, Callback cb) {
-        TimeoutHandle id = nextId++;
-        auto time = std::chrono::steady_clock::now() + delay;
-        {
-            std::lock_guard<std::mutex> lock(m);
-            queue.push({time, id, std::move(cb)});
-        }
-        cv.notify_one();
-        return id;
-    }
-
-    void cancelTimer(TimeoutHandle id) {
-        std::lock_guard<std::mutex> lock(m);
-        canceled.insert(id);
-    }
-
-    void run() {
-        std::unique_lock<std::mutex> lock(m);
-        while (running) {
-            if (queue.empty()) {
-                cv.wait(lock);
-            } else {
-                auto now = std::chrono::steady_clock::now();
-                auto& top = queue.top();
-                if (now >= top.time) {
-                    Entry e = std::move(top);
-                    queue.pop();
-
-                    if (canceled.count(e.id)) {
-                        canceled.erase(e.id);
-                        continue;
-                    }
-
-                    lock.unlock();
-                    e.cb();
-                    lock.lock();
-                } else {
-                    cv.wait_until(lock, top.time);
-                }
-            }
-        }
-    }
-
-    void stop() {
-        running = false;
-        cv.notify_all();
-    }
-};
-
 // --- Part base class ---
 /*
 class Part {
@@ -375,30 +314,11 @@ public:
 
 // --- Part base class ---
 class Part {
-    protected:
-        std::unique_ptr<TimeoutManager> tm_;
     
     public:
-        // Public reference for backward compatibility with existing generated code
-        TimeoutManager& tm;
         
-        Part() : tm_(std::make_unique<TimeoutManager>()), tm(*tm_) {}
-        
-        // Move constructor - tm reference needs special handling
-        Part(Part&& other) noexcept 
-            : tm_(std::move(other.tm_)), tm(*tm_) {
-        }
-        
-        // Move assignment
-        Part& operator=(Part&& other) noexcept {
-            if (this != &other) {
-                tm_ = std::move(other.tm_);
-                // Note: reference 'tm' cannot be reassigned, but it still points to *tm_
-                // which is now the moved-to object
-            }
-            return *this;
-        }
-        
+        Part() {}
+             
         virtual void process() {};
         virtual void init() {};
         virtual ~Part() = default;
