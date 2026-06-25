@@ -5,22 +5,20 @@ package TrafficLight {
 
 	// definition of events to control TrafficLightController
 	enum def TLCEvent {
-		//@TrafficLightController
 		evOperational;
 		evError;
 	}
 
-	//@TrafficManagementCenter
 	enum def TMCEvent {
 	}
 
-	attribute def PortData{
+	item def PortData{
 		attribute msg : TLCEvent;
 	}
 
 
 	port def ControlPortData {
-		attribute data:PortData;
+		in item data:PortData;
 	}
 
 	part def Test{}
@@ -28,8 +26,6 @@ package TrafficLight {
 	// traffic management center
 	part def TrafficManagementCenter{
 		out port sendPort : ControlPortData;
-		attribute msg:TMCEvent;
-		part test1 : Test;
 
 		state def tmcStateMachine {
 			entry; then PreOperational;
@@ -50,10 +46,10 @@ package TrafficLight {
 
 		in port recvPort : ~ControlPortData;
 
-		part test1 : Test;
-
-		action def readEvent{
-				assign msg := recvPort.data.msg;
+		action def getMsg{
+			action accept m:PortData via recvPort{
+				assign msg:=m.msg;
+			}
 		}
 
 		action def setRedLED{}
@@ -67,7 +63,7 @@ package TrafficLight {
 
 		state def tlcStateMachine {
 			entry; then OutOfService;
-			do action readEvent{}
+			do action getMsg{}
 
 			state  OutOfService {
 				entry; then OutOfServiceYellowOn;
@@ -82,7 +78,7 @@ package TrafficLight {
 				}
 				accept after 0.5[SI::second] then OutOfServiceYellowOn;
 
-				transition t1 first OutOfService  accept TLCEvent::evOperational then Operational;
+				transition t1 first OutOfService accept when msg==TLCEvent::evOperational then Operational;
 			}
 				
 			state Operational {
@@ -112,7 +108,7 @@ package TrafficLight {
 				transition t2 first OperationalRedYellow  accept after 1[SI::second] then OperationalGreen;
 				transition t3 first OperationalGreen  accept after 1[SI::second] then OperationalYellow;
 				transition t4 first OperationalYellow  accept after 1[SI::second] then OperationalRed;
-				transition t5 first Operational accept TLCEvent::evError then OutOfService;
+				transition t5 first Operational if msg==TLCEvent::evError then OutOfService;
 			}
 		}
 	}

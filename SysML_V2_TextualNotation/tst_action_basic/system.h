@@ -8,7 +8,7 @@
 
 // Command line options: -d -l cppx -p sysml2text -o system test.sysml 
 // This file is generated from test.sysml - do not edit manually
-// Generated on: Mon Mar 16 19:57:29 CET 2026 / 7.1
+// Generated on: Tue Jun 23 06:10:49 CEST 2026 / 7.2_beta_3
 
 
 #pragma once
@@ -26,6 +26,7 @@
 #include <chrono>
 #include <set>
 #include <cassert>
+#include <cstdint>
 
 #include <framework.h>
 
@@ -43,10 +44,10 @@ public:
 
 	//elements of this part	
 
+	// scalar (no multiplicity)
 	int anAttributeOfAParent  = 0 ;
 
 
-	
 
 
  	virtual void process() override {
@@ -60,13 +61,8 @@ public:
 
 
 
+}; // end of part AParent
 
-
-
-};
-
-
-	
 class A : public AParent {
 
 public:
@@ -79,10 +75,10 @@ public:
 
 	//elements of this part	
 
+	// scalar (no multiplicity)
 	int anAttributeOfA  = 0 ;
 
 
-	
 
 
  	virtual void process() override {
@@ -134,6 +130,7 @@ public:
  		A& getPart() { assert(part_ptr_); return *part_ptr_; }
 
 
+ 		// scalar (no multiplicity)
  		int test  = 0 ;
 
  		double x; // in
@@ -177,25 +174,28 @@ public:
 
  			while(id !=ParentWithParaID::__END__ ){ 
  				switch(id) {
- 					case ParentWithParaID::assignmentNode0:
+ 					case ParentWithParaID::assignmentNode0: {
  						// End of the action by default to prevent endless loops if user has not set end nodes
  						id = ParentWithParaID::__END__;
- 						p = x*x;
+ 						p = x * x;
  						id = ParentWithParaID::assignmentNode1;
  						break;
+ 					}
 
- 					case ParentWithParaID::assignmentNode1:
+ 					case ParentWithParaID::assignmentNode1: {
  						// End of the action by default to prevent endless loops if user has not set end nodes
  						id = ParentWithParaID::__END__;
  						anAttributeOfA = p;
  						id = ParentWithParaID::assignmentNode2;
  						break;
+ 					}
 
- 					case ParentWithParaID::assignmentNode2:
+ 					case ParentWithParaID::assignmentNode2: {
  						// End of the action by default to prevent endless loops if user has not set end nodes
  						id = ParentWithParaID::__END__;
  						anAttributeOfAParent = p;
  						break;
+ 					}
 
  					default:
  						break;
@@ -214,6 +214,7 @@ public:
  		A& getPart() { assert(part_ptr_); return *part_ptr_; }
 
 
+ 		// scalar (no multiplicity)
  		double x  = 0.0 ;
 
  		ParentActionDef act1{};
@@ -268,11 +269,12 @@ public:
 
  				while(id !=runID::__END__ ){ 
  					switch(id) {
- 						case runID::assignmentNode3:
+ 						case runID::assignmentNode3: {
  							// End of the action by default to prevent endless loops if user has not set end nodes
  							id = runID::__END__;
  							u = 8;
  							break;
+ 						}
 
  						default:
  							break;
@@ -453,91 +455,103 @@ public:
 
  			while(id !=runID::__END__ ){ 
  				switch(id) {
- 					case runID::act1:
+ 					case runID::act1: {
  						// End of the action by default to prevent endless loops if user has not set end nodes
  						id = runID::__END__;
  						act1(parent_);
  						id = runID::assignmentNode5;
  						break;
+ 					}
 
- 					case runID::act2:
+ 					case runID::act2: {
  						// End of the action by default to prevent endless loops if user has not set end nodes
  						id = runID::__END__;
  						act2.x = x;
  						act2(parent_);
  						id = runID::assignmentNode6;
  						break;
+ 					}
 
- 					case runID::act3:
+ 					case runID::act3: {
  						// End of the action by default to prevent endless loops if user has not set end nodes
  						id = runID::__END__;
  						act3.n = n;
  						act3(*this);
  						id = runID::assignmentNode7;
  						break;
+ 					}
 
- 					case runID::Path1:
+ 					case runID::Path1: {
  						// End of the action by default to prevent endless loops if user has not set end nodes
  						id = runID::__END__;
  						Path1(*this);
  						id = runID::Terminal0;
  						break;
+ 					}
 
- 					case runID::Terminal0:
+ 					case runID::Terminal0: {
  						// End of the action by default to prevent endless loops if user has not set end nodes
  						id = runID::__END__;
  						id = runID::__END__;
  						break;
+ 					}
 
- 					case runID::Path2:
+ 					case runID::Path2: {
  						// End of the action by default to prevent endless loops if user has not set end nodes
  						id = runID::__END__;
  						Path2(*this);
  						id = runID::Terminal1;
  						break;
+ 					}
 
- 					case runID::Terminal1:
+ 					case runID::Terminal1: {
  						// End of the action by default to prevent endless loops if user has not set end nodes
  						id = runID::__END__;
  						id = runID::__END__;
  						break;
+ 					}
 
- 					case runID::assignmentNode4:
+ 					case runID::assignmentNode4: {
  						// End of the action by default to prevent endless loops if user has not set end nodes
  						id = runID::__END__;
  						x = n;
  						id = runID::act1;
  						break;
+ 					}
 
- 					case runID::assignmentNode5:
+ 					case runID::assignmentNode5: {
  						// End of the action by default to prevent endless loops if user has not set end nodes
  						id = runID::__END__;
  						x = 2;
  						id = runID::act1_1;
  						break;
+ 					}
 
- 					case runID::act1_1:
+ 					case runID::act1_1: {
  						// End of the action by default to prevent endless loops if user has not set end nodes
  						id = runID::__END__;
  						act1_1(*this);
  						id = runID::act2;
  						break;
+ 					}
 
- 					case runID::assignmentNode6:
+ 					case runID::assignmentNode6: {
  						// End of the action by default to prevent endless loops if user has not set end nodes
  						id = runID::__END__;
  						p = act2.p;
  						id = runID::act3;
  						break;
+ 					}
 
- 					case runID::assignmentNode7:
+ 					case runID::assignmentNode7: {
  						// End of the action by default to prevent endless loops if user has not set end nodes
  						id = runID::__END__;
  						u = act3.u;
  						id = runID::d1;
  						break;
+ 					}
 
- 					case runID::d1:
+ 					case runID::d1: {
  						// End of the action by default to prevent endless loops if user has not set end nodes
  						id = runID::__END__;
  						if(act2.p==4){
@@ -548,12 +562,14 @@ public:
  							id = runID::Terminal2;
  						}
  						break;
+ 					}
 
- 					case runID::Terminal2:
+ 					case runID::Terminal2: {
  						// End of the action by default to prevent endless loops if user has not set end nodes
  						id = runID::__END__;
  						id = runID::__END__;
  						break;
+ 					}
 
  					default:
  						break;
@@ -568,10 +584,5 @@ public:
 
 
 
-
-
-
-};
-
-
+}; // end of part A
 } // end of namespace Test
