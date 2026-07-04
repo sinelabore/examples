@@ -1,3 +1,17 @@
+/*
+ * Copyright (c) 2026Sinelabore Software Tool GmbH
+ *
+ * These example files are made publicly available solely to demonstrate and
+ * evaluate the accompanying software.
+ * 
+ * No license is granted to reproduce, modify, redistribute, or use these examples
+ * for any purpose other than evaluating the software, unless expressly authorized
+ * in writing by the copyright holder.
+ *
+ * All rights reserved.
+ * 
+ */
+
 #pragma once
 
 #include <iostream>
