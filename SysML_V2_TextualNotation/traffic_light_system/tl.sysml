@@ -122,9 +122,11 @@ package TrafficLight {
 		* Main system that contains the parts
 		*/
 		part tmc : TrafficManagementCenter;
-		part tlc : TrafficLightController;
+		part tlc1 : TrafficLightController;
+		part tlc2 : TrafficLightController;
 		
 		// Connect the parts
-		connect tmc.sendPort to tlc.recvPort;
+		connect tmc.sendPort to tlc1.recvPort;
+		connect tmc.sendPort to tlc2.recvPort;
 	}
 }

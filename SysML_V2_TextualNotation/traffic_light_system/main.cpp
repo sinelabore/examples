@@ -25,13 +25,15 @@ int main() {
 
     // init state machine
     tls.tmc->initialize();
-    tls.tlc->initialize();
+    tls.tlc1->initialize();
+    tls.tlc2->initialize();
     
     // Start process thread
     for ( int i = 0; i < 80; i++ ) {
 
         tls.tmc->tmcStateMachine();
-        tls.tlc->tlcStateMachine();
+        tls.tlc1->tlcStateMachine();
+        tls.tlc2->tlcStateMachine();
         std::this_thread::sleep_for(std::chrono::milliseconds(100));
     }
     std::cout << "[Main] Done.\n";
