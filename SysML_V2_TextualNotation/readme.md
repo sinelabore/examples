@@ -1,21 +1,13 @@
-# SysML v2 Textual Notation Examples
-
-This folder contains small, self-contained examples written in **SysML v2 textual notation**, intended to be fed into the sinelabore toolchain for **code generation** and **execution/simulation**.
-
-What you will find in each subdirectory:
+ # Traffic light system - example model for the SysML v2 to C++ code generator.
+ 
+ A traffic management center (TMC) supervises two traffic lights. The model
+ demonstrates parts with ports and connections, inheritance between parts,
+ parallel state machines and actions that drive parts of another definition.
 
 `*.sysml` models: the SysML v2 textual input.
 `main.cpp` and `system.h`: a minimal C++ driver / glue code for running the generated code.
-`Makefile` (and sometimes `codegen.cfg`): build configuration to generate and compile the example.
-
-Included examples:
-
-`traffic_light_system`: a simple traffic light control setup (central controller + decentralized controller) and how the generated parts interact.
-`tst_action_basic`: a basic SysML v2 **action** example executed from C++.
-`tst_if_elseif_else_chain`: decision logic example (if / else-if / else chain).
-`tst_while_until`: loop / repetition control-flow example (while / until).
-
-If you just want to start quickly, try running `make` in one of the example subfolders (for example, `traffic_light_system`).
+`Makefile` (and sometimes `codegen.cfg`): build configuration to generate and compile the example
+'../framework.h' minimal runtime framework to be able to execute the generated C++ code
 
 
 # Code Generation Considerations
