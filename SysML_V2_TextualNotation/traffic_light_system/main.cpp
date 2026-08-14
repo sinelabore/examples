@@ -11,6 +11,7 @@
 #include <chrono>
 #include <iostream>
 #include <memory>
+#include "signalling.h"
 #include "system.h"
 
 using namespace TrafficLight;
@@ -22,11 +23,6 @@ int main() {
 
     //setup subcomponents
     tls.init();
-
-    // init state machine
-    tls.tmc->initialize();
-    tls.tlc1->initialize();
-    tls.tlc2->initialize();
     
     // Start process thread
     for ( int i = 0; i < 80; i++ ) {

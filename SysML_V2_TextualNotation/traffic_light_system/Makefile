@@ -2,6 +2,8 @@ CC=clang++
 JAVA=java
 CFLAGS=-Wall -g -I. -I.. -std=c++17 -pthread -Wall -Wno-unused-variable -Wpedantic
 GEN_SYS_NAME=system
+GEN_SIGNALLING=signalling
+INPUT_SIGNALLING_FILE=signalling.sysml
 INPUT_SYSML_FILE=tl.sysml
 
 ifndef CODEGEN_PATH
@@ -18,11 +20,14 @@ objects = main.o
 testcase : $(objects)
 	$(CC) $(LFLAGS) -o testcase $(objects)
 
-main.o : $(GEN_SYS_NAME).h main.cpp
+main.o : $(GEN_SYS_NAME).h $(GEN_SIGNALLING).h  main.cpp
 	$(CC) $(CFLAGS) main.cpp -c -o main.o
 
 $(GEN_SYS_NAME).h : $(INPUT_SYSML_FILE)
 	$(JAVA) $(JFLAGS) -d -l cppx -p sysml2text -o $(GEN_SYS_NAME) $(INPUT_SYSML_FILE)
+
+$(GEN_SIGNALLING).h : $(INPUT_SIGNALLING_FILE)
+	$(JAVA) $(JFLAGS) -d -v -l cppx -p sysml2text -o $(GEN_SIGNALLING) $(INPUT_SIGNALLING_FILE)
 
 clean:
 	rm -f *.o
