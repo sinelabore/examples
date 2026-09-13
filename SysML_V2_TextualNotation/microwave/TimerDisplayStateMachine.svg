@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1473.9" height="551.0" viewBox="-8.0 -8.0 1473.9 551.0">
+<defs>
+  <marker id="arrow" markerUnits="userSpaceOnUse" markerWidth="8.0" markerHeight="6.0" refX="7.0" refY="3.0" orient="auto">
+    <path d="M0,0 L8.0,3.0 L0,6.0 Z" fill="#8a6e3d"/>
+  </marker>
+</defs>
+  <rect x="16.0" y="54.0" width="1425.9" height="465.0" rx="10.0" ry="10.0" fill="#fffaec" stroke="#000" stroke-width="1.5"/>
+  <path d="M17.0,79.0 L17.0,64.0 Q17.0,55.0 26.0,55.0 L1431.9,55.0 Q1440.9,55.0 1440.9,64.0 L1440.9,79.0 Z" fill="#f8e9c3"/>
+  <text x="728.9" y="72.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">TimerDisplayState</text>
+  <line x1="17.0" y1="79.0" x2="1440.9" y2="79.0" stroke="#000" stroke-width="1"/>
+  <text x="24.0" y="92.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">do: readTickSignal</text>
+  <line x1="17.0" y1="99.0" x2="1440.9" y2="99.0" stroke="#000" stroke-width="1"/>
+  <circle cx="293.5" cy="226.0" r="9.0" stroke="#000" stroke-width="1.5" fill="#000"/>
+  <rect x="337.6" y="263.0" width="194.2" height="60.0" rx="12.0" ry="12.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
+  <path d="M338.6,288.0 L338.6,275.0 Q338.6,264.0 349.6,264.0 L519.8,264.0 Q530.8,264.0 530.8,275.0 L530.8,288.0 Z" fill="#f7e5b7"/>
+  <text x="434.7" y="281.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">ZERO</text>
+  <line x1="338.6" y1="288.0" x2="530.8" y2="288.0" stroke="#000" stroke-width="1"/>
+  <text x="345.6" y="301.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">entry: entryAction0</text>
+  <rect x="868.8" y="129.0" width="194.2" height="60.0" rx="12.0" ry="12.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
+  <path d="M869.8,154.0 L869.8,141.0 Q869.8,130.0 880.8,130.0 L1051.1,130.0 Q1062.1,130.0 1062.1,141.0 L1062.1,154.0 Z" fill="#f7e5b7"/>
+  <text x="965.9" y="147.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">PAUSE</text>
+  <line x1="869.8" y1="154.0" x2="1062.1" y2="154.0" stroke="#000" stroke-width="1"/>
+  <text x="876.8" y="167.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">entry: entryAction1</text>
+  <rect x="849.4" y="421.0" width="194.2" height="76.0" rx="12.0" ry="12.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
+  <path d="M850.4,446.0 L850.4,433.0 Q850.4,422.0 861.4,422.0 L1031.6,422.0 Q1042.6,422.0 1042.6,433.0 L1042.6,446.0 Z" fill="#f7e5b7"/>
+  <text x="946.5" y="439.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">COUNTDOWN</text>
+  <line x1="850.4" y1="446.0" x2="1042.6" y2="446.0" stroke="#000" stroke-width="1"/>
+  <text x="857.4" y="459.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">entry: entryAction2</text>
+  <text x="857.4" y="475.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">do: doCountDown</text>
+  <circle cx="728.9" cy="25.0" r="9.0" stroke="#000" stroke-width="1.5" fill="#000"/>
+  <path d="M728.9,34.0 L728.9,54.0" fill="none" stroke="#8a6e3d" stroke-width="1.0" marker-end="url(#arrow)"/>
+  <path d="M293.5,235.0 L293.5,249.0 L402.4,249.0 L402.4,263.0" fill="none" stroke="#8a6e3d" stroke-width="1.0" marker-end="url(#arrow)"/>
+  <path d="M402.4,323.0 L402.4,337.0 L452.1,337.0 L452.1,407.0 L888.3,407.0 L888.3,421.0" fill="none" stroke="#8a6e3d" stroke-width="1.0" marker-end="url(#arrow)"/>
+  <path d="M917.4,189.0 L917.4,203.0 L467.1,203.0 L467.1,263.0" fill="none" stroke="#8a6e3d" stroke-width="1.0" marker-end="url(#arrow)"/>
+  <path d="M965.9,189.0 L965.9,421.0" fill="none" stroke="#8a6e3d" stroke-width="1.0" marker-end="url(#arrow)"/>
+  <path d="M927.1,421.0 L927.1,393.0 L467.1,393.0 L467.1,323.0" fill="none" stroke="#8a6e3d" stroke-width="1.0" marker-end="url(#arrow)"/>
+  <path d="M1004.8,421.0 L1004.8,203.0 L1014.5,203.0 L1014.5,189.0" fill="none" stroke="#8a6e3d" stroke-width="1.0" marker-end="url(#arrow)"/>
+  <text x="670.2" y="402.1" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">doorSignal.hasEvent() &amp;&amp; ((m = doorSignal.cmd), true)</text>
+  <text x="670.2" y="388.1" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">[m.cmd == Commands::ON &amp;&amp; adjustedTicks &gt; 0]</text>
+  <text x="692.2" y="198.1" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">adjustedTicks == 0</text>
+  <text x="970.8" y="301.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">doorSignal.hasEvent() &amp;&amp; ((m = doorSignal.cmd), true)</text>
+  <text x="970.8" y="315.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">[m.cmd == Commands::ON &amp;&amp; adjustedTicks &gt; 0]</text>
+  <line x1="970.8" y1="303.8" x2="965.9" y2="303.8" stroke="#8a6e3d" stroke-width="0.9" stroke-dasharray="1.5 2"/>
+  <circle cx="965.9" cy="303.8" r="2.8" fill="#000" stroke="none"/>
+  <text x="472.0" y="361.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">adjustedTicks == 0</text>
+  <line x1="541.3" y1="363.0" x2="541.3" y2="393.0" stroke="#8a6e3d" stroke-width="0.9" stroke-dasharray="1.5 2"/>
+  <circle cx="541.3" cy="393.0" r="2.8" fill="#000" stroke="none"/>
+  <text x="1009.6" y="219.1" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">doorSignal.hasEvent() &amp;&amp; ((m = doorSignal.cmd), true)</text>
+  <text x="1009.6" y="233.1" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">[m.cmd == Commands::OFF]</text>
+</svg>

@@ -1,0 +1,42 @@
+# Windows nmake twin of Makefile. Same generate / compile / run steps, with cl.
+#
+# From a Developer Command Prompt, in this directory:
+#	nmake -f Makefile.nmake
+#	nmake -f Makefile.nmake run
+#
+# CODEGEN_PATH must point at the folder that holds codegen.jar, as with Makefile.
+# Remote Windows Docker (keeps the image): ./msvc_docker.sh
+
+CC=cl.exe
+JAVA=java
+CFLAGS=/nologo /EHsc /std:c++17 /W3 /I. /I../..
+GEN_SYS_NAME=system
+INPUT_SYSML_FILE=../oven.sysml
+
+!IF "$(CODEGEN_PATH)" == ""
+!ERROR CODEGEN_PATH is not set. Please set it before running this Makefile.
+!ENDIF
+
+JFLAGS=-cp "$(CODEGEN_PATH)/*" codegen.Main
+
+objects = main.obj
+
+all : oven.exe
+
+oven.exe : $(objects)
+	$(CC) $(CFLAGS) /Fe:oven.exe $(objects)
+
+main.obj : $(GEN_SYS_NAME).h main.cpp
+	$(CC) $(CFLAGS) /c main.cpp
+
+# -d puts the SYSML_TRACE lines in: one per action and one per accept, each naming
+# the instance that ran it. The 'd' key in main.cpp turns them on and off.
+$(GEN_SYS_NAME).h : $(INPUT_SYSML_FILE)
+	$(JAVA) $(JFLAGS) -l cppx -p sysml2text -o $(GEN_SYS_NAME) $(INPUT_SYSML_FILE)
+
+run : oven.exe
+	oven.exe
+
+clean:
+	-del /Q main.obj oven.exe oven.pdb oven.ilk 2>NUL
+	-del /Q $(GEN_SYS_NAME).h 2>NUL

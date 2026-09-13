@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="248.7" height="259.0" viewBox="-8.0 -8.0 248.7 259.0">
+<defs>
+  <marker id="arrow" markerUnits="userSpaceOnUse" markerWidth="8.0" markerHeight="6.0" refX="7.0" refY="3.0" orient="auto">
+    <path d="M0,0 L8.0,3.0 L0,6.0 Z" fill="#8a6e3d"/>
+  </marker>
+</defs>
+  <rect x="16.0" y="54.0" width="200.7" height="173.0" rx="10.0" ry="10.0" fill="#fffaec" stroke="#000" stroke-width="1.5"/>
+  <path d="M17.0,79.0 L17.0,64.0 Q17.0,55.0 26.0,55.0 L206.7,55.0 Q215.7,55.0 215.7,64.0 L215.7,79.0 Z" fill="#f8e9c3"/>
+  <text x="116.4" y="72.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">DoorContactState</text>
+  <line x1="17.0" y1="79.0" x2="215.7" y2="79.0" stroke="#000" stroke-width="1"/>
+  <circle cx="116.4" cy="116.0" r="9.0" stroke="#000" stroke-width="1.5" fill="#000"/>
+  <rect x="38.0" y="145.0" width="156.7" height="60.0" rx="12.0" ry="12.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
+  <path d="M39.0,170.0 L39.0,157.0 Q39.0,146.0 50.0,146.0 L182.7,146.0 Q193.7,146.0 193.7,157.0 L193.7,170.0 Z" fill="#f7e5b7"/>
+  <text x="116.4" y="163.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">CLOSED</text>
+  <line x1="39.0" y1="170.0" x2="193.7" y2="170.0" stroke="#000" stroke-width="1"/>
+  <text x="46.0" y="183.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">do: readContact</text>
+  <circle cx="116.4" cy="25.0" r="9.0" stroke="#000" stroke-width="1.5" fill="#000"/>
+  <path d="M116.4,34.0 L116.4,54.0" fill="none" stroke="#8a6e3d" stroke-width="1.0" marker-end="url(#arrow)"/>
+  <path d="M116.4,125.0 L116.4,145.0" fill="none" stroke="#8a6e3d" stroke-width="1.0" marker-end="url(#arrow)"/>
+</svg>

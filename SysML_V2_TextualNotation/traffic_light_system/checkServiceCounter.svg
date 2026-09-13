@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1024.6" height="400.0" viewBox="-8.0 -8.0 1024.6 400.0">
+<defs>
+  <marker id="arrow" markerUnits="userSpaceOnUse" markerWidth="8.0" markerHeight="6.0" refX="7.0" refY="3.0" orient="auto">
+    <path d="M0,0 L8.0,3.0 L0,6.0 Z" fill="#8a6e3d"/>
+  </marker>
+</defs>
+  <rect x="16.0" y="16.0" width="976.6" height="352.0" rx="10.0" ry="10.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
+  <path d="M17.0,36.0 L17.0,26.0 Q17.0,17.0 26.0,17.0 L982.6,17.0 Q991.6,17.0 991.6,26.0 L991.6,36.0 Z" fill="#f7e5b7"/>
+  <text x="504.3" y="29.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">«action use»</text>
+  <line x1="17.0" y1="36.0" x2="991.6" y2="36.0" stroke="#000" stroke-width="1"/>
+  <text x="504.3" y="49.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">checkServiceCounter</text>
+  <line x1="17.0" y1="56.0" x2="991.6" y2="56.0" stroke="#000" stroke-width="1"/>
+  <text x="504.3" y="76.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">action flow</text>
+  <circle cx="504.3" cy="94.0" r="9.0" stroke="#000" stroke-width="1.5" fill="#000"/>
+  <rect x="30.0" y="123.0" width="948.6" height="231.0" rx="10.0" ry="10.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
+  <path d="M31.0,143.0 L31.0,133.0 Q31.0,124.0 40.0,124.0 L968.6,124.0 Q977.6,124.0 977.6,133.0 L977.6,143.0 Z" fill="#f7e5b7"/>
+  <text x="504.3" y="136.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">«if»</text>
+  <line x1="31.0" y1="143.0" x2="977.6" y2="143.0" stroke="#000" stroke-width="1"/>
+  <text x="504.3" y="156.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">IfActionUse0</text>
+  <line x1="31.0" y1="163.0" x2="977.6" y2="163.0" stroke="#000" stroke-width="1"/>
+  <text x="504.3" y="183.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">if condition</text>
+  <text x="38.0" y="201.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">yellowLamp.switchCounter&gt;5 or 
+			   redLamp.switchCounter &gt; 5 or
+			   greenLamp.switchCounter &gt; 5</text>
+  <text x="504.3" y="235.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">then body</text>
+  <rect x="411.2" y="282.0" width="186.2" height="58.0" rx="12.0" ry="12.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
+  <path d="M412.2,302.0 L412.2,294.0 Q412.2,283.0 423.2,283.0 L585.4,283.0 Q596.4,283.0 596.4,294.0 L596.4,302.0 Z" fill="#f7e5b7"/>
+  <text x="504.3" y="295.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">«assign»</text>
+  <line x1="412.2" y1="302.0" x2="596.4" y2="302.0" stroke="#000" stroke-width="1"/>
+  <text x="504.3" y="315.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">assignmentNode4</text>
+  <text x="504.3" y="331.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">needService := true</text>
+  <circle cx="504.3" cy="253.0" r="9.0" stroke="#000" stroke-width="1.5" fill="#000"/>
+  <line x1="31.0" y1="214.0" x2="977.6" y2="214.0" stroke="#000" stroke-width="1"/>
+  <path d="M504.3,103.0 L504.3,123.0" fill="none" stroke="#8a6e3d" stroke-width="1.0" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
+  <path d="M504.3,262.0 L504.3,282.0" fill="none" stroke="#8a6e3d" stroke-width="1.0" stroke-dasharray="6 4" marker-end="url(#arrow)"/>
+</svg>

@@ -1,17 +1,3 @@
-/*
- * Copyright (c) 2026Sinelabore Software Tool GmbH
- *
- * These example files are made publicly available solely to demonstrate and
- * evaluate the accompanying software.
- * 
- * No license is granted to reproduce, modify, redistribute, or use these examples
- * for any purpose other than evaluating the software, unless expressly authorized
- * in writing by the copyright holder.
- *
- * All rights reserved.
- * 
- */
-
 #pragma once
 
 #include <iostream>
@@ -33,6 +19,10 @@
 #include <type_traits>
 #include <variant>
 #include <iomanip>
+// std::ostringstream, used by the timestamp in the default trace sink. libstdc++ and
+// libc++ reach it through <iostream>; the Microsoft STL does not, and cl reports
+// "'oss' uses undefined class std::basic_ostringstream".
+#include <sstream>
 
 enum class PreFillPolicy { None, Min, Max, FixedOnly };
 
@@ -191,7 +181,7 @@ public:
 template<typename T>
 class ThreadsafeQueue {
     std::queue<T> q;
-    std::mutex m;
+    mutable std::mutex m;
 public:
     void push(T v) {
         std::lock_guard<std::mutex> lock(m);
@@ -203,6 +193,10 @@ public:
         v = std::move(q.front());
         q.pop();
         return true;
+    }
+    size_t size() const {
+        std::lock_guard<std::mutex> lock(m);
+        return q.size();
     }
 };
 
@@ -225,19 +219,31 @@ public:
 template<typename T>
 using PayloadType = std::variant_alternative_t<0, T>;
 
-// --- InputPort (Input queue + processing) ---
+// --- InputPort (Input queue) ---
 // Inherits from payload type (e.g. PortEventDef) so port attributes (msg, etc.) are direct members.
 // Codegen can emit SysML access as-is: myReceivePort.msg.theEvent (no extra "current").
+//
+// Polling is the only consumption path: a state machine takes events off the queue itself, one per
+// hasEvent() call, from whichever state is active - matching the SysML v2 rule that a transition is
+// only triggered "during a performance of its source". There is deliberately no drain-and-dispatch
+// alternative: two ways to consume the same queue can race for the same event.
+//
+// setObserver() is a read-only side channel: it is told about an arrival but does not pop and must
+// never itself dispatch a state machine. It runs synchronously on the sender's thread, inside
+// Port::send(), so it sees the event before the receiving machine polls for it - keep it cheap.
 template<typename T>
 class InputPort : public PayloadType<T> {
     ThreadsafeQueue<T> queue;
-    std::vector<std::function<void(const T&)>> handlers;
+    std::function<void(const PayloadType<T>&)> observer;
 public:
     void receive(const T& data) {
+        if (observer) {
+            observer(std::get<PayloadType<T>>(data));
+        }
         queue.push(data);
     }
 
-    // if data is available load it into the port and return true, 
+    // if data is available load it into the port and return true,
     // otherwise return false
     bool hasEvent() {
         T data;
@@ -252,18 +258,18 @@ public:
         return static_cast<const PayloadType<T>&>(*this);
     }
 
-    void process() {
-        T data;
-        while (queue.try_pop(data)) {
-            static_cast<PayloadType<T>&>(*this) = std::get<PayloadType<T>>(data);
-            for (auto& h : handlers) {
-                if (h) h(data);
-            }
-        }
+    /** Number of events queued but not yet taken by hasEvent(). Read-only. */
+    size_t queueDepth() const {
+        return queue.size();
     }
 
-    void addHandler(std::function<void(const T&)> h) {
-        handlers.push_back(std::move(h));
+    /**
+     * Read-only side channel: told about every arrival, in receive() order, before it is
+     * queued - unlike hasEvent(), it does not consume anything and can never race polling for
+     * the same event.
+     */
+    void setObserver(std::function<void(const PayloadType<T>&)> o) {
+        observer = std::move(o);
     }
 };
 
@@ -283,7 +289,18 @@ inline std::string currentTime()
                   now.time_since_epoch()) % 1000;
 
     std::time_t t = std::chrono::system_clock::to_time_t(now);
-    std::tm tm = *std::localtime(&t);
+    // Not std::localtime: it returns a pointer into one static buffer shared by every
+    // thread, and this framework is threaded. Both replacements write into the caller's
+    // own tm, but no standard library offers both - glibc and Apple's libc have the POSIX
+    // localtime_r and not localtime_s, the Microsoft CRT the reverse, and its localtime_s
+    // takes its arguments the other way round and returns errno_t. C11 Annex K, which
+    // would have settled it, went unimplemented outside Microsoft.
+    std::tm tm{};
+#if defined(_MSC_VER)
+    localtime_s(&tm, &t);
+#else
+    localtime_r(&t, &tm);
+#endif
 
     std::ostringstream oss;
     oss << std::setfill('0')
@@ -328,12 +345,204 @@ public:
 
 // --- Part base class ---
 class Part {
-    
+
+        // Containment path of this object, e.g. "System.monitor" - see setInstanceName.
+        std::string instanceName_;
+
     public:
-        
+
         Part() {}
-             
+
+        /**
+         * Where this object sits in the model, as a path from the root part.
+         *
+         * C++ has no way to recover a variable's name at run time (RTTI gives the type, never
+         * the instance), so the generator supplies it: each part's constructor seeds this with
+         * its own type name, and its owner overwrites it with the full path in init(). That
+         * ordering means an object always has a usable name even if init() was never called.
+         *
+         * The root keeps its type name, since nothing owns it and the name of the variable
+         * holding it is not visible to generated code - call setInstanceName() on it to use the
+         * name from your main().
+         */
+        const std::string& instanceName() const { return instanceName_; }
+
+        void setInstanceName(std::string name) { instanceName_ = std::move(name); }
+
+        /** Names this object as {@code <owner>.<member>}; called by the owner during init(). */
+        void setOwnedName(const Part& owner, const char* member) {
+            instanceName_ = owner.instanceName_.empty()
+                    ? std::string(member)
+                    : owner.instanceName_ + "." + member;
+        }
+
         virtual void process() {};
         virtual void init() {};
         virtual ~Part() = default;
     };
+
+// --- Tracing ---------------------------------------------------------------
+//
+// Generated code reports what it is doing through SYSML_TRACE, and only when it
+// was generated with -d. The indirection exists so the report can be routed
+// somewhere other than std::cout: an embedded target without <iostream> defines
+// SYSML_TRACE to its own logger (or to nothing) before including this header and
+// pays no cost at all, since nothing below is then referenced.
+//
+// The payload names the SysML construct, not the C++ that implements it - the
+// point is to be able to read a run against the model that produced it.
+
+/**
+ * What one call to an action's operator() achieved.
+ *
+ * An action body is generated as a step function rather than a run-to-completion call,
+ * because a SysML action may legitimately never complete - a behaviour whose successions
+ * form a cycle with no 'done' node (an engine that idles, runs and stops, forever) has no
+ * terminating execution at all. Each call therefore does a bounded amount of work and says
+ * whether there is more, leaving the caller in charge of the loop.
+ */
+enum class ActionStatus {
+    Finished,  // reached a done/terminate node; the action is complete and may be re-run
+    Yielded,   // completed one pass around a loop; call again to continue
+    Blocked    // waiting on an accept that has not been satisfied; nothing changed
+};
+
+inline const char* actionStatusName(ActionStatus status) {
+    switch (status) {
+    case ActionStatus::Finished: return "finished";
+    case ActionStatus::Yielded:  return "yielded";
+    case ActionStatus::Blocked:  return "blocked";
+    }
+    return "?";
+}
+
+/** What kind of SysML construct is reporting. */
+enum class TraceKind {
+    Action,      // an action def / action usage body running
+    Accept,      // accept ... via <port> taking an event
+    Assign,      // assign x := ...
+    // Both report as "<source> -> <target>", i.e. the direction the value actually moved,
+    // which for a bind is the reverse of how it is written ('bind target = source').
+    Flow,        // flow <source> to <target>  - a value streamed between action pins
+    Bind,        // bind <target> = <source>   - a binding connector transferring a value
+    Send,        // send ... via <port>
+    StateEntry,  // entry into a state
+    StateExit,   // exit out of a state
+    Transition   // a transition firing, including its guard/trigger
+};
+
+inline const char* traceKindName(TraceKind kind) {
+    switch (kind) {
+    case TraceKind::Action:     return "action";
+    case TraceKind::Accept:     return "accept";
+    case TraceKind::Assign:     return "assign";
+    case TraceKind::Flow:       return "flow";
+    case TraceKind::Bind:       return "bind";
+    case TraceKind::Send:       return "send";
+    case TraceKind::StateEntry: return "entry";
+    case TraceKind::StateExit:  return "exit";
+    case TraceKind::Transition: return "transition";
+    }
+    return "?";
+}
+
+/**
+ * One thing the model did.
+ *
+ * `context` is the owning part or state machine as written in the model, and
+ * `instance` distinguishes two objects of that same type - without it a trace
+ * from one of several identical parts is unattributable. `detail` carries
+ * whatever the construct makes concrete: the target state of a transition, the
+ * port an accept drew from, and is null when there is nothing to add.
+ */
+struct TraceEvent {
+    TraceKind   kind;
+    const char* context;
+    const char* name;
+    const char* detail;
+    const void* instance;
+};
+
+/** Where trace events go. Replace to redirect; see SYSML_TRACE to remove entirely. */
+using TraceSink = std::function<void(const TraceEvent&)>;
+
+inline TraceSink& traceSink() {
+    static TraceSink sink = [](const TraceEvent& e) {
+        std::cout << "debug: ";
+        if (e.context != nullptr && e.context[0] != '\0') {
+            std::cout << e.context << '.';
+        }
+        std::cout << e.name << " [" << traceKindName(e.kind) << ']';
+        if (e.detail != nullptr) {
+            std::cout << ' ' << e.detail;
+        }
+        std::cout << std::endl;
+    };
+    return sink;
+}
+
+/**
+ * Where an absolute point in time comes from, for 'accept at <instant>'.
+ *
+ * Wall clock, not the steady clock the 'accept after <duration>' timers use: a steady clock is
+ * monotonic but its zero is arbitrary, so it can measure elapsed time and nothing else. An
+ * instant has to be compared against something with the same origin as the value the model
+ * holds.
+ *
+ * Replaceable for the same reason traceSink() is - a test that has to reach a given instant
+ * otherwise waits for the real clock to get there, which is neither quick nor repeatable. Set
+ * this to a function returning a fixed value and a timed transition becomes as deterministic as
+ * any other:
+ *
+ *     double fakeNow = 0.0;
+ *     timeSource() = [&fakeNow] { return fakeNow; };
+ *
+ * Seconds since the epoch as a double, matching how Time::DateTime values are compared. The
+ * SysML library types an instant as TimeInstantValue with a TimeScale it is measured against;
+ * that scale is not modelled here, so two instants are only comparable if the model means them
+ * on the same one.
+ */
+using TimeSource = std::function<double()>;
+
+inline TimeSource& timeSource() {
+    static TimeSource source = [] {
+        return std::chrono::duration<double>(
+                std::chrono::system_clock::now().time_since_epoch()).count();
+    };
+    return source;
+}
+
+/**
+ * True only when {@code condition} has just become true - the edge a 'when' trigger waits for.
+ *
+ * SysML's TriggerWhen monitors its condition "for changing from false to true" (Triggers.kerml),
+ * so a transition guarded by one fires once per change, not on every cycle the condition happens
+ * to hold. {@code previous} is the machine's memory of the last value seen, cleared when the
+ * source state is entered - ObserveChange waits only "if the result of the changeSignal.
+ * signalCondition is false", so a condition already true when the observation starts still fires,
+ * and it is the repeats that are suppressed.
+ */
+inline bool sysmlOnRisingEdge(bool& previous, bool condition) {
+    bool rising = condition && !previous;
+    previous = condition;
+    return rising;
+}
+
+/** Current instant, or 0 if the source was cleared. */
+inline double sysmlNow() {
+    const TimeSource& source = timeSource();
+    return source ? source() : 0.0;
+}
+
+inline void emitTrace(TraceKind kind, const char* context, const char* name,
+                      const char* detail, const void* instance) {
+    const TraceSink& sink = traceSink();
+    if (sink) {
+        sink(TraceEvent{kind, context, name, detail, instance});
+    }
+}
+
+#ifndef SYSML_TRACE
+#define SYSML_TRACE(kind, context, name, detail, instance) \
+    ::emitTrace((kind), (context), (name), (detail), (instance))
+#endif

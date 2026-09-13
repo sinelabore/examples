@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="584.1" height="475.0" viewBox="-8.0 -8.0 584.1 475.0">
+<defs>
+  <marker id="arrow" markerUnits="userSpaceOnUse" markerWidth="8.0" markerHeight="6.0" refX="7.0" refY="3.0" orient="auto">
+    <path d="M0,0 L8.0,3.0 L0,6.0 Z" fill="#8a6e3d"/>
+  </marker>
+</defs>
+  <rect x="16.0" y="54.0" width="536.1" height="389.0" rx="10.0" ry="10.0" fill="#fffaec" stroke="#000" stroke-width="1.5"/>
+  <path d="M17.0,79.0 L17.0,64.0 Q17.0,55.0 26.0,55.0 L542.1,55.0 Q551.1,55.0 551.1,64.0 L551.1,79.0 Z" fill="#f8e9c3"/>
+  <text x="284.1" y="72.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">tmcStateMachine</text>
+  <line x1="17.0" y1="79.0" x2="551.1" y2="79.0" stroke="#000" stroke-width="1"/>
+  <text x="24.0" y="92.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">do: getMsg</text>
+  <line x1="17.0" y1="99.0" x2="551.1" y2="99.0" stroke="#000" stroke-width="1"/>
+  <circle cx="398.2" cy="138.0" r="9.0" stroke="#000" stroke-width="1.5" fill="#000"/>
+  <rect x="322.5" y="167.0" width="151.3" height="36.0" rx="12.0" ry="12.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
+  <path d="M323.5,192.0 L323.5,179.0 Q323.5,168.0 334.5,168.0 L461.9,168.0 Q472.9,168.0 472.9,179.0 L472.9,192.0 Z" fill="#f7e5b7"/>
+  <text x="398.2" y="185.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">PreOperational</text>
+  <rect x="336.6" y="271.0" width="123.2" height="36.0" rx="12.0" ry="12.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
+  <path d="M337.6,296.0 L337.6,283.0 Q337.6,272.0 348.6,272.0 L447.8,272.0 Q458.8,272.0 458.8,283.0 L458.8,296.0 Z" fill="#f7e5b7"/>
+  <text x="398.2" y="289.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">Operational</text>
+  <rect x="266.3" y="361.0" width="263.9" height="60.0" rx="12.0" ry="12.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
+  <path d="M267.3,386.0 L267.3,373.0 Q267.3,362.0 278.3,362.0 L518.1,362.0 Q529.1,362.0 529.1,373.0 L529.1,386.0 Z" fill="#f7e5b7"/>
+  <text x="398.2" y="379.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">OperationalWihtServiceNeed</text>
+  <line x1="267.3" y1="386.0" x2="529.1" y2="386.0" stroke="#000" stroke-width="1"/>
+  <text x="274.3" y="399.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">entry: scheduleServiceCall</text>
+  <circle cx="284.1" cy="25.0" r="9.0" stroke="#000" stroke-width="1.5" fill="#000"/>
+  <path d="M284.1,34.0 L284.1,54.0" fill="none" stroke="#8a6e3d" stroke-width="1.0" marker-end="url(#arrow)"/>
+  <path d="M398.2,147.0 L398.2,167.0" fill="none" stroke="#8a6e3d" stroke-width="1.0" marker-end="url(#arrow)"/>
+  <path d="M398.2,203.0 L398.2,271.0" fill="none" stroke="#8a6e3d" stroke-width="1.0" marker-end="url(#arrow)"/>
+  <path d="M398.2,307.0 L398.2,361.0" fill="none" stroke="#8a6e3d" stroke-width="1.0" marker-end="url(#arrow)"/>
+  <text x="393.3" y="233.0" text-anchor="end" font-family="Arial, sans-serif" font-size="14">after 2.0 SI::second</text>
+  <text x="393.3" y="247.0" text-anchor="end" font-family="Arial, sans-serif" font-size="14">/ send TLCEvent::evOperational via controlPort</text>
+  <line x1="393.3" y1="235.8" x2="398.2" y2="235.8" stroke="#8a6e3d" stroke-width="0.9" stroke-dasharray="1.5 2"/>
+  <circle cx="398.2" cy="235.8" r="2.8" fill="#000" stroke="none"/>
+  <text x="393.3" y="337.0" text-anchor="end" font-family="Arial, sans-serif" font-size="14">when msg == TMCEvent::evServiceNeeded</text>
+  <line x1="393.3" y1="332.8" x2="398.2" y2="332.8" stroke="#8a6e3d" stroke-width="0.9" stroke-dasharray="1.5 2"/>
+  <circle cx="398.2" cy="332.8" r="2.8" fill="#000" stroke="none"/>
+</svg>

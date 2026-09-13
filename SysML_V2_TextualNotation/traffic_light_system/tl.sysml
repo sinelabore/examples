@@ -210,7 +210,7 @@ package TrafficLight {
 					}
 					accept after 0.5[SI::second] then OutOfServiceYellowOn;
 
-					transition t1 first OutOfService accept when msg==TLCEvent::evOperational then Operational;
+					transition t0 first OutOfService accept when msg==TLCEvent::evOperational then Operational;
 				}
 					
 				state Operational {
@@ -252,7 +252,7 @@ package TrafficLight {
 				state noService{
 					do action references checkServiceCounter;
 				}
-				transition t1 first noService if  needService==true do action references sendServiceRequest then serviceNeeded;
+				transition first noService if  needService==true do action references sendServiceRequest then serviceNeeded;
 			}
 		}
 	}
