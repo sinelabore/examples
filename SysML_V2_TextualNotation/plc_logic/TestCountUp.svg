@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1125.2" height="635.0" viewBox="-8.0 -8.0 1125.2 635.0">
+<defs>
+  <marker id="arrow" markerUnits="userSpaceOnUse" markerWidth="8.0" markerHeight="6.0" refX="7.0" refY="3.0" orient="auto">
+    <path d="M0,0 L8.0,3.0 L0,6.0 Z" fill="#8a6e3d"/>
+  </marker>
+</defs>
+  <rect x="16.0" y="16.0" width="1077.2" height="587.0" rx="0.0" ry="0.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
+  <path d="M17.0,36.0 L17.0,17.0 Q17.0,17.0 17.0,17.0 L1092.2,17.0 Q1092.2,17.0 1092.2,17.0 L1092.2,36.0 Z" fill="#f7e5b7"/>
+  <text x="554.6" y="29.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">«part def»</text>
+  <line x1="17.0" y1="36.0" x2="1092.2" y2="36.0" stroke="#000" stroke-width="1"/>
+  <text x="554.6" y="49.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">TestCountUp</text>
+  <line x1="17.0" y1="56.0" x2="1092.2" y2="56.0" stroke="#000" stroke-width="1"/>
+  <text x="554.6" y="71.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">parts</text>
+  <rect x="163.4" y="85.0" width="235.7" height="223.0" rx="10.0" ry="10.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
+  <path d="M164.4,105.0 L164.4,95.0 Q164.4,86.0 173.4,86.0 L389.2,86.0 Q398.2,86.0 398.2,95.0 L398.2,105.0 Z" fill="#f7e5b7"/>
+  <text x="278.3" y="98.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">«part»</text>
+  <line x1="164.4" y1="105.0" x2="398.2" y2="105.0" stroke="#000" stroke-width="1"/>
+  <text x="281.3" y="118.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">pulse_1</text>
+  <line x1="164.4" y1="125.0" x2="398.2" y2="125.0" stroke="#000" stroke-width="1"/>
+  <text x="281.3" y="140.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">attributes</text>
+  <text x="171.4" y="158.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">ton : Real = 0.02</text>
+  <text x="171.4" y="174.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">toff : Real = 0.02</text>
+  <text x="171.4" y="190.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^qVal : Boolean = false</text>
+  <line x1="164.4" y1="203.0" x2="398.2" y2="203.0" stroke="#000" stroke-width="1"/>
+  <text x="281.3" y="224.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">state machines</text>
+  <text x="171.4" y="242.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^state BLINKSM</text>
+  <line x1="164.4" y1="255.0" x2="398.2" y2="255.0" stroke="#000" stroke-width="1"/>
+  <text x="281.3" y="276.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">actions</text>
+  <text x="171.4" y="294.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^action emit</text>
+  <rect x="393.2" y="190.5" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="403.4,196.5 396.5,199.1 396.5,193.9" fill="#8a6e3d"/>
+  <rect x="687.9" y="133.3" width="254.5" height="367.0" rx="10.0" ry="10.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
+  <path d="M688.9,153.3 L688.9,143.3 Q688.9,134.3 697.9,134.3 L932.4,134.3 Q941.4,134.3 941.4,143.3 L941.4,153.3 Z" fill="#f7e5b7"/>
+  <text x="815.1" y="146.8" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">«part»</text>
+  <line x1="688.9" y1="153.3" x2="941.4" y2="153.3" stroke="#000" stroke-width="1"/>
+  <text x="815.1" y="166.3" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">cud_1</text>
+  <line x1="688.9" y1="173.3" x2="941.4" y2="173.3" stroke="#000" stroke-width="1"/>
+  <text x="815.1" y="188.3" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">attributes</text>
+  <text x="695.9" y="206.3" text-anchor="start" font-family="Arial, sans-serif" font-size="14">pv : Integer = 5</text>
+  <text x="695.9" y="222.3" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^cv : Integer = 0</text>
+  <text x="695.9" y="238.3" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^cvMax : Integer = 32767</text>
+  <text x="695.9" y="254.3" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^cvMin : Integer</text>
+  <text x="695.9" y="270.3" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^cuv : Boolean = false</text>
+  <text x="695.9" y="286.3" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^oldCu : Boolean = false</text>
+  <text x="695.9" y="302.3" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^cdv : Boolean = false</text>
+  <text x="695.9" y="318.3" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^oldCd : Boolean = false</text>
+  <text x="695.9" y="334.3" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^rv : Boolean = false</text>
+  <text x="695.9" y="350.3" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^ldv : Boolean = false</text>
+  <text x="695.9" y="366.3" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^cuEdge : Boolean = false</text>
+  <text x="695.9" y="382.3" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^cdEdge : Boolean = false</text>
+  <line x1="688.9" y1="395.3" x2="941.4" y2="395.3" stroke="#000" stroke-width="1"/>
+  <text x="815.1" y="416.3" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">state machines</text>
+  <text x="695.9" y="434.3" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^state Ctud</text>
+  <line x1="688.9" y1="447.3" x2="941.4" y2="447.3" stroke="#000" stroke-width="1"/>
+  <text x="815.1" y="468.3" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">actions</text>
+  <text x="695.9" y="486.3" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^action exec</text>
+  <rect x="681.9" y="190.5" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="692.1,196.5 685.2,199.1 685.2,193.9" fill="#8a6e3d"/>
+  <rect x="681.9" y="275.7" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="692.1,281.7 685.2,284.3 685.2,279.1" fill="#8a6e3d"/>
+  <rect x="681.9" y="345.9" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="692.1,351.9 685.2,354.5 685.2,349.3" fill="#8a6e3d"/>
+  <rect x="681.9" y="431.1" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="692.1,437.1 685.2,439.7 685.2,434.5" fill="#8a6e3d"/>
+  <rect x="936.4" y="247.3" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="946.6,253.3 939.7,255.9 939.7,250.7" fill="#8a6e3d"/>
+  <rect x="936.4" y="374.3" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="946.6,380.3 939.7,382.9 939.7,377.7" fill="#8a6e3d"/>
+  <rect x="182.2" y="348.0" width="217.0" height="223.0" rx="10.0" ry="10.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
+  <path d="M183.2,368.0 L183.2,358.0 Q183.2,349.0 192.2,349.0 L389.2,349.0 Q398.2,349.0 398.2,358.0 L398.2,368.0 Z" fill="#f7e5b7"/>
+  <text x="290.7" y="361.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">«part»</text>
+  <line x1="183.2" y1="368.0" x2="398.2" y2="368.0" stroke="#000" stroke-width="1"/>
+  <text x="290.7" y="381.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">ton_1</text>
+  <line x1="183.2" y1="388.0" x2="398.2" y2="388.0" stroke="#000" stroke-width="1"/>
+  <text x="290.7" y="403.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">attributes</text>
+  <text x="190.2" y="421.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">onDelay : Real = 0.1</text>
+  <text x="190.2" y="437.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^sv : Boolean = false</text>
+  <line x1="183.2" y1="450.0" x2="398.2" y2="450.0" stroke="#000" stroke-width="1"/>
+  <text x="290.7" y="471.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">state machines</text>
+  <text x="190.2" y="489.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^state TONSM</text>
+  <line x1="183.2" y1="502.0" x2="398.2" y2="502.0" stroke="#000" stroke-width="1"/>
+  <text x="290.7" y="523.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">actions</text>
+  <text x="190.2" y="541.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^action takeSet</text>
+  <text x="190.2" y="557.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^action emit</text>
+  <rect x="176.2" y="453.5" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="186.4,459.5 179.6,462.1 179.6,456.9" fill="#8a6e3d"/>
+  <rect x="393.2" y="453.5" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="403.4,459.5 396.5,462.1 396.5,456.9" fill="#8a6e3d"/>
+  <path d="M405.2,196.5 L681.9,196.5" fill="none" stroke="#8a6e3d" stroke-width="1.0"/>
+  <path d="M948.4,253.3 L1075.2,253.3 L1075.2,585.0 L34.0,585.0 L34.0,459.5 L176.2,459.5" fill="none" stroke="#8a6e3d" stroke-width="1.0"/>
+  <path d="M405.2,459.5 L524.3,459.5 L524.3,351.9 L681.9,351.9" fill="none" stroke="#8a6e3d" stroke-width="1.0"/>
+  <text x="410.1" y="191.6" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^q : BoolPort</text>
+  <text x="677.0" y="191.6" text-anchor="end" font-family="Arial, sans-serif" font-size="14">^cu : ~BoolPort</text>
+  <text x="671.0" y="272.7" text-anchor="end" font-family="Arial, sans-serif" font-size="14">^cd : ~BoolPort</text>
+  <line x1="671.0" y1="268.5" x2="675.9" y2="268.5" stroke="#8a6e3d" stroke-width="0.9" stroke-dasharray="1.5 2"/>
+  <circle cx="675.9" cy="268.5" r="2.8" fill="#000" stroke="none"/>
+  <text x="677.0" y="347.0" text-anchor="end" font-family="Arial, sans-serif" font-size="14">^reset : ~BoolPort</text>
+  <text x="671.0" y="428.1" text-anchor="end" font-family="Arial, sans-serif" font-size="14">^load : ~BoolPort</text>
+  <line x1="671.0" y1="423.9" x2="675.9" y2="423.9" stroke="#8a6e3d" stroke-width="0.9" stroke-dasharray="1.5 2"/>
+  <circle cx="675.9" cy="423.9" r="2.8" fill="#000" stroke="none"/>
+  <text x="953.3" y="248.4" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^qu : BoolPort</text>
+  <text x="959.3" y="371.3" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^qd : BoolPort</text>
+  <line x1="959.3" y1="367.1" x2="954.4" y2="367.1" stroke="#8a6e3d" stroke-width="0.9" stroke-dasharray="1.5 2"/>
+  <circle cx="954.4" cy="367.1" r="2.8" fill="#000" stroke="none"/>
+  <text x="171.3" y="454.6" text-anchor="end" font-family="Arial, sans-serif" font-size="14">^set : ~BoolPort</text>
+  <text x="410.1" y="454.6" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^q : BoolPort</text>
+</svg>

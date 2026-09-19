@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="2170.8" height="951.4" viewBox="-8.0 -8.0 2170.8 951.4">
+<defs>
+  <marker id="arrow" markerUnits="userSpaceOnUse" markerWidth="8.0" markerHeight="6.0" refX="7.0" refY="3.0" orient="auto">
+    <path d="M0,0 L8.0,3.0 L0,6.0 Z" fill="#8a6e3d"/>
+  </marker>
+</defs>
+  <rect x="142.5" y="16.0" width="1869.8" height="903.4" rx="0.0" ry="0.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
+  <path d="M143.5,36.0 L143.5,17.0 Q143.5,17.0 143.5,17.0 L2011.3,17.0 Q2011.3,17.0 2011.3,17.0 L2011.3,36.0 Z" fill="#f7e5b7"/>
+  <text x="1077.4" y="29.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">«part def»</text>
+  <line x1="143.5" y1="36.0" x2="2011.3" y2="36.0" stroke="#000" stroke-width="1"/>
+  <text x="1077.4" y="49.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">FullAdder</text>
+  <line x1="143.5" y1="56.0" x2="2011.3" y2="56.0" stroke="#000" stroke-width="1"/>
+  <text x="1077.4" y="71.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">parts</text>
+  <rect x="136.5" y="182.5" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="146.7,188.5 139.9,191.1 139.9,185.9" fill="#8a6e3d"/>
+  <rect x="136.5" y="468.6" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="146.7,474.6 139.9,477.3 139.9,472.0" fill="#8a6e3d"/>
+  <rect x="136.5" y="753.8" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="146.7,759.8 139.9,762.4 139.9,757.1" fill="#8a6e3d"/>
+  <rect x="2006.3" y="274.9" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="2016.5,280.9 2009.7,283.6 2009.7,278.3" fill="#8a6e3d"/>
+  <rect x="2006.3" y="537.9" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="2016.5,543.9 2009.7,546.6 2009.7,541.3" fill="#8a6e3d"/>
+  <rect x="277.6" y="85.0" width="198.2" height="207.0" rx="10.0" ry="10.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
+  <path d="M278.6,105.0 L278.6,95.0 Q278.6,86.0 287.6,86.0 L465.8,86.0 Q474.8,86.0 474.8,95.0 L474.8,105.0 Z" fill="#f7e5b7"/>
+  <text x="376.7" y="98.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">«part»</text>
+  <line x1="278.6" y1="105.0" x2="474.8" y2="105.0" stroke="#000" stroke-width="1"/>
+  <text x="376.7" y="118.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">fanA :</text>
+  <text x="376.7" y="134.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">BoolFanOut4</text>
+  <line x1="278.6" y1="141.0" x2="474.8" y2="141.0" stroke="#000" stroke-width="1"/>
+  <text x="376.7" y="156.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">attributes</text>
+  <text x="285.6" y="174.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">v : Boolean = false</text>
+  <line x1="278.6" y1="187.0" x2="474.8" y2="187.0" stroke="#000" stroke-width="1"/>
+  <text x="376.7" y="208.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">state machines</text>
+  <text x="285.6" y="226.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">state FANSM</text>
+  <line x1="278.6" y1="239.0" x2="474.8" y2="239.0" stroke="#000" stroke-width="1"/>
+  <text x="376.7" y="260.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">actions</text>
+  <text x="285.6" y="278.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">action exec</text>
+  <rect x="271.6" y="182.5" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="281.8,188.5 275.0,191.1 275.0,185.9" fill="#8a6e3d"/>
+  <rect x="469.8" y="196.6" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="480.0,202.6 473.2,205.2 473.2,200.0" fill="#8a6e3d"/>
+  <rect x="469.8" y="251.8" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="480.0,257.8 473.2,260.4 473.2,255.2" fill="#8a6e3d"/>
+  <rect x="469.8" y="113.2" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="480.0,119.2 473.2,121.8 473.2,116.6" fill="#8a6e3d"/>
+  <rect x="469.8" y="155.4" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="480.0,161.4 473.2,164.0 473.2,158.8" fill="#8a6e3d"/>
+  <rect x="277.6" y="371.1" width="198.2" height="207.0" rx="10.0" ry="10.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
+  <path d="M278.6,391.1 L278.6,381.1 Q278.6,372.1 287.6,372.1 L465.8,372.1 Q474.8,372.1 474.8,381.1 L474.8,391.1 Z" fill="#f7e5b7"/>
+  <text x="376.7" y="384.6" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">«part»</text>
+  <line x1="278.6" y1="391.1" x2="474.8" y2="391.1" stroke="#000" stroke-width="1"/>
+  <text x="376.7" y="404.1" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">fanB :</text>
+  <text x="376.7" y="420.1" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">BoolFanOut4</text>
+  <line x1="278.6" y1="427.1" x2="474.8" y2="427.1" stroke="#000" stroke-width="1"/>
+  <text x="376.7" y="442.1" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">attributes</text>
+  <text x="285.6" y="460.1" text-anchor="start" font-family="Arial, sans-serif" font-size="14">v : Boolean = false</text>
+  <line x1="278.6" y1="473.1" x2="474.8" y2="473.1" stroke="#000" stroke-width="1"/>
+  <text x="376.7" y="494.1" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">state machines</text>
+  <text x="285.6" y="512.1" text-anchor="start" font-family="Arial, sans-serif" font-size="14">state FANSM</text>
+  <line x1="278.6" y1="525.1" x2="474.8" y2="525.1" stroke="#000" stroke-width="1"/>
+  <text x="376.7" y="546.1" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">actions</text>
+  <text x="285.6" y="564.1" text-anchor="start" font-family="Arial, sans-serif" font-size="14">action exec</text>
+  <rect x="271.6" y="468.6" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="281.8,474.6 275.0,477.3 275.0,472.0" fill="#8a6e3d"/>
+  <rect x="469.8" y="482.7" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="480.0,488.7 473.2,491.4 473.2,486.1" fill="#8a6e3d"/>
+  <rect x="469.8" y="537.9" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="480.0,543.9 473.2,546.6 473.2,541.3" fill="#8a6e3d"/>
+  <rect x="469.8" y="399.3" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="480.0,405.3 473.2,408.0 473.2,402.7" fill="#8a6e3d"/>
+  <rect x="469.8" y="441.5" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="480.0,447.5 473.2,450.2 473.2,444.9" fill="#8a6e3d"/>
+  <rect x="746.3" y="656.3" width="198.2" height="207.0" rx="10.0" ry="10.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
+  <path d="M747.3,676.3 L747.3,666.3 Q747.3,657.3 756.3,657.3 L934.5,657.3 Q943.5,657.3 943.5,666.3 L943.5,676.3 Z" fill="#f7e5b7"/>
+  <text x="845.4" y="669.8" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">«part»</text>
+  <line x1="747.3" y1="676.3" x2="943.5" y2="676.3" stroke="#000" stroke-width="1"/>
+  <text x="845.4" y="689.3" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">fanCin :</text>
+  <text x="845.4" y="705.3" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">BoolFanOut4</text>
+  <line x1="747.3" y1="712.3" x2="943.5" y2="712.3" stroke="#000" stroke-width="1"/>
+  <text x="845.4" y="727.3" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">attributes</text>
+  <text x="754.3" y="745.3" text-anchor="start" font-family="Arial, sans-serif" font-size="14">v : Boolean = false</text>
+  <line x1="747.3" y1="758.3" x2="943.5" y2="758.3" stroke="#000" stroke-width="1"/>
+  <text x="845.4" y="779.3" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">state machines</text>
+  <text x="754.3" y="797.3" text-anchor="start" font-family="Arial, sans-serif" font-size="14">state FANSM</text>
+  <line x1="747.3" y1="810.3" x2="943.5" y2="810.3" stroke="#000" stroke-width="1"/>
+  <text x="845.4" y="831.3" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">actions</text>
+  <text x="754.3" y="849.3" text-anchor="start" font-family="Arial, sans-serif" font-size="14">action exec</text>
+  <rect x="740.3" y="753.8" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="750.5,759.8 743.6,762.4 743.6,757.1" fill="#8a6e3d"/>
+  <rect x="938.5" y="767.9" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="948.7,773.9 941.9,776.5 941.9,771.2" fill="#8a6e3d"/>
+  <rect x="938.5" y="823.1" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="948.7,829.1 941.9,831.7 941.9,826.4" fill="#8a6e3d"/>
+  <rect x="938.5" y="684.5" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="948.7,690.5 941.9,693.1 941.9,687.8" fill="#8a6e3d"/>
+  <rect x="938.5" y="726.7" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="948.7,732.7 941.9,735.3 941.9,730.0" fill="#8a6e3d"/>
+  <rect x="747.7" y="130.3" width="207.6" height="223.0" rx="10.0" ry="10.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
+  <path d="M748.7,150.3 L748.7,140.3 Q748.7,131.3 757.7,131.3 L945.3,131.3 Q954.3,131.3 954.3,140.3 L954.3,150.3 Z" fill="#f7e5b7"/>
+  <text x="851.5" y="143.8" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">«part»</text>
+  <line x1="748.7" y1="150.3" x2="954.3" y2="150.3" stroke="#000" stroke-width="1"/>
+  <text x="851.5" y="163.3" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">xor1 :</text>
+  <text x="851.5" y="179.3" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">BoolXor2</text>
+  <line x1="748.7" y1="186.3" x2="954.3" y2="186.3" stroke="#000" stroke-width="1"/>
+  <text x="851.5" y="201.3" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">attributes</text>
+  <text x="755.7" y="219.3" text-anchor="start" font-family="Arial, sans-serif" font-size="14">v1 : Boolean = false</text>
+  <text x="755.7" y="235.3" text-anchor="start" font-family="Arial, sans-serif" font-size="14">v2 : Boolean = false</text>
+  <line x1="748.7" y1="248.3" x2="954.3" y2="248.3" stroke="#000" stroke-width="1"/>
+  <text x="851.5" y="269.3" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">state machines</text>
+  <text x="755.7" y="287.3" text-anchor="start" font-family="Arial, sans-serif" font-size="14">state Xor2</text>
+  <line x1="748.7" y1="300.3" x2="954.3" y2="300.3" stroke="#000" stroke-width="1"/>
+  <text x="851.5" y="321.3" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">actions</text>
+  <text x="755.7" y="339.3" text-anchor="start" font-family="Arial, sans-serif" font-size="14">action exec</text>
+  <rect x="741.7" y="196.6" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="751.9,202.6 745.1,205.2 745.1,200.0" fill="#8a6e3d"/>
+  <rect x="741.7" y="274.9" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="751.9,280.9 745.1,283.6 745.1,278.3" fill="#8a6e3d"/>
+  <rect x="949.3" y="235.8" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="959.5,241.8 952.7,244.4 952.7,239.1" fill="#8a6e3d"/>
+  <rect x="747.7" y="393.3" width="207.6" height="223.0" rx="10.0" ry="10.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
+  <path d="M748.7,413.3 L748.7,403.3 Q748.7,394.3 757.7,394.3 L945.3,394.3 Q954.3,394.3 954.3,403.3 L954.3,413.3 Z" fill="#f7e5b7"/>
+  <text x="851.5" y="406.8" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">«part»</text>
+  <line x1="748.7" y1="413.3" x2="954.3" y2="413.3" stroke="#000" stroke-width="1"/>
+  <text x="851.5" y="426.3" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">and1 :</text>
+  <text x="851.5" y="442.3" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">BoolAnd2</text>
+  <line x1="748.7" y1="449.3" x2="954.3" y2="449.3" stroke="#000" stroke-width="1"/>
+  <text x="851.5" y="464.3" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">attributes</text>
+  <text x="755.7" y="482.3" text-anchor="start" font-family="Arial, sans-serif" font-size="14">v1 : Boolean = false</text>
+  <text x="755.7" y="498.3" text-anchor="start" font-family="Arial, sans-serif" font-size="14">v2 : Boolean = false</text>
+  <line x1="748.7" y1="511.3" x2="954.3" y2="511.3" stroke="#000" stroke-width="1"/>
+  <text x="851.5" y="532.3" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">state machines</text>
+  <text x="755.7" y="550.3" text-anchor="start" font-family="Arial, sans-serif" font-size="14">state And2</text>
+  <line x1="748.7" y1="563.3" x2="954.3" y2="563.3" stroke="#000" stroke-width="1"/>
+  <text x="851.5" y="584.3" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">actions</text>
+  <text x="755.7" y="602.3" text-anchor="start" font-family="Arial, sans-serif" font-size="14">action exec</text>
+  <rect x="741.7" y="459.6" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="751.9,465.6 745.1,468.2 745.1,463.0" fill="#8a6e3d"/>
+  <rect x="741.7" y="537.9" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="751.9,543.9 745.1,546.6 745.1,541.3" fill="#8a6e3d"/>
+  <rect x="949.3" y="498.8" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="959.5,504.8 952.7,507.4 952.7,502.1" fill="#8a6e3d"/>
+  <rect x="1219.5" y="169.4" width="207.6" height="223.0" rx="10.0" ry="10.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
+  <path d="M1220.5,189.4 L1220.5,179.4 Q1220.5,170.4 1229.5,170.4 L1417.1,170.4 Q1426.1,170.4 1426.1,179.4 L1426.1,189.4 Z" fill="#f7e5b7"/>
+  <text x="1323.3" y="182.9" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">«part»</text>
+  <line x1="1220.5" y1="189.4" x2="1426.1" y2="189.4" stroke="#000" stroke-width="1"/>
+  <text x="1323.3" y="202.4" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">xor2 :</text>
+  <text x="1323.3" y="218.4" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">BoolXor2</text>
+  <line x1="1220.5" y1="225.4" x2="1426.1" y2="225.4" stroke="#000" stroke-width="1"/>
+  <text x="1323.3" y="240.4" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">attributes</text>
+  <text x="1227.5" y="258.4" text-anchor="start" font-family="Arial, sans-serif" font-size="14">v1 : Boolean = false</text>
+  <text x="1227.5" y="274.4" text-anchor="start" font-family="Arial, sans-serif" font-size="14">v2 : Boolean = false</text>
+  <line x1="1220.5" y1="287.4" x2="1426.1" y2="287.4" stroke="#000" stroke-width="1"/>
+  <text x="1323.3" y="308.4" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">state machines</text>
+  <text x="1227.5" y="326.4" text-anchor="start" font-family="Arial, sans-serif" font-size="14">state Xor2</text>
+  <line x1="1220.5" y1="339.4" x2="1426.1" y2="339.4" stroke="#000" stroke-width="1"/>
+  <text x="1323.3" y="360.4" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">actions</text>
+  <text x="1227.5" y="378.4" text-anchor="start" font-family="Arial, sans-serif" font-size="14">action exec</text>
+  <rect x="1213.5" y="235.8" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="1223.7,241.8 1216.9,244.4 1216.9,239.1" fill="#8a6e3d"/>
+  <rect x="1213.5" y="314.1" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="1223.7,320.1 1216.9,322.7 1216.9,317.5" fill="#8a6e3d"/>
+  <rect x="1421.1" y="274.9" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="1431.3,280.9 1424.5,283.6 1424.5,278.3" fill="#8a6e3d"/>
+  <rect x="1219.5" y="678.4" width="207.6" height="223.0" rx="10.0" ry="10.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
+  <path d="M1220.5,698.4 L1220.5,688.4 Q1220.5,679.4 1229.5,679.4 L1417.1,679.4 Q1426.1,679.4 1426.1,688.4 L1426.1,698.4 Z" fill="#f7e5b7"/>
+  <text x="1323.3" y="691.9" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">«part»</text>
+  <line x1="1220.5" y1="698.4" x2="1426.1" y2="698.4" stroke="#000" stroke-width="1"/>
+  <text x="1323.3" y="711.4" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">and2 :</text>
+  <text x="1323.3" y="727.4" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">BoolAnd2</text>
+  <line x1="1220.5" y1="734.4" x2="1426.1" y2="734.4" stroke="#000" stroke-width="1"/>
+  <text x="1323.3" y="749.4" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">attributes</text>
+  <text x="1227.5" y="767.4" text-anchor="start" font-family="Arial, sans-serif" font-size="14">v1 : Boolean = false</text>
+  <text x="1227.5" y="783.4" text-anchor="start" font-family="Arial, sans-serif" font-size="14">v2 : Boolean = false</text>
+  <line x1="1220.5" y1="796.4" x2="1426.1" y2="796.4" stroke="#000" stroke-width="1"/>
+  <text x="1323.3" y="817.4" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">state machines</text>
+  <text x="1227.5" y="835.4" text-anchor="start" font-family="Arial, sans-serif" font-size="14">state And2</text>
+  <line x1="1220.5" y1="848.4" x2="1426.1" y2="848.4" stroke="#000" stroke-width="1"/>
+  <text x="1323.3" y="869.4" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">actions</text>
+  <text x="1227.5" y="887.4" text-anchor="start" font-family="Arial, sans-serif" font-size="14">action exec</text>
+  <rect x="1213.5" y="823.1" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="1223.7,829.1 1216.9,831.7 1216.9,826.4" fill="#8a6e3d"/>
+  <rect x="1213.5" y="744.7" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="1223.7,750.7 1216.9,753.4 1216.9,748.1" fill="#8a6e3d"/>
+  <rect x="1421.1" y="783.9" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="1431.3,789.9 1424.5,792.5 1424.5,787.3" fill="#8a6e3d"/>
+  <rect x="1677.3" y="432.4" width="207.6" height="223.0" rx="10.0" ry="10.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
+  <path d="M1678.3,452.4 L1678.3,442.4 Q1678.3,433.4 1687.3,433.4 L1874.9,433.4 Q1883.9,433.4 1883.9,442.4 L1883.9,452.4 Z" fill="#f7e5b7"/>
+  <text x="1781.1" y="445.9" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">«part»</text>
+  <line x1="1678.3" y1="452.4" x2="1883.9" y2="452.4" stroke="#000" stroke-width="1"/>
+  <text x="1781.1" y="465.4" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">or1 :</text>
+  <text x="1781.1" y="481.4" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">BoolOr2</text>
+  <line x1="1678.3" y1="488.4" x2="1883.9" y2="488.4" stroke="#000" stroke-width="1"/>
+  <text x="1781.1" y="503.4" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">attributes</text>
+  <text x="1685.3" y="521.4" text-anchor="start" font-family="Arial, sans-serif" font-size="14">v1 : Boolean = false</text>
+  <text x="1685.3" y="537.4" text-anchor="start" font-family="Arial, sans-serif" font-size="14">v2 : Boolean = false</text>
+  <line x1="1678.3" y1="550.4" x2="1883.9" y2="550.4" stroke="#000" stroke-width="1"/>
+  <text x="1781.1" y="571.4" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">state machines</text>
+  <text x="1685.3" y="589.4" text-anchor="start" font-family="Arial, sans-serif" font-size="14">state Or2</text>
+  <line x1="1678.3" y1="602.4" x2="1883.9" y2="602.4" stroke="#000" stroke-width="1"/>
+  <text x="1781.1" y="623.4" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">actions</text>
+  <text x="1685.3" y="641.4" text-anchor="start" font-family="Arial, sans-serif" font-size="14">action exec</text>
+  <rect x="1671.3" y="498.8" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="1681.5,504.8 1674.7,507.4 1674.7,502.1" fill="#8a6e3d"/>
+  <rect x="1671.3" y="577.1" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="1681.5,583.1 1674.7,585.7 1674.7,580.5" fill="#8a6e3d"/>
+  <rect x="1878.9" y="537.9" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="1889.1,543.9 1882.3,546.6 1882.3,541.3" fill="#8a6e3d"/>
+  <path d="M481.8,202.6 L741.7,202.6" fill="none" stroke="#8a6e3d" stroke-width="1.0"/>
+  <path d="M481.8,488.7 L600.9,488.7 L600.9,280.9 L741.7,280.9" fill="none" stroke="#8a6e3d" stroke-width="1.0"/>
+  <path d="M481.8,257.8 L614.9,257.8 L614.9,465.6 L741.7,465.6" fill="none" stroke="#8a6e3d" stroke-width="1.0"/>
+  <path d="M481.8,543.9 L741.7,543.9" fill="none" stroke="#8a6e3d" stroke-width="1.0"/>
+  <path d="M961.3,241.8 L1213.5,241.8" fill="none" stroke="#8a6e3d" stroke-width="1.0"/>
+  <path d="M950.5,773.9 L1072.7,773.9 L1072.7,320.1 L1213.5,320.1" fill="none" stroke="#8a6e3d" stroke-width="1.0"/>
+  <path d="M950.5,829.1 L1213.5,829.1" fill="none" stroke="#8a6e3d" stroke-width="1.0"/>
+  <path d="M961.3,241.8 L1086.7,241.8 L1086.7,750.7 L1213.5,750.7" fill="none" stroke="#8a6e3d" stroke-width="1.0"/>
+  <path d="M961.3,504.8 L1671.3,504.8" fill="none" stroke="#8a6e3d" stroke-width="1.0"/>
+  <path d="M1433.1,789.9 L1544.5,789.9 L1544.5,583.1 L1671.3,583.1" fill="none" stroke="#8a6e3d" stroke-width="1.0"/>
+  <path d="M136.5,188.5 L271.6,188.5" fill="none" stroke="#2f6f9f" stroke-width="1.0"/>
+  <path d="M136.5,474.6 L271.6,474.6" fill="none" stroke="#2f6f9f" stroke-width="1.0"/>
+  <path d="M136.5,759.8 L740.3,759.8" fill="none" stroke="#2f6f9f" stroke-width="1.0"/>
+  <path d="M2018.3,280.9 L1433.1,280.9" fill="none" stroke="#2f6f9f" stroke-width="1.0"/>
+  <path d="M2018.3,543.9 L1890.9,543.9" fill="none" stroke="#2f6f9f" stroke-width="1.0"/>
+  <circle cx="1086.7" cy="241.8" r="2.5" fill="#8a6e3d"/>
+  <text x="125.6" y="179.5" text-anchor="end" font-family="Arial, sans-serif" font-size="14">a : ~BoolPort</text>
+  <line x1="125.6" y1="175.3" x2="130.5" y2="175.3" stroke="#8a6e3d" stroke-width="0.9" stroke-dasharray="1.5 2"/>
+  <circle cx="130.5" cy="175.3" r="2.8" fill="#000" stroke="none"/>
+  <text x="125.6" y="465.6" text-anchor="end" font-family="Arial, sans-serif" font-size="14">b : ~BoolPort</text>
+  <line x1="125.6" y1="461.4" x2="130.5" y2="461.4" stroke="#8a6e3d" stroke-width="0.9" stroke-dasharray="1.5 2"/>
+  <circle cx="130.5" cy="461.4" r="2.8" fill="#000" stroke="none"/>
+  <text x="125.6" y="750.8" text-anchor="end" font-family="Arial, sans-serif" font-size="14">cin : ~BoolPort</text>
+  <line x1="125.6" y1="746.6" x2="130.5" y2="746.6" stroke="#8a6e3d" stroke-width="0.9" stroke-dasharray="1.5 2"/>
+  <circle cx="130.5" cy="746.6" r="2.8" fill="#000" stroke="none"/>
+  <text x="2029.2" y="271.9" text-anchor="start" font-family="Arial, sans-serif" font-size="14">sum : BoolPort</text>
+  <line x1="2029.2" y1="267.7" x2="2024.3" y2="267.7" stroke="#8a6e3d" stroke-width="0.9" stroke-dasharray="1.5 2"/>
+  <circle cx="2024.3" cy="267.7" r="2.8" fill="#000" stroke="none"/>
+  <text x="2029.2" y="534.9" text-anchor="start" font-family="Arial, sans-serif" font-size="14">cout : BoolPort</text>
+  <line x1="2029.2" y1="530.7" x2="2024.3" y2="530.7" stroke="#8a6e3d" stroke-width="0.9" stroke-dasharray="1.5 2"/>
+  <circle cx="2024.3" cy="530.7" r="2.8" fill="#000" stroke="none"/>
+  <text x="260.7" y="179.5" text-anchor="end" font-family="Arial, sans-serif" font-size="14">i : ~BoolPort</text>
+  <line x1="260.7" y1="175.3" x2="265.6" y2="175.3" stroke="#8a6e3d" stroke-width="0.9" stroke-dasharray="1.5 2"/>
+  <circle cx="265.6" cy="175.3" r="2.8" fill="#000" stroke="none"/>
+  <text x="486.7" y="197.7" text-anchor="start" font-family="Arial, sans-serif" font-size="14">o0 : BoolPort</text>
+  <text x="486.7" y="252.9" text-anchor="start" font-family="Arial, sans-serif" font-size="14">o1 : BoolPort</text>
+  <text x="492.7" y="110.2" text-anchor="start" font-family="Arial, sans-serif" font-size="14">o2 : BoolPort</text>
+  <line x1="492.7" y1="106.0" x2="487.8" y2="106.0" stroke="#8a6e3d" stroke-width="0.9" stroke-dasharray="1.5 2"/>
+  <circle cx="487.8" cy="106.0" r="2.8" fill="#000" stroke="none"/>
+  <text x="492.7" y="152.4" text-anchor="start" font-family="Arial, sans-serif" font-size="14">o3 : BoolPort</text>
+  <line x1="492.7" y1="148.2" x2="487.8" y2="148.2" stroke="#8a6e3d" stroke-width="0.9" stroke-dasharray="1.5 2"/>
+  <circle cx="487.8" cy="148.2" r="2.8" fill="#000" stroke="none"/>
+  <text x="260.7" y="465.6" text-anchor="end" font-family="Arial, sans-serif" font-size="14">i : ~BoolPort</text>
+  <line x1="260.7" y1="461.4" x2="265.6" y2="461.4" stroke="#8a6e3d" stroke-width="0.9" stroke-dasharray="1.5 2"/>
+  <circle cx="265.6" cy="461.4" r="2.8" fill="#000" stroke="none"/>
+  <text x="486.7" y="483.8" text-anchor="start" font-family="Arial, sans-serif" font-size="14">o0 : BoolPort</text>
+  <text x="486.7" y="539.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">o1 : BoolPort</text>
+  <text x="492.7" y="396.3" text-anchor="start" font-family="Arial, sans-serif" font-size="14">o2 : BoolPort</text>
+  <line x1="492.7" y1="392.1" x2="487.8" y2="392.1" stroke="#8a6e3d" stroke-width="0.9" stroke-dasharray="1.5 2"/>
+  <circle cx="487.8" cy="392.1" r="2.8" fill="#000" stroke="none"/>
+  <text x="492.7" y="438.5" text-anchor="start" font-family="Arial, sans-serif" font-size="14">o3 : BoolPort</text>
+  <line x1="492.7" y1="434.3" x2="487.8" y2="434.3" stroke="#8a6e3d" stroke-width="0.9" stroke-dasharray="1.5 2"/>
+  <circle cx="487.8" cy="434.3" r="2.8" fill="#000" stroke="none"/>
+  <text x="729.4" y="750.8" text-anchor="end" font-family="Arial, sans-serif" font-size="14">i : ~BoolPort</text>
+  <line x1="729.4" y1="746.6" x2="734.3" y2="746.6" stroke="#8a6e3d" stroke-width="0.9" stroke-dasharray="1.5 2"/>
+  <circle cx="734.3" cy="746.6" r="2.8" fill="#000" stroke="none"/>
+  <text x="955.4" y="769.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">o0 : BoolPort</text>
+  <text x="955.4" y="824.2" text-anchor="start" font-family="Arial, sans-serif" font-size="14">o1 : BoolPort</text>
+  <text x="961.4" y="681.5" text-anchor="start" font-family="Arial, sans-serif" font-size="14">o2 : BoolPort</text>
+  <line x1="961.4" y1="677.3" x2="956.5" y2="677.3" stroke="#8a6e3d" stroke-width="0.9" stroke-dasharray="1.5 2"/>
+  <circle cx="956.5" cy="677.3" r="2.8" fill="#000" stroke="none"/>
+  <text x="961.4" y="723.7" text-anchor="start" font-family="Arial, sans-serif" font-size="14">o3 : BoolPort</text>
+  <line x1="961.4" y1="719.5" x2="956.5" y2="719.5" stroke="#8a6e3d" stroke-width="0.9" stroke-dasharray="1.5 2"/>
+  <circle cx="956.5" cy="719.5" r="2.8" fill="#000" stroke="none"/>
+  <text x="736.8" y="197.7" text-anchor="end" font-family="Arial, sans-serif" font-size="14">i1 : ~BoolPort</text>
+  <text x="736.8" y="276.0" text-anchor="end" font-family="Arial, sans-serif" font-size="14">i2 : ~BoolPort</text>
+  <text x="966.2" y="236.9" text-anchor="start" font-family="Arial, sans-serif" font-size="14">q : BoolPort</text>
+  <text x="736.8" y="460.7" text-anchor="end" font-family="Arial, sans-serif" font-size="14">i1 : ~BoolPort</text>
+  <text x="736.8" y="539.0" text-anchor="end" font-family="Arial, sans-serif" font-size="14">i2 : ~BoolPort</text>
+  <text x="966.2" y="499.9" text-anchor="start" font-family="Arial, sans-serif" font-size="14">q : BoolPort</text>
+  <text x="1208.6" y="236.9" text-anchor="end" font-family="Arial, sans-serif" font-size="14">i1 : ~BoolPort</text>
+  <text x="1208.6" y="315.2" text-anchor="end" font-family="Arial, sans-serif" font-size="14">i2 : ~BoolPort</text>
+  <text x="1444.0" y="271.9" text-anchor="start" font-family="Arial, sans-serif" font-size="14">q : BoolPort</text>
+  <line x1="1444.0" y1="267.7" x2="1439.1" y2="267.7" stroke="#8a6e3d" stroke-width="0.9" stroke-dasharray="1.5 2"/>
+  <circle cx="1439.1" cy="267.7" r="2.8" fill="#000" stroke="none"/>
+  <text x="1208.6" y="824.2" text-anchor="end" font-family="Arial, sans-serif" font-size="14">i1 : ~BoolPort</text>
+  <text x="1208.6" y="745.8" text-anchor="end" font-family="Arial, sans-serif" font-size="14">i2 : ~BoolPort</text>
+  <text x="1438.0" y="785.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">q : BoolPort</text>
+  <text x="1666.4" y="499.9" text-anchor="end" font-family="Arial, sans-serif" font-size="14">i1 : ~BoolPort</text>
+  <text x="1666.4" y="578.2" text-anchor="end" font-family="Arial, sans-serif" font-size="14">i2 : ~BoolPort</text>
+  <text x="1901.8" y="534.9" text-anchor="start" font-family="Arial, sans-serif" font-size="14">q : BoolPort</text>
+  <line x1="1901.8" y1="530.7" x2="1896.9" y2="530.7" stroke="#8a6e3d" stroke-width="0.9" stroke-dasharray="1.5 2"/>
+  <circle cx="1896.9" cy="530.7" r="2.8" fill="#000" stroke="none"/>
+</svg>
