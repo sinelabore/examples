@@ -76,6 +76,9 @@ package TrafficLight {
 		out port controlPort : ControlPort;
 		in port servicePort : ~ServicePort;
 
+
+		action def scheduleServiceCall{}
+
 		state tmcStateMachine {
 			entry; then PreOperational;
 
