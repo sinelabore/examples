@@ -223,10 +223,11 @@ using PayloadType = std::variant_alternative_t<0, T>;
 // Inherits from payload type (e.g. PortEventDef) so port attributes (msg, etc.) are direct members.
 // Codegen can emit SysML access as-is: myReceivePort.msg.theEvent (no extra "current").
 //
-// Polling is the only consumption path: a state machine takes events off the queue itself, one per
-// hasEvent() call, from whichever state is active - matching the SysML v2 rule that a transition is
-// only triggered "during a performance of its source". There is deliberately no drain-and-dispatch
-// alternative: two ways to consume the same queue can race for the same event.
+// Polling is the only consumption path: the receiver takes events off the queue itself. A state
+// machine takes one per run-to-completion step (stepTake), an action one per hasEvent() call -
+// matching the SysML v2 rule that a transition is only triggered "during a performance of its
+// source". There is deliberately no drain-and-dispatch alternative: two ways to consume the same
+// queue can race for the same event.
 //
 // setObserver() is a read-only side channel: it is told about an arrival but does not pop and must
 // never itself dispatch a state machine. It runs synchronously on the sender's thread, inside
@@ -235,6 +236,7 @@ template<typename T>
 class InputPort : public PayloadType<T> {
     ThreadsafeQueue<T> queue;
     std::function<void(const PayloadType<T>&)> observer;
+    bool stepHolds_ = false;
 public:
     void receive(const T& data) {
         if (observer) {
@@ -252,6 +254,25 @@ public:
         }
         static_cast<PayloadType<T>&>(*this) = std::get<PayloadType<T>>(data);
         return true;
+    }
+
+    // Run-to-completion receive for a state machine that accepts through this port (bug 399).
+    // The machine calls stepTake() once at the start of a step: it loads the next element into
+    // the port, as hasEvent() does, and holds it for the whole step. Every transition then tests
+    // stepHolds(), which does not pop, so an inner state, its parent and every region see the
+    // same element. stepEnd() drops it at the end of the step, whether a transition took it or
+    // not. hasEvent() stays the receive of an action, which takes one element per call.
+    bool stepTake() {
+        stepHolds_ = hasEvent();
+        return stepHolds_;
+    }
+
+    bool stepHolds() const {
+        return stepHolds_;
+    }
+
+    void stepEnd() {
+        stepHolds_ = false;
     }
 
     PayloadType<T> getPayload() const {
@@ -313,6 +334,8 @@ inline std::string currentTime()
 }
 
 
+// Called only by code generated before 7.4: since bug 393 the generator converts an
+// 'accept after' duration itself, for every duration unit of the SysML library.
 inline std::chrono::milliseconds msFromTimeUnit(double value, const std::string& unit) {
     // Precomputed scale factors to milliseconds
     static const std::unordered_map<std::string, double> unitToMs{
@@ -349,6 +372,10 @@ class Part {
         // Containment path of this object, e.g. "System.monitor" - see setInstanceName.
         std::string instanceName_;
 
+        // The part that holds this one, set by setOwnedName; null for the root, and before the
+        // owner's init() has run.
+        Part* owner_ = nullptr;
+
     public:
 
         Part() {}
@@ -369,12 +396,26 @@ class Part {
 
         void setInstanceName(std::string name) { instanceName_ = std::move(name); }
 
-        /** Names this object as {@code <owner>.<member>}; called by the owner during init(). */
-        void setOwnedName(const Part& owner, const char* member) {
+        /**
+         * Names this object as {@code <owner>.<member>} and remembers the owner; called by the
+         * owner during init().
+         */
+        void setOwnedName(Part& owner, const char* member) {
+            owner_ = &owner;
             instanceName_ = owner.instanceName_.empty()
                     ? std::string(member)
                     : owner.instanceName_ + "." + member;
         }
+
+        /**
+         * The part that holds this one, or null for the root and before the owner's init().
+         *
+         * A state machine uses it for a 'send ... to' a part it reaches through an enclosing part
+         * (bug 399): 'part sys { part rx : Receiver; part tx { ... send ... to rx ... } }'. The
+         * generator knows the owner's type there - 'tx' is written inside 'sys', so it can only
+         * sit in one - and casts statically; nothing here needs RTTI.
+         */
+        Part* owner() const { return owner_; }
 
         virtual void process() {};
         virtual void init() {};
@@ -526,6 +567,24 @@ inline bool sysmlOnRisingEdge(bool& previous, bool condition) {
     bool rising = condition && !previous;
     previous = condition;
     return rising;
+}
+
+/**
+ * The signal of type {@code T} a machine holds, for a trigger that names it ('accept e : T').
+ *
+ * The trigger declares the name in its own condition - 'if(auto& e = sysmlHeld<T>(event_);
+ * std::holds_alternative<T>(event_))' - so that it is visible in that transition's guard and
+ * effect and nowhere else, as SysML scopes a payload parameter, and two transitions may use one
+ * name for different types (bug 399). A reference has to bind whether or not the machine holds a
+ * T, so when it holds something else this returns a default T, which the condition then rejects.
+ */
+template<class T, class Variant>
+T& sysmlHeld(Variant& held) {
+    if (T* signal = std::get_if<T>(&held)) {
+        return *signal;
+    }
+    static T none{};
+    return none;
 }
 
 /** Current instant, or 0 if the source was cleared. */

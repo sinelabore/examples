@@ -52,7 +52,11 @@ _MS_PER_UNIT = {
 
 
 def ms_from_time_unit(amount: float, unit: str) -> float:
-    """Convert an amount of a named time unit to milliseconds."""
+    """Convert an amount of a named time unit to milliseconds.
+
+    Called only by modules generated before 7.4: since bug 393 the generator converts an
+    'accept after' duration itself, for every duration unit of the SysML library.
+    """
     simple = unit.rsplit("::", 1)[-1].strip("'\"").lower()
     if simple.endswith("s") and simple[:-1] in _MS_PER_UNIT:
         simple = simple[:-1]
@@ -111,14 +115,26 @@ class Part:
     """
 
     instance_name: str = ""
+    # The owning part (see owner()). Not part of repr or ==: the owner holds this part, so
+    # either would run in a circle, and it says where the part sits, not what it is.
+    _owner: "Part | None" = field(default=None, repr=False, compare=False)
 
     def set_instance_name(self, name: str) -> None:
         """Name this part."""
         self.instance_name = name
 
     def set_owned_name(self, owner: "Part", member: str) -> None:
-        """Name this part ``<owner path>.<member>``."""
+        """Name this part ``<owner path>.<member>`` and remember its owner."""
+        self._owner = owner
         self.instance_name = f"{owner.instance_name}.{member}" if owner.instance_name else member
+
+    def owner(self) -> "Part | None":
+        """The part that holds this one, or None for the root and before the owner's init().
+
+        A state machine uses it for a 'send ... to' a part it reaches through an
+        enclosing part (bug 399), as C++ ``Part::owner()`` does.
+        """
+        return self._owner
 
     def init(self) -> None:
         """Set this part up. A generated part overrides it; empty here."""
@@ -189,6 +205,7 @@ class InputPort(Generic[T]):
     queue: deque[T] = field(default_factory=deque)
     observer: Callable[[T], None] | None = None
     current: T | None = None
+    step_holds_: bool = False
 
     def receive(self, data: T) -> None:
         """Queue one payload, telling the observer first."""
@@ -202,6 +219,25 @@ class InputPort(Generic[T]):
             return False
         self.current = self.queue.popleft()
         return True
+
+    def step_take(self) -> bool:
+        """Take the next payload for one run-to-completion step of a state machine.
+
+        Loads it into ``current`` as :meth:`has_event` does and holds it until
+        :meth:`step_end`. Every transition tests :meth:`step_holds`, which does
+        not pop, so an inner state, its parent and every region see the same
+        payload (bug 399). ``has_event`` stays the receive of an action.
+        """
+        self.step_holds_ = self.has_event()
+        return self.step_holds_
+
+    def step_holds(self) -> bool:
+        """True while the payload taken by :meth:`step_take` is held."""
+        return self.step_holds_
+
+    def step_end(self) -> None:
+        """Drop the held payload at the end of the step, taken or not."""
+        self.step_holds_ = False
 
     def set_observer(self, observer: Callable[[T], None]) -> None:
         """Call this observer whenever a payload arrives."""
