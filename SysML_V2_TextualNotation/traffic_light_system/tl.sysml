@@ -57,8 +57,10 @@ package TrafficLight {
 	}
 
 
+	// The item flows out of a port typed by the definition and into one typed by its conjugate
+	// (~ControlPort): the TMC sends through controlPort, the traffic lights receive on recvPort.
 	port def ControlPort {
-		in item data:ControlPortData;
+		out item data:ControlPortData;
 	}
 
 	item def ServicePortData{
@@ -66,33 +68,24 @@ package TrafficLight {
 	}
 
 	port def ServicePort{
-		in item data:ServicePortData;
+		out item data:ServicePortData;
 	}
 
 	// traffic management center in public utility
 	part def TrafficManagementCenter{
 		out port controlPort : ControlPort;
 		in port servicePort : ~ServicePort;
-		attribute msg:TMCEvent;
-
-		// action to get the message from the control port
-		action getMsg{
-			action accept m:ServicePortData via servicePort{
-				assign msg:=m.msg;
-			}
-		}
 
 		state tmcStateMachine {
 			entry; then PreOperational;
-
-			do action getMsg;
 
 			state PreOperational;
 			accept after 2[SI::second] do send TLCEvent::evOperational via controlPort then Operational;
 
 			state Operational;
-			//if msg==TMCEvent::evServiceNeeded then OperationalWihtServiceNeed;
-			accept when msg==TMCEvent::evServiceNeeded then OperationalWihtServiceNeed;
+			// The transition reads the item straight from the port: 'd' is what arrived.
+			accept d : ServicePortData via servicePort if d.msg == TMCEvent::evServiceNeeded
+				then OperationalWihtServiceNeed;
 
 			state OperationalWihtServiceNeed{
 				// send service Engineer
@@ -105,7 +98,6 @@ package TrafficLight {
 	part def TrafficLightController{
 
 		attribute redtime:Integer default 2;
-		attribute msg:TLCEvent;	
 		attribute needService:Boolean default false;
 		in port recvPort : ~ControlPort;
 		out port servicePort : ServicePort;
@@ -180,20 +172,12 @@ package TrafficLight {
 		// redefine the default value of redtimes
 		attribute :>>redtime=1;
 
-		// action to get the message from the control port
-		action getMsg{
-			action accept m:ControlPortData via recvPort{
-				assign msg:=m.msg;
-			}
-		}
-
 		action sendServiceRequest{
 			first start;
 			then send TMCEvent::evServiceNeeded via servicePort;
 		}
 
 		state tlcStateMachine parallel {
-			do action getMsg;
 			state Activity{
 				entry; then OutOfService;
 
@@ -210,7 +194,11 @@ package TrafficLight {
 					}
 					accept after 0.5[SI::second] then OutOfServiceYellowOn;
 
-					transition t0 first OutOfService accept when msg==TLCEvent::evOperational then Operational;
+					// The operational event arrives while the yellow light blinks. When it comes in the
+					// step a blink timeout takes, it waits for the next step rather than being lost.
+					transition t0 first OutOfService
+						accept d : ControlPortData via recvPort if d.msg == TLCEvent::evOperational
+						then Operational;
 				}
 					
 				state Operational {
@@ -240,7 +228,9 @@ package TrafficLight {
 					transition t2 first OperationalRedYellow  accept after 1[SI::second] then OperationalGreen;
 					transition t3 first OperationalGreen  accept after 1[SI::second] then OperationalYellow;
 					transition t4 first OperationalYellow  accept after 1[SI::second] then OperationalRed;
-					transition t5 first Operational if msg==TLCEvent::evError then OutOfService;
+					transition t5 first Operational
+						accept d : ControlPortData via recvPort if d.msg == TLCEvent::evError
+						then OutOfService;
 				}
 			}
 			state CountingServiceTime{ // State to check the service time

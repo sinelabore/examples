@@ -134,7 +134,6 @@ tick; keep it well below the shortest timeout in the model (0.5 s here).
 Output looks like this — each line names the instance and what it ran:
 
 ```
-debug: TrafficLightSystem.tmc.getMsg [action]
 debug: TrafficLightSystem.tlc1.setYellow [action]
 debug: TrafficLightSystem.tlc1.yellowLamp.setOn [action]
 debug: TrafficLightSystem.tlc1.checkServiceCounter [action]
@@ -148,10 +147,11 @@ same line for line — `make run-cpp` and `make run-python` can be diffed agains
 
 | Feature | Where to look in `tl.sysml` |
 |---|---|
-| Ports, items and connections | `ControlPort` / `ServicePort`, the `connect` lines in `TrafficLightSystem` |
+| Ports, items and connections | `ControlPort` / `ServicePort` (`out item data`, received through the conjugated `~ControlPort` / `~ServicePort`), the `connect` lines in `TrafficLightSystem` |
 | State machine as a **usage** (`state sm { … }`) | `tmcStateMachine`, `tlcStateMachine` |
 | Parallel regions | `state tlcStateMachine parallel` with `Activity` and `CountingServiceTime` |
-| Timed and guarded transitions | `accept after 0.5[SI::second]`, `accept when msg == …` |
+| Timed and guarded transitions | `accept after 0.5[SI::second]`, `if needService==true then …` |
+| Accepting an item from a port | `accept d : ControlPortData via recvPort if d.msg == TLCEvent::evOperational` — the transition reads what arrived as `d`, no extra action needed |
 | Part specialization and redefinition | `BasicTrafficLightController :> TrafficLightController`, `attribute :>>redtime=1` |
 | Collections | `abstract ref part lamps : Lamp [*]` with `subsets` members |
 | Performing an action of another part | `action references redLamp.setOn` in `setRed`, `perform yellowLamp.setOff` in `resetYellow`, and the named form `action ryOn references …` in `setRedAndYellow` — the example deliberately shows all three spellings |

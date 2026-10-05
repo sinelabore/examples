@@ -1,38 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1527.0" height="1867.0" viewBox="-8.0 -8.0 1527.0 1867.0">
+<svg xmlns="http://www.w3.org/2000/svg" width="1527.0" height="1731.0" viewBox="-8.0 -8.0 1527.0 1731.0">
 <defs>
   <marker id="arrow" markerUnits="userSpaceOnUse" markerWidth="8.0" markerHeight="6.0" refX="7.0" refY="3.0" orient="auto">
     <path d="M0,0 L8.0,3.0 L0,6.0 Z" fill="#8a6e3d"/>
   </marker>
 </defs>
-  <rect x="16.0" y="16.0" width="1479.0" height="1819.0" rx="0.0" ry="0.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
+  <rect x="16.0" y="16.0" width="1479.0" height="1683.0" rx="0.0" ry="0.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
   <path d="M17.0,36.0 L17.0,17.0 Q17.0,17.0 17.0,17.0 L1494.0,17.0 Q1494.0,17.0 1494.0,17.0 L1494.0,36.0 Z" fill="#f7e5b7"/>
   <text x="755.5" y="29.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">«part def»</text>
   <line x1="17.0" y1="36.0" x2="1494.0" y2="36.0" stroke="#000" stroke-width="1"/>
   <text x="755.5" y="49.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">TrafficLightSystem</text>
   <line x1="17.0" y1="56.0" x2="1494.0" y2="56.0" stroke="#000" stroke-width="1"/>
   <text x="755.5" y="71.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">parts</text>
-  <rect x="259.2" y="393.0" width="263.9" height="223.0" rx="10.0" ry="10.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
+  <rect x="259.2" y="393.0" width="263.9" height="155.0" rx="10.0" ry="10.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
   <path d="M260.2,413.0 L260.2,403.0 Q260.2,394.0 269.2,394.0 L513.1,394.0 Q522.1,394.0 522.1,403.0 L522.1,413.0 Z" fill="#f7e5b7"/>
   <text x="391.1" y="406.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">«part»</text>
   <line x1="260.2" y1="413.0" x2="522.1" y2="413.0" stroke="#000" stroke-width="1"/>
   <text x="391.1" y="426.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">tmc :</text>
   <text x="391.1" y="442.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">TrafficManagementCenter</text>
   <line x1="260.2" y1="449.0" x2="522.1" y2="449.0" stroke="#000" stroke-width="1"/>
-  <text x="391.1" y="464.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">enums</text>
-  <text x="267.2" y="482.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">msg : TMCEvent</text>
+  <text x="391.1" y="464.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">state machines</text>
+  <text x="267.2" y="482.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">state tmcStateMachine</text>
   <line x1="260.2" y1="495.0" x2="522.1" y2="495.0" stroke="#000" stroke-width="1"/>
-  <text x="391.1" y="516.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">state machines</text>
-  <text x="267.2" y="534.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">state tmcStateMachine</text>
-  <line x1="260.2" y1="547.0" x2="522.1" y2="547.0" stroke="#000" stroke-width="1"/>
-  <text x="391.1" y="568.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">actions</text>
-  <text x="267.2" y="586.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">action getMsg</text>
-  <text x="267.2" y="602.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">action scheduleServiceCall</text>
-  <rect x="517.1" y="498.5" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
-  <polygon points="527.3,504.5 520.4,507.1 520.4,501.9" fill="#8a6e3d"/>
-  <rect x="253.2" y="498.5" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
-  <polygon points="263.4,504.5 256.6,507.1 256.6,501.9" fill="#8a6e3d"/>
-  <rect x="950.4" y="85.0" width="301.4" height="839.0" rx="10.0" ry="10.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
+  <text x="391.1" y="516.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">actions</text>
+  <text x="267.2" y="534.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">action scheduleServiceCall</text>
+  <rect x="517.1" y="464.5" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="527.3,470.5 520.4,473.1 520.4,467.9" fill="#8a6e3d"/>
+  <rect x="253.2" y="464.5" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="263.4,470.5 256.6,473.1 256.6,467.9" fill="#8a6e3d"/>
+  <rect x="950.4" y="85.0" width="301.4" height="771.0" rx="10.0" ry="10.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
   <path d="M951.4,105.0 L951.4,95.0 Q951.4,86.0 960.4,86.0 L1241.8,86.0 Q1250.8,86.0 1250.8,95.0 L1250.8,105.0 Z" fill="#f7e5b7"/>
   <text x="1101.1" y="98.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">«part»</text>
   <line x1="951.4" y1="105.0" x2="1250.8" y2="105.0" stroke="#000" stroke-width="1"/>
@@ -43,123 +39,115 @@
   <text x="958.4" y="174.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">redtime : Integer = 1</text>
   <text x="958.4" y="190.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^needService : Boolean = false</text>
   <line x1="951.4" y1="203.0" x2="1250.8" y2="203.0" stroke="#000" stroke-width="1"/>
-  <text x="1101.1" y="224.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">enums</text>
-  <text x="958.4" y="242.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^msg : TLCEvent</text>
+  <text x="1101.1" y="224.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">state machines</text>
+  <text x="958.4" y="242.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">state tlcStateMachine</text>
   <line x1="951.4" y1="255.0" x2="1250.8" y2="255.0" stroke="#000" stroke-width="1"/>
-  <text x="1101.1" y="276.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">state machines</text>
-  <text x="958.4" y="294.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">state tlcStateMachine</text>
-  <line x1="951.4" y1="307.0" x2="1250.8" y2="307.0" stroke="#000" stroke-width="1"/>
-  <text x="1101.1" y="328.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">actions</text>
-  <text x="958.4" y="346.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">action getMsg</text>
-  <text x="958.4" y="362.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">action sendServiceRequest</text>
-  <text x="958.4" y="378.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^action setRed</text>
-  <text x="958.4" y="394.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^action resetRed</text>
-  <text x="958.4" y="410.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^action setYellow</text>
-  <text x="958.4" y="426.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^action resetYellow</text>
-  <text x="958.4" y="442.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^action setGreen</text>
-  <text x="958.4" y="458.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^action resetGreen</text>
-  <text x="958.4" y="474.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^action setRedAndYellow</text>
-  <text x="958.4" y="490.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^action resetRedAndYellow</text>
-  <text x="958.4" y="506.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^action checkServiceCounter</text>
-  <line x1="951.4" y1="519.0" x2="1250.8" y2="519.0" stroke="#000" stroke-width="1"/>
-  <text x="1101.1" y="540.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">parts</text>
-  <rect x="944.4" y="498.5" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
-  <polygon points="954.6,504.5 947.7,507.1 947.7,501.9" fill="#8a6e3d"/>
-  <rect x="1245.8" y="498.5" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
-  <polygon points="1256.0,504.5 1249.1,507.1 1249.1,501.9" fill="#8a6e3d"/>
-  <rect x="991.8" y="554.0" width="83.0" height="58.0" rx="12.0" ry="12.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
-  <path d="M992.8,574.0 L992.8,566.0 Q992.8,555.0 1003.8,555.0 L1062.9,555.0 Q1073.9,555.0 1073.9,566.0 L1073.9,574.0 Z" fill="#f7e5b7"/>
-  <text x="1033.4" y="567.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">«part»</text>
-  <line x1="992.8" y1="574.0" x2="1073.9" y2="574.0" stroke="#000" stroke-width="1"/>
-  <text x="1033.4" y="587.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">^lamps :</text>
-  <text x="1033.4" y="603.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">Lamp</text>
-  <rect x="982.5" y="652.0" width="101.8" height="58.0" rx="12.0" ry="12.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
-  <path d="M983.5,672.0 L983.5,664.0 Q983.5,653.0 994.5,653.0 L1072.3,653.0 Q1083.3,653.0 1083.3,664.0 L1083.3,672.0 Z" fill="#f7e5b7"/>
-  <text x="1033.4" y="665.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">«part»</text>
-  <line x1="983.5" y1="672.0" x2="1083.3" y2="672.0" stroke="#000" stroke-width="1"/>
-  <text x="1033.4" y="685.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">^redLamp :</text>
-  <text x="1033.4" y="701.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">Lamp</text>
-  <rect x="968.4" y="750.0" width="129.9" height="58.0" rx="12.0" ry="12.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
-  <path d="M969.4,770.0 L969.4,762.0 Q969.4,751.0 980.4,751.0 L1086.3,751.0 Q1097.3,751.0 1097.3,762.0 L1097.3,770.0 Z" fill="#f7e5b7"/>
-  <text x="1033.4" y="763.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">«part»</text>
-  <line x1="969.4" y1="770.0" x2="1097.3" y2="770.0" stroke="#000" stroke-width="1"/>
-  <text x="1033.4" y="783.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">^yellowLamp :</text>
-  <text x="1033.4" y="799.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">Lamp</text>
-  <rect x="973.1" y="848.0" width="120.6" height="58.0" rx="12.0" ry="12.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
-  <path d="M974.1,868.0 L974.1,860.0 Q974.1,849.0 985.1,849.0 L1081.6,849.0 Q1092.6,849.0 1092.6,860.0 L1092.6,868.0 Z" fill="#f7e5b7"/>
-  <text x="1033.4" y="861.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">«part»</text>
-  <line x1="974.1" y1="868.0" x2="1092.6" y2="868.0" stroke="#000" stroke-width="1"/>
-  <text x="1033.4" y="881.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">^greenLamp :</text>
-  <text x="1033.4" y="897.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">Lamp</text>
-  <rect x="950.4" y="964.0" width="301.4" height="839.0" rx="10.0" ry="10.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
-  <path d="M951.4,984.0 L951.4,974.0 Q951.4,965.0 960.4,965.0 L1241.8,965.0 Q1250.8,965.0 1250.8,974.0 L1250.8,984.0 Z" fill="#f7e5b7"/>
-  <text x="1101.1" y="977.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">«part»</text>
-  <line x1="951.4" y1="984.0" x2="1250.8" y2="984.0" stroke="#000" stroke-width="1"/>
-  <text x="1101.1" y="997.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">tlc2 :</text>
-  <text x="1101.1" y="1013.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">BasicTrafficLightController</text>
-  <line x1="951.4" y1="1020.0" x2="1250.8" y2="1020.0" stroke="#000" stroke-width="1"/>
-  <text x="1101.1" y="1035.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">attributes</text>
-  <text x="958.4" y="1053.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">redtime : Integer = 1</text>
-  <text x="958.4" y="1069.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^needService : Boolean = false</text>
-  <line x1="951.4" y1="1082.0" x2="1250.8" y2="1082.0" stroke="#000" stroke-width="1"/>
-  <text x="1101.1" y="1103.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">enums</text>
-  <text x="958.4" y="1121.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^msg : TLCEvent</text>
-  <line x1="951.4" y1="1134.0" x2="1250.8" y2="1134.0" stroke="#000" stroke-width="1"/>
-  <text x="1101.1" y="1155.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">state machines</text>
-  <text x="958.4" y="1173.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">state tlcStateMachine</text>
-  <line x1="951.4" y1="1186.0" x2="1250.8" y2="1186.0" stroke="#000" stroke-width="1"/>
-  <text x="1101.1" y="1207.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">actions</text>
-  <text x="958.4" y="1225.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">action getMsg</text>
-  <text x="958.4" y="1241.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">action sendServiceRequest</text>
-  <text x="958.4" y="1257.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^action setRed</text>
-  <text x="958.4" y="1273.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^action resetRed</text>
-  <text x="958.4" y="1289.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^action setYellow</text>
-  <text x="958.4" y="1305.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^action resetYellow</text>
-  <text x="958.4" y="1321.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^action setGreen</text>
-  <text x="958.4" y="1337.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^action resetGreen</text>
-  <text x="958.4" y="1353.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^action setRedAndYellow</text>
-  <text x="958.4" y="1369.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^action resetRedAndYellow</text>
-  <text x="958.4" y="1385.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^action checkServiceCounter</text>
-  <line x1="951.4" y1="1398.0" x2="1250.8" y2="1398.0" stroke="#000" stroke-width="1"/>
-  <text x="1101.1" y="1419.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">parts</text>
-  <rect x="944.4" y="1377.5" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
-  <polygon points="954.6,1383.5 947.7,1386.1 947.7,1380.9" fill="#8a6e3d"/>
-  <rect x="1245.8" y="1377.5" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
-  <polygon points="1256.0,1383.5 1249.1,1386.1 1249.1,1380.9" fill="#8a6e3d"/>
-  <rect x="991.8" y="1433.0" width="83.0" height="58.0" rx="12.0" ry="12.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
-  <path d="M992.8,1453.0 L992.8,1445.0 Q992.8,1434.0 1003.8,1434.0 L1062.9,1434.0 Q1073.9,1434.0 1073.9,1445.0 L1073.9,1453.0 Z" fill="#f7e5b7"/>
-  <text x="1033.4" y="1446.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">«part»</text>
-  <line x1="992.8" y1="1453.0" x2="1073.9" y2="1453.0" stroke="#000" stroke-width="1"/>
-  <text x="1033.4" y="1466.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">^lamps :</text>
-  <text x="1033.4" y="1482.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">Lamp</text>
-  <rect x="982.5" y="1531.0" width="101.8" height="58.0" rx="12.0" ry="12.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
-  <path d="M983.5,1551.0 L983.5,1543.0 Q983.5,1532.0 994.5,1532.0 L1072.3,1532.0 Q1083.3,1532.0 1083.3,1543.0 L1083.3,1551.0 Z" fill="#f7e5b7"/>
-  <text x="1033.4" y="1544.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">«part»</text>
-  <line x1="983.5" y1="1551.0" x2="1083.3" y2="1551.0" stroke="#000" stroke-width="1"/>
-  <text x="1033.4" y="1564.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">^redLamp :</text>
-  <text x="1033.4" y="1580.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">Lamp</text>
-  <rect x="968.4" y="1629.0" width="129.9" height="58.0" rx="12.0" ry="12.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
-  <path d="M969.4,1649.0 L969.4,1641.0 Q969.4,1630.0 980.4,1630.0 L1086.3,1630.0 Q1097.3,1630.0 1097.3,1641.0 L1097.3,1649.0 Z" fill="#f7e5b7"/>
-  <text x="1033.4" y="1642.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">«part»</text>
-  <line x1="969.4" y1="1649.0" x2="1097.3" y2="1649.0" stroke="#000" stroke-width="1"/>
-  <text x="1033.4" y="1662.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">^yellowLamp :</text>
-  <text x="1033.4" y="1678.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">Lamp</text>
-  <rect x="973.1" y="1727.0" width="120.6" height="58.0" rx="12.0" ry="12.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
-  <path d="M974.1,1747.0 L974.1,1739.0 Q974.1,1728.0 985.1,1728.0 L1081.6,1728.0 Q1092.6,1728.0 1092.6,1739.0 L1092.6,1747.0 Z" fill="#f7e5b7"/>
-  <text x="1033.4" y="1740.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">«part»</text>
-  <line x1="974.1" y1="1747.0" x2="1092.6" y2="1747.0" stroke="#000" stroke-width="1"/>
-  <text x="1033.4" y="1760.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">^greenLamp :</text>
-  <text x="1033.4" y="1776.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">Lamp</text>
-  <path d="M529.1,504.5 L944.4,504.5" fill="none" stroke="#8a6e3d" stroke-width="1.0"/>
-  <path d="M529.1,504.5 L740.6,504.5 L740.6,1383.5 L944.4,1383.5" fill="none" stroke="#8a6e3d" stroke-width="1.0"/>
-  <path d="M1257.8,1383.5 L1477.0,1383.5 L1477.0,1817.0 L34.0,1817.0 L34.0,504.5 L253.2,504.5" fill="none" stroke="#8a6e3d" stroke-width="1.0"/>
-  <path d="M1257.8,504.5 L1477.0,504.5 L1477.0,1817.0 L34.0,1817.0 L34.0,504.5 L253.2,504.5" fill="none" stroke="#8a6e3d" stroke-width="1.0"/>
-  <circle cx="740.6" cy="504.5" r="2.5" fill="#8a6e3d"/>
-  <circle cx="1477.0" cy="1383.5" r="2.5" fill="#8a6e3d"/>
-  <text x="534.0" y="499.6" text-anchor="start" font-family="Arial, sans-serif" font-size="14">controlPort : ControlPort</text>
-  <text x="248.3" y="499.6" text-anchor="end" font-family="Arial, sans-serif" font-size="14">servicePort : ~ServicePort</text>
-  <text x="939.5" y="499.6" text-anchor="end" font-family="Arial, sans-serif" font-size="14">^recvPort : ~ControlPort</text>
-  <text x="1262.7" y="499.6" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^servicePort : ServicePort</text>
-  <text x="939.5" y="1378.6" text-anchor="end" font-family="Arial, sans-serif" font-size="14">^recvPort : ~ControlPort</text>
-  <text x="1262.7" y="1378.6" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^servicePort : ServicePort</text>
+  <text x="1101.1" y="276.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">actions</text>
+  <text x="958.4" y="294.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">action sendServiceRequest</text>
+  <text x="958.4" y="310.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^action setRed</text>
+  <text x="958.4" y="326.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^action resetRed</text>
+  <text x="958.4" y="342.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^action setYellow</text>
+  <text x="958.4" y="358.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^action resetYellow</text>
+  <text x="958.4" y="374.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^action setGreen</text>
+  <text x="958.4" y="390.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^action resetGreen</text>
+  <text x="958.4" y="406.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^action setRedAndYellow</text>
+  <text x="958.4" y="422.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^action resetRedAndYellow</text>
+  <text x="958.4" y="438.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^action checkServiceCounter</text>
+  <line x1="951.4" y1="451.0" x2="1250.8" y2="451.0" stroke="#000" stroke-width="1"/>
+  <text x="1101.1" y="472.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">parts</text>
+  <rect x="944.4" y="464.5" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="954.6,470.5 947.7,473.1 947.7,467.9" fill="#8a6e3d"/>
+  <rect x="1245.8" y="464.5" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="1256.0,470.5 1249.1,473.1 1249.1,467.9" fill="#8a6e3d"/>
+  <rect x="991.8" y="486.0" width="83.0" height="58.0" rx="12.0" ry="12.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
+  <path d="M992.8,506.0 L992.8,498.0 Q992.8,487.0 1003.8,487.0 L1062.9,487.0 Q1073.9,487.0 1073.9,498.0 L1073.9,506.0 Z" fill="#f7e5b7"/>
+  <text x="1033.4" y="499.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">«part»</text>
+  <line x1="992.8" y1="506.0" x2="1073.9" y2="506.0" stroke="#000" stroke-width="1"/>
+  <text x="1033.4" y="519.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">^lamps :</text>
+  <text x="1033.4" y="535.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">Lamp</text>
+  <rect x="982.5" y="584.0" width="101.8" height="58.0" rx="12.0" ry="12.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
+  <path d="M983.5,604.0 L983.5,596.0 Q983.5,585.0 994.5,585.0 L1072.3,585.0 Q1083.3,585.0 1083.3,596.0 L1083.3,604.0 Z" fill="#f7e5b7"/>
+  <text x="1033.4" y="597.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">«part»</text>
+  <line x1="983.5" y1="604.0" x2="1083.3" y2="604.0" stroke="#000" stroke-width="1"/>
+  <text x="1033.4" y="617.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">^redLamp :</text>
+  <text x="1033.4" y="633.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">Lamp</text>
+  <rect x="968.4" y="682.0" width="129.9" height="58.0" rx="12.0" ry="12.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
+  <path d="M969.4,702.0 L969.4,694.0 Q969.4,683.0 980.4,683.0 L1086.3,683.0 Q1097.3,683.0 1097.3,694.0 L1097.3,702.0 Z" fill="#f7e5b7"/>
+  <text x="1033.4" y="695.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">«part»</text>
+  <line x1="969.4" y1="702.0" x2="1097.3" y2="702.0" stroke="#000" stroke-width="1"/>
+  <text x="1033.4" y="715.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">^yellowLamp :</text>
+  <text x="1033.4" y="731.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">Lamp</text>
+  <rect x="973.1" y="780.0" width="120.6" height="58.0" rx="12.0" ry="12.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
+  <path d="M974.1,800.0 L974.1,792.0 Q974.1,781.0 985.1,781.0 L1081.6,781.0 Q1092.6,781.0 1092.6,792.0 L1092.6,800.0 Z" fill="#f7e5b7"/>
+  <text x="1033.4" y="793.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">«part»</text>
+  <line x1="974.1" y1="800.0" x2="1092.6" y2="800.0" stroke="#000" stroke-width="1"/>
+  <text x="1033.4" y="813.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">^greenLamp :</text>
+  <text x="1033.4" y="829.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">Lamp</text>
+  <rect x="950.4" y="896.0" width="301.4" height="771.0" rx="10.0" ry="10.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
+  <path d="M951.4,916.0 L951.4,906.0 Q951.4,897.0 960.4,897.0 L1241.8,897.0 Q1250.8,897.0 1250.8,906.0 L1250.8,916.0 Z" fill="#f7e5b7"/>
+  <text x="1101.1" y="909.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">«part»</text>
+  <line x1="951.4" y1="916.0" x2="1250.8" y2="916.0" stroke="#000" stroke-width="1"/>
+  <text x="1101.1" y="929.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">tlc2 :</text>
+  <text x="1101.1" y="945.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">BasicTrafficLightController</text>
+  <line x1="951.4" y1="952.0" x2="1250.8" y2="952.0" stroke="#000" stroke-width="1"/>
+  <text x="1101.1" y="967.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">attributes</text>
+  <text x="958.4" y="985.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">redtime : Integer = 1</text>
+  <text x="958.4" y="1001.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^needService : Boolean = false</text>
+  <line x1="951.4" y1="1014.0" x2="1250.8" y2="1014.0" stroke="#000" stroke-width="1"/>
+  <text x="1101.1" y="1035.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">state machines</text>
+  <text x="958.4" y="1053.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">state tlcStateMachine</text>
+  <line x1="951.4" y1="1066.0" x2="1250.8" y2="1066.0" stroke="#000" stroke-width="1"/>
+  <text x="1101.1" y="1087.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">actions</text>
+  <text x="958.4" y="1105.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">action sendServiceRequest</text>
+  <text x="958.4" y="1121.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^action setRed</text>
+  <text x="958.4" y="1137.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^action resetRed</text>
+  <text x="958.4" y="1153.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^action setYellow</text>
+  <text x="958.4" y="1169.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^action resetYellow</text>
+  <text x="958.4" y="1185.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^action setGreen</text>
+  <text x="958.4" y="1201.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^action resetGreen</text>
+  <text x="958.4" y="1217.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^action setRedAndYellow</text>
+  <text x="958.4" y="1233.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^action resetRedAndYellow</text>
+  <text x="958.4" y="1249.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^action checkServiceCounter</text>
+  <line x1="951.4" y1="1262.0" x2="1250.8" y2="1262.0" stroke="#000" stroke-width="1"/>
+  <text x="1101.1" y="1283.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">parts</text>
+  <rect x="944.4" y="1275.5" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="954.6,1281.5 947.7,1284.1 947.7,1278.9" fill="#8a6e3d"/>
+  <rect x="1245.8" y="1275.5" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
+  <polygon points="1256.0,1281.5 1249.1,1284.1 1249.1,1278.9" fill="#8a6e3d"/>
+  <rect x="991.8" y="1297.0" width="83.0" height="58.0" rx="12.0" ry="12.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
+  <path d="M992.8,1317.0 L992.8,1309.0 Q992.8,1298.0 1003.8,1298.0 L1062.9,1298.0 Q1073.9,1298.0 1073.9,1309.0 L1073.9,1317.0 Z" fill="#f7e5b7"/>
+  <text x="1033.4" y="1310.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">«part»</text>
+  <line x1="992.8" y1="1317.0" x2="1073.9" y2="1317.0" stroke="#000" stroke-width="1"/>
+  <text x="1033.4" y="1330.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">^lamps :</text>
+  <text x="1033.4" y="1346.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">Lamp</text>
+  <rect x="982.5" y="1395.0" width="101.8" height="58.0" rx="12.0" ry="12.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
+  <path d="M983.5,1415.0 L983.5,1407.0 Q983.5,1396.0 994.5,1396.0 L1072.3,1396.0 Q1083.3,1396.0 1083.3,1407.0 L1083.3,1415.0 Z" fill="#f7e5b7"/>
+  <text x="1033.4" y="1408.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">«part»</text>
+  <line x1="983.5" y1="1415.0" x2="1083.3" y2="1415.0" stroke="#000" stroke-width="1"/>
+  <text x="1033.4" y="1428.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">^redLamp :</text>
+  <text x="1033.4" y="1444.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">Lamp</text>
+  <rect x="968.4" y="1493.0" width="129.9" height="58.0" rx="12.0" ry="12.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
+  <path d="M969.4,1513.0 L969.4,1505.0 Q969.4,1494.0 980.4,1494.0 L1086.3,1494.0 Q1097.3,1494.0 1097.3,1505.0 L1097.3,1513.0 Z" fill="#f7e5b7"/>
+  <text x="1033.4" y="1506.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">«part»</text>
+  <line x1="969.4" y1="1513.0" x2="1097.3" y2="1513.0" stroke="#000" stroke-width="1"/>
+  <text x="1033.4" y="1526.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">^yellowLamp :</text>
+  <text x="1033.4" y="1542.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">Lamp</text>
+  <rect x="973.1" y="1591.0" width="120.6" height="58.0" rx="12.0" ry="12.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
+  <path d="M974.1,1611.0 L974.1,1603.0 Q974.1,1592.0 985.1,1592.0 L1081.6,1592.0 Q1092.6,1592.0 1092.6,1603.0 L1092.6,1611.0 Z" fill="#f7e5b7"/>
+  <text x="1033.4" y="1604.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">«part»</text>
+  <line x1="974.1" y1="1611.0" x2="1092.6" y2="1611.0" stroke="#000" stroke-width="1"/>
+  <text x="1033.4" y="1624.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">^greenLamp :</text>
+  <text x="1033.4" y="1640.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">Lamp</text>
+  <path d="M529.1,470.5 L944.4,470.5" fill="none" stroke="#8a6e3d" stroke-width="1.0"/>
+  <path d="M529.1,470.5 L740.6,470.5 L740.6,1281.5 L944.4,1281.5" fill="none" stroke="#8a6e3d" stroke-width="1.0"/>
+  <path d="M1257.8,1281.5 L1477.0,1281.5 L1477.0,1681.0 L34.0,1681.0 L34.0,470.5 L253.2,470.5" fill="none" stroke="#8a6e3d" stroke-width="1.0"/>
+  <path d="M1257.8,470.5 L1477.0,470.5 L1477.0,1681.0 L34.0,1681.0 L34.0,470.5 L253.2,470.5" fill="none" stroke="#8a6e3d" stroke-width="1.0"/>
+  <circle cx="740.6" cy="470.5" r="2.5" fill="#8a6e3d"/>
+  <circle cx="1477.0" cy="1281.5" r="2.5" fill="#8a6e3d"/>
+  <text x="534.0" y="465.6" text-anchor="start" font-family="Arial, sans-serif" font-size="14">controlPort : ControlPort</text>
+  <text x="248.3" y="465.6" text-anchor="end" font-family="Arial, sans-serif" font-size="14">servicePort : ~ServicePort</text>
+  <text x="939.5" y="465.6" text-anchor="end" font-family="Arial, sans-serif" font-size="14">^recvPort : ~ControlPort</text>
+  <text x="1262.7" y="465.6" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^servicePort : ServicePort</text>
+  <text x="939.5" y="1276.6" text-anchor="end" font-family="Arial, sans-serif" font-size="14">^recvPort : ~ControlPort</text>
+  <text x="1262.7" y="1276.6" text-anchor="start" font-family="Arial, sans-serif" font-size="14">^servicePort : ServicePort</text>
 </svg>
