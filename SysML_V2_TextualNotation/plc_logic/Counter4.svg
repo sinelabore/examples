@@ -11,6 +11,7 @@
   <line x1="17.0" y1="36.0" x2="3996.0" y2="36.0" stroke="#000" stroke-width="1"/>
   <text x="2006.5" y="49.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">TestCounter4</text>
   <line x1="17.0" y1="56.0" x2="3996.0" y2="56.0" stroke="#000" stroke-width="1"/>
+  <rect x="16.0" y="16.0" width="3981.0" height="558.0" rx="0.0" ry="0.0" fill="none" stroke="#000" stroke-width="1.5"/>
   <text x="2006.5" y="71.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">parts</text>
   <rect x="34.0" y="186.0" width="226.4" height="207.0" rx="10.0" ry="10.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
   <path d="M35.0,206.0 L35.0,196.0 Q35.0,187.0 44.0,187.0 L250.4,187.0 Q259.4,187.0 259.4,196.0 L259.4,206.0 Z" fill="#f7e5b7"/>
@@ -19,6 +20,7 @@
   <text x="147.2" y="219.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">clock :</text>
   <text x="147.2" y="235.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">SingleClockPulse</text>
   <line x1="35.0" y1="242.0" x2="259.4" y2="242.0" stroke="#000" stroke-width="1"/>
+  <rect x="34.0" y="186.0" width="226.4" height="207.0" rx="10.0" ry="10.0" fill="none" stroke="#000" stroke-width="1.5"/>
   <text x="147.2" y="257.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">attributes</text>
   <text x="42.0" y="275.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">qVal : Boolean = false</text>
   <line x1="35.0" y1="288.0" x2="259.4" y2="288.0" stroke="#000" stroke-width="1"/>
@@ -36,6 +38,7 @@
   <text x="2189.1" y="118.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">counter :</text>
   <text x="2189.1" y="134.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">Counter4</text>
   <line x1="511.3" y1="141.0" x2="3866.9" y2="141.0" stroke="#000" stroke-width="1"/>
+  <rect x="510.3" y="85.0" width="3357.7" height="471.0" rx="10.0" ry="10.0" fill="none" stroke="#000" stroke-width="1.5"/>
   <text x="2189.1" y="156.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">parts</text>
   <rect x="504.3" y="283.5" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
   <polygon points="514.5,289.5 507.6,292.1 507.6,286.9" fill="#8a6e3d"/>
@@ -54,6 +57,7 @@
   <text x="773.9" y="203.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">t0 :</text>
   <text x="773.9" y="219.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">T_FF_AnyEdge</text>
   <line x1="661.8" y1="226.0" x2="886.1" y2="226.0" stroke="#000" stroke-width="1"/>
+  <rect x="660.8" y="170.0" width="226.4" height="239.0" rx="10.0" ry="10.0" fill="none" stroke="#000" stroke-width="1.5"/>
   <text x="773.9" y="241.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">attributes</text>
   <text x="668.8" y="259.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">c : Boolean = false</text>
   <text x="668.8" y="275.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">old : Boolean = false</text>
@@ -75,6 +79,7 @@
   <text x="1253.5" y="211.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">f0 :</text>
   <text x="1253.5" y="227.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">F_TRIG</text>
   <line x1="1146.0" y1="234.0" x2="1361.0" y2="234.0" stroke="#000" stroke-width="1"/>
+  <rect x="1145.0" y="178.0" width="217.0" height="223.0" rx="10.0" ry="10.0" fill="none" stroke="#000" stroke-width="1.5"/>
   <text x="1253.5" y="249.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">attributes</text>
   <text x="1153.0" y="267.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">clk : Boolean = false</text>
   <text x="1153.0" y="283.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">old : Boolean = false</text>
@@ -95,6 +100,7 @@
   <text x="1725.1" y="203.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">t1 :</text>
   <text x="1725.1" y="219.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">T_FF</text>
   <line x1="1612.9" y1="226.0" x2="1837.3" y2="226.0" stroke="#000" stroke-width="1"/>
+  <rect x="1611.9" y="170.0" width="226.4" height="239.0" rx="10.0" ry="10.0" fill="none" stroke="#000" stroke-width="1.5"/>
   <text x="1725.1" y="241.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">attributes</text>
   <text x="1619.9" y="259.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">c : Boolean = false</text>
   <text x="1619.9" y="275.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">old : Boolean = false</text>
@@ -116,6 +122,7 @@
   <text x="2204.7" y="211.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">f1 :</text>
   <text x="2204.7" y="227.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">F_TRIG</text>
   <line x1="2097.2" y1="234.0" x2="2312.1" y2="234.0" stroke="#000" stroke-width="1"/>
+  <rect x="2096.2" y="178.0" width="217.0" height="223.0" rx="10.0" ry="10.0" fill="none" stroke="#000" stroke-width="1.5"/>
   <text x="2204.7" y="249.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">attributes</text>
   <text x="2104.2" y="267.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">clk : Boolean = false</text>
   <text x="2104.2" y="283.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">old : Boolean = false</text>
@@ -136,6 +143,7 @@
   <text x="2676.2" y="203.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">t2 :</text>
   <text x="2676.2" y="219.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">T_FF</text>
   <line x1="2564.0" y1="226.0" x2="2788.4" y2="226.0" stroke="#000" stroke-width="1"/>
+  <rect x="2563.0" y="170.0" width="226.4" height="239.0" rx="10.0" ry="10.0" fill="none" stroke="#000" stroke-width="1.5"/>
   <text x="2676.2" y="241.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">attributes</text>
   <text x="2571.0" y="259.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">c : Boolean = false</text>
   <text x="2571.0" y="275.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">old : Boolean = false</text>
@@ -157,6 +165,7 @@
   <text x="3155.8" y="211.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">f2 :</text>
   <text x="3155.8" y="227.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">F_TRIG</text>
   <line x1="3048.3" y1="234.0" x2="3263.3" y2="234.0" stroke="#000" stroke-width="1"/>
+  <rect x="3047.3" y="178.0" width="217.0" height="223.0" rx="10.0" ry="10.0" fill="none" stroke="#000" stroke-width="1.5"/>
   <text x="3155.8" y="249.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">attributes</text>
   <text x="3055.3" y="267.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">clk : Boolean = false</text>
   <text x="3055.3" y="283.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">old : Boolean = false</text>
@@ -177,6 +186,7 @@
   <text x="3627.4" y="203.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">t3 :</text>
   <text x="3627.4" y="219.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">T_FF</text>
   <line x1="3515.2" y1="226.0" x2="3739.5" y2="226.0" stroke="#000" stroke-width="1"/>
+  <rect x="3514.2" y="170.0" width="226.4" height="239.0" rx="10.0" ry="10.0" fill="none" stroke="#000" stroke-width="1.5"/>
   <text x="3627.4" y="241.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">attributes</text>
   <text x="3522.2" y="259.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">c : Boolean = false</text>
   <text x="3522.2" y="275.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">old : Boolean = false</text>

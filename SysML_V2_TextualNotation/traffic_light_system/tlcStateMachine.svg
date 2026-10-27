@@ -9,30 +9,36 @@
   <path d="M17.0,79.0 L17.0,64.0 Q17.0,55.0 26.0,55.0 L1269.2,55.0 Q1278.2,55.0 1278.2,64.0 L1278.2,79.0 Z" fill="#fbf1da"/>
   <text x="647.6" y="72.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">tlcStateMachine</text>
   <line x1="17.0" y1="79.0" x2="1278.2" y2="79.0" stroke="#000" stroke-width="1"/>
+  <rect x="16.0" y="54.0" width="1263.2" height="1126.0" rx="10.0" ry="10.0" fill="none" stroke="#000" stroke-width="1.5"/>
   <rect x="532.3" y="153.0" width="716.9" height="997.0" rx="10.0" ry="10.0" fill="#fffbef" stroke="#000" stroke-width="1.5"/>
   <path d="M533.3,178.0 L533.3,163.0 Q533.3,154.0 542.3,154.0 L1239.2,154.0 Q1248.2,154.0 1248.2,163.0 L1248.2,178.0 Z" fill="#faedce"/>
   <text x="890.8" y="171.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">Activity</text>
   <line x1="533.3" y1="178.0" x2="1248.2" y2="178.0" stroke="#000" stroke-width="1"/>
+  <rect x="532.3" y="153.0" width="716.9" height="997.0" rx="10.0" ry="10.0" fill="none" stroke="#000" stroke-width="1.5"/>
   <circle cx="1218.2" cy="822.0" r="9.0" stroke="#000" stroke-width="1.5" fill="#000"/>
   <rect x="693.0" y="859.0" width="454.9" height="269.0" rx="10.0" ry="10.0" fill="#fffaec" stroke="#000" stroke-width="1.5"/>
   <path d="M694.0,884.0 L694.0,869.0 Q694.0,860.0 703.0,860.0 L1137.9,860.0 Q1146.9,860.0 1146.9,869.0 L1146.9,884.0 Z" fill="#f8e9c3"/>
   <text x="920.4" y="877.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">OutOfService</text>
   <line x1="694.0" y1="884.0" x2="1146.9" y2="884.0" stroke="#000" stroke-width="1"/>
+  <rect x="693.0" y="859.0" width="454.9" height="269.0" rx="10.0" ry="10.0" fill="none" stroke="#000" stroke-width="1.5"/>
   <circle cx="1116.9" cy="1009.0" r="9.0" stroke="#000" stroke-width="1.5" fill="#000"/>
   <rect x="823.1" y="1046.0" width="207.6" height="60.0" rx="12.0" ry="12.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
   <path d="M824.1,1071.0 L824.1,1058.0 Q824.1,1047.0 835.1,1047.0 L1018.7,1047.0 Q1029.7,1047.0 1029.7,1058.0 L1029.7,1071.0 Z" fill="#f7e5b7"/>
   <text x="926.9" y="1064.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">OutOfServiceYellowOn</text>
   <line x1="824.1" y1="1071.0" x2="1029.7" y2="1071.0" stroke="#000" stroke-width="1"/>
   <text x="831.1" y="1084.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">entry: setYellow</text>
+  <rect x="823.1" y="1046.0" width="207.6" height="60.0" rx="12.0" ry="12.0" fill="none" stroke="#000" stroke-width="1.5"/>
   <rect x="802.7" y="912.0" width="217.0" height="60.0" rx="12.0" ry="12.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
   <path d="M803.7,937.0 L803.7,924.0 Q803.7,913.0 814.7,913.0 L1007.6,913.0 Q1018.6,913.0 1018.6,924.0 L1018.6,937.0 Z" fill="#f7e5b7"/>
   <text x="911.2" y="930.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">OutOfServiceYellowOff</text>
   <line x1="803.7" y1="937.0" x2="1018.6" y2="937.0" stroke="#000" stroke-width="1"/>
   <text x="810.7" y="950.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">entry: resetYellow</text>
+  <rect x="802.7" y="912.0" width="217.0" height="60.0" rx="12.0" ry="12.0" fill="none" stroke="#000" stroke-width="1.5"/>
   <rect x="631.5" y="206.0" width="525.8" height="569.0" rx="10.0" ry="10.0" fill="#fffaec" stroke="#000" stroke-width="1.5"/>
   <path d="M632.5,231.0 L632.5,216.0 Q632.5,207.0 641.5,207.0 L1147.2,207.0 Q1156.2,207.0 1156.2,216.0 L1156.2,231.0 Z" fill="#f8e9c3"/>
   <text x="894.3" y="224.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">Operational</text>
   <line x1="632.5" y1="231.0" x2="1156.2" y2="231.0" stroke="#000" stroke-width="1"/>
+  <rect x="631.5" y="206.0" width="525.8" height="569.0" rx="10.0" ry="10.0" fill="none" stroke="#000" stroke-width="1.5"/>
   <circle cx="1108.2" cy="502.0" r="9.0" stroke="#000" stroke-width="1.5" fill="#000"/>
   <rect x="867.8" y="539.0" width="151.3" height="76.0" rx="12.0" ry="12.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
   <path d="M868.8,564.0 L868.8,551.0 Q868.8,540.0 879.8,540.0 L1007.1,540.0 Q1018.1,540.0 1018.1,551.0 L1018.1,564.0 Z" fill="#f7e5b7"/>
@@ -40,38 +46,45 @@
   <line x1="868.8" y1="564.0" x2="1018.1" y2="564.0" stroke="#000" stroke-width="1"/>
   <text x="875.8" y="577.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">entry: setRed</text>
   <text x="875.8" y="593.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">exit: resetRed</text>
+  <rect x="867.8" y="539.0" width="151.3" height="76.0" rx="12.0" ry="12.0" fill="none" stroke="#000" stroke-width="1.5"/>
   <rect x="736.2" y="677.0" width="231.7" height="76.0" rx="12.0" ry="12.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
   <path d="M737.2,702.0 L737.2,689.0 Q737.2,678.0 748.2,678.0 L956.0,678.0 Q967.0,678.0 967.0,689.0 L967.0,702.0 Z" fill="#f7e5b7"/>
   <text x="852.1" y="695.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">OperationalRedYellow</text>
   <line x1="737.2" y1="702.0" x2="967.0" y2="702.0" stroke="#000" stroke-width="1"/>
   <text x="744.2" y="715.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">entry: setRedAndYellow</text>
   <text x="744.2" y="731.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">exit: resetRedAndYellow</text>
+  <rect x="736.2" y="677.0" width="231.7" height="76.0" rx="12.0" ry="12.0" fill="none" stroke="#000" stroke-width="1.5"/>
   <rect x="756.8" y="259.0" width="170.1" height="76.0" rx="12.0" ry="12.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
   <path d="M757.8,284.0 L757.8,271.0 Q757.8,260.0 768.8,260.0 L914.8,260.0 Q925.8,260.0 925.8,271.0 L925.8,284.0 Z" fill="#f7e5b7"/>
   <text x="841.8" y="277.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">OperationalGreen</text>
   <line x1="757.8" y1="284.0" x2="925.8" y2="284.0" stroke="#000" stroke-width="1"/>
   <text x="764.8" y="297.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">entry: setGreen</text>
   <text x="764.8" y="313.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">exit: resetGreen</text>
+  <rect x="756.8" y="259.0" width="170.1" height="76.0" rx="12.0" ry="12.0" fill="none" stroke="#000" stroke-width="1.5"/>
   <rect x="828.5" y="397.0" width="179.5" height="76.0" rx="12.0" ry="12.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
   <path d="M829.5,422.0 L829.5,409.0 Q829.5,398.0 840.5,398.0 L995.9,398.0 Q1006.9,398.0 1006.9,409.0 L1006.9,422.0 Z" fill="#f7e5b7"/>
   <text x="918.2" y="415.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">OperationalYellow</text>
   <line x1="829.5" y1="422.0" x2="1006.9" y2="422.0" stroke="#000" stroke-width="1"/>
   <text x="836.5" y="435.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">entry: setYellow</text>
   <text x="836.5" y="451.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">exit: resetYellow</text>
+  <rect x="828.5" y="397.0" width="179.5" height="76.0" rx="12.0" ry="12.0" fill="none" stroke="#000" stroke-width="1.5"/>
   <circle cx="890.8" cy="124.0" r="9.0" stroke="#000" stroke-width="1.5" fill="#000"/>
   <rect x="46.0" y="153.0" width="450.3" height="247.0" rx="10.0" ry="10.0" fill="#fffbef" stroke="#000" stroke-width="1.5"/>
   <path d="M47.0,178.0 L47.0,163.0 Q47.0,154.0 56.0,154.0 L486.3,154.0 Q495.3,154.0 495.3,163.0 L495.3,178.0 Z" fill="#faedce"/>
   <text x="271.2" y="171.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">CountingServiceTime</text>
   <line x1="47.0" y1="178.0" x2="495.3" y2="178.0" stroke="#000" stroke-width="1"/>
+  <rect x="46.0" y="153.0" width="450.3" height="247.0" rx="10.0" ry="10.0" fill="none" stroke="#000" stroke-width="1.5"/>
   <circle cx="465.3" cy="281.0" r="9.0" stroke="#000" stroke-width="1.5" fill="#000"/>
   <rect x="159.4" y="318.0" width="231.7" height="60.0" rx="12.0" ry="12.0" fill="#fffaec" stroke="#000" stroke-width="1.5"/>
   <path d="M160.4,343.0 L160.4,330.0 Q160.4,319.0 171.4,319.0 L379.2,319.0 Q390.2,319.0 390.2,330.0 L390.2,343.0 Z" fill="#f8e9c3"/>
   <text x="275.3" y="336.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">noService</text>
   <line x1="160.4" y1="343.0" x2="390.2" y2="343.0" stroke="#000" stroke-width="1"/>
   <text x="167.4" y="356.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">do: checkServiceCounter</text>
+  <rect x="159.4" y="318.0" width="231.7" height="60.0" rx="12.0" ry="12.0" fill="none" stroke="#000" stroke-width="1.5"/>
   <rect x="180.7" y="206.0" width="141.9" height="36.0" rx="12.0" ry="12.0" fill="#fffaec" stroke="#000" stroke-width="1.5"/>
   <path d="M181.7,231.0 L181.7,218.0 Q181.7,207.0 192.7,207.0 L310.6,207.0 Q321.6,207.0 321.6,218.0 L321.6,231.0 Z" fill="#f8e9c3"/>
   <text x="251.7" y="224.5" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">serviceNeeded</text>
+  <rect x="180.7" y="206.0" width="141.9" height="36.0" rx="12.0" ry="12.0" fill="none" stroke="#000" stroke-width="1.5"/>
   <circle cx="271.2" cy="124.0" r="9.0" stroke="#000" stroke-width="1.5" fill="#000"/>
   <line x1="514.3" y1="79.0" x2="514.3" y2="1179.0" stroke="#000" stroke-width="1" stroke-dasharray="6 4"/>
   <circle cx="647.6" cy="25.0" r="9.0" stroke="#000" stroke-width="1.5" fill="#000"/>

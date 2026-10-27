@@ -11,6 +11,7 @@
   <line x1="17.0" y1="36.0" x2="1339.6" y2="36.0" stroke="#000" stroke-width="1"/>
   <text x="678.3" y="49.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">TestFallingEdge</text>
   <line x1="17.0" y1="56.0" x2="1339.6" y2="56.0" stroke="#000" stroke-width="1"/>
+  <rect x="16.0" y="16.0" width="1324.6" height="565.0" rx="0.0" ry="0.0" fill="none" stroke="#000" stroke-width="1.5"/>
   <text x="678.3" y="71.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">parts</text>
   <rect x="34.0" y="85.0" width="235.7" height="223.0" rx="10.0" ry="10.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
   <path d="M35.0,105.0 L35.0,95.0 Q35.0,86.0 44.0,86.0 L259.7,86.0 Q268.7,86.0 268.7,95.0 L268.7,105.0 Z" fill="#f7e5b7"/>
@@ -18,6 +19,7 @@
   <line x1="35.0" y1="105.0" x2="268.7" y2="105.0" stroke="#000" stroke-width="1"/>
   <text x="151.9" y="118.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">sp_1</text>
   <line x1="35.0" y1="125.0" x2="268.7" y2="125.0" stroke="#000" stroke-width="1"/>
+  <rect x="34.0" y="85.0" width="235.7" height="223.0" rx="10.0" ry="10.0" fill="none" stroke="#000" stroke-width="1.5"/>
   <text x="151.9" y="140.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">attributes</text>
   <text x="42.0" y="158.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">ton : Real = 0.1</text>
   <text x="42.0" y="174.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">toff : Real = 0.1</text>
@@ -37,6 +39,7 @@
   <text x="632.3" y="126.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">not_1 :</text>
   <text x="632.3" y="142.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">BoolNot</text>
   <line x1="529.5" y1="149.0" x2="735.1" y2="149.0" stroke="#000" stroke-width="1"/>
+  <rect x="528.5" y="93.0" width="207.6" height="207.0" rx="10.0" ry="10.0" fill="none" stroke="#000" stroke-width="1.5"/>
   <text x="632.3" y="164.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">attributes</text>
   <text x="536.5" y="182.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">v1 : Boolean = false</text>
   <line x1="529.5" y1="195.0" x2="735.1" y2="195.0" stroke="#000" stroke-width="1"/>
@@ -56,6 +59,7 @@
   <text x="643.8" y="373.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">rtrig_1 :</text>
   <text x="643.8" y="389.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">R_TRIG</text>
   <line x1="536.3" y1="396.0" x2="751.3" y2="396.0" stroke="#000" stroke-width="1"/>
+  <rect x="535.3" y="340.0" width="217.0" height="223.0" rx="10.0" ry="10.0" fill="none" stroke="#000" stroke-width="1.5"/>
   <text x="643.8" y="411.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">attributes</text>
   <text x="543.3" y="429.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">clk : Boolean = false</text>
   <text x="543.3" y="445.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">old : Boolean = false</text>
@@ -76,6 +80,7 @@
   <text x="1110.7" y="118.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">ftrig_1 :</text>
   <text x="1110.7" y="134.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">F_TRIG</text>
   <line x1="1003.2" y1="141.0" x2="1218.2" y2="141.0" stroke="#000" stroke-width="1"/>
+  <rect x="1002.2" y="85.0" width="217.0" height="223.0" rx="10.0" ry="10.0" fill="none" stroke="#000" stroke-width="1.5"/>
   <text x="1110.7" y="156.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">attributes</text>
   <text x="1010.2" y="174.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">clk : Boolean = false</text>
   <text x="1010.2" y="190.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">old : Boolean = false</text>

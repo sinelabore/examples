@@ -11,6 +11,7 @@
   <line x1="17.0" y1="36.0" x2="991.6" y2="36.0" stroke="#000" stroke-width="1"/>
   <text x="504.3" y="49.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">checkServiceCounter</text>
   <line x1="17.0" y1="56.0" x2="991.6" y2="56.0" stroke="#000" stroke-width="1"/>
+  <rect x="16.0" y="16.0" width="976.6" height="352.0" rx="10.0" ry="10.0" fill="none" stroke="#000" stroke-width="1.5"/>
   <text x="504.3" y="76.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">action flow</text>
   <circle cx="504.3" cy="94.0" r="9.0" stroke="#000" stroke-width="1.5" fill="#000"/>
   <rect x="30.0" y="123.0" width="948.6" height="231.0" rx="10.0" ry="10.0" fill="#fff9e8" stroke="#000" stroke-width="1.5"/>
@@ -19,6 +20,7 @@
   <line x1="31.0" y1="143.0" x2="977.6" y2="143.0" stroke="#000" stroke-width="1"/>
   <text x="504.3" y="156.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">IfActionUse0</text>
   <line x1="31.0" y1="163.0" x2="977.6" y2="163.0" stroke="#000" stroke-width="1"/>
+  <rect x="30.0" y="123.0" width="948.6" height="231.0" rx="10.0" ry="10.0" fill="none" stroke="#000" stroke-width="1.5"/>
   <text x="504.3" y="183.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">if condition</text>
   <text x="38.0" y="201.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">yellowLamp.switchCounter&gt;5 or 
 			   redLamp.switchCounter &gt; 5 or
@@ -30,6 +32,7 @@
   <line x1="412.2" y1="302.0" x2="596.4" y2="302.0" stroke="#000" stroke-width="1"/>
   <text x="504.3" y="315.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">assignmentNode3</text>
   <text x="504.3" y="331.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">needService := true</text>
+  <rect x="411.2" y="282.0" width="186.2" height="58.0" rx="12.0" ry="12.0" fill="none" stroke="#000" stroke-width="1.5"/>
   <circle cx="504.3" cy="253.0" r="9.0" stroke="#000" stroke-width="1.5" fill="#000"/>
   <line x1="31.0" y1="214.0" x2="977.6" y2="214.0" stroke="#000" stroke-width="1"/>
   <path d="M504.3,103.0 L504.3,123.0" fill="none" stroke="#8a6e3d" stroke-width="1.0" stroke-dasharray="6 4" marker-end="url(#arrow)"/>

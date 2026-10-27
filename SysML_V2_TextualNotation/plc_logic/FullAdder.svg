@@ -11,6 +11,7 @@
   <line x1="143.5" y1="36.0" x2="2011.3" y2="36.0" stroke="#000" stroke-width="1"/>
   <text x="1077.4" y="49.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">FullAdder</text>
   <line x1="143.5" y1="56.0" x2="2011.3" y2="56.0" stroke="#000" stroke-width="1"/>
+  <rect x="142.5" y="16.0" width="1869.8" height="903.4" rx="0.0" ry="0.0" fill="none" stroke="#000" stroke-width="1.5"/>
   <text x="1077.4" y="71.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">parts</text>
   <rect x="136.5" y="182.5" width="12.0" height="12.0" rx="0.0" ry="0.0" fill="#f7e5b7" stroke="#000" stroke-width="1.5"/>
   <polygon points="146.7,188.5 139.9,191.1 139.9,185.9" fill="#8a6e3d"/>
@@ -29,6 +30,7 @@
   <text x="376.7" y="118.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">fanA :</text>
   <text x="376.7" y="134.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">BoolFanOut4</text>
   <line x1="278.6" y1="141.0" x2="474.8" y2="141.0" stroke="#000" stroke-width="1"/>
+  <rect x="277.6" y="85.0" width="198.2" height="207.0" rx="10.0" ry="10.0" fill="none" stroke="#000" stroke-width="1.5"/>
   <text x="376.7" y="156.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">attributes</text>
   <text x="285.6" y="174.0" text-anchor="start" font-family="Arial, sans-serif" font-size="14">v : Boolean = false</text>
   <line x1="278.6" y1="187.0" x2="474.8" y2="187.0" stroke="#000" stroke-width="1"/>
@@ -54,6 +56,7 @@
   <text x="376.7" y="404.1" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">fanB :</text>
   <text x="376.7" y="420.1" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">BoolFanOut4</text>
   <line x1="278.6" y1="427.1" x2="474.8" y2="427.1" stroke="#000" stroke-width="1"/>
+  <rect x="277.6" y="371.1" width="198.2" height="207.0" rx="10.0" ry="10.0" fill="none" stroke="#000" stroke-width="1.5"/>
   <text x="376.7" y="442.1" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">attributes</text>
   <text x="285.6" y="460.1" text-anchor="start" font-family="Arial, sans-serif" font-size="14">v : Boolean = false</text>
   <line x1="278.6" y1="473.1" x2="474.8" y2="473.1" stroke="#000" stroke-width="1"/>
@@ -79,6 +82,7 @@
   <text x="845.4" y="689.3" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">fanCin :</text>
   <text x="845.4" y="705.3" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">BoolFanOut4</text>
   <line x1="747.3" y1="712.3" x2="943.5" y2="712.3" stroke="#000" stroke-width="1"/>
+  <rect x="746.3" y="656.3" width="198.2" height="207.0" rx="10.0" ry="10.0" fill="none" stroke="#000" stroke-width="1.5"/>
   <text x="845.4" y="727.3" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">attributes</text>
   <text x="754.3" y="745.3" text-anchor="start" font-family="Arial, sans-serif" font-size="14">v : Boolean = false</text>
   <line x1="747.3" y1="758.3" x2="943.5" y2="758.3" stroke="#000" stroke-width="1"/>
@@ -104,6 +108,7 @@
   <text x="851.5" y="163.3" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">xor1 :</text>
   <text x="851.5" y="179.3" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">BoolXor2</text>
   <line x1="748.7" y1="186.3" x2="954.3" y2="186.3" stroke="#000" stroke-width="1"/>
+  <rect x="747.7" y="130.3" width="207.6" height="223.0" rx="10.0" ry="10.0" fill="none" stroke="#000" stroke-width="1.5"/>
   <text x="851.5" y="201.3" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">attributes</text>
   <text x="755.7" y="219.3" text-anchor="start" font-family="Arial, sans-serif" font-size="14">v1 : Boolean = false</text>
   <text x="755.7" y="235.3" text-anchor="start" font-family="Arial, sans-serif" font-size="14">v2 : Boolean = false</text>
@@ -126,6 +131,7 @@
   <text x="851.5" y="426.3" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">and1 :</text>
   <text x="851.5" y="442.3" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">BoolAnd2</text>
   <line x1="748.7" y1="449.3" x2="954.3" y2="449.3" stroke="#000" stroke-width="1"/>
+  <rect x="747.7" y="393.3" width="207.6" height="223.0" rx="10.0" ry="10.0" fill="none" stroke="#000" stroke-width="1.5"/>
   <text x="851.5" y="464.3" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">attributes</text>
   <text x="755.7" y="482.3" text-anchor="start" font-family="Arial, sans-serif" font-size="14">v1 : Boolean = false</text>
   <text x="755.7" y="498.3" text-anchor="start" font-family="Arial, sans-serif" font-size="14">v2 : Boolean = false</text>
@@ -148,6 +154,7 @@
   <text x="1323.3" y="202.4" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">xor2 :</text>
   <text x="1323.3" y="218.4" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">BoolXor2</text>
   <line x1="1220.5" y1="225.4" x2="1426.1" y2="225.4" stroke="#000" stroke-width="1"/>
+  <rect x="1219.5" y="169.4" width="207.6" height="223.0" rx="10.0" ry="10.0" fill="none" stroke="#000" stroke-width="1.5"/>
   <text x="1323.3" y="240.4" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">attributes</text>
   <text x="1227.5" y="258.4" text-anchor="start" font-family="Arial, sans-serif" font-size="14">v1 : Boolean = false</text>
   <text x="1227.5" y="274.4" text-anchor="start" font-family="Arial, sans-serif" font-size="14">v2 : Boolean = false</text>
@@ -170,6 +177,7 @@
   <text x="1323.3" y="711.4" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">and2 :</text>
   <text x="1323.3" y="727.4" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">BoolAnd2</text>
   <line x1="1220.5" y1="734.4" x2="1426.1" y2="734.4" stroke="#000" stroke-width="1"/>
+  <rect x="1219.5" y="678.4" width="207.6" height="223.0" rx="10.0" ry="10.0" fill="none" stroke="#000" stroke-width="1.5"/>
   <text x="1323.3" y="749.4" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">attributes</text>
   <text x="1227.5" y="767.4" text-anchor="start" font-family="Arial, sans-serif" font-size="14">v1 : Boolean = false</text>
   <text x="1227.5" y="783.4" text-anchor="start" font-family="Arial, sans-serif" font-size="14">v2 : Boolean = false</text>
@@ -192,6 +200,7 @@
   <text x="1781.1" y="465.4" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">or1 :</text>
   <text x="1781.1" y="481.4" text-anchor="middle" font-family="Arial, sans-serif" font-size="14">BoolOr2</text>
   <line x1="1678.3" y1="488.4" x2="1883.9" y2="488.4" stroke="#000" stroke-width="1"/>
+  <rect x="1677.3" y="432.4" width="207.6" height="223.0" rx="10.0" ry="10.0" fill="none" stroke="#000" stroke-width="1.5"/>
   <text x="1781.1" y="503.4" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-style="italic">attributes</text>
   <text x="1685.3" y="521.4" text-anchor="start" font-family="Arial, sans-serif" font-size="14">v1 : Boolean = false</text>
   <text x="1685.3" y="537.4" text-anchor="start" font-family="Arial, sans-serif" font-size="14">v2 : Boolean = false</text>
