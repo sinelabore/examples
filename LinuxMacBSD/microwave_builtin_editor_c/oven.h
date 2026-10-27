@@ -1,6 +1,6 @@
 /* (C) Your company *//* Command line options: -p ssc -o oven oven.xml   */
 /* This file is generated from oven.xml - do not edit manually*/
-/* Generated on: Fri Mar 15 11:23:55 CET 2024 / Version 6.3.2.3814 */
+/* Generated on: Tue Oct 27 19:53:47 CET 2026 / 8.0 */
 
 
 #ifndef OVEN_H
@@ -59,7 +59,7 @@ void ovenInitMachine(OVEN_INSTANCEDATA_T * const instanceVar, OVEN_INST_ID_T ins
 
 
 /* Prototype of the state machine function */
-void  oven(OVEN_INSTANCEDATA_T *instanceVar, OVEN_EVENT_T  msg);
+void  oven(OVEN_INSTANCEDATA_T *instanceVar, const OVEN_MSG_T *userData);
 
 
 /* Prototoye of the reset machine function */

@@ -20,8 +20,9 @@ OVEN_INSTANCEDATA_T instData = OVEN_INSTANCEDATA_INIT;
 static struct termios init_tio;
 static struct timespec tv={0,1000*1000*100}; // ~100ms
 
-// parameter
-T_PWR pwr = PWR_LOW;
+// power levels the 'p' and 'P' keys send with evPwr, in watts
+#define PWR_MEDIUM_W 400u
+#define PWR_HIGH_W   1200u
 
 void init_keyboard()
 {            
@@ -76,8 +77,8 @@ int main(int argc, char* argv[]){
 
 	unsigned char timer_status;
 	int i;
-	// message to state machine
-	OVEN_EVENT_T msg;
+	// message to state machine: the event id, and for evPwr the power in watts
+	OVEN_MSG_T msg;
 	
 /*	
 	do{
@@ -96,11 +97,13 @@ int main(int argc, char* argv[]){
 			
 			timer_status = tick();
 			if(timer_status)
-				msg=evTimeout;
+				msg.msg=evTimeout;
 			else
-				msg=events[i];
+				msg.msg=events[i];
+			if(msg.msg==evPwr)
+				msg.data.evPwr.pwr=PWR_HIGH_W;
 				
-			oven(&instData,msg);	
+			oven(&instData,&msg);	
 		}
 	}else{
 		//
@@ -108,42 +111,42 @@ int main(int argc, char* argv[]){
 		//
 		init_keyboard();
 		printf("Unknown key. Use + for inc; - for dec; o for open and c for close.\n");
-		printf("             Use 'p' to set medium power; 'P' to set high power\n");		
+		printf("             Use 'p' to set medium power (400 W); 'P' to set high power (1200 W)\n");		
 		do{
 			nanosleep(&tv,0);
 			timer_status = tick();
 			
 			if(timer_status)
-				msg=evTimeout;
+				msg.msg=evTimeout;
 			else if(kbhit()){
 				char ch=readch();
 				if(ch=='+')
-					msg=evInc;
+					msg.msg=evInc;
 				else if(ch=='-')
-					msg=evDec;
+					msg.msg=evDec;
 				else if(ch=='c')
-					msg=evDoorClosed;
+					msg.msg=evDoorClosed;
 				else if(ch=='o')
-					msg=evDoorOpen;
+					msg.msg=evDoorOpen;
 				else if(ch=='q'){
 					close_keyboard();
 					exit(0);					
 				}else if(ch=='P'){
-					pwr = PWR_HIGH;
-					msg=evPwr;
+					msg.msg=evPwr;
+					msg.data.evPwr.pwr=PWR_HIGH_W;
 				}else if(ch=='p'){
-					pwr = PWR_LOW;
-					msg=evPwr;
+					msg.msg=evPwr;
+					msg.data.evPwr.pwr=PWR_MEDIUM_W;
 				}else{
 					printf("Unknown key. Use + for inc; - for dec; o for open and c for close.\n");
-					printf("             Use 'p' to set medium power; 'P' to set high power\n");
-					msg=OVEN_NO_MSG;
+					printf("             Use 'p' to set medium power (400 W); 'P' to set high power (1200 W)\n");
+					msg.msg=OVEN_NO_MSG;
 				}
 			}else{
-				msg=OVEN_NO_MSG;
+				msg.msg=OVEN_NO_MSG;
 			}
 				
-			oven(&instData, msg);			
+			oven(&instData, &msg);			
 		
 		}while(1);
 	}

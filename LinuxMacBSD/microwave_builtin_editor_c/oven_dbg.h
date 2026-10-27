@@ -1,6 +1,6 @@
 /* (C) Your company *//* Command line options: -p ssc -o oven oven.xml   */
 /* This file is generated from oven.xml - do not edit manually */
-/* Generated on: Fri Mar 15 11:23:55 CET 2024 / Version 6.3.2.3814 */
+/* Generated on: Tue Oct 27 19:53:47 CET 2026 / 8.0 */
 
 
 
@@ -28,12 +28,12 @@ const unsigned short oven_state_idx[]={
 
 /* Event names */
 const char oven_events[]=
-	"evTimeout\0evDec\0evDoorOpen\0evDoorClosed\0evInc\0evPwr\0NO_MSG\0";
+	"evDec\0evDoorClosed\0evDoorOpen\0evInc\0evPwr\0evTimeout\0NO_MSG\0";
 
 
 /* Event values */
 const unsigned short oven_event_values[]={
-	evTimeout,evDec,evDoorOpen,evDoorClosed,evInc,evPwr,OVEN_NO_MSG
+	evDec,evDoorClosed,evDoorOpen,evInc,evPwr,evTimeout,OVEN_NO_MSG
 };
 
 
@@ -61,7 +61,7 @@ unsigned short oven_map_state_enum(unsigned short state){
 
 
 const unsigned short oven_evt_idx[]={
-	0,10,16,27,40,46,52
+	0,6,19,30,36,42,52
 };
 
 const char* ovenGetNameByState(unsigned short state){

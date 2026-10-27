@@ -10,12 +10,6 @@ typedef enum {
 	PAUSE=2
 } T_TIMER_STATE;
 
-// Defines for Power Control
-typedef enum{
-	PWR_LOW=1,
-	PWR_HIGH=2
-} T_PWR;
-
 // timer related functions
 
 // starts timer
@@ -49,8 +43,8 @@ void timer_cont(void);
 // other helpers
 //
 
-// Sets power 
-void ovenSetPwr(T_PWR pwr);
+// Sets power, in watts (evPwr carries it)
+void ovenSetPwr(uint16_t watts);
 
 // Switch off microwave generator
 void ovenOff(void);

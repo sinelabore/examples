@@ -7,9 +7,6 @@ static T_TIMER_STATE timerStatus;
 static uint16_t tickval=0;
 static uint8_t presetval=0;
 
-extern T_PWR pwr;
-
-
 //
 // Timer functions
 //
@@ -86,11 +83,8 @@ void timer_dec(void){
 
 // Pwr Functions
 
-void ovenSetPwr(T_PWR pwr_in){
-	if(pwr_in==PWR_LOW)
-		printf("Oven::set to 'PWR_LOW'\n");
-	else if(pwr_in==PWR_HIGH)
-		printf("Oven::set to 'PWR_HIGH'\n");
+void ovenSetPwr(uint16_t watts){
+	printf("Oven::set power to %u W\n", (unsigned)watts);
 }
 
 void ovenOff(void){

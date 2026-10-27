@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <ssc:StateChart xmlns:ssc="http://www.sinelabore.com/SSC/1_0" Version="1.0">
-  <!--Command line options: -p ssc -E -l cx -o oven oven.xml -->
+  <!--Command line options: -p ssc -E -o oven.xml oven.xml -->
   <!--This file is generated - do not edit manually-->
-  <!--Generated on: Fri Mar 15 11:16:56 CET 2024 / Version 6.3.2.3814-->
-  <ssc:Dimensions H="800" W="1200" BA="51" DW="589" NO="550" TV="398" />
+  <!--Generated on: Tue Oct 27 19:47:47 CET 2026 / 8.0-->
+  <ssc:Dimensions H="800" W="1382" BA="37" DW="774" NO="660" TV="398" OC="yes" />
+  <ssc:EventPayloads>
+    <ssc:EventPayload Event="evPwr">
+      <ssc:Field Name="pwr" Type="uint16_t" />
+    </ssc:EventPayload>
+  </ssc:EventPayloads>
   <ssc:Header>#include "mydefs.h"
 #include "oven_ext.h"
 #include "oven.h"
 #include "oven_hlp.h"
-#include &lt;stdio.h&gt;
-
-extern T_PWR pwr;</ssc:Header>
+#include &lt;stdio.h&gt;</ssc:Header>
   <ssc:Action>/* just a comment */</ssc:Action>
   <ssc:StateHeader />
   <ssc:AdditionalIncludesStates />
