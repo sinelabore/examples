@@ -33,3 +33,13 @@
 .DS_Store
 /OS_neutral/microwave_java/Oven/nbproject/private/
 /OS_neutral/microwave_java/Oven/dist/
+
+# SysML v2 examples: what make generates or builds, and local helpers
+/.vscode/
+__pycache__/
+.ipynb_checkpoints/
+/SysML_V2_TextualNotation/**/system.h
+/SysML_V2_TextualNotation/**/system.py
+/SysML_V2_TextualNotation/**/testcase
+/SysML_V2_TextualNotation/microwave/cpp/oven
+/SysML_V2_TextualNotation/microwave/cpp/msvc_docker.sh
