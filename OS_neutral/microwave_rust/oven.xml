@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ssc:StateChart xmlns:ssc="http://www.sinelabore.com/SSC/1_0" Version="1.0">
+  <!--Command line options: -p ssc -E oven.xml -->
+  <!--This file is generated - do not edit manually-->
+  <!--Generated on: Tue Nov 03 19:44:19 CET 2026 / 8.0-->
+  <ssc:Dimensions H="800" W="1382" BA="37" DW="774" NO="660" TV="398" OC="yes" />
+  <ssc:EventPayloads>
+    <ssc:EventPayload Event="evPwr">
+      <ssc:Field Name="pwr" Type="u16" />
+    </ssc:EventPayload>
+  </ssc:EventPayloads>
+  <ssc:Header />
+  <ssc:Action />
+  <ssc:StateHeader />
+  <ssc:AdditionalIncludesStates />
+  <ssc:State Name="Super" History="Flat">
+    <ssc:Transition Event="evInc" ToState="Super" FromState="Super" Action="timer_service.inc();" FromLayoutHint="N" ToLayoutHint="N" />
+    <ssc:Transition Event="evDec" ToState="Super" FromState="Super" Action="timer_service.dec();" FromLayoutHint="W" ToLayoutHint="W" />
+    <ssc:Transition Event="evPwr" ToState="Super" FromState="Super" Action="data.set_power(pwr);" FromLayoutHint="E" ToLayoutHint="E" />
+    <ssc:Region Name="MainRegion">
+      <ssc:State Name="Completed">
+        <ssc:Transition Event="evDoorOpen" ToState="Idle" FromState="Completed" />
+      </ssc:State>
+      <ssc:State Name="Cooking">
+        <EntryCode>data.on();</EntryCode>
+        <ssc:Transition Event="evTimeout" ToState="Completed" FromState="Cooking" Action="data.off();&#xA;timer_service.clear();" />
+        <ssc:Transition Event="evDoorOpen" ToState="CookingPause" FromState="Cooking" Action="data.off();&#xA;timer_service.pause();" />
+      </ssc:State>
+      <ssc:State Name="CookingPause">
+        <ssc:Transition Event="evDoorClosed" ToState="Cooking" FromState="CookingPause" Action="timer_service.resume();" />
+      </ssc:State>
+      <ssc:State Name="Idle">
+        <EntryCode>data.off();</EntryCode>
+        <ssc:Transition Event="evDoorClosed" ToState="Cooking" FromState="Idle" Guard="timer_service.preset() &gt; 0" Action="timer_service.start();" />
+      </ssc:State>
+      <ssc:InitState Id="initMainRegion">
+        <ssc:Transition ToState="Idle" FromState="initMainRegion" />
+      </ssc:InitState>
+    </ssc:Region>
+  </ssc:State>
+  <ssc:InitState Id="init">
+    <ssc:Transition ToState="Super" FromState="init" />
+  </ssc:InitState>
+</ssc:StateChart>
