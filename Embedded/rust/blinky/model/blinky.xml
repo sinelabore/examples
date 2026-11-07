@@ -2,8 +2,8 @@
 <ssc:StateChart xmlns:ssc="http://www.sinelabore.com/SSC/1_0" Version="1.0">
   <!--Command line options: -p ssc -E -l rust -o src/fsm/blinky model/blinky.xml -->
   <!--This file is generated - do not edit manually-->
-  <!--Generated on: Wed Nov 04 21:06:11 CET 2026 / 8.0-->
-  <ssc:Dimensions H="776" W="953" BA="37" DW="531" NO="636" TV="180" OC="yes" />
+  <!--Generated on: Sat Nov 07 18:26:51 CET 2026 / 8.0-->
+  <ssc:Dimensions H="776" W="1053" BA="37" DW="631" NO="636" TV="180" OC="yes" />
   <ssc:Header />
   <ssc:Action />
   <ssc:StateHeader />
@@ -29,7 +29,7 @@ data.led_off();</EntryCode>
     </ssc:State>
   </ssc:State>
   <ssc:State Name="Operational">
-    <Note>Hierachical state 
+    <Note>State with regions
 example</Note>
     <ExitCode>timer_service.stop(1);</ExitCode>
     <EntryCode>timer_service.start(1, 500, BlinkyEvents::evTimeout); // ms</EntryCode>
