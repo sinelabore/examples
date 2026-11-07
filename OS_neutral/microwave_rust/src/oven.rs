@@ -2,7 +2,7 @@
 // (C) Your company
 
 // Command line options: -p ssc -l rust -o src/oven oven.xml
-// Generated on: Tue Nov 03 19:49:25 CET 2026 / 8.0
+// Generated on: Tue Nov 03 20:50:59 CET 2026 / 8.0
 
 //! State machine Oven, generated from oven.xml.
 
@@ -121,6 +121,20 @@ impl Oven {
     /// Active state inside MainRegion. Only meaningful while MainRegion is active.
     pub fn state_main_region(&self) -> OvenStates {
         self.state_main_region
+    }
+
+    /// The innermost active states, one per active region.
+    pub fn innermost_active_states(&self) -> impl Iterator<Item = OvenStates> {
+        let mut active = [OvenStates::Super; 1];
+        let mut count = 0;
+        match self.state {
+            OvenStates::Super => {
+                active[count] = self.state_main_region;
+                count += 1;
+            }
+            _ => {}
+        }
+        active.into_iter().take(count)
     }
 
     /// Processes one event and tells whether a transition was taken.
