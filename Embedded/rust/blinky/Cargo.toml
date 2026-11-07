@@ -1,0 +1,10 @@
+[package]
+name = "blinky"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+# Declared so src/ticker.rs can trace on the QEMU build. The host leaves it off.
+timer-trace = []
+
+[dependencies]

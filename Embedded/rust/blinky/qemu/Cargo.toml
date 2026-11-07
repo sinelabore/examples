@@ -1,0 +1,18 @@
+[package]
+name = "blinky-qemu"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+default = ["timer-trace"]
+# Ticker prints start and stop over semihosting. The host build leaves this off.
+timer-trace = []
+
+[dependencies]
+cortex-m = { version = "0.7", features = ["critical-section-single-core"] }
+cortex-m-rt = "0.7"
+cortex-m-semihosting = "0.5"
+panic-semihosting = { version = "0.6", features = ["exit"] }
+
+[profile.release]
+opt-level = "s"

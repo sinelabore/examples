@@ -1,0 +1,18 @@
+[package]
+name = "blinky-nucleo-l432kc"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+# Declared so the shared ticker can trace on the QEMU build. This board leaves it off.
+timer-trace = []
+
+[dependencies]
+cortex-m = { version = "0.7", features = ["critical-section-single-core"] }
+cortex-m-rt = "0.7"
+panic-halt = "0.2"
+stm32l4xx-hal = { version = "0.7", features = ["stm32l432", "rt"] }
+
+[profile.release]
+opt-level = "s"
+debug = true

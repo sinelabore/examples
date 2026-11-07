@@ -1,0 +1,6 @@
+[build]
+target = "thumbv7em-none-eabihf"   # Cortex-M4 with FPU, as on the STM32L432KC
+
+[target.thumbv7em-none-eabihf]
+runner = "probe-rs run --chip STM32L432KCUx"
+rustflags = ["-C", "link-arg=-Tlink.x"]
