@@ -1,0 +1,84 @@
+OIL_VERSION = "2.5";
+
+/*
+ * The microwave on Trampoline (AUTOSAR OS / OSEK), POSIX target.
+ *
+ * ovenTask runs the state machine. It waits for its events: one per button,
+ * set by the button's ISR, and one per timer of the machine, set by that
+ * timer's alarm. The timer service (lib/timer_service/trampoline) starts and
+ * stops the alarms; main.c tells it which alarm and event belong to which
+ * timer id.
+ *
+ * The buttons are the virtual board of the POSIX target: key a sends
+ * SIGTERM, key b SIGTRAP to the OS process.
+ */
+
+IMPLEMENTATION trampoline {
+    TASK {
+        UINT32 STACKSIZE = 32768 ;
+    } ;
+    ISR {
+        UINT32 STACKSIZE = 32768 ;
+    } ;
+};
+
+CPU microwave {
+  OS config {
+    STATUS = EXTENDED;
+    BUILD = TRUE {
+      APP_SRC = "main.c";
+      APP_SRC = "oven.c";
+      APP_SRC = "oven_hlp.c";
+      APP_SRC = "timer_service/trampoline_timer_service.c";
+      TRAMPOLINE_BASE_PATH = "trampoline";
+      CFLAGS = "-g";
+      CFLAGS = "-Itimer_service";
+      APP_NAME = "oven";
+      LINKER = "gcc";
+      SYSTEM = PYTHON;
+    };
+  };
+
+  APPMODE stdAppmode {};
+
+  /* the timers of the machine: OVEN_TM_COOKTIMER and OVEN_TM_COOKING_0 in oven.h */
+  EVENT evCookTimer { MASK = AUTO; };
+  EVENT evCookingTick { MASK = AUTO; };
+  EVENT evButtonA { MASK = AUTO; };
+  EVENT evButtonB { MASK = AUTO; };
+
+  ALARM alarmCookTimer {
+    COUNTER = SystemCounter;
+    ACTION = SETEVENT { TASK = ovenTask; EVENT = evCookTimer; };
+    AUTOSTART = FALSE;
+  };
+
+  ALARM alarmCookingTick {
+    COUNTER = SystemCounter;
+    ACTION = SETEVENT { TASK = ovenTask; EVENT = evCookingTick; };
+    AUTOSTART = FALSE;
+  };
+
+  TASK ovenTask {
+    PRIORITY = 2;
+    AUTOSTART = TRUE { APPMODE = stdAppmode; };
+    ACTIVATION = 1;
+    SCHEDULE = FULL;
+    EVENT = evCookTimer;
+    EVENT = evCookingTick;
+    EVENT = evButtonA;
+    EVENT = evButtonB;
+  };
+
+  ISR buttonA {
+    SOURCE = SIGTERM;
+    CATEGORY = 2;
+    PRIORITY = 3;
+  };
+
+  ISR buttonB {
+    SOURCE = SIGTRAP;
+    CATEGORY = 2;
+    PRIORITY = 2;
+  };
+};

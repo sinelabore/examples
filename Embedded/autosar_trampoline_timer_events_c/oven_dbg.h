@@ -1,0 +1,78 @@
+/* (C) Your company *//* Command line options: -p ssc -l cx -o oven oven.xml   */
+/* This file is generated from oven.xml - do not edit manually */
+/* Generated on: Tue Nov 17 19:39:10 CET 2026 / 8.0 */
+
+
+
+
+#ifndef OVEN_DBG_H
+#define OVEN_DBG_H
+
+/* State names */
+const char oven_states[]=
+	"Completed\0Cooking\0CookingPause\0Idle\0Super\0__OVEN_LAST_STATE__\0";
+
+
+/* State values */
+const unsigned short oven_state_values[]={
+	Completed,Cooking,CookingPause,Idle,Super,__OVEN_LAST_STATE__
+};
+
+
+#define InnermostStates "Completed,Cooking,CookingPause,Idle;"
+const unsigned short oven_state_idx[]={
+	0,10,18,31,36,42,62};
+
+#define OVEN_EVENT_START 0
+
+
+/* Event names */
+const char oven_events[]=
+	"Cooking_0Timeout\0cookTimerTimeout\0evDec\0evDoorClosed\0evDoorOpen\0evInc\0evPwr\0NO_MSG\0";
+
+
+/* Event values */
+const unsigned short oven_event_values[]={
+	Cooking_0Timeout,cookTimerTimeout,evDec,evDoorClosed,evDoorOpen,evInc,evPwr,OVEN_NO_MSG
+};
+
+
+/* Helper to map event enum value to an index starting from 0 */
+/* Needed if the event enum value is not just 0,1,2,... */
+unsigned short oven_map_event_enum(unsigned short evt){
+	unsigned short i;
+	for(i=0; i<7;i++){
+		if(oven_event_values[i]==evt) return i;
+	}
+	return 7; /* should never be reached */
+}
+
+
+/* Helper to map state enum value to an index starting from 0 */
+/* Needed if the event enum value is not just 0,1,2,... */
+unsigned short oven_map_state_enum(unsigned short state){
+	unsigned short i;
+	for(i=0; i<5;i++){
+		if(oven_state_values[i]==state) return i;
+	}
+	return 5; /* should never be reached */
+}
+
+
+
+const unsigned short oven_evt_idx[]={
+	0,17,34,40,53,64,70,76
+};
+
+const char* ovenGetNameByState(unsigned short state){
+	unsigned short idx = oven_map_state_enum(state);
+	return oven_states+oven_state_idx[idx];
+}
+
+const char* ovenGetNameByEvent(OVEN_EVENT_T evt){
+	unsigned short idx = oven_map_event_enum((unsigned short)evt);
+	return oven_events+oven_evt_idx[idx];
+}
+
+
+#endif

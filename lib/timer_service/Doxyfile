@@ -1,0 +1,22 @@
+# SPDX-License-Identifier: MIT
+# Doxygen settings for the reference timer service (C and C++): `make doc`
+# writes build/doc/html/index.html. Only what differs from the defaults is
+# listed. A warning fails the run: every public function, parameter and
+# return value must be documented.
+#
+# The RTOS headers declare the same names, so `make doc` runs each of them
+# on its own with these settings and another INPUT.
+# clang -Wdocumentation reads the same comments.
+
+PROJECT_NAME           = "SinelaboreRT timer service"
+PROJECT_BRIEF          = "Timers for generated state machines: after, every, named timers"
+OUTPUT_DIRECTORY       = build/doc
+INPUT                  = README.md timer_service.h timer_service.hpp
+USE_MDFILE_AS_MAINPAGE = README.md
+JAVADOC_AUTOBRIEF      = YES
+EXCLUDE_SYMBOLS        = sm::detail
+WARN_IF_UNDOCUMENTED   = YES
+WARN_NO_PARAMDOC       = YES
+WARN_AS_ERROR          = FAIL_ON_WARNINGS
+QUIET                  = YES
+GENERATE_LATEX         = NO

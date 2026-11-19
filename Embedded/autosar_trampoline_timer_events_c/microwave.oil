@@ -1,0 +1,99 @@
+OIL_VERSION = "2.5";
+
+/*
+ * The microwave on Trampoline (AUTOSAR OS / OSEK), POSIX target, with
+ * timeouts as events.
+ *
+ * ovenTask runs the state machine. It waits for one event, evQueue: the
+ * queue in main.c has an entry. The buttons' ISRs post their events there,
+ * and so do the timeouts: each timer of the machine has an alarm that
+ * activates a small task of its own, which posts the timer's event through
+ * the timer service (lib/timer_service/trampoline_events, tsExpired). An
+ * alarm activates its task once per expiry, an every timer once per period;
+ * an alarm that set an event would merge them. With ACTIVATION = 1 a period
+ * whose task could not run in time is dropped (overrun, E_OS_LIMIT).
+ *
+ * The buttons are the virtual board of the POSIX target: key a sends
+ * SIGTERM, key b SIGTRAP to the OS process.
+ */
+
+IMPLEMENTATION trampoline {
+    TASK {
+        UINT32 STACKSIZE = 32768 ;
+    } ;
+    ISR {
+        UINT32 STACKSIZE = 32768 ;
+    } ;
+};
+
+CPU microwave {
+  OS config {
+    STATUS = EXTENDED;
+    BUILD = TRUE {
+      APP_SRC = "main.c";
+      APP_SRC = "oven.c";
+      APP_SRC = "oven_hlp.c";
+      APP_SRC = "timer_service/trampoline_events_timer_service.c";
+      TRAMPOLINE_BASE_PATH = "trampoline";
+      CFLAGS = "-g";
+      CFLAGS = "-Itimer_service";
+      APP_NAME = "oven";
+      LINKER = "gcc";
+      SYSTEM = PYTHON;
+    };
+  };
+
+  APPMODE stdAppmode {};
+
+  /* the queue of ovenTask has an entry */
+  EVENT evQueue { MASK = AUTO; };
+
+  /* the timers of the machine: OVEN_TM_COOKTIMER and OVEN_TM_COOKING_0 in oven.h */
+  ALARM alarmCookTimer {
+    COUNTER = SystemCounter;
+    ACTION = ACTIVATETASK { TASK = cookTimerTask; };
+    AUTOSTART = FALSE;
+  };
+
+  ALARM alarmCookingTick {
+    COUNTER = SystemCounter;
+    ACTION = ACTIVATETASK { TASK = cookingTickTask; };
+    AUTOSTART = FALSE;
+  };
+
+  TASK ovenTask {
+    PRIORITY = 2;
+    AUTOSTART = TRUE { APPMODE = stdAppmode; };
+    ACTIVATION = 1;
+    SCHEDULE = FULL;
+    EVENT = evQueue;
+  };
+
+  /* Post a timer's event. Above ovenTask, so a timeout is queued as soon
+   * as its alarm expires. */
+  TASK cookTimerTask {
+    PRIORITY = 3;
+    AUTOSTART = FALSE;
+    ACTIVATION = 1;
+    SCHEDULE = FULL;
+  };
+
+  TASK cookingTickTask {
+    PRIORITY = 3;
+    AUTOSTART = FALSE;
+    ACTIVATION = 1;
+    SCHEDULE = FULL;
+  };
+
+  ISR buttonA {
+    SOURCE = SIGTERM;
+    CATEGORY = 2;
+    PRIORITY = 3;
+  };
+
+  ISR buttonB {
+    SOURCE = SIGTRAP;
+    CATEGORY = 2;
+    PRIORITY = 2;
+  };
+};

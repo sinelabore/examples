@@ -1,0 +1,12 @@
+# fetched and built by make
+trampoline/
+# what goil writes, and the link to the timer service
+microwave/
+build/
+build.py
+make.py
+readTrace.py
+timer_service
+# build products
+oven
+oven.dSYM/

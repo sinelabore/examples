@@ -1,0 +1,6 @@
+# fetched by make
+FreeRTOS-Kernel/
+# build products
+oven
+oven.dSYM/
+build/
