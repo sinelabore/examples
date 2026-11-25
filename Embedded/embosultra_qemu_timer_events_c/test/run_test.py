@@ -6,7 +6,8 @@ compare the output with test/expected.txt.
 
 The keys are typed only after the machine has started (its first output), and
 each lies half a second or more away from any timer's deadline, so the output
-does not depend on how fast the host is. Ends with 'q', which ends QEMU.
+does not depend on how fast the host is. After the last key the run waits
+for the oven to finish, then ends QEMU.
 """
 import difflib
 import os
@@ -32,9 +33,9 @@ SCRIPT = [
     (0.3, "c"),         # cooks
     (0.5, "o"),         # pause after 0.5 s: off, 1.5 s left
     (0.5, "c"),         # resume: one dot after 1 s, then off after 1.5 s
-    (2.5, "x"),         # not a key: the help
-    (0.5, "q"),         # ends the run
 ]
+# after the last key: long enough for the oven to finish
+SETTLE = 2.5
 
 
 def main():
@@ -64,23 +65,27 @@ def main():
         time.sleep(delay)
         proc.stdin.write(keys.encode())
         proc.stdin.flush()
+    time.sleep(SETTLE)
+    proc.terminate()                    # docker passes the signal on to QEMU
     try:
-        status = proc.wait(30)
+        proc.wait(30)
     except subprocess.TimeoutExpired:
         proc.kill()
-        status = "timeout"
     reader.join(5)
 
     actual = out.decode(errors="replace").replace("\r", "")
+    # QEMU's own note that the terminate above ended it
+    actual = "".join(l for l in actual.splitlines(True)
+                     if not l.startswith("qemu-system-arm: terminating on signal"))
     os.makedirs(os.path.dirname(ACTUAL), exist_ok=True)
     with open(ACTUAL, "w") as f:
         f.write(actual)
     with open(EXPECTED) as f:
         expected = f.read()
-    if status != 0 or actual != expected:
+    if actual != expected:
         sys.stdout.writelines(difflib.unified_diff(
             expected.splitlines(True), actual.splitlines(True), "expected.txt", "build/test.out"))
-        sys.exit(f"FAIL: exit status {status}")
+        sys.exit("FAIL: build/test.out differs from test/expected.txt")
     print("PASS: build/test.out matches test/expected.txt")
 
 

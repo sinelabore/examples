@@ -5,7 +5,7 @@
 #
 #   make image      the Docker image: Arm GNU Toolchain 11.2 and QEMU (once)
 #   make            builds build/oven.elf in the container
-#   make run        runs it; this terminal is the board's console. Keys + - o c p P q
+#   make run        runs it; this terminal is the board's console. Keys + - o c p P, Ctrl-C ends it
 #   make view       as run, and embOSView can connect: Ethernet, 127.0.0.1:50021
 #   make test       a scripted run, compared with test/expected.txt
 #   make shell      a shell in the container

@@ -1,5 +1,3 @@
-Use + for inc; - for dec; o for open and c for close; q to quit.
-Use 'p' to set medium power (400 W); 'P' to set high power (1200 W)
 Oven::off
 Oven::display 1.0s
 Oven::display 2.0s
@@ -17,5 +15,3 @@ Oven::on
 Oven::off
 Oven::on
 .Oven::off
-Use + for inc; - for dec; o for open and c for close; q to quit.
-Use 'p' to set medium power (400 W); 'P' to set high power (1200 W)
