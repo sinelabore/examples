@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 710 160" width="710" height="160" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="13">
+  <title>Keys from the receive interrupt and timeouts from embOS software timers go into one mailbox; the machine task takes them in order and drives the oven</title>
+  <style>
+    .box  { fill: #f6f8fa; stroke: #57606a; stroke-width: 1.5; }
+    .key  { fill: #ddf4ff; stroke: #0969da; stroke-width: 1.5; }
+    .line { fill: none; stroke: #57606a; stroke-width: 1.5; }
+    .slot { stroke: #0969da; stroke-width: 1.5; }
+    text  { fill: #1f2328; }
+    .lbl  { fill: #57606a; font-size: 12px; font-style: italic; }
+    .head { fill: #57606a; }
+    @media (prefers-color-scheme: dark) {
+      .box  { fill: #161b22; stroke: #8b949e; }
+      .key  { fill: #0c2d6b; stroke: #58a6ff; }
+      .line { stroke: #8b949e; }
+      .slot { stroke: #58a6ff; }
+      text  { fill: #e6edf3; }
+      .lbl  { fill: #8b949e; }
+      .head { fill: #8b949e; }
+    }
+  </style>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path class="head" d="M0 0 10 5 0 10Z"/>
+    </marker>
+  </defs>
+
+  <!-- sources -->
+  <rect class="box" x="10" y="20" width="200" height="44" rx="6"/>
+  <text x="110" y="47" text-anchor="middle">USART1 receive interrupt</text>
+  <rect class="box" x="10" y="106" width="200" height="44" rx="6"/>
+  <text x="110" y="133" text-anchor="middle">embOS software timer</text>
+
+  <!-- into the mailbox -->
+  <path class="line" d="M210 42H300V78H338" marker-end="url(#arrow)"/>
+  <text class="lbl" x="220" y="35">key event</text>
+  <path class="line" d="M210 128H300V92H338" marker-end="url(#arrow)"/>
+  <text class="lbl" x="220" y="121">timeout event</text>
+
+  <!-- mailbox -->
+  <rect class="key" x="340" y="63" width="90" height="44" rx="6"/>
+  <text x="372" y="90" text-anchor="middle">mailbox</text>
+  <path class="slot" d="M405 69V101M414 69V101M423 69V101"/>
+
+  <!-- machine task and oven -->
+  <path class="line" d="M430 85H468" marker-end="url(#arrow)"/>
+  <rect class="box" x="470" y="63" width="120" height="44" rx="6"/>
+  <text x="530" y="90" text-anchor="middle">machine task</text>
+  <path class="line" d="M590 85H628" marker-end="url(#arrow)"/>
+  <rect class="box" x="630" y="63" width="70" height="44" rx="6"/>
+  <text x="665" y="90" text-anchor="middle">oven</text>
+</svg>

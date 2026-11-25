@@ -83,7 +83,7 @@ DOXYGEN ?= doxygen
 doc:
 	rm -rf $(B)/doc && mkdir -p $(B)/doc
 	$(DOXYGEN) Doxyfile
-	@for v in freertos trampoline freertos_events trampoline_events; do \
+	@for v in freertos trampoline freertos_events trampoline_events embos_ultra_events; do \
 	  ( cat Doxyfile; \
 	    echo "PROJECT_NAME = \"SinelaboreRT timer service ($$v)\""; \
 	    echo "INPUT = $$v/timer_service.h"; \

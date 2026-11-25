@@ -11,6 +11,7 @@ compile it into your product as it is, or replace it with your own.
 | `trampoline/` | C, on AUTOSAR OS / OSEK alarms ([Trampoline](https://github.com/TrampolineRTOS/trampoline)) | as events of the machine's task |
 | `freertos_events/` | as `freertos/`, for timeouts as events (`TimeoutsAsEvents=yes`) | through a function of yours, once per expiry and period: post the timer's event into the machine task's queue. On overrun, once per missed period, in a row |
 | `trampoline_events/` | as `trampoline/`, for timeouts as events | each alarm activates a task of yours that calls `tsExpired()`, which calls your function as above. On overrun, a missed period is dropped |
+| `embos_ultra_events/` | C, on SEGGER embOS-Ultra software timers, for timeouts as events | through a function of yours, from the timer's callback, once per expiry and period: post the timer's event into the machine task's mailbox (`OS_MAILBOX_Put`). The callbacks run above every task and are never late; a full mailbox loses the timeout |
 
 Each folder has its own `timer_service.h` with the same names and meanings, so the generated code
 compiles unchanged against any of them. Choose one with the include path and compile that
@@ -30,13 +31,18 @@ SRCS   += $(TIMER_SERVICE)/freertos/freertos_timer_service.c
 # or FreeRTOS, timeouts as events
 CFLAGS += -I$(TIMER_SERVICE)/freertos_events
 SRCS   += $(TIMER_SERVICE)/freertos_events/freertos_events_timer_service.c
+
+# or embOS-Ultra, timeouts as events
+CFLAGS += -I$(TIMER_SERVICE)/embos_ultra_events
+SRCS   += $(TIMER_SERVICE)/embos_ultra_events/embos_ultra_events_timer_service.c
 ```
 
 In event mode the reference service needs nothing extra: your loop looks up each timeout's event
 with `<machine>TimeoutEvent()` and sends it once. `periods > 1` means your loop missed periods of
 that timer (an overrun); check it if you want to. The `_events` services call a function
-of yours instead (`TS_TIMEOUT_FN`), from the timer task or a task the alarm activates; it posts the
-event into the queue the machine task waits on, beside the events of keys, buses and the like.
+of yours instead (`TS_TIMEOUT_FN`), from the timer task (FreeRTOS), a task the alarm activates
+(Trampoline) or the timer's callback (embOS-Ultra); it posts the event into the queue or mailbox
+the machine task waits on, beside the events of keys, buses and the like.
 
 C++ needs only `-I$(TIMER_SERVICE)` and `timer_service.hpp`.
 

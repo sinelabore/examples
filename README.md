@@ -16,6 +16,6 @@ Download & Try it! There are examples for various UML modelling tools and target
 - OS_neutral: Folder with OS independent examples.
 - Windows: Folder with Windows nmake/cmake examples
 - Embedded: Folder with examples running on various microcontroller boards
-- lib: Code the examples share. lib/timer_service is the timer service for state machines with time events (after, every), in C and C++, and in C on FreeRTOS and AUTOSAR OS, there for timeouts as flags or as events. MIT licence.
+- lib: Code the examples share. lib/timer_service is the timer service for state machines with time events (after, every), in C and C++, and in C on FreeRTOS and AUTOSAR OS, there for timeouts as flags or as events, and on embOS-Ultra for timeouts as events. MIT licence.
 
 See more at www.sinelabore.com
